@@ -146,7 +146,16 @@ def main():
     hist.sort(key=lambda r: (r["date"], r["target"]))
     cap_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1))
 
-    (DATA / "runs.json").write_text(json.dumps({
+    # a partial re-run (target ids given) updates only those rows of the same day's run
+    runs_path = DATA / "runs.json"
+    if only and runs_path.exists():
+        prev = json.loads(runs_path.read_text())
+        if (prev.get("run_at") or "")[:10] == day:
+            done = {r["target"] for r in results}
+            results = [r for r in prev.get("results", []) if r["target"] not in done] + results
+            order = {t["id"]: i for i, t in enumerate(json.loads((ROOT / "targets.json").read_text()))}
+            results.sort(key=lambda r: order.get(r["target"], 999))
+    runs_path.write_text(json.dumps({
         "run_at": now.isoformat(timespec="minutes"),
         "summary": {s: sum(1 for r in results if r["status"] == s) for s in sorted({r["status"] for r in results})},
         "results": results,
