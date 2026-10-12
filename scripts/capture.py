@@ -54,6 +54,22 @@ def parse(parser, text):
     return None, None
 
 
+def parse_rmn(text):
+    t = " ".join(text.split())
+    n = re.search(r"(\d+)\s+VERIFIED OFFERS", t, re.I)
+    top = re.search(r"Today's top offer\s+((?:UP TO\s+)?[\d$.,]+%?\s*OFF)", t, re.I)
+    cb = re.search(rf"((?:Up to\s+)?{PCT}\s+Cash Back)", t, re.I)
+    if not n:
+        return None, None, None
+    parts = [f"오퍼 {n.group(1)}건"]
+    if top:
+        parts.append("최상단 " + top.group(1).title())
+    rate = float(cb.group(2)) if cb else None
+    if cb:
+        parts.append(cb.group(1))
+    return rate, " · ".join(parts), int(n.group(1))
+
+
 def classify(title, text, http_status, rate):
     low = (title + " " + text[:3000]).lower()
     if http_status and http_status >= 400 and http_status != 404:
@@ -101,9 +117,17 @@ def main():
                 text = page.inner_text("body", timeout=10000)
                 rel = f"shots/{day}/{tg['id']}.jpg"
                 page.screenshot(path=str(SITE / rel), type="jpeg", quality=55, full_page=False)
-                rate, rate_text = parse(tg["parser"], text)
-                st, why = classify(title, text, status_code, rate)
-                row.update(rate=rate, rate_text=rate_text, status=st, reason=why, shot=rel,
+                offers = None
+                if tg["parser"] == "rmn":
+                    rate, rate_text, offers = parse_rmn(text)
+                else:
+                    rate, rate_text = parse(tg["parser"], text)
+                st, why = classify(title, text, status_code, rate if offers is None else 0)
+                # redirected to a home page = the store page was not reached
+                from urllib.parse import urlparse
+                if urlparse(page.url).path in ("", "/") and urlparse(tg["url"]).path not in ("", "/"):
+                    st, why, rate, rate_text = "페이지 없음", "홈 화면으로 이동됨", None, None
+                row.update(rate=rate, rate_text=rate_text, offers=offers, status=st, reason=why, shot=rel,
                            final_url=page.url, http=status_code, title=title[:120])
             except Exception as e:  # timeout, DNS, etc.
                 row.update(rate=None, rate_text=None, status="접속 실패", reason=str(e).split("\n")[0][:160],

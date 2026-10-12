@@ -21,13 +21,13 @@
   "publisher": "RetailMeNot",
   "type": "쿠폰·캐시백",
   "status": "자동 수집",
-  "note": "상점 페이지 공개 — 차단 여부는 실행 결과로 확인"
+  "note": "쿠폰 중심 화면 — 캐시백 요율 대신 오퍼 수·최상단 오퍼를 기록. LG 페이지는 첫 실행에서 차단(403)"
  },
  {
   "publisher": "Cartera Commerce",
   "type": "항공·카드 쇼핑 포털 운영사",
-  "status": "자동 수집(시험)",
-  "note": "AAdvantage·MileagePlus 포털 검색 화면으로 대체 수집"
+  "status": "경로 미확보",
+  "note": "항공 포털(AAdvantage·MileagePlus) 검색 주소가 홈으로 이동 — 상점 페이지 주소 확인 후 추가"
  },
  {
   "publisher": "ID.me",

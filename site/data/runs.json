@@ -1,9 +1,9 @@
 {
  "run_at": "2026-10-12T04:05-04:00",
  "summary": {
-  "수집": 25,
-  "요율 미확인": 2,
-  "차단·오류": 1
+  "수집": 21,
+  "차단·오류": 1,
+  "요율 미확인": 2
  },
  "results": [
   {
@@ -413,74 +413,6 @@
    "final_url": "https://www.retailmenot.com/view/geappliances.com",
    "http": 200,
    "title": "GE Appliances Warehouse Coupon Codes - 20% off - Oct 2026"
-  },
-  {
-   "publisher": "Cartera · AAdvantage eShopping",
-   "brand": "LG Electronics",
-   "brand_group": "LG",
-   "url": "https://www.aadvantageeshopping.com/s____.htm?keywords=LG",
-   "date": "2026-10-12",
-   "target": "cartera-aadvantageeshopping-lg",
-   "method": "자동 스크린샷",
-   "rate": 2.0,
-   "rate_text": "2 miles/$",
-   "status": "수집",
-   "reason": "",
-   "shot": "shots/2026-10-12/cartera-aadvantageeshopping-lg.jpg",
-   "final_url": "https://www.aadvantageeshopping.com/h____.htm?keywords=LG",
-   "http": 200,
-   "title": "American Airlines AAdvantage eShopping: Shop Online & Earn Miles"
-  },
-  {
-   "publisher": "Cartera · AAdvantage eShopping",
-   "brand": "Samsung",
-   "brand_group": "경쟁사",
-   "url": "https://www.aadvantageeshopping.com/s____.htm?keywords=Samsung",
-   "date": "2026-10-12",
-   "target": "cartera-aadvantageeshopping-samsung",
-   "method": "자동 스크린샷",
-   "rate": 2.0,
-   "rate_text": "2 miles/$",
-   "status": "수집",
-   "reason": "",
-   "shot": "shots/2026-10-12/cartera-aadvantageeshopping-samsung.jpg",
-   "final_url": "https://www.aadvantageeshopping.com/h____.htm?keywords=Samsung",
-   "http": 200,
-   "title": "American Airlines AAdvantage eShopping: Shop Online & Earn Miles"
-  },
-  {
-   "publisher": "Cartera · MileagePlus Shopping",
-   "brand": "LG Electronics",
-   "brand_group": "LG",
-   "url": "https://shopping.mileageplus.com/s____.htm?keywords=LG",
-   "date": "2026-10-12",
-   "target": "cartera-mileageplus-lg",
-   "method": "자동 스크린샷",
-   "rate": 2.0,
-   "rate_text": "2 miles/$",
-   "status": "수집",
-   "reason": "",
-   "shot": "shots/2026-10-12/cartera-mileageplus-lg.jpg",
-   "final_url": "https://shopping.mileageplus.com/h____.htm?keywords=LG",
-   "http": 200,
-   "title": "United Airlines MileagePlus Shopping: Shop online & earn award miles"
-  },
-  {
-   "publisher": "Cartera · MileagePlus Shopping",
-   "brand": "Samsung",
-   "brand_group": "경쟁사",
-   "url": "https://shopping.mileageplus.com/s____.htm?keywords=Samsung",
-   "date": "2026-10-12",
-   "target": "cartera-mileageplus-samsung",
-   "method": "자동 스크린샷",
-   "rate": 2.0,
-   "rate_text": "2 miles/$",
-   "status": "수집",
-   "reason": "",
-   "shot": "shots/2026-10-12/cartera-mileageplus-samsung.jpg",
-   "final_url": "https://shopping.mileageplus.com/h____.htm?keywords=Samsung",
-   "http": 200,
-   "title": "United Airlines MileagePlus Shopping: Shop online & earn award miles"
   }
  ]
 }
