@@ -1,0 +1,134 @@
+[
+ {
+  "publisher": "Rakuten (Ebates)",
+  "type": "캐시백 포털",
+  "status": "자동 수집",
+  "note": "상점 페이지 비로그인 공개"
+ },
+ {
+  "publisher": "Capital One Shopping",
+  "type": "쇼핑 리워드",
+  "status": "자동 수집",
+  "note": "상점 쿠폰 페이지 비로그인 공개"
+ },
+ {
+  "publisher": "TopCashback",
+  "type": "캐시백 포털",
+  "status": "자동 수집",
+  "note": "상점 페이지 비로그인 공개"
+ },
+ {
+  "publisher": "RetailMeNot",
+  "type": "쿠폰·캐시백",
+  "status": "자동 수집",
+  "note": "상점 페이지 공개 — 차단 여부는 실행 결과로 확인"
+ },
+ {
+  "publisher": "Cartera Commerce",
+  "type": "항공·카드 쇼핑 포털 운영사",
+  "status": "자동 수집(시험)",
+  "note": "AAdvantage·MileagePlus 포털 검색 화면으로 대체 수집"
+ },
+ {
+  "publisher": "ID.me",
+  "type": "인증 회원 할인",
+  "status": "로그인 필요",
+  "note": "군인·교사 등 인증 후 열람"
+ },
+ {
+  "publisher": "Next Jump",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "Passport Unlimited",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "BenefitHub",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "PerkSpot",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "EBG",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "Reward Gateway",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "Life Balance",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 필요",
+  "note": "소속 기업 계정 필요"
+ },
+ {
+  "publisher": "Consumer Reports",
+  "type": "리뷰·구매 가이드",
+  "status": "부분 공개",
+  "note": "등급·추천은 유료 구독 — 고정 상점 페이지 없음"
+ },
+ {
+  "publisher": "Microsoft Shopping",
+  "type": "브라우저 캐시백",
+  "status": "고정 페이지 없음",
+  "note": "Edge 브라우저 안에서만 노출"
+ },
+ {
+  "publisher": "Wildfire",
+  "type": "캐시백 기술 제공사",
+  "status": "고정 페이지 없음",
+  "note": "다른 앱·확장 프로그램에 탑재되는 방식"
+ },
+ {
+  "publisher": "Affirm",
+  "type": "할부 결제 앱",
+  "status": "고정 페이지 없음",
+  "note": "앱 내 상점 노출"
+ },
+ {
+  "publisher": "Howl",
+  "type": "크리에이터 링크",
+  "status": "고정 페이지 없음",
+  "note": "크리에이터 콘텐츠 내 링크"
+ },
+ {
+  "publisher": "Wickfire",
+  "type": "검색광고 제휴",
+  "status": "고정 페이지 없음",
+  "note": "검색광고 형태"
+ },
+ {
+  "publisher": "digidip",
+  "type": "콘텐츠 링크 네트워크",
+  "status": "고정 페이지 없음",
+  "note": "제휴 매체 기사 내 링크"
+ },
+ {
+  "publisher": "tvScientific · Audiohook",
+  "type": "CTV·오디오 광고",
+  "status": "고정 페이지 없음",
+  "note": "노출형 매체"
+ },
+ {
+  "publisher": "Rakuten CLO",
+  "type": "카드 연동 오퍼",
+  "status": "대상 아님",
+  "note": "2026년 1월 종료"
+ }
+]

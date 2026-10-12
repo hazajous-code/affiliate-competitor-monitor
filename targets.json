@@ -1,0 +1,254 @@
+[
+ {
+  "id": "rakuten-lg",
+  "publisher": "Rakuten",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "url": "https://www.rakuten.com/shop/lg",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-lgpartnerstore",
+  "publisher": "Rakuten",
+  "brand": "LG Partner Store",
+  "brand_group": "LG",
+  "url": "https://www.rakuten.com/shop/lgpartnerstore",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-samsung",
+  "publisher": "Rakuten",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "url": "https://www.rakuten.com/shop/samsung",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-sonyelectronics",
+  "publisher": "Rakuten",
+  "brand": "Sony Electronics",
+  "brand_group": "경쟁사",
+  "url": "https://www.rakuten.com/shop/sonyelectronics",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-whirlpool",
+  "publisher": "Rakuten",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "url": "https://www.rakuten.com/shop/whirlpool",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-geappliances",
+  "publisher": "Rakuten",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "url": "https://www.rakuten.com/shop/geappliances",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-frigidaire",
+  "publisher": "Rakuten",
+  "brand": "Frigidaire",
+  "brand_group": "경쟁사",
+  "url": "https://www.rakuten.com/shop/frigidaire",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-bestbuy",
+  "publisher": "Rakuten",
+  "brand": "Best Buy",
+  "brand_group": "유통",
+  "url": "https://www.rakuten.com/shop/bestbuy",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "rakuten-lowes",
+  "publisher": "Rakuten",
+  "brand": "Lowe's",
+  "brand_group": "유통",
+  "url": "https://www.rakuten.com/shop/lowes",
+  "parser": "rakuten",
+  "note": ""
+ },
+ {
+  "id": "tcb-lg-electronics",
+  "publisher": "TopCashback",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "url": "https://www.topcashback.com/lg-electronics/",
+  "parser": "tcb",
+  "note": ""
+ },
+ {
+  "id": "tcb-samsung",
+  "publisher": "TopCashback",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "url": "https://www.topcashback.com/samsung/",
+  "parser": "tcb",
+  "note": ""
+ },
+ {
+  "id": "tcb-ge-appliances",
+  "publisher": "TopCashback",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "url": "https://www.topcashback.com/ge-appliances/",
+  "parser": "tcb",
+  "note": ""
+ },
+ {
+  "id": "tcb-whirlpool",
+  "publisher": "TopCashback",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "url": "https://www.topcashback.com/whirlpool/",
+  "parser": "tcb",
+  "note": ""
+ },
+ {
+  "id": "tcb-dyson",
+  "publisher": "TopCashback",
+  "brand": "Dyson",
+  "brand_group": "경쟁사",
+  "url": "https://www.topcashback.com/dyson/",
+  "parser": "tcb",
+  "note": ""
+ },
+ {
+  "id": "tcb-best-buy",
+  "publisher": "TopCashback",
+  "brand": "Best Buy",
+  "brand_group": "유통",
+  "url": "https://www.topcashback.com/best-buy/",
+  "parser": "tcb",
+  "note": ""
+ },
+ {
+  "id": "capone-lg",
+  "publisher": "Capital One Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "url": "https://capitaloneshopping.com/s/lg.com/coupon",
+  "parser": "capone",
+  "note": ""
+ },
+ {
+  "id": "capone-samsung",
+  "publisher": "Capital One Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "url": "https://capitaloneshopping.com/s/samsung.com/coupon",
+  "parser": "capone",
+  "note": ""
+ },
+ {
+  "id": "capone-sony",
+  "publisher": "Capital One Shopping",
+  "brand": "Sony",
+  "brand_group": "경쟁사",
+  "url": "https://capitaloneshopping.com/s/sony.com/coupon",
+  "parser": "capone",
+  "note": ""
+ },
+ {
+  "id": "capone-whirlpool",
+  "publisher": "Capital One Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "url": "https://capitaloneshopping.com/s/whirlpool.com/coupon",
+  "parser": "capone",
+  "note": ""
+ },
+ {
+  "id": "capone-geappliances",
+  "publisher": "Capital One Shopping",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "url": "https://capitaloneshopping.com/s/geappliances.com/coupon",
+  "parser": "capone",
+  "note": ""
+ },
+ {
+  "id": "capone-bestbuy",
+  "publisher": "Capital One Shopping",
+  "brand": "Best Buy",
+  "brand_group": "유통",
+  "url": "https://capitaloneshopping.com/s/bestbuy.com/coupon",
+  "parser": "capone",
+  "note": ""
+ },
+ {
+  "id": "rmn-lg",
+  "publisher": "RetailMeNot",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "url": "https://www.retailmenot.com/view/lg.com",
+  "parser": "rmn",
+  "note": ""
+ },
+ {
+  "id": "rmn-samsung",
+  "publisher": "RetailMeNot",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "url": "https://www.retailmenot.com/view/samsung.com",
+  "parser": "rmn",
+  "note": ""
+ },
+ {
+  "id": "rmn-geappliances",
+  "publisher": "RetailMeNot",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "url": "https://www.retailmenot.com/view/geappliances.com",
+  "parser": "rmn",
+  "note": ""
+ },
+ {
+  "id": "cartera-aadvantageeshopping-lg",
+  "publisher": "Cartera · AAdvantage eShopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "url": "https://www.aadvantageeshopping.com/s____.htm?keywords=LG",
+  "parser": "cartera",
+  "note": "포털 검색 결과 화면 — 첫 실행으로 경로 검증"
+ },
+ {
+  "id": "cartera-aadvantageeshopping-samsung",
+  "publisher": "Cartera · AAdvantage eShopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "url": "https://www.aadvantageeshopping.com/s____.htm?keywords=Samsung",
+  "parser": "cartera",
+  "note": "포털 검색 결과 화면 — 첫 실행으로 경로 검증"
+ },
+ {
+  "id": "cartera-mileageplus-lg",
+  "publisher": "Cartera · MileagePlus Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "url": "https://shopping.mileageplus.com/s____.htm?keywords=LG",
+  "parser": "cartera",
+  "note": "포털 검색 결과 화면 — 첫 실행으로 경로 검증"
+ },
+ {
+  "id": "cartera-mileageplus-samsung",
+  "publisher": "Cartera · MileagePlus Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "url": "https://shopping.mileageplus.com/s____.htm?keywords=Samsung",
+  "parser": "cartera",
+  "note": "포털 검색 결과 화면 — 첫 실행으로 경로 검증"
+ }
+]
