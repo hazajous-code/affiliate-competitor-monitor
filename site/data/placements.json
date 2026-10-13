@@ -485,11 +485,9 @@
    "channel": "OBS",
    "category": "Cash Back",
    "offer": "",
-   "method": "partial",
-   "targets": [
-    "capone-lg"
-   ],
-   "how": "랜딩 페이지 주소 미확인 — LG 상점 페이지로 대신 확인"
+   "method": "none",
+   "targets": [],
+   "how": "이메일·카드회원 랜딩 페이지 — 공개 주소 없음"
   },
   {
    "id": "p037",
@@ -1356,11 +1354,9 @@
    "channel": "OBS",
    "category": "Cash Back",
    "offer": "",
-   "method": "partial",
-   "targets": [
-    "capone-lg"
-   ],
-   "how": "랜딩 페이지 주소 미확인 — LG 상점 페이지로 대신 확인"
+   "method": "none",
+   "targets": [],
+   "how": "이메일·카드회원 랜딩 페이지 — 공개 주소 없음"
   },
   {
    "id": "p099",

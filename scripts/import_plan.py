@@ -70,7 +70,7 @@ def classify(pub, name, cat):
         if "fall bonus days" in n and "email" not in n:
             return "rate", ["capone-lg"], "Capital One Shopping LG 리워드가 기간 중 상향되는지"
         if "landing page carousel" in n or "shop electronics offers" in n:
-            return "partial", ["capone-lg"], "랜딩 페이지 주소 미확인 — LG 상점 페이지로 대신 확인"
+            return "none", [], "이메일·카드회원 랜딩 페이지 — 공개 주소 없음"
         return "none", [], "카드회원 오퍼·브라우저 확장 알림 — 로그인 필요"
     if pub == "Cartera":
         return "partial", ["cartera-aa-home"], "항공 포털 홈(비로그인)에 보일 때만 확인 가능"

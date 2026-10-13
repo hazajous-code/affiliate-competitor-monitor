@@ -185,7 +185,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
       dt.append(dots); tr.append(dt);
       const rs = el('td'); rs.append(el('span', 'pill ' + r.cls, r.res));
       if (r.hits.length) rs.append(el('div', 'how', r.hits.length + '일 관측'));
-      if (r.outside) rs.append(el('div', 'how', '기간 밖 LG 노출 ' + r.outside + '일'));
+      if (r.outside && (r.hits.length || r.res.startsWith('미관측'))) rs.append(el('div', 'how', '기간 밖 LG 노출 ' + r.outside + '일'));
       tr.append(rs);
       const ev = el('td', 'ev hide-sm');
       const last = r.hits[r.hits.length - 1] || [...r.perDay].reverse().find(x => x.s === 'miss' || x.s === 'fail');
