@@ -95,7 +95,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 
   <section class="card" id="matrix">
     <h2>브랜드 노출 매트릭스</h2>
-    <p class="note">딜·리뷰·쿠폰 지면 첫 화면 본문에 브랜드명이 나온 횟수입니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다.</p>
+    <p class="note">특정 브랜드 전용이 아닌 딜·리뷰 지면(홈·리뷰 목록) 본문에 브랜드명이 나온 횟수입니다. 브랜드 쿠폰 페이지는 자기 브랜드가 당연히 많이 나오므로 제외했습니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다.</p>
     <div class="tw"><table class="mx"><thead id="mxHead"></thead><tbody id="mxBody"></tbody></table></div>
   </section>
 
@@ -133,7 +133,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
       <li>로그인하지 않습니다. 회원 전용 혜택 플랫폼은 공개 입구까지만 확인합니다. 봇 확인 화면·차단은 우회하지 않습니다.</li>
       <li>날짜는 미국 동부 기준이며, 같은 날 다시 수집하면 그날 값을 최신 화면으로 바꿉니다.</li>
       <li>요율은 지면에 표시된 대표 문구입니다. "Up to"는 최대치이고, 카테고리·제외 조건에 따라 실제 적용은 다릅니다.</li>
-      <li>브랜드 노출은 첫 화면 본문의 이름 언급 횟수이며 광고 집행·노출량·구매 결과를 뜻하지 않습니다.</li>
+      <li>브랜드 노출은 딜·리뷰 지면 본문의 이름 언급 횟수이며 광고 집행·노출량·구매 결과를 뜻하지 않습니다.</li>
       <li>변화 감지는 읽어 낸 값(요율·카테고리·제외 문구·오퍼)을 비교합니다. 본문 전체 지문은 개인화·위젯 때문에 자주 바뀌므로 참고로만 둡니다.</li>
       <li>공개 저장소이므로 내부 성과 수치는 넣지 않으며, 커밋 전에 자동 점검으로 막습니다.</li>
     </ul>
@@ -231,7 +231,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   });
 
   // brand matrix
-  const mxRows = cur.filter(r => OK(r.status) && r.mentions && Object.keys(r.mentions).length && !['캐시백 포털', '쇼핑 리워드'].includes(r.kind));
+  const mxRows = cur.filter(r => OK(r.status) && r.brand_group === '매체' && r.mentions && Object.keys(r.mentions).length);
   const tot = {}; mxRows.forEach(r => Object.entries(r.mentions).forEach(([b, n]) => tot[b] = (tot[b] || 0) + n));
   const brands = Object.keys(tot).sort((a, b) => (b === 'LG') - (a === 'LG') || tot[b] - tot[a]);
   const hr = el('tr'); hr.append(el('th', null, '지면'));
