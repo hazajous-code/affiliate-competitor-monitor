@@ -24,6 +24,7 @@ import hashlib
 import json
 import re
 import sys
+import time
 from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
@@ -342,6 +343,18 @@ def main():
             row["country"] = country
             print(f"{row['status']:<8} {tg['id']:<34} {row.get('rate_text')}")
             results.append(row)
+        # one retry for transient failures (timeouts, bot checks, blank renders) with a fresh page
+        retry = {"접속 실패", "봇 확인 화면", "렌더링 실패"}
+        by_id = {t["id"]: t for t in targets}
+        for i, row in enumerate(results):
+            if row["status"] in retry:
+                time.sleep(8)
+                again = capture_one(ctx, by_id[row["target"]], day)
+                again["country"] = country
+                if again["status"] not in retry or again["status"] != row["status"]:
+                    again["reason"] = ((again.get("reason") or "") + " (재시도)").strip()
+                    results[i] = again
+                print(f"retry   {row['target']:<34} {row['status']} -> {again['status']}")
         browser.close()
 
     cap_path = DATA / "captures.json"

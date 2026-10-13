@@ -154,6 +154,15 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   // banner + tiles
   const cc = runs && runs.country;
   $('banner').textContent = (plan ? plan.month + ' 편성표 · ' : '') + '모니터링 ' + (firstDay || '—') + ' ~ ' + (lastDay || '—') + ' (미국 동부 날짜) · ' + (cc === 'US' ? '미국 IP 접속 확인' : '미국 IP 미검증') + '. 모니터링 시작 전에 끝난 지면은 판정하지 않습니다.';
+  // freshness: the daily run should land every ~24h; flag it when it does not
+  if (runs && runs.run_at) {
+    const hrs = (Date.now() - new Date(runs.run_at).getTime()) / 36e5;
+    const w = document.createElement('div');
+    w.style.marginTop = '4px';
+    w.style.color = hrs > 30 ? 'var(--bad)' : 'var(--muted)';
+    w.textContent = hrs > 30 ? '⚠ 마지막 자동 수집이 ' + Math.round(hrs) + '시간 전입니다. GitHub Actions 실행 상태를 확인해 주세요.' : '자동 수집 정상 · 마지막 수집 ' + Math.max(0, Math.round(hrs)) + '시간 전 · 매일 미국 동부 오전 실행(실패 시 같은 날 2회 재시도)';
+    $('banner').append(w);
+  }
   const checkable = results.filter(r => ['rate', 'presence', 'partial'].includes(r.p.method));
   const tile = (l, v, s) => { const c = el('div', 'card tile'); c.append(el('div', 'l', l), el('div', 'v', String(v)), el('div', 's', s)); $('tiles').append(c); };
   tile('편성 지면', results.length, '이번 달 편성표 행 기준');

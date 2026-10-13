@@ -1,8 +1,11 @@
 name: daily-capture
 
+# Runs entirely on GitHub's servers — no personal computer or Claude session is needed.
 on:
   schedule:
-    - cron: "7 13 * * *"   # 매일 13:07 UTC = 미국 동부 09:07(EDT) / 08:07(EST)
+    - cron: "7 13 * * *"    # main run   13:07 UTC = US Eastern 09:07 (EDT) / 08:07 (EST)
+    - cron: "37 17 * * *"   # backup 1   only runs if the main run did not finish today
+    - cron: "37 22 * * *"   # backup 2   same check
   workflow_dispatch:
     inputs:
       targets:
@@ -14,6 +17,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write   # lets the run re-enable its own schedule (GitHub pauses idle schedules after 60 days)
 
 concurrency:
   group: daily-capture
@@ -22,10 +26,38 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 60
+    outputs:
+      ran: ${{ steps.guard.outputs.run }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Keep the daily schedule enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/capture.yml/enable" || echo "could not refresh schedule (non-fatal)"
+
+      - name: Skip a scheduled run when today's full capture already exists
+        id: guard
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          python - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, datetime as dt
+          from zoneinfo import ZoneInfo
+          today = dt.datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+          try:
+              runs = json.load(open("site/data/runs.json"))
+              targets = [t for t in json.load(open("targets.json")) if t.get("enabled", True)]
+              done = (runs.get("run_at") or "")[:10] == today and len(runs.get("results", [])) >= len(targets)
+          except Exception:
+              done = False
+          print("run=" + ("false" if done else "true"))
+          EOF
+
       - name: Restore screenshots from the rolling 'shots' branch
+        if: steps.guard.outputs.run == 'true'
         run: |
           mkdir -p site/shots
           if git ls-remote --exit-code --heads origin shots >/dev/null; then
@@ -33,17 +65,22 @@ jobs:
             git archive FETCH_HEAD | tar -x -C site/shots
           fi
       - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == 'true'
         with:
           python-version: "3.12"
       - name: Install Playwright
+        if: steps.guard.outputs.run == 'true'
         run: |
           pip install playwright==1.47.0
           python -m playwright install --with-deps chromium
       - name: Capture publisher pages
+        if: steps.guard.outputs.run == 'true'
         run: python scripts/capture.py ${{ github.event.inputs.targets }}
       - name: Check integrity and public-safety
+        if: steps.guard.outputs.run == 'true'
         run: python scripts/verify.py
       - name: Save screenshots (single-commit branch, history does not grow)
+        if: steps.guard.outputs.run == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -52,21 +89,30 @@ jobs:
           git init -q -b shots
           git add -A
           git -c user.name=capture-bot -c user.email=capture-bot@users.noreply.github.com commit -qm "screenshots $(TZ=America/New_York date +%F)"
-          git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" shots:shots
+          for i in 1 2 3; do git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" shots:shots && break; sleep 15; done
       - name: Commit results
+        if: steps.guard.outputs.run == 'true'
         run: |
           git config user.name "capture-bot"
           git config user.email "capture-bot@users.noreply.github.com"
           git add site
-          git diff --cached --quiet || git commit -m "capture: $(TZ=America/New_York date +%F)"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "capture: $(TZ=America/New_York date +%F)"
+          for i in 1 2 3; do
+            git pull -q --rebase origin main && git push -q && exit 0
+            sleep 15
+          done
+          exit 1
       - uses: actions/configure-pages@v5
+        if: steps.guard.outputs.run == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.guard.outputs.run == 'true'
         with:
           path: site
 
   deploy:
     needs: capture
+    if: needs.capture.outputs.ran == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
