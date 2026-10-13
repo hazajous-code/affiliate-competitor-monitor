@@ -269,7 +269,7 @@
   "brand": "LG Electronics",
   "brand_group": "LG",
   "kind": "캐시백 포털",
-  "url": "https://www.befrugal.com/store/lg/",
+  "url": "https://www.befrugal.com/store/lg-electronics/",
   "parser": "befrugal",
   "access": "public",
   "enabled": true
@@ -330,17 +330,6 @@
   "enabled": true
  },
  {
-  "id": "idme-search-lg",
-  "publisher": "ID.me Shop",
-  "brand": "(LG 검색)",
-  "brand_group": "매체",
-  "kind": "인증 회원 할인",
-  "url": "https://shop.id.me/search?q=LG",
-  "parser": "mentions",
-  "access": "public",
-  "enabled": true
- },
- {
   "id": "savings-lg",
   "publisher": "Savings.com",
   "brand": "LG Electronics",
@@ -358,39 +347,6 @@
   "brand_group": "경쟁사",
   "kind": "쿠폰",
   "url": "https://www.savings.com/coupons/samsung.com",
-  "parser": "offers",
-  "access": "public",
-  "enabled": true
- },
- {
-  "id": "rebatesme-samsung",
-  "publisher": "RebatesMe",
-  "brand": "Samsung",
-  "brand_group": "경쟁사",
-  "kind": "캐시백 포털",
-  "url": "https://www.rebatesme.com/store/samsung",
-  "parser": "befrugal",
-  "access": "public",
-  "enabled": true
- },
- {
-  "id": "slickdeals-lg",
-  "publisher": "Slickdeals",
-  "brand": "LG Electronics",
-  "brand_group": "LG",
-  "kind": "쿠폰",
-  "url": "https://slickdeals.net/promo-codes/lg",
-  "parser": "offers",
-  "access": "public",
-  "enabled": true
- },
- {
-  "id": "slickdeals-samsung",
-  "publisher": "Slickdeals",
-  "brand": "Samsung",
-  "brand_group": "경쟁사",
-  "kind": "쿠폰",
-  "url": "https://slickdeals.net/promo-codes/samsung",
   "parser": "offers",
   "access": "public",
   "enabled": true
@@ -436,17 +392,6 @@
   "kind": "리뷰·매체",
   "url": "https://www.techradar.com/",
   "parser": "mentions",
-  "access": "public",
-  "enabled": true
- },
- {
-  "id": "tomsguide-lg",
-  "publisher": "Tom's Guide",
-  "brand": "LG Electronics",
-  "brand_group": "LG",
-  "kind": "쿠폰",
-  "url": "https://www.tomsguide.com/coupons/lg.com",
-  "parser": "offers",
   "access": "public",
   "enabled": true
  },

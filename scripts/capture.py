@@ -84,7 +84,8 @@ def parse_rate(parser, t):
         "tcb": [rf"(Get\s+(?:up to\s+)?{PCT}\s+of the price back)",
                 rf"(Online Purchase\s+(?:Improved\s+)?(?:Up to\s+)?{PCT})"],
         "capone": [rf"(Rewards\s+((?:Up to\s+)?){PCT})", rf"((?:Up to\s+)?{PCT}\s+Rewards)"],
-        "befrugal": [rf"((?:up to\s+)?{PCT}\s*Cash Back)"],
+        # the store rate sits right above the "Shop Now" button; the nav bar also says "10% Cash Back"
+        "befrugal": [rf"((?:up to\s+)?{PCT}\s*Cash Back)\s+Shop Now"],
         "idme": [rf"(Up to\s+{PCT}\s*cash back)"],
     }.get(parser, [])
     for p in pats:
@@ -129,9 +130,15 @@ def parse_terms(parser, t, brand):
 
 # ---------- coupon pages ----------
 def parse_offers(t):
-    n = (re.search(r"(\d+)\s+VERIFIED OFFERS", t, re.I)
-         or re.search(r"(\d+)\s+(?:verified\s+|active\s+|working\s+|valid\s+)?(?:coupons|promo codes|coupon codes|offers|deals)\b", t, re.I))
+    count_pats = [
+        r"(\d[\d,]*)\s+VERIFIED OFFERS",                                   # RetailMeNot
+        r"(\d[\d,]*)\s+Available Deals",                                   # Savings.com
+        r"\bUse (\d[\d,]*)\s+[\w'&.\- ]{1,30}?\s+(?:promo|coupon|discount) codes",  # TechRadar / Tom's Guide
+        r"(?<![\d,$])(\d{1,3})\s+(?:verified\s+|active\s+|working\s+|valid\s+|live\s+)?(?:coupons|promo codes|coupon codes|offers|deals)\b",
+    ]
+    n = next((m for m in (re.search(p, t, re.I) for p in count_pats) if m), None)
     top = (re.search(r"Today's top offer\s+((?:UP TO\s+)?[\d$.,]+%?\s*OFF)", t, re.I)
+           or re.search(r"Top Offer\s+((?:up to\s+)?[\d$.,]+%?\s*OFF)", t, re.I)
            or re.search(r"((?:up to\s+)?(?:\d{1,2}%|\$\d[\d,]*)\s+off)", t, re.I))
     cb = re.search(rf"((?:Up to\s+)?{PCT}\s+Cash Back)", t, re.I)
     parts = []
@@ -141,7 +148,8 @@ def parse_offers(t):
         parts.append("최상단 " + top.group(1).title())
     if cb:
         parts.append(cb.group(1))
-    return (float(cb.group(2)) if cb else None), (" · ".join(parts) or None), (int(n.group(1)) if n else None)
+    count = int(n.group(1).replace(",", "")) if n else None
+    return (float(cb.group(2)) if cb else None), (" · ".join(parts) or None), count
 
 
 def mentions(t):
@@ -322,7 +330,8 @@ def main():
         prev = json.loads(runs_path.read_text())
         if (prev.get("run_at") or "")[:10] == day:
             done = {r["target"] for r in results}
-            results = [r for r in prev.get("results", []) if r["target"] not in done] + results
+            enabled = {t["id"] for t in all_targets if t.get("enabled", True)}
+            results = [r for r in prev.get("results", []) if r["target"] not in done and r["target"] in enabled] + results
     order = {t["id"]: i for i, t in enumerate(all_targets)}
     results.sort(key=lambda r: order.get(r["target"], 999))
     runs_path.write_text(json.dumps({

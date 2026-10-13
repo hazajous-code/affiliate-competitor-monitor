@@ -21,13 +21,13 @@
   "publisher": "BeFrugal",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "상점 페이지 공개"
+  "note": "상점 페이지 공개 — LG 상점 주소 확인 중"
  },
  {
   "publisher": "ID.me Shop",
   "type": "인증 회원 할인",
   "status": "자동 수집",
-  "note": "상점 페이지는 공개(정정) — 군인·교사 등 자격 할인과 캐시백 표시. 구매는 인증 필요"
+  "note": "상점 페이지 공개(정정) — Samsung·GE 수집. LG 상점 페이지는 미확인. 구매는 자격 인증 필요"
  },
  {
   "publisher": "Savings.com",
@@ -38,8 +38,8 @@
  {
   "publisher": "RebatesMe",
   "type": "캐시백 포털",
-  "status": "자동 수집(시험)",
-  "note": "상점 주소 첫 실행으로 확인"
+  "status": "로그인 필요",
+  "note": "상점 주소가 가입 화면으로 이동 — 비로그인으로는 요율 확인 불가"
  },
  {
   "publisher": "RetailMeNot",
@@ -51,7 +51,7 @@
   "publisher": "Slickdeals",
   "type": "딜 사이트·쿠폰",
   "status": "자동 수집",
-  "note": "LG·Samsung 쿠폰 페이지 + 홈 브랜드 노출"
+  "note": "홈 브랜드 노출만 — 브랜드 쿠폰 페이지는 HTTP 410(삭제)"
  },
  {
   "publisher": "TechRadar",
@@ -63,7 +63,7 @@
   "publisher": "Tom's Guide",
   "type": "리뷰·매체 쿠폰",
   "status": "자동 수집",
-  "note": "LG·Samsung 쿠폰 페이지 + 홈 브랜드 노출"
+  "note": "Samsung 쿠폰 페이지 + 홈 브랜드 노출. LG 쿠폰 페이지는 HTTP 410"
  },
  {
   "publisher": "DealNews",
