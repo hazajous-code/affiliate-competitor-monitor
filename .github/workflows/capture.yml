@@ -22,7 +22,7 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,6 +34,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Capture publisher pages
         run: python scripts/capture.py ${{ github.event.inputs.targets }}
+      - name: Check integrity and public-safety
+        run: python scripts/verify.py
       - name: Commit results
         run: |
           git config user.name "capture-bot"

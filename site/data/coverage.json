@@ -1,63 +1,135 @@
 [
  {
-  "publisher": "Rakuten (Ebates)",
+  "publisher": "Rakuten",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "상점 페이지 비로그인 공개"
- },
- {
-  "publisher": "Capital One Shopping",
-  "type": "쇼핑 리워드",
-  "status": "자동 수집",
-  "note": "상점 쿠폰 페이지 비로그인 공개"
+  "note": "LG·LG 파트너스토어·경쟁사 6곳·유통 2곳 상점 페이지"
  },
  {
   "publisher": "TopCashback",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "상점 페이지 비로그인 공개"
+  "note": "상점 페이지 공개"
+ },
+ {
+  "publisher": "Capital One Shopping",
+  "type": "쇼핑 리워드",
+  "status": "자동 수집",
+  "note": "상점 쿠폰 페이지 공개 · 카테고리별 리워드 표 포함"
+ },
+ {
+  "publisher": "BeFrugal",
+  "type": "캐시백 포털",
+  "status": "자동 수집",
+  "note": "상점 페이지 공개"
+ },
+ {
+  "publisher": "ID.me Shop",
+  "type": "인증 회원 할인",
+  "status": "자동 수집",
+  "note": "상점 페이지는 공개(정정) — 군인·교사 등 자격 할인과 캐시백 표시. 구매는 인증 필요"
+ },
+ {
+  "publisher": "Savings.com",
+  "type": "쿠폰",
+  "status": "자동 수집",
+  "note": "상점 쿠폰 페이지"
+ },
+ {
+  "publisher": "RebatesMe",
+  "type": "캐시백 포털",
+  "status": "자동 수집(시험)",
+  "note": "상점 주소 첫 실행으로 확인"
  },
  {
   "publisher": "RetailMeNot",
-  "type": "쿠폰·캐시백",
+  "type": "쿠폰",
+  "status": "자동 수집 · LG 차단",
+  "note": "Samsung·GE 수집, LG 페이지는 HTTP 403 — 우회하지 않음"
+ },
+ {
+  "publisher": "Slickdeals",
+  "type": "딜 사이트·쿠폰",
   "status": "자동 수집",
-  "note": "쿠폰 중심 화면 — 캐시백 요율 대신 오퍼 수·최상단 오퍼를 기록. LG 페이지는 첫 실행에서 차단(403)"
+  "note": "LG·Samsung 쿠폰 페이지 + 홈 브랜드 노출"
  },
  {
-  "publisher": "Cartera Commerce",
-  "type": "항공·카드 쇼핑 포털 운영사",
-  "status": "경로 미확보",
-  "note": "항공 포털(AAdvantage·MileagePlus) 검색 주소가 홈으로 이동 — 상점 페이지 주소 확인 후 추가"
+  "publisher": "TechRadar",
+  "type": "리뷰·매체 쿠폰",
+  "status": "자동 수집",
+  "note": "LG·Samsung 쿠폰 페이지 + 홈 브랜드 노출"
  },
  {
-  "publisher": "ID.me",
-  "type": "인증 회원 할인",
-  "status": "로그인 필요",
-  "note": "군인·교사 등 인증 후 열람"
+  "publisher": "Tom's Guide",
+  "type": "리뷰·매체 쿠폰",
+  "status": "자동 수집",
+  "note": "LG·Samsung 쿠폰 페이지 + 홈 브랜드 노출"
+ },
+ {
+  "publisher": "DealNews",
+  "type": "딜 사이트",
+  "status": "자동 수집",
+  "note": "홈 브랜드 노출만"
+ },
+ {
+  "publisher": "Brad's Deals",
+  "type": "딜 사이트",
+  "status": "자동 수집",
+  "note": "홈 브랜드 노출만"
+ },
+ {
+  "publisher": "RTINGS",
+  "type": "리뷰·매체",
+  "status": "자동 수집",
+  "note": "TV 리뷰 목록 브랜드 노출"
+ },
+ {
+  "publisher": "Forbes Vetted",
+  "type": "리뷰·매체",
+  "status": "자동 수집",
+  "note": "홈 브랜드 노출"
+ },
+ {
+  "publisher": "WIRED",
+  "type": "리뷰·매체",
+  "status": "자동 수집",
+  "note": "홈 브랜드 노출"
+ },
+ {
+  "publisher": "Good Housekeeping",
+  "type": "리뷰·매체",
+  "status": "자동 수집",
+  "note": "가전 섹션 브랜드 노출 — 봇 확인 화면이 뜨는 날이 있음"
+ },
+ {
+  "publisher": "PerkSpot",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 입구만",
+  "note": "공개 소개 화면까지만 확인"
+ },
+ {
+  "publisher": "BenefitHub",
+  "type": "회원 전용 혜택 플랫폼",
+  "status": "로그인 입구만",
+  "note": "공개 소개 화면까지만 확인"
  },
  {
   "publisher": "Next Jump",
   "type": "회원 전용 혜택 플랫폼",
-  "status": "로그인 필요",
-  "note": "소속 기업 계정 필요"
+  "status": "로그인 입구만",
+  "note": "Perks at Work 로그인 화면까지만 확인"
+ },
+ {
+  "publisher": "GOVX",
+  "type": "인증 회원 할인",
+  "status": "로그인 입구만",
+  "note": "공개 화면까지만 확인"
  },
  {
   "publisher": "Passport Unlimited",
   "type": "회원 전용 혜택 플랫폼",
   "status": "로그인 필요",
-  "note": "소속 기업 계정 필요"
- },
- {
-  "publisher": "BenefitHub",
-  "type": "회원 전용 혜택 플랫폼",
-  "status": "로그인 필요",
-  "note": "소속 기업 계정 필요"
- },
- {
-  "publisher": "PerkSpot",
-  "type": "회원 전용 혜택 플랫폼",
-  "status": "로그인 필요",
-  "note": "소속 기업 계정 필요"
+  "note": "공개 입구 없음"
  },
  {
   "publisher": "EBG",
@@ -78,46 +150,34 @@
   "note": "소속 기업 계정 필요"
  },
  {
+  "publisher": "Cartera Commerce",
+  "type": "항공·카드 쇼핑 포털 운영사",
+  "status": "경로 미확보",
+  "note": "포털 검색 주소가 홈으로 이동 — 상점 페이지 주소 확인 후 추가"
+ },
+ {
+  "publisher": "Honey · Swagbucks",
+  "type": "브라우저 확장·리워드",
+  "status": "제외",
+  "note": "본문이 렌더링되지 않거나 로그인 문구만 표시"
+ },
+ {
+  "publisher": "CNET",
+  "type": "리뷰·매체",
+  "status": "제외",
+  "note": "수집 브라우저 접속 거부"
+ },
+ {
   "publisher": "Consumer Reports",
   "type": "리뷰·구매 가이드",
-  "status": "부분 공개",
-  "note": "등급·추천은 유료 구독 — 고정 상점 페이지 없음"
+  "status": "제외",
+  "note": "핵심 내용 유료 구독 · 접속 오류 잦음"
  },
  {
-  "publisher": "Microsoft Shopping",
-  "type": "브라우저 캐시백",
+  "publisher": "Microsoft Shopping · Wildfire · Affirm · Howl · Wickfire · digidip",
+  "type": "앱·확장·콘텐츠 링크",
   "status": "고정 페이지 없음",
-  "note": "Edge 브라우저 안에서만 노출"
- },
- {
-  "publisher": "Wildfire",
-  "type": "캐시백 기술 제공사",
-  "status": "고정 페이지 없음",
-  "note": "다른 앱·확장 프로그램에 탑재되는 방식"
- },
- {
-  "publisher": "Affirm",
-  "type": "할부 결제 앱",
-  "status": "고정 페이지 없음",
-  "note": "앱 내 상점 노출"
- },
- {
-  "publisher": "Howl",
-  "type": "크리에이터 링크",
-  "status": "고정 페이지 없음",
-  "note": "크리에이터 콘텐츠 내 링크"
- },
- {
-  "publisher": "Wickfire",
-  "type": "검색광고 제휴",
-  "status": "고정 페이지 없음",
-  "note": "검색광고 형태"
- },
- {
-  "publisher": "digidip",
-  "type": "콘텐츠 링크 네트워크",
-  "status": "고정 페이지 없음",
-  "note": "제휴 매체 기사 내 링크"
+  "note": "앱·브라우저·기사 안에서만 노출"
  },
  {
   "publisher": "tvScientific · Audiohook",

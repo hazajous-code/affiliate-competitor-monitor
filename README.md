@@ -1,8 +1,12 @@
 # 어필리에이트 경쟁사 지면 모니터
 
-미국 어필리에이트 퍼블리셔(Rakuten · TopCashback · Capital One Shopping · RetailMeNot · Cartera 항공 포털)의
-상점 페이지를 매일 캡처해 LG와 가전 경쟁사(Samsung · Sony · Whirlpool · GE Appliances · Frigidaire · Dyson)의
-캐시백·리워드 요율과 화면을 쌓는 저장소입니다.
+미국 어필리에이트 퍼블리셔 공개 지면을 매일 캡처해 LG와 가전 경쟁사의
+캐시백·리워드 요율, 카테고리별 조건·제외 문구, 쿠폰 오퍼, 딜·리뷰 지면의 브랜드 노출을 쌓는 저장소입니다.
+
+- 캐시백·리워드: Rakuten, TopCashback, Capital One Shopping, BeFrugal, RebatesMe, ID.me Shop
+- 쿠폰: RetailMeNot, Savings.com, Slickdeals, TechRadar, Tom's Guide
+- 딜·리뷰(브랜드 노출): Slickdeals, DealNews, Brad's Deals, RTINGS, TechRadar, Tom's Guide, Forbes Vetted, WIRED, Good Housekeeping
+- 회원 전용 혜택 플랫폼(공개 입구만): PerkSpot, BenefitHub, Next Jump, GOVX
 
 - 대시보드: GitHub Pages (`site/`)
 - 수집 시각: 매일 13:07 UTC (미국 동부 오전 9시 전후), GitHub Actions의 미국 리전 러너에서 실행
@@ -15,7 +19,9 @@
 | `targets.json` | 수집 대상(퍼블리셔 × 브랜드 × URL × 요율 읽는 방식) |
 | `scripts/capture.py` | Playwright로 화면 캡처 + 요율 문구 추출 + 성공 여부 판정 |
 | `site/data/captures.json` | 날짜 × 대상별 누적 원장 |
-| `site/data/runs.json` | 최근 실행의 대상별 검증 결과 |
+| `site/data/captures.csv` | 같은 원장의 내려받기용 CSV |
+| `site/data/runs.json` | 최근 실행의 대상별 검증 결과 + 접속 국가 코드 |
+| `scripts/verify.py` | 커밋 전 무결성·공개 안전성 점검(내부 성과 용어 차단) |
 | `site/data/coverage.json` | 분석 이력의 전체 퍼블리셔와 자동 수집 가능 여부 |
 | `site/shots/<날짜>/` | 스크린샷(JPEG, 최근 90일 보관) |
 
@@ -27,4 +33,6 @@
 - **수집**: 화면 저장 + 요율 문구 읽음
 - **요율 미확인**: 화면은 저장됐지만 요율 문구를 찾지 못함(페이지 구조 변경 가능)
 - **페이지 없음**: 주소가 바뀌었거나 상점이 없음
-- **차단 / 접속 실패**: 봇 확인 화면 또는 시간 초과
+- **로그인 입구만**: 회원 전용 플랫폼의 공개 입구까지만 확인
+- **봇 확인 화면 / 렌더링 실패 / 차단(HTTP) / 접속 실패**: 우회하지 않고 실패로 기록
+- **변화 감지**: 읽어 낸 값(요율·카테고리·제외 문구·오퍼)의 지문을 직전 수집일과 비교

@@ -6,7 +6,9 @@
   "brand_group": "LG",
   "url": "https://www.rakuten.com/shop/lg",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-lgpartnerstore",
@@ -15,7 +17,9 @@
   "brand_group": "LG",
   "url": "https://www.rakuten.com/shop/lgpartnerstore",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-samsung",
@@ -24,7 +28,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.rakuten.com/shop/samsung",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-sonyelectronics",
@@ -33,7 +39,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.rakuten.com/shop/sonyelectronics",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-whirlpool",
@@ -42,7 +50,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.rakuten.com/shop/whirlpool",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-geappliances",
@@ -51,7 +61,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.rakuten.com/shop/geappliances",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-frigidaire",
@@ -60,7 +72,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.rakuten.com/shop/frigidaire",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-bestbuy",
@@ -69,7 +83,9 @@
   "brand_group": "유통",
   "url": "https://www.rakuten.com/shop/bestbuy",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rakuten-lowes",
@@ -78,7 +94,9 @@
   "brand_group": "유통",
   "url": "https://www.rakuten.com/shop/lowes",
   "parser": "rakuten",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "tcb-lg-electronics",
@@ -87,7 +105,9 @@
   "brand_group": "LG",
   "url": "https://www.topcashback.com/lg-electronics/",
   "parser": "tcb",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "tcb-samsung",
@@ -96,7 +116,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.topcashback.com/samsung/",
   "parser": "tcb",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "tcb-ge-appliances",
@@ -105,7 +127,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.topcashback.com/ge-appliances/",
   "parser": "tcb",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "tcb-whirlpool",
@@ -114,7 +138,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.topcashback.com/whirlpool/",
   "parser": "tcb",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "tcb-dyson",
@@ -123,7 +149,9 @@
   "brand_group": "경쟁사",
   "url": "https://www.topcashback.com/dyson/",
   "parser": "tcb",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "tcb-best-buy",
@@ -132,7 +160,9 @@
   "brand_group": "유통",
   "url": "https://www.topcashback.com/best-buy/",
   "parser": "tcb",
-  "note": ""
+  "kind": "캐시백 포털",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "capone-lg",
@@ -141,7 +171,9 @@
   "brand_group": "LG",
   "url": "https://capitaloneshopping.com/s/lg.com/coupon",
   "parser": "capone",
-  "note": ""
+  "kind": "쇼핑 리워드",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "capone-samsung",
@@ -150,7 +182,9 @@
   "brand_group": "경쟁사",
   "url": "https://capitaloneshopping.com/s/samsung.com/coupon",
   "parser": "capone",
-  "note": ""
+  "kind": "쇼핑 리워드",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "capone-sony",
@@ -159,7 +193,9 @@
   "brand_group": "경쟁사",
   "url": "https://capitaloneshopping.com/s/sony.com/coupon",
   "parser": "capone",
-  "note": ""
+  "kind": "쇼핑 리워드",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "capone-whirlpool",
@@ -168,7 +204,9 @@
   "brand_group": "경쟁사",
   "url": "https://capitaloneshopping.com/s/whirlpool.com/coupon",
   "parser": "capone",
-  "note": ""
+  "kind": "쇼핑 리워드",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "capone-geappliances",
@@ -177,7 +215,9 @@
   "brand_group": "경쟁사",
   "url": "https://capitaloneshopping.com/s/geappliances.com/coupon",
   "parser": "capone",
-  "note": ""
+  "kind": "쇼핑 리워드",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "capone-bestbuy",
@@ -186,7 +226,9 @@
   "brand_group": "유통",
   "url": "https://capitaloneshopping.com/s/bestbuy.com/coupon",
   "parser": "capone",
-  "note": ""
+  "kind": "쇼핑 리워드",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rmn-lg",
@@ -194,8 +236,10 @@
   "brand": "LG Electronics",
   "brand_group": "LG",
   "url": "https://www.retailmenot.com/view/lg.com",
-  "parser": "rmn",
-  "note": ""
+  "parser": "offers",
+  "kind": "쿠폰",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rmn-samsung",
@@ -203,8 +247,10 @@
   "brand": "Samsung",
   "brand_group": "경쟁사",
   "url": "https://www.retailmenot.com/view/samsung.com",
-  "parser": "rmn",
-  "note": ""
+  "parser": "offers",
+  "kind": "쿠폰",
+  "access": "public",
+  "enabled": true
  },
  {
   "id": "rmn-geappliances",
@@ -212,7 +258,328 @@
   "brand": "GE Appliances",
   "brand_group": "경쟁사",
   "url": "https://www.retailmenot.com/view/geappliances.com",
-  "parser": "rmn",
-  "note": ""
+  "parser": "offers",
+  "kind": "쿠폰",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "befrugal-lg",
+  "publisher": "BeFrugal",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/lg/",
+  "parser": "befrugal",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "befrugal-samsung",
+  "publisher": "BeFrugal",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/samsung/",
+  "parser": "befrugal",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "befrugal-geappliances",
+  "publisher": "BeFrugal",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/geappliances/",
+  "parser": "befrugal",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "befrugal-whirlpool",
+  "publisher": "BeFrugal",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/whirlpool/",
+  "parser": "befrugal",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "idme-samsung",
+  "publisher": "ID.me Shop",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "인증 회원 할인",
+  "url": "https://shop.id.me/stores/9025-samsung",
+  "parser": "idme",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "idme-geappliances",
+  "publisher": "ID.me Shop",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "인증 회원 할인",
+  "url": "https://shop.id.me/stores/13076-the-ge-appliances-store",
+  "parser": "idme",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "idme-search-lg",
+  "publisher": "ID.me Shop",
+  "brand": "(LG 검색)",
+  "brand_group": "매체",
+  "kind": "인증 회원 할인",
+  "url": "https://shop.id.me/search?q=LG",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "savings-lg",
+  "publisher": "Savings.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://www.savings.com/coupons/lg.com",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "savings-samsung",
+  "publisher": "Savings.com",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.savings.com/coupons/samsung.com",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "rebatesme-samsung",
+  "publisher": "RebatesMe",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.rebatesme.com/store/samsung",
+  "parser": "befrugal",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "slickdeals-lg",
+  "publisher": "Slickdeals",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://slickdeals.net/promo-codes/lg",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "slickdeals-samsung",
+  "publisher": "Slickdeals",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://slickdeals.net/promo-codes/samsung",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "slickdeals-home",
+  "publisher": "Slickdeals",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://slickdeals.net/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "techradar-lg",
+  "publisher": "TechRadar",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://www.techradar.com/coupons/lg",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "techradar-samsung",
+  "publisher": "TechRadar",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.techradar.com/coupons/samsung",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "techradar-home",
+  "publisher": "TechRadar",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.techradar.com/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tomsguide-lg",
+  "publisher": "Tom's Guide",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://www.tomsguide.com/coupons/lg.com",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tomsguide-samsung",
+  "publisher": "Tom's Guide",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.tomsguide.com/coupons/samsung.com",
+  "parser": "offers",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tomsguide-home",
+  "publisher": "Tom's Guide",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.tomsguide.com/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "dealnews-home",
+  "publisher": "DealNews",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://www.dealnews.com/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "bradsdeals-home",
+  "publisher": "Brad's Deals",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://www.bradsdeals.com/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "rtings-tv",
+  "publisher": "RTINGS",
+  "brand": "(TV 리뷰)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.rtings.com/tv",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "forbes-vetted",
+  "publisher": "Forbes Vetted",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.forbes.com/vetted/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "wired-home",
+  "publisher": "WIRED",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.wired.com/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "goodhousekeeping-appliances",
+  "publisher": "Good Housekeeping",
+  "brand": "(가전)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.goodhousekeeping.com/appliances/",
+  "parser": "mentions",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "perkspot-home",
+  "publisher": "PerkSpot",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.perkspot.com/",
+  "parser": "mentions",
+  "access": "entry_only",
+  "enabled": true
+ },
+ {
+  "id": "benefithub-home",
+  "publisher": "BenefitHub",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.benefithub.com/",
+  "parser": "mentions",
+  "access": "entry_only",
+  "enabled": true
+ },
+ {
+  "id": "nextjump-home",
+  "publisher": "Next Jump",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.perksatwork.com/login",
+  "parser": "mentions",
+  "access": "entry_only",
+  "enabled": true
+ },
+ {
+  "id": "govx-home",
+  "publisher": "GOVX",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.govx.com/",
+  "parser": "mentions",
+  "access": "entry_only",
+  "enabled": true
  }
 ]

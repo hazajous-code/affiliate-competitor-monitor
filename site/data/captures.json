@@ -298,7 +298,7 @@
   "rate": null,
   "rate_text": null,
   "offers": null,
-  "status": "차단·오류",
+  "status": "차단(HTTP)",
   "reason": "HTTP 403",
   "shot": "shots/2026-10-12/rmn-lg.jpg",
   "final_url": "https://www.retailmenot.com/view/lg.com",
