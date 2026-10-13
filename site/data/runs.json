@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-12T17:42-04:00",
+ "run_at": "2026-10-12T20:53-04:00",
  "summary": {
   "수집": 23,
   "차단·오류": 1
@@ -410,7 +410,7 @@
    "target": "rmn-samsung",
    "method": "자동 스크린샷",
    "rate": null,
-   "rate_text": "오퍼 34건 · 최상단 30% Off",
+   "rate_text": "오퍼 34건 · 최상단 Up To 30% Off",
    "offers": 34,
    "status": "수집",
    "reason": "",
