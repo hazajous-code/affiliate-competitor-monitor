@@ -366,18 +366,23 @@ def main():
     cap_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1))
     write_csv(hist)
 
-    # a partial re-run (target ids given) updates only those rows of the same day's run
+    # A partial re-run (target ids given) replaces only those targets' rows and keeps the rest,
+    # so runs.json always covers every enabled target. run_at only moves on a full run,
+    # because the dashboard's freshness check is about the daily full capture.
     runs_path = DATA / "runs.json"
-    if only and runs_path.exists():
-        prev = json.loads(runs_path.read_text())
-        if (prev.get("run_at") or "")[:10] == day:
-            done = {r["target"] for r in results}
-            enabled = {t["id"] for t in all_targets if t.get("enabled", True)}
-            results = [r for r in prev.get("results", []) if r["target"] not in done and r["target"] in enabled] + results
+    prev = json.loads(runs_path.read_text()) if runs_path.exists() else {}
+    run_at = now.isoformat(timespec="minutes")
+    partial_at = None
+    if only:
+        done = {r["target"] for r in results}
+        enabled = {t["id"] for t in all_targets if t.get("enabled", True)}
+        results = [r for r in prev.get("results", []) if r["target"] not in done and r["target"] in enabled] + results
+        run_at, partial_at = prev.get("run_at") or run_at, now.isoformat(timespec="minutes")
     order = {t["id"]: i for i, t in enumerate(all_targets)}
     results.sort(key=lambda r: order.get(r["target"], 999))
     runs_path.write_text(json.dumps({
-        "run_at": now.isoformat(timespec="minutes"),
+        "run_at": run_at,
+        "partial_at": partial_at,
         "country": country,
         "us_ip_verified": country == "US",
         "summary": {s: sum(1 for r in results if r["status"] == s) for s in STATUSES if any(r["status"] == s for r in results)},
