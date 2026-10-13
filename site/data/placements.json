@@ -117,10 +117,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p010",
@@ -258,7 +258,7 @@
    "targets": [
     "rmn-home"
    ],
-   "how": "RetailMeNot 홈 Top Offers에 LG 노출"
+   "how": "RetailMeNot 홈 Top Offers에 LG 노출 (수집 브라우저 차단 시 실패로 표시)"
   },
   {
    "id": "p020",
@@ -556,12 +556,12 @@
    "channel": "OBS",
    "category": "Laundry",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "rakuten-home",
-    "rakuten-hotdeals"
+    "rakuten-hotdeals",
+    "rakuten-home"
    ],
-   "how": "Rakuten 홈·Hot Deals 화면에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면이라 회원 홈 타일이 안 보임 — Hot Deals 페이지로 대신 확인"
   },
   {
    "id": "p042",
@@ -589,10 +589,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p044",
@@ -618,10 +618,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p046",
@@ -649,10 +649,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p048",
@@ -710,7 +710,7 @@
    "targets": [
     "rmn-home"
    ],
-   "how": "RetailMeNot 홈 Top Offers에 LG 노출"
+   "how": "RetailMeNot 홈 Top Offers에 LG 노출 (수집 브라우저 차단 시 실패로 표시)"
   },
   {
    "id": "p052",
@@ -812,11 +812,12 @@
    "channel": "OBS",
    "category": "Monitor",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "tcb-home"
+    "tcb-home",
+    "tcb-offers"
    ],
-   "how": "TopCashback 홈에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p060",
@@ -985,11 +986,12 @@
    "channel": "OBS",
    "category": "Monitor",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "tcb-home"
+    "tcb-home",
+    "tcb-offers"
    ],
-   "how": "TopCashback 홈에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p073",
@@ -1002,10 +1004,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p074",
@@ -1113,11 +1115,12 @@
    "channel": "OBS",
    "category": "Refrigerator",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "tcb-home"
+    "tcb-home",
+    "tcb-offers"
    ],
-   "how": "TopCashback 홈에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p082",
@@ -1143,10 +1146,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p084",
@@ -1396,12 +1399,12 @@
    "channel": "OBS",
    "category": "Laundry",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "rakuten-home",
-    "rakuten-hotdeals"
+    "rakuten-hotdeals",
+    "rakuten-home"
    ],
-   "how": "Rakuten 홈·Hot Deals 화면에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면이라 회원 홈 타일이 안 보임 — Hot Deals 페이지로 대신 확인"
   },
   {
    "id": "p102",
@@ -1427,11 +1430,12 @@
    "channel": "OBS",
    "category": "Refrigerator",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "tcb-home"
+    "tcb-home",
+    "tcb-offers"
    ],
-   "how": "TopCashback 홈에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p104",
@@ -1472,10 +1476,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p107",
@@ -1488,10 +1492,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p108",
@@ -1515,11 +1519,12 @@
    "channel": "OBS",
    "category": "Laundry",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "tcb-home"
+    "tcb-home",
+    "tcb-offers"
    ],
-   "how": "TopCashback 홈에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p110",
@@ -1532,10 +1537,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p111",
@@ -1671,11 +1676,12 @@
    "channel": "OBS",
    "category": "Laundry",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "tcb-home"
+    "tcb-home",
+    "tcb-offers"
    ],
-   "how": "TopCashback 홈에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p121",
@@ -1755,10 +1761,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p127",
@@ -1771,10 +1777,10 @@
    "offer": "",
    "method": "partial",
    "targets": [
-    "tcb-home",
-    "tcb-offers"
+    "tcb-offers",
+    "tcb-home"
    ],
-   "how": "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+   "how": "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
   },
   {
    "id": "p128",
@@ -1837,12 +1843,12 @@
    "channel": "OBS",
    "category": "Laundry",
    "offer": "",
-   "method": "presence",
+   "method": "partial",
    "targets": [
-    "rakuten-home",
-    "rakuten-hotdeals"
+    "rakuten-hotdeals",
+    "rakuten-home"
    ],
-   "how": "Rakuten 홈·Hot Deals 화면에 LG 노출"
+   "how": "비로그인 홈은 가입 안내 화면이라 회원 홈 타일이 안 보임 — Hot Deals 페이지로 대신 확인"
   },
   {
    "id": "p133",

@@ -52,20 +52,20 @@ def classify(pub, name, cat):
         if "targeted" in n:
             return "partial", ["rakuten-home"], "타기팅 지면 — 비로그인 홈에는 안 보일 수 있음"
         if "homepage" in n:
-            return "presence", ["rakuten-home", "rakuten-hotdeals"], "Rakuten 홈·Hot Deals 화면에 LG 노출"
+            return "partial", ["rakuten-hotdeals", "rakuten-home"], "비로그인 홈은 가입 안내 화면이라 회원 홈 타일이 안 보임 — Hot Deals 페이지로 대신 확인"
         if "category page" in n:
             return "presence", [rk_cat], "Rakuten 카테고리 페이지에 LG 노출"
     if pub == "TopCashback":
         if "homepage" in n:
-            return "presence", ["tcb-home"], "TopCashback 홈에 LG 노출"
+            return "partial", ["tcb-home", "tcb-offers"], "비로그인 홈은 가입 안내 화면 — 오퍼 페이지로 대신 확인"
         if re.search(r"category (carousel|navigation)", n):
             return "presence", [tcb_cat], "TopCashback 카테고리 페이지에 LG 노출"
         if re.search(r"featured offers|offer page", n):
             return "presence", ["tcb-offers"], "TopCashback 오퍼 페이지에 LG 노출"
         if "sweet deal" in n:
-            return "partial", ["tcb-home", "tcb-offers"], "Sweet Deal 전용 페이지 주소 미확인 — 홈·오퍼 화면으로 대신 확인"
+            return "partial", ["tcb-offers", "tcb-home"], "Sweet Deal 전용 페이지 주소 미확인 — 오퍼 페이지로 대신 확인"
     if pub == "RetailMeNot" and "homepage" in n:
-        return "presence", ["rmn-home"], "RetailMeNot 홈 Top Offers에 LG 노출"
+        return "presence", ["rmn-home"], "RetailMeNot 홈 Top Offers에 LG 노출 (수집 브라우저 차단 시 실패로 표시)"
     if pub == "Capital One":
         if "fall bonus days" in n and "email" not in n:
             return "rate", ["capone-lg"], "Capital One Shopping LG 리워드가 기간 중 상향되는지"
