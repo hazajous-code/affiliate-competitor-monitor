@@ -30,7 +30,7 @@ if len(ids) != len(set(ids)):
 for t in targets:
     if not t["url"].startswith("https://"):
         fail(f"{t['id']}: url must be https")
-    if t["parser"] not in {"rakuten", "tcb", "capone", "befrugal", "idme", "offers", "mentions"}:
+    if t["parser"] not in {"rakuten", "tcb", "capone", "befrugal", "idme", "offers", "mentions", "slots"}:
         fail(f"{t['id']}: unknown parser {t['parser']}")
     if t.get("access", "public") not in {"public", "entry_only"}:
         fail(f"{t['id']}: unknown access")
@@ -62,9 +62,30 @@ if runs.get("results") and (len(got) != len(set(got)) or set(got) != enabled):
 if re.search(r"\b\d{1,3}(?:\.\d{1,3}){3}\b", json.dumps({k: v for k, v in runs.items() if k != "results"})):
     fail("runs.json appears to contain an IP address")
 
+# Placement plan: matching fields only.
+pl = SITE / "data/placements.json"
+if pl.exists():
+    allowed_keys = {"id", "publisher", "placement", "start", "end", "channel", "category", "offer", "method", "targets", "how"}
+    for r in json.loads(pl.read_text())["placements"]:
+        extra = set(r) - allowed_keys
+        if extra:
+            fail(f"placements.json {r.get('id')}: non-matching fields {sorted(extra)}")
+        for t in r["targets"]:
+            if t not in ids:
+                fail(f"placements.json {r['id']}: unknown target {t}")
+    for f in (ROOT / "plans").glob("*.txt"):
+        for no, line in enumerate(f.read_text().splitlines(), 1):
+            if not line.strip() or line.startswith("#"):
+                continue
+            cols = line.split(";")
+            if len(cols) not in (6, 7):
+                fail(f"{f.relative_to(ROOT)}:{no}: expected 6–7 matching fields, got {len(cols)}")
+            elif any(re.search(r"\$\s?\d|\d+\.\d{2}\b", c) for c in cols[:6]):
+                fail(f"{f.relative_to(ROOT)}:{no}: looks like an amount in a matching field")
+
 # Public repository: internal performance data must never be published.
 FORBIDDEN = re.compile(r"커미션|ROAS|매출|지면비|CJ ?Fee|Platform Rev|마젠토|Magento|GA ?Revenue|Advertiser Commission|Sale Amount", re.I)
-for path in [ROOT / "targets.json", *sorted((SITE / "data").glob("*.json")), SITE / "index.html"]:
+for path in [ROOT / "targets.json", *sorted((SITE / "data").glob("*.json")), *sorted(SITE.glob("*.html")), *sorted((ROOT / "plans").glob("*.txt"))]:
     text = path.read_text(encoding="utf-8")
     m = FORBIDDEN.search(text)
     if m:

@@ -23,7 +23,10 @@
 | `site/data/runs.json` | 최근 실행의 대상별 검증 결과 + 접속 국가 코드 |
 | `scripts/verify.py` | 커밋 전 무결성·공개 안전성 점검(내부 성과 용어 차단) |
 | `site/data/coverage.json` | 분석 이력의 전체 퍼블리셔와 자동 수집 가능 여부 |
-| `site/shots/<날짜>/` | 스크린샷(JPEG, 최근 90일 보관) |
+| `site/shots/<날짜>/` | 스크린샷(JPEG, 최근 60일). 저장소 이력이 커지지 않도록 `shots` 브랜치에 커밋 1개로 덮어써 보관 |
+| `plans/YYYY-MM.txt` | 월별 편성표 — 매칭용 필드만(퍼블리셔·기간·지면명·OBS/PS·카테고리·오퍼 문구). 비용·성과 열은 넣지 않음 |
+| `scripts/import_plan.py` | 편성표 → `site/data/placements.json` 변환 + 지면별 확인 방식 분류 |
+| `site/placements.html` | 편성 지면 관측 메뉴 |
 
 ## 대상 추가·수정
 `targets.json`에 한 줄을 넣고 Actions › daily-capture › Run workflow로 바로 실행하면 됩니다.

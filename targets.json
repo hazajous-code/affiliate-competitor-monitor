@@ -515,5 +515,148 @@
   "parser": "mentions",
   "access": "entry_only",
   "enabled": true
+ },
+ {
+  "id": "rakuten-home",
+  "publisher": "Rakuten",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.rakuten.com/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "rakuten-hotdeals",
+  "publisher": "Rakuten",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.rakuten.com/coupons",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "rakuten-cat-home",
+  "publisher": "Rakuten",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.rakuten.com/home-garden",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "rakuten-cat-electronics",
+  "publisher": "Rakuten",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.rakuten.com/electronics",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tcb-home",
+  "publisher": "TopCashback",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.topcashback.com/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tcb-offers",
+  "publisher": "TopCashback",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.topcashback.com/offers/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tcb-cat-tech",
+  "publisher": "TopCashback",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.topcashback.com/category/tech/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tcb-cat-appliances",
+  "publisher": "TopCashback",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.topcashback.com/category/home-appliances/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "rmn-home",
+  "publisher": "RetailMeNot",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.retailmenot.com/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-aa-home",
+  "publisher": "Cartera · AAdvantage eShopping",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.aadvantageeshopping.com/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "idme-home",
+  "publisher": "ID.me Shop",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://shop.id.me/",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "techradar-deals",
+  "publisher": "TechRadar",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.techradar.com/deals",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "tomsguide-deals",
+  "publisher": "Tom's Guide",
+  "brand": "(지면)",
+  "brand_group": "지면",
+  "kind": "편성 지면",
+  "url": "https://www.tomsguide.com/deals",
+  "parser": "slots",
+  "access": "public",
+  "enabled": true
  }
 ]

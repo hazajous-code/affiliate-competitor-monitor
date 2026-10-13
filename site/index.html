@@ -9,7 +9,10 @@
 @media (prefers-color-scheme:dark){:root{--bg:#161615;--panel:#1f1f1e;--fg:#ecebe8;--muted:#a19e97;--line:#33322f;--lg:#ff5c8a;--comp:#8d939c;--retail:#e0bf4a;--ok:#5fbf86;--warn:#e3a34a;--bad:#f07167;--chip:#2a2a28;--note:#2a261c;--noteline:#4a4128;--heat:255,92,138}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 64px}
+.menu{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap}
+.menu a{padding:8px 12px;text-decoration:none;color:var(--muted);font-size:14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.menu a.on{color:var(--fg);border-bottom-color:var(--lg);font-weight:600}
 h1{font:400 28px/1.25 Georgia,"Noto Serif KR",serif;margin:0}
 .lede{color:var(--muted);margin:6px 0 0;max-width:62rem}
 .meta{font-size:13px;color:var(--muted);margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
@@ -64,6 +67,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 </head>
 <body>
 <div class="wrap">
+  <nav class="menu"><a href="./" class="on">경쟁사 지면 모니터</a><a href="placements.html">편성 지면 관측</a></nav>
   <header>
     <h1>어필리에이트 경쟁사 지면 모니터</h1>
     <p class="lede" id="lede">미국 어필리에이트 퍼블리셔 지면에 노출되는 LG와 가전 경쟁사의 캐시백·리워드 요율, 쿠폰, 브랜드 노출을 매일 캡처합니다.</p>
@@ -115,7 +119,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   <section class="card" id="gallery">
     <h2>지면 스크린샷</h2>
     <p class="note">미국 동부 기준 수집. 이미지를 누르면 크게 보입니다.</p>
-    <div class="controls"><select id="gDate"></select><select id="gPub"></select><select id="gGroup"><option value="">전체 대상</option><option>LG</option><option>경쟁사</option><option>유통</option><option value="매체">딜·리뷰·입구</option></select></div>
+    <div class="controls"><select id="gDate"></select><select id="gPub"></select><select id="gGroup"><option value="">전체 대상</option><option>LG</option><option>경쟁사</option><option>유통</option><option value="매체">딜·리뷰·입구</option><option value="지면">편성 지면 페이지</option></select></div>
     <div class="gal" id="gal"></div>
   </section>
 

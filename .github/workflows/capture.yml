@@ -25,6 +25,13 @@ jobs:
     timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
+      - name: Restore screenshots from the rolling 'shots' branch
+        run: |
+          mkdir -p site/shots
+          if git ls-remote --exit-code --heads origin shots >/dev/null; then
+            git fetch -q --depth 1 origin shots
+            git archive FETCH_HEAD | tar -x -C site/shots
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -36,6 +43,16 @@ jobs:
         run: python scripts/capture.py ${{ github.event.inputs.targets }}
       - name: Check integrity and public-safety
         run: python scripts/verify.py
+      - name: Save screenshots (single-commit branch, history does not grow)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/shots && mkdir /tmp/shots && cp -r site/shots/. /tmp/shots/
+          cd /tmp/shots
+          git init -q -b shots
+          git add -A
+          git -c user.name=capture-bot -c user.email=capture-bot@users.noreply.github.com commit -qm "screenshots $(TZ=America/New_York date +%F)"
+          git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" shots:shots
       - name: Commit results
         run: |
           git config user.name "capture-bot"

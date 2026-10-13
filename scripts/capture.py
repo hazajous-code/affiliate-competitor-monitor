@@ -32,7 +32,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA = SITE / "data"
 SHOTS = SITE / "shots"
-KEEP_DAYS = 90
+KEEP_DAYS = 60
 
 NY = ZoneInfo("America/New_York")
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -163,6 +163,20 @@ def mentions(t):
     return out
 
 
+def lg_snippets(t, limit=6):
+    """Short text around each LG mention — the evidence shown next to a placement."""
+    out = []
+    for m in re.finditer(r"\bLG\b", t):
+        a, b = max(0, m.start() - 70), min(len(t), m.end() + 90)
+        snip = ("…" if a else "") + t[a:b].strip() + ("…" if b < len(t) else "")
+        key = t[m.start():m.start() + 40]
+        if not any(key in o for o in out):
+            out.append(snip)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def classify(tg, title, t, http_status, rate, rate_text, final_url):
     low = (title + " " + t[:3000]).lower()
     if http_status and http_status >= 400 and http_status != 404:
@@ -229,7 +243,19 @@ def capture_one(ctx, tg, day):
         text = page.inner_text("body", timeout=10000)
         t = squash(text)
         rel = f"shots/{day}/{tg['id']}.jpg"
-        page.screenshot(path=str(SITE / rel), type="jpeg", quality=55, full_page=False)
+        if tg["parser"] == "slots":
+            # placement pages: scroll once so lazy tiles render, then keep the top 3,600px
+            page.mouse.wheel(0, 3000)
+            page.wait_for_timeout(1500)
+            page.mouse.wheel(0, -3000)
+            page.wait_for_timeout(500)
+            text = page.inner_text("body", timeout=10000)
+            t = squash(text)
+            h = min(3600, page.evaluate("document.documentElement.scrollHeight"))
+            page.screenshot(path=str(SITE / rel), type="jpeg", quality=45, full_page=True,
+                            clip={"x": 0, "y": 0, "width": 1366, "height": h})
+        else:
+            page.screenshot(path=str(SITE / rel), type="jpeg", quality=55, full_page=False)
 
         rate = rate_text = offers = None
         cats, excl = [], None
@@ -245,6 +271,7 @@ def capture_one(ctx, tg, day):
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
                    mentions=mentions(t) if st in ("수집", "요율 미확인") else {},
+                   lg_snippets=lg_snippets(t) if tg["parser"] == "slots" and st == "수집" else [],
                    status=st, reason=why, shot=rel, final_url=page.url, http=http, title=short(title, 120),
                    sig=fp(rate_text, cats, excl, offers) if ok else None,
                    body_hash=fp(t) if ok else None)
