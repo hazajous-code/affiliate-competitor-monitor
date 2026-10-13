@@ -264,17 +264,6 @@
   "enabled": true
  },
  {
-  "id": "befrugal-lg",
-  "publisher": "BeFrugal",
-  "brand": "LG Electronics",
-  "brand_group": "LG",
-  "kind": "캐시백 포털",
-  "url": "https://www.befrugal.com/store/lg-electronics/",
-  "parser": "befrugal",
-  "access": "public",
-  "enabled": true
- },
- {
   "id": "befrugal-samsung",
   "publisher": "BeFrugal",
   "brand": "Samsung",

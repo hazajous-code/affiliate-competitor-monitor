@@ -79,6 +79,8 @@ def short(s, n=320):
 # ---------- headline rate ----------
 def parse_rate(parser, t):
     """Return (rate, rate_text) from collapsed page text."""
+    if re.search(r"Cash Back is currently not available for", t, re.I):
+        return 0.0, "캐시백 미제공(현재 중단)"
     pats = {
         "rakuten": [rf"((?:Up to\s+)?{PCT}\s*Cash Back(?:\s*was\s*{PCT})?)"],
         "tcb": [rf"(Get\s+(?:up to\s+)?{PCT}\s+of the price back)",
