@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LG.com 프로모션 × 캐시백</title>
+<style>
+:root{--bg:#f7f6f3;--panel:#fff;--fg:#1f1e1c;--muted:#6b6862;--line:#e3e0da;--lg:#a50034;--ok:#2f7d4f;--warn:#b26a00;--bad:#b3261e;--chip:#f0eee9;--note:#fbf6ea;--noteline:#ead9b0}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--panel:#1f1f1e;--fg:#ecebe8;--muted:#a19e97;--line:#33322f;--lg:#ff5c8a;--ok:#5fbf86;--warn:#e3a34a;--bad:#f07167;--chip:#2a2a28;--note:#2a261c;--noteline:#4a4128}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 64px}
+.menu{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap}
+.menu a{padding:8px 12px;text-decoration:none;color:var(--muted);font-size:14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.menu a.on{color:var(--fg);border-bottom-color:var(--lg);font-weight:600}
+h1{font:400 28px/1.25 Georgia,"Noto Serif KR",serif;margin:0}
+.lede{color:var(--muted);margin:6px 0 0;max-width:64rem}
+.banner{margin-top:14px;padding:10px 14px;border-radius:10px;background:var(--note);border:1px solid var(--noteline);font-size:13px}
+section{margin-top:22px}
+h2{font-size:17px;font-weight:600;margin:0 0 4px}
+.note{font-size:13px;color:var(--muted);margin:0 0 12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
+.promos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px}
+.promo{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.promo .t{font-weight:600;font-size:14px;line-height:1.35}
+.promo .m{font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{display:inline-block;padding:0 8px;border-radius:999px;font-size:12px;background:var(--chip);white-space:nowrap}
+.new{background:var(--lg);color:#fff}
+.soon{color:var(--warn);font-weight:600}
+.tw{max-height:640px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1;white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.up{color:var(--ok)}.dn{color:var(--bad)}.warn{color:var(--warn)}.mute{color:var(--muted)}
+.hi{font-weight:600;color:var(--lg)}
+a{color:inherit}
+ul.tight{margin:0;padding-left:16px}ul.tight li{margin:2px 0}
+dialog{border:none;padding:0;max-width:96vw;max-height:94vh;background:transparent;overflow:auto}dialog img{max-width:96vw;display:block;border-radius:6px}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.empty{color:var(--muted);font-size:13px;padding:10px 0}
+ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
+@media(max-width:700px){.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="menu"><a href="./">경쟁사 지면 모니터</a><a href="lgcom.html" class="on">LG.com 프로모션 × 캐시백</a><a href="placements.html">편성 지면 관측</a></nav>
+  <header>
+    <h1>LG.com 프로모션 × 캐시백</h1>
+    <p class="lede" id="lede">LG.com/us에 걸린 프로모션과, 같은 날 퍼블리셔에 표시된 LG 캐시백·리워드를 나란히 봅니다. 할인과 캐시백이 겹치는 날, 캐시백 이벤트가 프로모션 없이 도는 날을 찾는 용도입니다.</p>
+    <div class="banner" id="banner"></div>
+  </header>
+
+  <section class="card" id="today">
+    <h2>오늘 LG.com 프로모션</h2>
+    <p class="note" id="todayNote">LG.com/us 프로모션 메인과 TV·가전·모니터 딜 페이지에서 읽은 프로모션입니다. NEW는 직전 수집일에 없던 것, 노란 글씨는 3일 안에 끝나는 것입니다.</p>
+    <div class="promos" id="promoGrid"></div>
+  </section>
+
+  <section class="card" id="combo">
+    <h2>같은 날 LG 캐시백·리워드</h2>
+    <p class="note">퍼블리셔는 판매 실적 순입니다. 오른쪽 칸은 오늘 LG.com 프로모션 카테고리별로, 해당 퍼블리셔 제외 문구에 그 카테고리가 들어 있는지 표시합니다(✓ 제외 문구 없음 · ⚠ 제외 문구에 있음). 실제 적용 여부는 퍼블리셔 약관 기준입니다.</p>
+    <div class="tw"><table><thead id="comboHead"></thead><tbody id="comboBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="timeline">
+    <h2>일자별 타임라인</h2>
+    <p class="note">하루 한 줄. LG.com 프로모션 시작·종료와 퍼블리셔 LG 요율 변화, 편성표의 캐시백 이벤트를 같은 줄에 놓았습니다.</p>
+    <div class="tw"><table><thead id="tlHead"></thead><tbody id="tlBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="ahead">
+    <h2>예정된 캐시백 이벤트와 프로모션 겹침</h2>
+    <p class="note">편성표의 캐시백·보너스 이벤트 기간에, 현재 LG.com 프로모션의 유효기간이 겹치는지 봅니다. 프로모션 시작일은 처음 관측한 날로 봅니다.</p>
+    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th>캐시백 이벤트</th><th>기간</th><th>겹치는 LG.com 프로모션</th></tr></thead><tbody id="aheadBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="method">
+    <h2>수집 기준</h2>
+    <ul class="rules">
+      <li>매일 퍼블리셔 수집과 같은 실행에서 LG.com/us 프로모션 메인, TV 딜, 가전 딜, 모니터·노트북 딜 페이지를 미국 IP·비로그인으로 엽니다.</li>
+      <li>프로모션 카드의 제목·할인 문구·유효기간(“Valid through”)·링크를 읽습니다. 유효기간이 표시되지 않은 상시 배너는 빠질 수 있으니 화면도 함께 확인하세요.</li>
+      <li>카테고리는 제목의 단어로 자동 분류합니다(TV·AV / 모니터·PC / 세탁 / 냉장고 / 주방 / 청소·공조 / 오디오 / 가전 전반).</li>
+      <li>퍼블리셔 요율은 각 퍼블리셔 LG 상점 페이지의 대표 요율입니다. "was N%"가 붙으면 평시보다 상향된 상태입니다.</li>
+    </ul>
+  </section>
+</div>
+<dialog id="dlg"><img id="dlgImg" alt=""></dialog>
+
+<script src="rank.js"></script>
+<script>
+(async function(){
+  const { byRank } = await loadRank();
+  const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+  const [caps0, runs, plan] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json')]);
+  const caps = caps0 || [];
+  const $ = id => document.getElementById(id);
+  const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  const OK = s => s === '수집' || s === '수집(텍스트)';
+  const pct = v => v == null ? '—' : (Math.round(v * 100) / 100) + '%';
+  const fmt = d => d ? d.slice(5).replace('-', '/') : '—';
+  function openImg(src) { $('dlgImg').src = src; $('dlg').showModal(); }
+  $('dlg').onclick = () => $('dlg').close();
+
+  const dates = [...new Set(caps.map(r => r.date))].sort();
+  const lastDay = dates[dates.length - 1];
+  // ISO date from "10/21/26" style
+  const iso = (v, ref) => { if (!v) return null; const p = v.split('/').map(Number); const y = p[2] ? (p[2] < 100 ? 2000 + p[2] : p[2]) : Number((ref || lastDay || '2026').slice(0, 4)); return `${y}-${String(p[0]).padStart(2, '0')}-${String(p[1]).padStart(2, '0')}`; };
+
+  // LG.com promotions per day (dedupe by url/title across the LG.com pages)
+  const promosOn = {};
+  caps.filter(r => r.brand_group === 'LG.com' && OK(r.status)).forEach(r => {
+    const m = promosOn[r.date] = promosOn[r.date] || new Map();
+    (r.promos || []).forEach(p => { const k = p.url || p.title; if (!m.has(k)) m.set(k, { ...p, page: r.target, shot: r.shot, end: iso(p.valid, r.date) }); });
+  });
+  const firstSeen = {};
+  dates.forEach(d => (promosOn[d] || new Map()).forEach((p, k) => { if (!firstSeen[k]) firstSeen[k] = d; }));
+
+  // banner + freshness
+  const lgRows = caps.filter(r => r.date === lastDay && r.brand_group === 'LG.com');
+  const ok = lgRows.filter(r => OK(r.status)).length;
+  $('banner').textContent = (lastDay ? lastDay + ' 수집 · ' : '') + 'LG.com 페이지 ' + ok + '/' + lgRows.length + ' 정상 수집 · ' + (runs && runs.country === 'US' ? '미국 IP 접속 확인' : '미국 IP 미검증');
+  if (runs && runs.run_at) {
+    const hrs = (Date.now() - new Date(runs.run_at).getTime()) / 36e5;
+    const w = el('div', hrs > 30 ? 'dn' : 'mute', hrs > 30 ? '⚠ 마지막 자동 수집이 ' + Math.round(hrs) + '시간 전입니다.' : '자동 수집 정상 · 마지막 수집 ' + Math.max(0, Math.round(hrs)) + '시간 전');
+    $('banner').append(w);
+  }
+  if (lgRows.length && !ok) $('todayNote').textContent = 'LG.com 페이지를 오늘은 읽지 못했습니다: ' + [...new Set(lgRows.map(r => r.status + (r.reason ? ' — ' + r.reason : '')))].join(', ');
+
+  // today's promotions
+  const prevDay = dates[dates.length - 2];
+  const today = [...(promosOn[lastDay] || new Map()).entries()];
+  const prevKeys = new Set([...(promosOn[prevDay] || new Map()).keys()]);
+  if (!today.length) $('promoGrid').append(el('div', 'empty', lgRows.length ? '읽은 프로모션이 없습니다. 아래 화면을 확인하세요.' : '다음 자동 수집부터 표시됩니다.'));
+  today.sort((a, b) => (a[1].end || '9').localeCompare(b[1].end || '9')).forEach(([k, p]) => {
+    const c = el('div', 'promo');
+    c.append(el('div', 't', p.title));
+    const m = el('div', 'm');
+    if (prevDay && !prevKeys.has(k)) m.append(el('span', 'pill new', 'NEW'));
+    m.append(el('span', 'pill', p.category));
+    if (p.discount) m.append(el('span', null, p.discount));
+    if (p.end) { const left = Math.round((new Date(p.end) - new Date(lastDay)) / 864e5); m.append(el('span', left <= 3 ? 'soon' : null, '~' + fmt(p.end) + (left >= 0 ? ' (D-' + left + ')' : ' (종료)'))); }
+    c.append(m);
+    const l = el('div', 'm');
+    if (p.url) { const a = el('a', null, 'LG.com에서 보기'); a.href = p.url; a.target = '_blank'; a.rel = 'noopener'; l.append(a); }
+    if (p.shot) { const a = el('a', null, '화면'); a.href = p.shot; a.onclick = e => { e.preventDefault(); openImg(p.shot); }; l.append(a); }
+    c.append(l); $('promoGrid').append(c);
+  });
+
+  // publisher LG rows today (store pages that carry a rate)
+  const STORE = k => ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'].includes(k);
+  const lgPub = caps.filter(r => r.date === lastDay && r.brand_group === 'LG' && r.brand !== 'LG Partner Store' && STORE(r.kind) && (r.rate != null || r.rate_text)).sort((a, b) => byRank(a.publisher, b.publisher));
+  const cats = [...new Set(today.map(([, p]) => p.category))];
+  const CATRE = { 'TV·AV': /\btvs?\b|home electronics|\bhe\b|sound ?bar|projector|audio/i, '모니터·PC': /monitor|laptop|gram|\bpc\b/i, '세탁': /laundry|washer|dryer/i, '냉장고': /refrigerator|fridge/i, '주방': /dishwasher|cooking|range|oven|cooktop|kitchen/i, '가전 전반': /appliance/i, '청소·공조': /vacuum|air ?care|air condition|\brac\b|purifier/i, '오디오': /audio|speaker|sound ?bar/i, '기타': /$^/ };
+  const hr = el('tr'); ['퍼블리셔', 'LG 요율·리워드', '평시 대비', '직전 대비'].forEach(h => hr.append(el('th', null, h)));
+  cats.forEach(c => hr.append(el('th', 'hide-sm', c))); $('comboHead').append(hr);
+  const prevRate = t => { const p = caps.filter(r => r.target === t && r.date < lastDay && r.rate != null).sort((a, b) => b.date.localeCompare(a.date))[0]; return p ? p.rate : null; };
+  if (!lgPub.length) { const tr = el('tr'); const td = el('td', 'empty', '오늘 LG 요율 데이터가 없습니다.'); td.colSpan = 4 + cats.length; tr.append(td); $('comboBody').append(tr); }
+  lgPub.forEach(r => {
+    const tr = el('tr'); tr.append(el('td', null, r.publisher));
+    tr.append(el('td', 'num', r.rate_text || pct(r.rate)));
+    const was = /was\s+(\d+(?:\.\d+)?)%/i.exec(r.rate_text || '');
+    tr.append(el('td', was ? 'hi' : 'mute', was ? '상향 (평시 ' + was[1] + '%)' : '표시 없음'));
+    const pv = prevRate(r.target); const d = el('td', 'num');
+    if (pv != null && r.rate != null && pv !== r.rate) d.append(el('span', r.rate > pv ? 'up' : 'dn', (r.rate > pv ? '▲' : '▼') + pct(Math.abs(r.rate - pv)) + 'p')); else d.append(el('span', 'mute', pv == null ? '비교일 없음' : '변동 없음'));
+    tr.append(d);
+    const ex = (r.exclusions || '') + ' ' + (r.categories || []).filter(c => c.rate === 0).map(c => c.label).join(' ');
+    cats.forEach(c => { const hit = CATRE[c] && CATRE[c].test(ex); tr.append(el('td', 'hide-sm ' + (hit ? 'warn' : 'up'), hit ? '⚠' : (r.exclusions ? '✓' : '—'))); });
+    $('comboBody').append(tr);
+  });
+
+  // timeline
+  const pubTargets = [...new Map(caps.filter(r => r.brand_group === 'LG' && r.brand !== 'LG Partner Store' && STORE(r.kind) && r.rate != null).map(r => [r.target, r.publisher])).entries()].sort((a, b) => byRank(a[1], b[1]));
+  const events = (plan ? plan.placements : []).filter(p => p.start && /cash ?back|flash cash|big stack|discover new stores|bonus days/i.test(p.placement) && !/email/i.test(p.placement));
+  const th = el('tr'); ['날짜', 'LG.com 프로모션'].forEach(h => th.append(el('th', null, h)));
+  pubTargets.forEach(([, p]) => th.append(el('th', null, p + ' LG')));
+  th.append(el('th', 'hide-sm', '편성 캐시백 이벤트')); $('tlHead').append(th);
+  [...dates].reverse().forEach((d, i, arr) => {
+    const tr = el('tr'); tr.append(el('td', 'num', fmt(d)));
+    const cur = promosOn[d] || new Map(); const prev = promosOn[arr[i + 1]] || null;
+    const td = el('td');
+    if (!cur.size) td.append(el('span', 'mute', '—'));
+    else {
+      td.append(el('div', null, '진행 ' + cur.size + '건'));
+      if (prev) {
+        const started = [...cur.keys()].filter(k => !prev.has(k)), ended = [...prev.keys()].filter(k => !cur.has(k));
+        if (started.length) { const ul = el('ul', 'tight'); started.forEach(k => ul.append(el('li', 'hi', '시작: ' + cur.get(k).title))); td.append(ul); }
+        if (ended.length) { const ul = el('ul', 'tight'); ended.forEach(k => ul.append(el('li', 'mute', '종료: ' + prev.get(k).title))); td.append(ul); }
+      }
+    }
+    tr.append(td);
+    pubTargets.forEach(([t]) => {
+      const r = caps.find(x => x.target === t && x.date === d);
+      const c = el('td', 'num');
+      if (!r) c.append(el('span', 'mute', '—'));
+      else { c.append(el('span', /was\s/i.test(r.rate_text || '') ? 'hi' : null, r.rate != null ? pct(r.rate) : r.status)); }
+      tr.append(c);
+    });
+    const ev = events.filter(p => p.start <= d && d <= p.end).sort((a, b) => byRank(a.publisher, b.publisher));
+    const e = el('td', 'hide-sm'); if (ev.length) { const ul = el('ul', 'tight'); ev.forEach(p => ul.append(el('li', null, p.publisher + ' · ' + p.placement))); e.append(ul); } else e.append(el('span', 'mute', '—'));
+    tr.append(e); $('tlBody').append(tr);
+  });
+  if (!dates.length) { const tr = el('tr'); tr.append(el('td', 'empty', '다음 자동 수집부터 표시됩니다.')); $('tlBody').append(tr); }
+
+  // upcoming cash back events vs current promotions
+  const active = today.map(([k, p]) => ({ ...p, start: firstSeen[k] }));
+  const upcoming = events.filter(p => !lastDay || p.end >= lastDay).sort((a, b) => a.start.localeCompare(b.start) || byRank(a.publisher, b.publisher));
+  if (!upcoming.length) { const tr = el('tr'); const td = el('td', 'empty', '편성표에 남은 캐시백 이벤트가 없습니다.'); td.colSpan = 4; tr.append(td); $('aheadBody').append(tr); }
+  upcoming.forEach(p => {
+    const tr = el('tr'); tr.append(el('td', null, p.publisher), el('td', null, p.placement), el('td', 'num', fmt(p.start) + (p.end !== p.start ? '–' + fmt(p.end) : '')));
+    const ov = active.filter(a => (!a.end || a.end >= p.start) && (!a.start || a.start <= p.end));
+    const c = el('td');
+    if (!ov.length) c.append(el('span', 'warn', today.length ? '겹치는 프로모션 없음 (현재 기준)' : '프로모션 데이터 수집 전'));
+    else { const ul = el('ul', 'tight'); ov.forEach(a => ul.append(el('li', null, a.title + (a.end ? ' (~' + fmt(a.end) + ')' : '')))); c.append(ul); }
+    tr.append(c); $('aheadBody').append(tr);
+  });
+})();
+</script>
+</body>
+</html>

@@ -28,6 +28,8 @@
 | `plans/YYYY-MM.txt` | 월별 편성표 — 매칭용 필드만(퍼블리셔·기간·지면명·OBS/PS·카테고리·오퍼 문구). 비용·성과 열은 넣지 않음 |
 | `scripts/import_plan.py` | 편성표 → `site/data/placements.json` 변환 + 지면별 확인 방식 분류 |
 | `site/placements.html` | 편성 지면 관측 메뉴 |
+| `site/lgcom.html` | LG.com/us 프로모션 × 퍼블리셔 LG 캐시백 비교 메뉴 |
+| `site/data/publisher_rank.json` | 퍼블리셔 정렬 순서(판매 실적 순위만, 금액 없음) |
 
 ## 대상 추가·수정
 `targets.json`에 한 줄을 넣고 Actions › daily-capture › Run workflow로 바로 실행하면 됩니다.

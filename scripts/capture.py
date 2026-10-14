@@ -164,6 +164,58 @@ def mentions(t):
     return out
 
 
+PROMO_JS = r"""
+() => {
+  const out = [], seen = new Set();
+  const valid = /(valid|ends?|through|thru|offer ends)[^0-9]{0,20}(\d{1,2}\/\d{1,2}(?:\/\d{2,4})?)/i;
+  for (const a of document.querySelectorAll('a[href*="/promotions/"], a[href*="-deal"], a[href*="-sale"], a[href*="savings"]')) {
+    let box = a, txt = '';
+    for (let i = 0; i < 5 && box; i++, box = box.parentElement) {
+      txt = (box.innerText || '').replace(/\s+/g, ' ').trim();
+      if (valid.test(txt) && txt.length < 700) break;
+    }
+    if (!txt || !valid.test(txt) || txt.length >= 700) continue;
+    const href = a.href.split('?')[0];
+    if (seen.has(href)) continue;
+    seen.add(href);
+    out.push({ text: txt, href });
+  }
+  return out.slice(0, 30);
+}
+"""
+
+PROMO_CATS = [("TV·AV", r"\bTVs?\b|OLED|QNED|sound ?bar|projector|home theater|StanbyME"),
+              ("모니터·PC", r"monitor|laptop|gram|UltraGear|workspace"),
+              ("세탁", r"wash|dryer|laundry|WashTower|Styler"),
+              ("냉장고", r"refrigerator|fridge|InstaView|freezer"),
+              ("주방", r"range|oven|cooktop|microwave|dishwasher|kitchen|cooking"),
+              ("가전 전반", r"appliance"),
+              ("청소·공조", r"vacuum|CordZero|air ?condition|purifier|dehumid"),
+              ("오디오", r"speaker|earbud|xboom|audio")]
+
+
+def extract_lg_promos(page):
+    """Promotion cards on LG.com: headline, discount, 'valid through' date, link."""
+    try:
+        raw = page.evaluate(PROMO_JS)
+    except Exception:
+        return []
+    out = []
+    for c in raw:
+        t = c["text"]
+        m = re.search(r"(?:valid|ends?|through|thru|offer ends)[^0-9]{0,20}(\d{1,2}/\d{1,2}(?:/\d{2,4})?)", t, re.I)
+        title = re.split(r"(?i)\b(?:valid|ends?|offer ends)\b", t)[0].strip(" .:-|")
+        title = re.sub(r"(?i)^(shop now|learn more|see details)\s*", "", title)
+        if len(title) > 160:
+            title = title[:159] + "…"
+        disc = re.search(r"(?i)((?:save |up to |extra |an extra )*(?:\$[\d,]+|\d{1,2}(?:\s*-\s*\d{1,2})?%)(?:\s*off)?)", t)
+        cats = [name for name, pat in PROMO_CATS if re.search(pat, t, re.I)]
+        out.append({"title": title or short(t, 120), "valid": m.group(1) if m else None,
+                    "discount": disc.group(1) if disc else None,
+                    "category": cats[0] if cats else "기타", "url": c["href"]})
+    return out
+
+
 def lg_snippets(t, limit=6):
     """Short text around each LG mention — the evidence shown next to a placement."""
     out = []
@@ -194,6 +246,8 @@ def classify(tg, title, t, http_status, rate, rate_text, final_url):
         return "로그인 입구만", "공개 소개·로그인 화면까지만 확인. 회원 전용 혜택은 수집하지 않음"
     if tg["parser"] in ("rakuten", "tcb", "capone", "befrugal", "idme") and rate is None:
         return "요율 미확인", "화면은 저장됨 — 요율 문구를 찾지 못함"
+    if tg["parser"] == "lgpromo" and rate_text is None:
+        return "요율 미확인", "화면은 저장됨 — 프로모션 문구를 찾지 못함"
     if tg["parser"] == "offers" and rate_text is None:
         return "요율 미확인", "화면은 저장됨 — 오퍼 수를 찾지 못함"
     return "수집", ""
@@ -244,8 +298,8 @@ def capture_one(ctx, tg, day):
         text = page.inner_text("body", timeout=10000)
         t = squash(text)
         rel = f"shots/{day}/{tg['id']}.jpg"
-        if tg["parser"] == "slots":
-            # placement pages: scroll once so lazy tiles render, then keep the top 3,600px
+        if tg["parser"] in ("slots", "lgpromo"):
+            # placement / promotion pages: scroll once so lazy tiles render, then keep the top 3,600px
             page.mouse.wheel(0, 3000)
             page.wait_for_timeout(1500)
             page.mouse.wheel(0, -3000)
@@ -260,9 +314,13 @@ def capture_one(ctx, tg, day):
 
         rate = rate_text = offers = None
         cats, excl = [], None
-        if tg["parser"] == "offers":
+        promos = []
+        if tg["parser"] == "lgpromo":
+            promos = extract_lg_promos(page)
+            rate_text = f"프로모션 {len(promos)}건" if promos else None
+        elif tg["parser"] == "offers":
             rate, rate_text, offers = parse_offers(t)
-        elif tg["parser"] != "mentions":
+        elif tg["parser"] not in ("mentions", "slots"):
             rate, rate_text = parse_rate(tg["parser"], t)
             cats, excl = parse_terms(tg["parser"], t, tg.get("brand") or "")
             if tg["parser"] == "idme" and cats:
@@ -271,10 +329,11 @@ def capture_one(ctx, tg, day):
         ok = st in ("수집", "요율 미확인", "로그인 입구만")
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
+                   promos=promos if ok else [],
                    mentions=mentions(t) if st in ("수집", "요율 미확인") else {},
                    lg_snippets=lg_snippets(t) if tg["parser"] == "slots" and st == "수집" else [],
                    status=st, reason=why, shot=rel, final_url=page.url, http=http, title=short(title, 120),
-                   sig=fp(rate_text, cats, excl, offers) if ok else None,
+                   sig=fp(rate_text, cats, excl, offers, [(p["title"], p["valid"]) for p in promos]) if ok else None,
                    body_hash=fp(t) if ok else None)
     except Exception as e:  # timeout, DNS, crash
         row.update(rate=None, rate_text=None, offers=None, categories=[], exclusions=None, mentions={},

@@ -658,5 +658,49 @@
   "parser": "slots",
   "access": "public",
   "enabled": true
+ },
+ {
+  "id": "lgcom-promotions",
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 프로모션",
+  "url": "https://www.lg.com/us/promotions",
+  "parser": "lgpromo",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "lgcom-tv-deals",
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 프로모션",
+  "url": "https://www.lg.com/us/promotions/tv-sale-deals",
+  "parser": "lgpromo",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "lgcom-appliance-deals",
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 프로모션",
+  "url": "https://www.lg.com/us/promotions/top-appliance-deals",
+  "parser": "lgpromo",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "lgcom-monitor-laptop-deals",
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 프로모션",
+  "url": "https://www.lg.com/us/promotions/best-selling-laptops-monitors",
+  "parser": "lgpromo",
+  "access": "public",
+  "enabled": true
  }
 ]

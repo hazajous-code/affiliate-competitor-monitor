@@ -1,0 +1,160 @@
+{
+ "basis": "CJ 퍼블리셔 리포트 2026년 1~8월 판매 실적(HS+MS) 기준 순위. 금액은 싣지 않음. tvScientific·Audiohook은 모니터링 대상이 아니어서 제외.",
+ "order": [
+  {
+   "rank": 1,
+   "name": "Rakuten",
+   "match": "rakuten|ebates"
+  },
+  {
+   "rank": 2,
+   "name": "Capital One",
+   "match": "capital ?one"
+  },
+  {
+   "rank": 3,
+   "name": "ID.me",
+   "match": "id\\.me"
+  },
+  {
+   "rank": 4,
+   "name": "Next Jump",
+   "match": "next ?jump"
+  },
+  {
+   "rank": 5,
+   "name": "TopCashback",
+   "match": "topcashback"
+  },
+  {
+   "rank": 6,
+   "name": "RetailMeNot",
+   "match": "retailmenot"
+  },
+  {
+   "rank": 7,
+   "name": "PerkSpot",
+   "match": "perkspot"
+  },
+  {
+   "rank": 8,
+   "name": "EBG",
+   "match": "^ebg|beneplace"
+  },
+  {
+   "rank": 9,
+   "name": "Wickfire",
+   "match": "wickfire"
+  },
+  {
+   "rank": 10,
+   "name": "Cartera",
+   "match": "cartera"
+  },
+  {
+   "rank": 11,
+   "name": "Affirm",
+   "match": "affirm"
+  },
+  {
+   "rank": 12,
+   "name": "PayPal",
+   "match": "paypal"
+  },
+  {
+   "rank": 13,
+   "name": "GovX",
+   "match": "govx"
+  },
+  {
+   "rank": 14,
+   "name": "Consumer Reports",
+   "match": "consumer reports"
+  },
+  {
+   "rank": 15,
+   "name": "BenefitHub",
+   "match": "benefithub"
+  },
+  {
+   "rank": 16,
+   "name": "Passport",
+   "match": "passport"
+  },
+  {
+   "rank": 17,
+   "name": "Microsoft Shopping",
+   "match": "microsoft"
+  },
+  {
+   "rank": 18,
+   "name": "WIRED",
+   "match": "wired|cond[eé] nast"
+  },
+  {
+   "rank": 19,
+   "name": "digidip",
+   "match": "digidip"
+  },
+  {
+   "rank": 20,
+   "name": "Wildfire",
+   "match": "wildfire"
+  },
+  {
+   "rank": 21,
+   "name": "YouDecide",
+   "match": "youdecide"
+  },
+  {
+   "rank": 22,
+   "name": "Slickdeals",
+   "match": "slickdeals"
+  },
+  {
+   "rank": 23,
+   "name": "Reward Gateway",
+   "match": "reward gateway"
+  },
+  {
+   "rank": 24,
+   "name": "Savings.com",
+   "match": "savings\\.com"
+  },
+  {
+   "rank": 25,
+   "name": "Life Balance",
+   "match": "life ?balance"
+  },
+  {
+   "rank": 26,
+   "name": "Future Publishing",
+   "match": "future publishing|techradar|tom'?s ?guide"
+  },
+  {
+   "rank": 27,
+   "name": "RTINGS",
+   "match": "rtings"
+  },
+  {
+   "rank": 28,
+   "name": "BeFrugal",
+   "match": "befrugal"
+  },
+  {
+   "rank": 29,
+   "name": "RebatesMe",
+   "match": "rebatesme"
+  },
+  {
+   "rank": 30,
+   "name": "Brad's Deals",
+   "match": "brad'?s deals"
+  },
+  {
+   "rank": 31,
+   "name": "DealNews",
+   "match": "dealnews"
+  }
+ ]
+}

@@ -54,7 +54,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 </head>
 <body>
 <div class="wrap">
-  <nav class="menu"><a href="./">경쟁사 지면 모니터</a><a href="placements.html" class="on">편성 지면 관측</a></nav>
+  <nav class="menu"><a href="./">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="placements.html" class="on">편성 지면 관측</a></nav>
   <header>
     <h1>편성 지면 관측</h1>
     <p class="lede" id="lede">월별 편성표의 지면이 실제 공개 화면에 보였는지 매일 수집 결과와 대조합니다.</p>
@@ -65,7 +65,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 
   <section class="card" id="list">
     <h2>지면별 관측 결과</h2>
-    <p class="note">기간 중 수집한 날마다 LG가 해당 지면 페이지에 보였는지 표시합니다. 요율형(캐시백 이벤트)은 LG 상점 요율이 평시보다 올랐는지로 판단합니다.</p>
+    <p class="note">퍼블리셔는 판매 실적 순으로 정렬합니다. 기간 중 수집한 날마다 LG가 해당 지면 페이지에 보였는지 표시합니다. 요율형(캐시백 이벤트)은 LG 상점 요율이 평시보다 올랐는지로 판단합니다.</p>
     <div class="legend"><span><i class="dot hit"></i>관측</span><span><i class="dot miss"></i>수집했지만 미관측</span><span><i class="dot fail"></i>수집 실패</span><span><i class="dot"></i>수집 없음(모니터링 전·예정)</span></div>
     <div class="controls">
       <select id="fPub"><option value="">전체 퍼블리셔</option></select>
@@ -96,8 +96,10 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 </div>
 <dialog id="dlg"><img id="dlgImg" alt=""></dialog>
 
+<script src="rank.js"></script>
 <script>
 (async function(){
+  const { rankOf, byRank } = await loadRank();
   const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
   const [plan, caps0, runs] = await Promise.all([get('data/placements.json'), get('data/captures.json'), get('data/runs.json')]);
   const $ = id => document.getElementById(id);
@@ -173,13 +175,13 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   tile('검증 불가', results.filter(r => r.res === '검증 불가').length, '이메일·앱·로그인 지면');
 
   // filters
-  [...new Set(P.map(p => p.publisher))].sort().forEach(x => $('fPub').append(el('option', null, x)));
+  [...new Set(P.map(p => p.publisher))].sort(byRank).forEach(x => $('fPub').append(el('option', null, x)));
   [...new Set(results.map(r => r.res))].forEach(x => $('fRes').append(el('option', null, x)));
   const order = { '관측됨': 0, '미관측': 1, '미관측 (타기팅·순환 가능)': 2, '수집 실패': 3, '예정': 4, '수집 대기': 4, '모니터링 시작 전': 5, '일정 미정': 6, '검증 불가': 7, '지면 아님': 8 };
   function draw() {
     const b = $('body'); b.textContent = '';
     const list = results.filter(r => (!$('fPub').value || r.p.publisher === $('fPub').value) && (!$('fMethod').value || r.p.method === $('fMethod').value) && (!$('fRes').value || r.res === $('fRes').value) && (!$('fWhen').value || r.when === $('fWhen').value))
-      .sort((a, b) => order[a.res] - order[b.res] || (a.p.start || '9').localeCompare(b.p.start || '9') || a.p.publisher.localeCompare(b.p.publisher));
+      .sort((a, b) => byRank(a.p.publisher, b.p.publisher) || order[a.res] - order[b.res] || (a.p.start || '9').localeCompare(b.p.start || '9'));
     if (!list.length) { const tr = el('tr'); const td = el('td', 'empty', '조건에 맞는 지면이 없습니다.'); td.colSpan = 8; tr.append(td); b.append(tr); return; }
     list.forEach(r => {
       const p = r.p, tr = el('tr');
@@ -213,7 +215,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   // today's slot pages
   const slotRows = caps.filter(r => r.date === lastDay && r.brand_group === '지면');
   if (!slotRows.length) $('slotBody').append(el('div', 'empty', '다음 자동 수집부터 표시됩니다.'));
-  slotRows.forEach(r => {
+  slotRows.sort((a, b) => byRank(a.publisher, b.publisher)).forEach(r => {
     const c = el('div', 'slot'); c.append(el('h3', null, r.publisher + ' · ' + r.target.replace(/^[a-z]+-/, '')));
     const st = el('div', OK(r.status) ? (r.lg_snippets && r.lg_snippets.length ? 'r-hit' : 'r-miss') : 'r-fail', OK(r.status) ? (r.lg_snippets && r.lg_snippets.length ? 'LG 언급 ' + (r.mentions.LG || r.lg_snippets.length) + '회' : 'LG 언급 없음') : r.status + (r.reason ? ' — ' + r.reason : ''));
     c.append(st);

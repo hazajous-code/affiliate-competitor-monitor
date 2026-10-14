@@ -67,7 +67,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 </head>
 <body>
 <div class="wrap">
-  <nav class="menu"><a href="./" class="on">경쟁사 지면 모니터</a><a href="placements.html">편성 지면 관측</a></nav>
+  <nav class="menu"><a href="./" class="on">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="placements.html">편성 지면 관측</a></nav>
   <header>
     <h1>어필리에이트 경쟁사 지면 모니터</h1>
     <p class="lede" id="lede">미국 어필리에이트 퍼블리셔 지면에 노출되는 LG와 가전 경쟁사의 캐시백·리워드 요율, 쿠폰, 브랜드 노출을 매일 캡처합니다.</p>
@@ -87,6 +87,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   <section class="card" id="rates">
     <h2>퍼블리셔별 요율 비교</h2>
     <p class="note" id="ratesNote"></p>
+    <p class="note">퍼블리셔는 모든 표에서 판매 실적 순(CJ 리포트 2026년 1~8월 기준 순위)으로 정렬됩니다.</p>
     <div class="legend"><span><i style="background:var(--lg)"></i>LG</span><span><i style="background:var(--comp)"></i>가전 경쟁사</span><span><i style="background:var(--retail)"></i>유통(참고)</span></div>
     <div id="rateChart"></div>
   </section>
@@ -145,8 +146,10 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 </div>
 <dialog id="dlg"><img id="dlgImg" alt=""></dialog>
 
+<script src="rank.js"></script>
 <script>
 (async function(){
+  const { rankOf, byRank } = await loadRank();
   const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
   const [caps0, runs, cov] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/coverage.json')]);
   const caps = caps0 || [];
@@ -162,7 +165,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   const prevDay = dates[dates.length - 2];
   const cur = caps.filter(r => r.date === day);
   const prevBy = Object.fromEntries(caps.filter(r => r.date === prevDay && r.rate != null).map(r => [r.target, r.rate]));
-  const vr = runs && runs.results && runs.results.length ? runs.results : cur;
+  const vr = (runs && runs.results && runs.results.length ? runs.results : cur).slice().sort((a, b) => byRank(a.publisher, b.publisher));
   function openImg(src) { $('dlgImg').src = src; $('dlg').showModal(); }
   $('dlg').onclick = () => $('dlg').close();
 
@@ -219,7 +222,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   $('ratesNote').textContent = day + ' 기준. 화살표는 직전 수집일' + (prevDay ? '(' + prevDay + ')' : '') + ' 대비 변화. "Up to"는 최대치, 유통은 참고용. ID.me는 자격 인증 회원 대상 캐시백입니다.';
   const max = Math.max(1, ...rated.map(r => r.rate));
   const order = { LG: 0, '경쟁사': 1, '유통': 2 };
-  const pubs = [...new Set(rated.map(r => r.publisher))];
+  const pubs = [...new Set(rated.map(r => r.publisher))].sort(byRank);
   pubs.forEach(p => {
     const box = el('div', 'pub'); box.append(el('h3', null, p));
     rated.filter(r => r.publisher === p).sort((a, b) => order[a.brand_group] - order[b.brand_group] || b.rate - a.rate).forEach(r => {
@@ -237,7 +240,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   // terms
   const termRows = cur.filter(r => (r.categories && r.categories.length) || r.exclusions);
   if (!termRows.length) { const tr = el('tr'); const td = el('td', 'empty', '다음 자동 수집부터 표시됩니다.'); td.colSpan = 5; tr.append(td); $('termsBody').append(tr); }
-  termRows.sort((a, b) => a.publisher.localeCompare(b.publisher) || order[a.brand_group] - order[b.brand_group]).forEach(r => {
+  termRows.sort((a, b) => byRank(a.publisher, b.publisher) || order[a.brand_group] - order[b.brand_group]).forEach(r => {
     const tr = el('tr'); tr.append(el('td', null, r.publisher), el('td', r.brand_group === 'LG' ? 'lgtag' : null, r.brand), el('td', 'num', r.rate_text || '—'));
     const c = el('td'); if (r.categories && r.categories.length) { const ul = el('ul', 'cats'); r.categories.forEach(x => ul.append(el('li', null, x.label + ' — ' + (x.kind === 'discount' ? '최대 ' + x.rate + '% 할인' : pct(x.rate))))); c.append(ul); } else c.textContent = '—';
     const e = el('td', 'hide-sm'); if (r.exclusions) { const d = el('details'); d.append(el('summary', null, r.exclusions.slice(0, 60) + (r.exclusions.length > 60 ? '…' : '')), el('div', null, r.exclusions)); e.append(d); } else e.textContent = '—';
@@ -252,7 +255,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   brands.forEach(b => hr.append(el('th', 'b' + (b === 'LG' ? ' lgcol' : ''), b))); $('mxHead').append(hr);
   const mmax = Math.max(1, ...mxRows.flatMap(r => Object.values(r.mentions)));
   if (!mxRows.length) { const tr = el('tr'); const td = el('td', 'empty', '다음 자동 수집부터 표시됩니다.'); td.colSpan = 2; tr.append(td); $('mxBody').append(tr); }
-  mxRows.sort((a, b) => a.publisher.localeCompare(b.publisher)).forEach(r => {
+  mxRows.sort((a, b) => byRank(a.publisher, b.publisher)).forEach(r => {
     const tr = el('tr'); const nm = el('td'); nm.append(r.publisher + ' ', el('span', 's-mute', r.brand)); tr.append(nm);
     brands.forEach(b => {
       const n = r.mentions[b]; const td = el('td', 'h' + (b === 'LG' ? ' lgcol' : ''), n ? String(n) : '');
@@ -308,10 +311,10 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   if (!sDates.length) $('gDate').append(el('option', null, '스크린샷 없음'));
   sDates.forEach(d => $('gDate').append(el('option', null, d)));
   $('gPub').append(el('option', null, '전체 퍼블리셔')); $('gPub').options[0].value = '';
-  [...new Set(shots.map(r => r.publisher))].sort().forEach(p => $('gPub').append(el('option', null, p)));
+  [...new Set(shots.map(r => r.publisher))].sort(byRank).forEach(p => $('gPub').append(el('option', null, p)));
   const drawGal = () => {
     const g = $('gal'); g.textContent = '';
-    const list = shots.filter(r => r.date === $('gDate').value && (!$('gPub').value || r.publisher === $('gPub').value) && (!$('gGroup').value || r.brand_group === $('gGroup').value));
+    const list = shots.slice().sort((a, b) => byRank(a.publisher, b.publisher)).filter(r => r.date === $('gDate').value && (!$('gPub').value || r.publisher === $('gPub').value) && (!$('gGroup').value || r.brand_group === $('gGroup').value));
     if (!list.length) { g.append(el('div', 'empty', '해당 조건의 화면이 없습니다.')); return; }
     list.forEach(r => {
       const c = el('div', 'shot'); const im = el('img'); im.loading = 'lazy'; im.src = r.shot; im.alt = r.publisher + ' ' + r.brand; im.onclick = () => openImg(r.shot);
@@ -323,7 +326,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   ['gDate', 'gPub', 'gGroup'].forEach(i => $(i).onchange = drawGal); drawGal();
 
   // coverage
-  (cov || []).forEach(c => {
+  (cov || []).slice().sort((a, b) => byRank(a.publisher, b.publisher)).forEach(c => {
     const tr = el('tr'); tr.append(el('td', null, c.publisher), el('td', 'hide-sm', c.type));
     tr.append(el('td', c.status.startsWith('자동') ? 's-ok' : c.status.includes('로그인') ? 's-warn' : 's-mute', c.status));
     const mine = vr.filter(r => r.publisher === c.publisher);
