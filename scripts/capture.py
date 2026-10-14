@@ -204,8 +204,10 @@ def extract_lg_promos(page):
     for c in raw:
         t = c["text"]
         m = re.search(r"(?:valid|ends?|through|thru|offer ends)[^0-9]{0,20}(\d{1,2}/\d{1,2}(?:/\d{2,4})?)", t, re.I)
-        title = re.split(r"(?i)\b(?:valid|ends?|offer ends)\b", t)[0].strip(" .:-|")
-        title = re.sub(r"(?i)^(shop now|learn more|see details)\s*", "", title)
+        body = re.sub(r"(?i)(?:valid|offer ends|ends)\s*(?:through|thru)?\s*:?\s*\d{1,2}/\d{1,2}(?:/\d{2,4})?\.?", " ", t)
+        title = re.split(r"(?i)\s(?:shop now|learn more|see details|shop deals?)\b", " " + body.strip())[0].strip(" .:-|*")
+        if not title:
+            title = body.strip()
         if len(title) > 160:
             title = title[:159] + "…"
         disc = re.search(r"(?i)((?:save |up to |extra |an extra )*(?:\$[\d,]+|\d{1,2}(?:\s*-\s*\d{1,2})?%)(?:\s*off)?)", t)
@@ -246,7 +248,7 @@ def classify(tg, title, t, http_status, rate, rate_text, final_url):
         return "로그인 입구만", "공개 소개·로그인 화면까지만 확인. 회원 전용 혜택은 수집하지 않음"
     if tg["parser"] in ("rakuten", "tcb", "capone", "befrugal", "idme") and rate is None:
         return "요율 미확인", "화면은 저장됨 — 요율 문구를 찾지 못함"
-    if tg["parser"] == "lgpromo" and rate_text is None:
+    if tg["parser"] == "lgpromo" and rate_text is None and not tg.get("promo_optional"):
         return "요율 미확인", "화면은 저장됨 — 프로모션 문구를 찾지 못함"
     if tg["parser"] == "offers" and rate_text is None:
         return "요율 미확인", "화면은 저장됨 — 오퍼 수를 찾지 못함"
