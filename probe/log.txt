@@ -1,0 +1,6 @@
+country: US
+수집       samsungcom-offers                  프로모션 5건
+수집       samsungcom-week                    프로모션 9건
+수집       samsungcom-tv-offers               프로모션 8건
+수집       samsungcom-appliance-offers        프로모션 7건
+수집       samsungcom-monitor-offers          프로모션 7건

@@ -1,0 +1,429 @@
+[
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/",
+  "date": "2026-10-14",
+  "target": "samsungcom-appliance-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-14T22:43-04:00",
+  "rate": null,
+  "rate_text": "프로모션 7건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Get your home holiday ready with fall savings Save up to $1,500 on appliances. Plus, get a 2-year warranty on us and pay your way for up to 24 months at 0% APR",
+    "valid": null,
+    "discount": "Save up to $1,500",
+    "category": "가전 전반",
+    "url": "https://www.samsung.com/us/refrigerators/all-refrigerators/"
+   },
+   {
+    "title": "Shop now - Save up to an extra $1,000r",
+    "valid": null,
+    "discount": "Save up to an extra $1,000",
+    "category": "가전 전반",
+    "url": "https://www.samsung.com/us/shop/buy-more-save-more-offer/"
+   },
+   {
+    "title": "Shop now - Get a Circulon® Induction Cookware set on us*",
+    "valid": null,
+    "discount": null,
+    "category": "가전 전반",
+    "url": "https://www.samsung.com/us/cooking-appliances/all-cooking-appliances/"
+   },
+   {
+    "title": "Shop now - Save an extra $169 on select cooktops",
+    "valid": null,
+    "discount": "Save an extra $169",
+    "category": "주방",
+    "url": "https://www.samsung.com/us/cooking-appliances/cooktops/"
+   },
+   {
+    "title": "Shop now - Save an extra $199.99 on select wall ovens",
+    "valid": null,
+    "discount": "Save an extra $199.99",
+    "category": "주방",
+    "url": "https://www.samsung.com/us/cooking-appliances/wall-ovens/"
+   },
+   {
+    "title": "Shop now - Save an extra $99 on select dishwashers",
+    "valid": null,
+    "discount": "Save an extra $99",
+    "category": "세탁",
+    "url": "https://www.samsung.com/us/dishwashers/all-dishwashers/"
+   },
+   {
+    "title": "For students & educators Save on gear for teachers, students, administrators and other educators",
+    "valid": null,
+    "discount": null,
+    "category": "가전 전반",
+    "url": "https://www.samsung.com/us/shop/offer-program/education/"
+   }
+  ],
+  "mentions": {
+   "Samsung": 21
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-14/samsungcom-appliance-offers.jpg",
+  "final_url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/",
+  "http": 200,
+  "title": "Appliance Deals and Offers | Samsung US",
+  "sig": "9ec478c85f7a",
+  "body_hash": "b453d51fc8a5",
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/",
+  "date": "2026-10-14",
+  "target": "samsungcom-monitor-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-14T22:43-04:00",
+  "rate": null,
+  "rate_text": "프로모션 7건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Exclusive Upgrade Credit Enter the Next Phase of Gaming",
+    "valid": null,
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/#exclusive-upgrade-credit"
+   },
+   {
+    "title": "Special Savings Enter the Next Phase of Gaming. Get an extra 10% off, just for you",
+    "valid": null,
+    "discount": "Get an extra 10% off",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/offer/6k-monitor-promo/"
+   },
+   {
+    "title": "Buy One Get One Elevate your gaming experience Get more space to play with a 24 Essential Monitor S3 S36GD on us with select Gaming Monitors",
+    "valid": "10/18/26",
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/monitors/all-monitors/"
+   },
+   {
+    "title": "Buy more and save Make more room to multitask Get 10% off when you buy two or more eligible monitors",
+    "valid": "10/18/26",
+    "discount": "Get 10% off",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/monitors/all-monitors/"
+   },
+   {
+    "title": "Learn More - Explore The Movingstyle monitors and save 10%",
+    "valid": null,
+    "discount": "save 10%",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/movingstyle/"
+   },
+   {
+    "title": "Learn more - Earn $200 back",
+    "valid": null,
+    "discount": "$200 back",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/samsung-card"
+   },
+   {
+    "title": "Gaming Monitors Buy more and save",
+    "valid": null,
+    "discount": null,
+    "category": "모니터·PC",
+    "url": null
+   }
+  ],
+  "mentions": {
+   "Samsung": 26
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-14/samsungcom-monitor-offers.jpg",
+  "final_url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/",
+  "http": 200,
+  "title": "Monitor, Memory & Storage Device Deals | Samsung US",
+  "sig": "2931b9236cf5",
+  "body_hash": "63975fce7686",
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 프로모션",
+  "url": "https://www.samsung.com/us/offer/",
+  "date": "2026-10-14",
+  "target": "samsungcom-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-14T22:41-04:00",
+  "rate": null,
+  "rate_text": "프로모션 5건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Power what you love with Galaxy Tab S12 Ultra. Get up to $1,095 in total savings.Buy now",
+    "valid": null,
+    "discount": "Get up to $1,095",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/tablets/galaxy-tab-s12/buy/"
+   },
+   {
+    "title": "Trade in and trade up Trade in your old devices for instant credit towards the latest Samsung products",
+    "valid": null,
+    "discount": null,
+    "category": "기타",
+    "url": "https://www.samsung.com/us/trade-in/"
+   },
+   {
+    "title": "Save with Samsung Offer Programs Save up to 30% off with exclusive offers for students, teachers, government, military and corporate employees. You could be el…",
+    "valid": null,
+    "discount": "Save up to 30% off",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/shop/offer-program/workplace/"
+   },
+   {
+    "title": "The best carrier deals Unfold a new Galaxy experience and save up to $1,900",
+    "valid": null,
+    "discount": "save up to $1,900",
+    "category": "기타",
+    "url": "https://www.samsung.com/us/offer/carrier/"
+   },
+   {
+    "title": "Galaxy Watch Ultra2 Get up to $250 instant trade-in credit or $100 credit without trade-in.",
+    "valid": null,
+    "discount": "Get up to $250",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/watches/galaxy-watch-ultra2/buy/"
+   }
+  ],
+  "mentions": {
+   "Samsung": 58
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-14/samsungcom-offers.jpg",
+  "final_url": "https://www.samsung.com/us/offer/",
+  "http": 200,
+  "title": "Limited-Time Offers & Everyday Savings on Essentials | Samsung US",
+  "sig": "db8f31634285",
+  "body_hash": "0c8f1d905ccd",
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/tv-and-home-theater-offers/",
+  "date": "2026-10-14",
+  "target": "samsungcom-tv-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-14T22:42-04:00",
+  "rate": null,
+  "rate_text": "프로모션 8건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Unlock your exclusive extra 10% off",
+    "valid": null,
+    "discount": "extra 10% off",
+    "category": "TV·AV",
+    "url": "https://samsung.attn.tv/p/bUQ/landing-page"
+   },
+   {
+    "title": "An extra 10% off, just for you Mute the commentary and unlock the colors of game day like never before.C",
+    "valid": null,
+    "discount": "An extra 10% off",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/sports-tv/"
+   },
+   {
+    "title": "Your team’s colors never looked better Unlock an extra 10% off select Micro RGB TVs and experience the colors of game day like never before",
+    "valid": null,
+    "discount": "an extra 10% off",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/micro-rgb-tv/highlights/"
+   },
+   {
+    "title": "Earn $200 back On top of other offers, you can earn $200 in bonus cash rewards with qualifying activity and 5% cash rewards on your purchase with Samsung Galax…",
+    "valid": null,
+    "discount": "$200 back",
+    "category": "결제·금융",
+    "url": "https://www.samsung.com/us/samsung-card/"
+   },
+   {
+    "title": "Earn an extra 10% off",
+    "valid": null,
+    "discount": "an extra 10% off",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/vision-ai-tv/"
+   },
+   {
+    "title": "Get an extra 10% off Enhance your TV sound experience with Q-Symphony soundbars",
+    "valid": null,
+    "discount": "Get an extra 10% off",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/home-theater/soundbars-and-home-audio/"
+   },
+   {
+    "title": "Sports TVs Micro RGB TVs Samsung Galaxy Card Samsung Week Vision AI An extra 10% off",
+    "valid": null,
+    "discount": "An extra 10% off",
+    "category": "TV·AV",
+    "url": null
+   },
+   {
+    "title": "Cheer like a student,",
+    "valid": null,
+    "discount": "Save up to $1,000",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/micro-rgb/85-inch-micro-rgb-4k-tv-r95h-sku-mrn85r95hafxza/"
+   }
+  ],
+  "mentions": {
+   "Samsung": 28
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-14/samsungcom-tv-offers.jpg",
+  "final_url": "https://www.samsung.com/us/shop/tv-and-home-theater-offers/",
+  "http": 200,
+  "title": "TVs & Audio Devices Deals | Samsung US",
+  "sig": "be3d4211acf5",
+  "body_hash": "c59b4611e2f6",
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 이벤트",
+  "url": "https://www.samsung.com/us/offer/samsung-week/",
+  "date": "2026-10-14",
+  "target": "samsungcom-week",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-14T22:42-04:00",
+  "rate": null,
+  "rate_text": "프로모션 9건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Galaxy Watch Ultra2 & Watch9: Enjoy 60 days of Strava or 2 months of iFIT free",
+    "valid": null,
+    "discount": null,
+    "category": "모바일",
+    "url": null
+   },
+   {
+    "title": "Learn more - Earn 5% back on Samsung Week purchases",
+    "valid": null,
+    "discount": "5% back",
+    "category": "기타",
+    "url": "https://www.samsung.com/us/samsung-card"
+   },
+   {
+    "title": "Samsung Galaxy Card Pay with Samsung Galaxy Card on samsung.com and earn 5% cash rewards on eligible purchases. Terms apply",
+    "valid": null,
+    "discount": "5% cash rewards",
+    "category": "결제·금융",
+    "url": "https://www.samsung.com/us/samsung-card/"
+   },
+   {
+    "title": "Pay with Samsung Galaxy Card Earn 5% cash rewards on eligible purchases directly with Samsung, with $0 annual fee. Terms apply",
+    "valid": null,
+    "discount": "5% cash rewards",
+    "category": "결제·금융",
+    "url": "https://www.samsung.com/us/samsung-card"
+   },
+   {
+    "title": "Save $100 with PayPal Get an extra $100 off Galaxy Tab S12 Series when you pay with PayPal and use code PYPL100 at checkout",
+    "valid": null,
+    "discount": "Save $100",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/tablets/galaxy-tab-s12/buy/"
+   },
+   {
+    "title": "Interest-free payments Spread the cost with 0% interest for 12 up to 24 months with Samsung Finance",
+    "valid": null,
+    "discount": "0%",
+    "category": "결제·금융",
+    "url": "https://www.samsung.com/us/financing/"
+   },
+   {
+    "title": "Save $100 with PayPal",
+    "valid": null,
+    "discount": "Save $100",
+    "category": "결제·금융",
+    "url": null
+   },
+   {
+    "title": "You may qualify for up to 30% off in Samsung Offer Program",
+    "valid": null,
+    "discount": "up to 30% off",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/shop/offer-program/"
+   },
+   {
+    "title": "Pay with Samsung Galaxy Card on samsung.com and earn 5% cash rewards on eligible purchases. Terms apply",
+    "valid": null,
+    "discount": "5% cash rewards",
+    "category": "결제·금융",
+    "url": "https://www.samsung.com/us/"
+   }
+  ],
+  "mentions": {
+   "Samsung": 73
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-14/samsungcom-week.jpg",
+  "final_url": "https://www.samsung.com/us/offer/samsung-week/",
+  "http": 200,
+  "title": "Samsung Week 2026 | Deals & Offers | Samsung USA",
+  "sig": "2e27233c0ba2",
+  "body_hash": "1b4b07ffa8a0",
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ }
+]
