@@ -1,6 +1,6 @@
 {
  "run_at": "2026-10-14T05:18-04:00",
- "partial_at": "2026-10-15T03:40-04:00",
+ "partial_at": "2026-10-15T04:16-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
@@ -2535,7 +2535,7 @@
    "date": "2026-10-15",
    "target": "samsungcom-offers",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-15T03:40-04:00",
+   "captured_at": "2026-10-15T04:16-04:00",
    "rate": null,
    "rate_text": "프로모션 5건",
    "offers": null,
