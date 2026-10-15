@@ -705,5 +705,67 @@
   "access": "public",
   "enabled": true,
   "promo_optional": true
+ },
+ {
+  "id": "samsungcom-offers",
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "parser": "sspromo",
+  "access": "public",
+  "enabled": true,
+  "kind": "Samsung.com 프로모션",
+  "url": "https://www.samsung.com/us/offer/"
+ },
+ {
+  "id": "samsungcom-week",
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "parser": "sspromo",
+  "access": "public",
+  "enabled": true,
+  "kind": "Samsung.com 이벤트",
+  "url": "https://www.samsung.com/us/offer/samsung-week/",
+  "promo_optional": true
+ },
+ {
+  "id": "samsungcom-tv-offers",
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "parser": "sspromo",
+  "access": "public",
+  "enabled": true,
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/tv-and-home-theater-offers/",
+  "promo_cat": "TV·AV",
+  "promo_optional": true
+ },
+ {
+  "id": "samsungcom-appliance-offers",
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "parser": "sspromo",
+  "access": "public",
+  "enabled": true,
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/",
+  "promo_cat": "가전 전반",
+  "promo_optional": true
+ },
+ {
+  "id": "samsungcom-monitor-offers",
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "parser": "sspromo",
+  "access": "public",
+  "enabled": true,
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/",
+  "promo_cat": "모니터·PC",
+  "promo_optional": true
  }
 ]

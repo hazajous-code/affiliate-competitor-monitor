@@ -29,6 +29,7 @@
 | `scripts/import_plan.py` | 편성표 → `site/data/placements.json` 변환 + 지면별 확인 방식 분류 |
 | `site/placements.html` | 편성 지면 관측 메뉴 |
 | `site/lgcom.html` | LG.com/us 프로모션 × 퍼블리셔 LG 캐시백 비교 메뉴 |
+| `site/samsung.html` | Samsung.com/us 오퍼 페이지 프로모션 × LG.com 카테고리 비교 × 퍼블리셔 삼성/LG 요율 |
 | `site/data/publisher_rank.json` | 퍼블리셔 정렬 순서(판매 실적 순위만, 금액 없음) |
 
 ## 대상 추가·수정

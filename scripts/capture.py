@@ -185,7 +185,7 @@ PROMO_JS = r"""
 """
 
 PROMO_CATS = [("TV·AV", r"\bTVs?\b|OLED|QNED|sound ?bar|projector|home theater|StanbyME"),
-              ("모니터·PC", r"monitor|laptop|gram|UltraGear|workspace"),
+              ("모니터·PC", r"monitor|laptop|\bgram\b|UltraGear|workspace|Odyssey|ViewFinity"),
               ("세탁", r"wash|dryer|laundry|WashTower|Styler"),
               ("냉장고", r"refrigerator|fridge|InstaView|freezer"),
               ("주방", r"range|oven|cooktop|microwave|dishwasher|kitchen|cooking"),
@@ -218,6 +218,94 @@ def extract_lg_promos(page):
     return out
 
 
+SS_PROMO_JS = r"""
+() => {
+  const SAV = /(save|\boff\b|extra|\bback\b|\bfree\b|on us|buy one get one|bogo|credit|\$\d|\d+\s?%)/i;
+  const CTA = /(shop now|learn more|buy now|\bwatch\b|sign up|\bshop\b|see offer|get offer|view more)/i;
+  const BAD = /(current price|add to wishlist|product ratings|number of ratings|original price)/i;
+  const cands = [];
+  for (const e of document.querySelectorAll('div,li,article,section')) {
+    const t = (e.innerText || '').replace(/\s+/g, ' ').trim();
+    if (t.length < 25 || t.length > 420) continue;
+    if (!SAV.test(t) || !CTA.test(t) || BAD.test(t)) continue;
+    if (e.closest('[role=tablist]') || e.querySelectorAll('[role=tab],[role=tablist]').length) continue;  // carousel tab labels
+    cands.push([e, t]);
+  }
+  const keep = cands.filter(([e]) => !cands.some(([f]) => f !== e && e.contains(f)));
+  const out = [], seen = new Set();
+  for (const [e, t] of keep) {
+    if (seen.has(t)) continue; seen.add(t);
+    let a = e.querySelector('a[href]'), x = e;
+    for (let i = 0; !a && i < 3 && x; i++) { x = x.parentElement; a = x && x.closest('a[href]'); }
+    const href = a ? a.href.split('?')[0] : null;
+    out.push({ text: t, href });
+  }
+  return out.slice(0, 40);
+}
+"""
+
+SS_EXTRA_CATS = [("모바일", r"Galaxy (?:Z|S\d|A\d|Tab|Watch|Buds|Book|Fold|Flip)|smartphone|phone|wearable"),
+                 ("결제·금융", r"Galaxy Card|PayPal|Affirm|\bAPR\b|pay over time|financ"),
+                 ("행사·프로그램", r"Samsung Week|trade.?in|Offer Program|student|educator|carrier|Rewards")]
+CTA_RE = r"(?i)(?:(?<=[\s.,!])|^)(?:shop now|learn more|buy now|sign up|see offer|get offer|view more|shop)\b"
+MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+
+
+def _ss_valid(t, page_text, raw=""):
+    """End date as M/D/YY. Card text first, then the page's own footnotes keyed by the card's marker."""
+    for mk in re.findall(r"[\u0370-\u04FF\u20A0-\u20CF\u2200-\u22FF\u1E00-\u1EFF\uA720-\uA7FF]", raw):
+        f = re.search(re.escape(mk) + r"\s*(?:valid\s*)?(?:through|thru)\s*(\d{1,2}/\d{1,2}/\d{2,4})", page_text, re.I)
+        if f:
+            return f.group(1)
+    m = re.search(r"(?i)(?:valid|through|thru|ends?|until)\s*(?:through|thru)?\s*:?\s*(\d{1,2}/\d{1,2}/\d{2,4})", t)
+    if m:
+        return m.group(1)
+    m = re.search(r"(?i)~\s*([A-Z][a-z]{2})[a-z]*\.?\s*(\d{1,2})\.?,?\s*(\d{4})", t)
+    if m and m.group(1).lower() in MONTHS:
+        return f"{MONTHS[m.group(1).lower()]}/{int(m.group(2))}/{m.group(3)[2:]}"
+    return None
+
+
+def extract_ss_promos(page, page_cat=None, page_text=""):
+    """Offer banners on Samsung.com/us offer pages: headline, saving, end date when shown, link.
+    Product price tiles are excluded — only promotional offers."""
+    try:
+        raw = page.evaluate(SS_PROMO_JS)
+    except Exception:
+        return []
+    out = []
+    for c in raw:
+        t = re.sub(r"[^\x20-\x7E\u2122\u00AE\u2014\u2013\u2019]", "", c["text"]).strip()
+        t = re.sub(r"\s+", " ", t)
+        t = re.sub(r"(?i)^(?:shop now|learn more|buy now|shop|watch)\s*-\s*", "", t)
+        title = re.split(CTA_RE, t)[0].strip(" .:-|*")
+        title = re.sub(r"(?i)\s+watch$", "", title)
+        if len(title) < 12:
+            title = t
+        if len(title) > 160:
+            title = title[:159] + "…"
+        disc = re.search(r"(?i)((?:save |up to |an extra |extra |get )*(?:\$[\d,]+(?:\.\d{2})?|\d{1,2}(?:\s*-\s*\d{1,2})?\s?%)(?:\s*(?:off|back|cash rewards))?)", t)
+        cats = [name for name, pat in PROMO_CATS + SS_EXTRA_CATS if re.search(pat, t, re.I)]
+        out.append({"title": title, "valid": _ss_valid(t, page_text, c["text"]), "discount": disc.group(1).strip() if disc else None,
+                    "category": cats[0] if cats else (page_cat or "기타"), "url": c["href"]})
+    # Sale-event windows written as "Valid from Oct 12. 2026 ~ Nov 01. 2026" (e.g. Samsung Week)
+    for m in re.finditer(r"Valid from ([A-Z][a-z]{2})[a-z]*\.? (\d{1,2})\.?,? (\d{4}) ~ ([A-Z][a-z]{2})[a-z]*\.? (\d{1,2})\.?,? (\d{4})", page_text):
+        before = re.split(r"(?i)learn more|shop now|terms apply|buy now|\bnext\b|previous", page_text[max(0, m.start() - 120):m.start()])[-1].strip(" .")
+        if m.group(4).lower()[:3] in MONTHS and before:
+            out.append({"title": before[:120], "valid": f"{MONTHS[m.group(4).lower()[:3]]}/{int(m.group(5))}/{m.group(6)[2:]}",
+                        "discount": None, "category": "행사·프로그램", "url": None})
+    # drop exact repeats and shorter titles that are a prefix of a longer one
+    keep, seen = [], set()
+    for o in sorted(out, key=lambda o: -len(o["title"])):
+        k = o["title"].lower()
+        if k[:80] in seen or any(x.startswith(k) for x in seen):
+            continue
+        seen.add(k)
+        keep.append(o)
+    order = {id(o): i for i, o in enumerate(out)}
+    return sorted(keep, key=lambda o: order[id(o)])
+
+
 def lg_snippets(t, limit=6):
     """Short text around each LG mention — the evidence shown next to a placement."""
     out = []
@@ -248,7 +336,7 @@ def classify(tg, title, t, http_status, rate, rate_text, final_url):
         return "로그인 입구만", "공개 소개·로그인 화면까지만 확인. 회원 전용 혜택은 수집하지 않음"
     if tg["parser"] in ("rakuten", "tcb", "capone", "befrugal", "idme") and rate is None:
         return "요율 미확인", "화면은 저장됨 — 요율 문구를 찾지 못함"
-    if tg["parser"] == "lgpromo" and rate_text is None and not tg.get("promo_optional"):
+    if tg["parser"] in ("lgpromo", "sspromo") and rate_text is None and not tg.get("promo_optional"):
         return "요율 미확인", "화면은 저장됨 — 프로모션 문구를 찾지 못함"
     if tg["parser"] == "offers" and rate_text is None:
         return "요율 미확인", "화면은 저장됨 — 오퍼 수를 찾지 못함"
@@ -294,13 +382,24 @@ def capture_one(ctx, tg, day):
                 page.locator(sel).first.click(timeout=600)
             except Exception:
                 pass
+        if tg["parser"] == "sspromo":
+            # Samsung's cookie notice only closes with "Continue"; its tiles load as you scroll
+            try:
+                page.locator("button:has-text('Continue')").first.click(timeout=1500)
+            except Exception:
+                pass
+            for _ in range(12):
+                page.mouse.wheel(0, 600)
+                page.wait_for_timeout(450)
+            page.evaluate("window.scrollTo(0, 0)")
+            page.wait_for_timeout(800)
         page.keyboard.press("Escape")
         page.wait_for_timeout(600)
         title = page.title()
         text = page.inner_text("body", timeout=10000)
         t = squash(text)
         rel = f"shots/{day}/{tg['id']}.jpg"
-        if tg["parser"] in ("slots", "lgpromo"):
+        if tg["parser"] in ("slots", "lgpromo", "sspromo"):
             # placement / promotion pages: scroll once so lazy tiles render, then keep the top 3,600px
             page.mouse.wheel(0, 3000)
             page.wait_for_timeout(1500)
@@ -317,12 +416,12 @@ def capture_one(ctx, tg, day):
         rate = rate_text = offers = None
         cats, excl = [], None
         promos = []
-        if tg["parser"] == "lgpromo":
-            promos = extract_lg_promos(page)
+        if tg["parser"] in ("lgpromo", "sspromo"):
+            promos = extract_lg_promos(page) if tg["parser"] == "lgpromo" else extract_ss_promos(page, tg.get("promo_cat"), t)
             rate_text = f"프로모션 {len(promos)}건" if promos else None
         elif tg["parser"] == "offers":
             rate, rate_text, offers = parse_offers(t)
-        elif tg["parser"] not in ("mentions", "slots"):
+        elif tg["parser"] not in ("mentions", "slots", "sspromo"):
             rate, rate_text = parse_rate(tg["parser"], t)
             cats, excl = parse_terms(tg["parser"], t, tg.get("brand") or "")
             if tg["parser"] == "idme" and cats:
