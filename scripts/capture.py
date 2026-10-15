@@ -185,7 +185,7 @@ PROMO_JS = r"""
 """
 
 PROMO_CATS = [("TV·AV", r"\bTVs?\b|OLED|QNED|sound ?bar|projector|home theater|StanbyME"),
-              ("모니터·PC", r"monitor|laptop|gram|UltraGear|workspace"),
+              ("모니터·PC", r"monitor|laptop|\bgram\b|UltraGear|workspace|Odyssey|ViewFinity"),
               ("세탁", r"wash|dryer|laundry|WashTower|Styler"),
               ("냉장고", r"refrigerator|fridge|InstaView|freezer"),
               ("주방", r"range|oven|cooktop|microwave|dishwasher|kitchen|cooking"),
@@ -244,7 +244,9 @@ SS_PROMO_JS = r"""
 """
 
 SS_EXTRA_CATS = [("모바일", r"Galaxy (?:Z|S\d|A\d|Tab|Watch|Buds|Book|Fold|Flip)|smartphone|phone|wearable"),
-                 ("결제·금융", r"Galaxy Card|PayPal|Affirm|\bAPR\b|pay over time|financ")]
+                 ("결제·금융", r"Galaxy Card|PayPal|Affirm|\bAPR\b|pay over time|financ"),
+                 ("행사·프로그램", r"Samsung Week|trade.?in|Offer Program|student|educator|carrier|Rewards")]
+CTA_RE = r"(?i)(?:(?<=[\s.,!])|^)(?:shop now|learn more|buy now|sign up|see offer|get offer|view more|shop)\b"
 MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
 
 
@@ -270,24 +272,37 @@ def extract_ss_promos(page, page_cat=None, page_text=""):
         raw = page.evaluate(SS_PROMO_JS)
     except Exception:
         return []
-    out, seen = [], set()
+    out = []
     for c in raw:
-        t = re.sub(r"[^\x20-\x7E™®—–’]", "", c["text"]).strip()
+        t = re.sub(r"[^\x20-\x7E\u2122\u00AE\u2014\u2013\u2019]", "", c["text"]).strip()
         t = re.sub(r"\s+", " ", t)
-        title = re.split(r"(?i)\s(?:shop now|learn more|buy now|watch|sign up|shop|see offer|get offer|view more)\b", " " + t)[0].strip(" .:-|*")
+        t = re.sub(r"(?i)^(?:shop now|learn more|buy now|shop|watch)\s*-\s*", "", t)
+        title = re.split(CTA_RE, t)[0].strip(" .:-|*")
+        title = re.sub(r"(?i)\s+watch$", "", title)
         if len(title) < 12:
             title = t
         if len(title) > 160:
             title = title[:159] + "…"
-        key = title.lower()[:80]
-        if key in seen:
-            continue
-        seen.add(key)
         disc = re.search(r"(?i)((?:save |up to |an extra |extra |get )*(?:\$[\d,]+(?:\.\d{2})?|\d{1,2}(?:\s*-\s*\d{1,2})?\s?%)(?:\s*(?:off|back|cash rewards))?)", t)
         cats = [name for name, pat in PROMO_CATS + SS_EXTRA_CATS if re.search(pat, t, re.I)]
         out.append({"title": title, "valid": _ss_valid(t, page_text, c["text"]), "discount": disc.group(1).strip() if disc else None,
                     "category": cats[0] if cats else (page_cat or "기타"), "url": c["href"]})
-    return out
+    # Sale-event windows written as "Valid from Oct 12. 2026 ~ Nov 01. 2026" (e.g. Samsung Week)
+    for m in re.finditer(r"Valid from ([A-Z][a-z]{2})[a-z]*\.? (\d{1,2})\.?,? (\d{4}) ~ ([A-Z][a-z]{2})[a-z]*\.? (\d{1,2})\.?,? (\d{4})", page_text):
+        before = re.split(r"(?i)learn more|shop now|terms apply|buy now|\bnext\b|previous", page_text[max(0, m.start() - 120):m.start()])[-1].strip(" .")
+        if m.group(4).lower()[:3] in MONTHS and before:
+            out.append({"title": before[:120], "valid": f"{MONTHS[m.group(4).lower()[:3]]}/{int(m.group(5))}/{m.group(6)[2:]}",
+                        "discount": None, "category": "행사·프로그램", "url": None})
+    # drop exact repeats and shorter titles that are a prefix of a longer one
+    keep, seen = [], set()
+    for o in sorted(out, key=lambda o: -len(o["title"])):
+        k = o["title"].lower()
+        if k[:80] in seen or any(x.startswith(k) for x in seen):
+            continue
+        seen.add(k)
+        keep.append(o)
+    order = {id(o): i for i, o in enumerate(out)}
+    return sorted(keep, key=lambda o: order[id(o)])
 
 
 def lg_snippets(t, limit=6):
