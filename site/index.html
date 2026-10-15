@@ -6,7 +6,6 @@
 <title>어필리에이트 경쟁사 지면 모니터</title>
 <style>
 :root{--bg:#f7f6f3;--panel:#fff;--fg:#1f1e1c;--muted:#6b6862;--line:#e3e0da;--lg:#a50034;--comp:#8a8f98;--retail:#c9a227;--ok:#2f7d4f;--warn:#b26a00;--bad:#b3261e;--chip:#f0eee9;--note:#fbf6ea;--noteline:#ead9b0;--heat:165,0,52}
-@media (prefers-color-scheme:dark){:root{--bg:#161615;--panel:#1f1f1e;--fg:#ecebe8;--muted:#a19e97;--line:#33322f;--lg:#ff5c8a;--comp:#8d939c;--retail:#e0bf4a;--ok:#5fbf86;--warn:#e3a34a;--bad:#f07167;--chip:#2a2a28;--note:#2a261c;--noteline:#4a4128;--heat:255,92,138}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
 .wrap{max-width:1180px;margin:0 auto;padding:16px 16px 64px}
@@ -57,7 +56,6 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
 .duo .col{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .duo .col.lg{border-top:3px solid var(--lg)}.duo .col.ss{border-top:3px solid #1428a0}
-@media (prefers-color-scheme:dark){.duo .col.ss{border-top-color:#6f86ff}}
 .duo h3{margin:0 0 2px;font-size:15px}.duo .sum{color:var(--muted);font-size:12px;margin-bottom:6px}
 .duo .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:5px 0;border-top:1px solid var(--line);font-size:13px;align-items:baseline}
 .duo .row .r{font-variant-numeric:tabular-nums;white-space:nowrap}.duo .row .r a{margin-left:8px}
@@ -74,10 +72,12 @@ details summary{cursor:pointer;color:var(--muted);font-size:12px}
 ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{margin:3px 0}
 @media(max-width:640px){.hide-sm{display:none}}
 </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
+<div class="appbar"><div class="appbar-in"><div class="brand"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></div><nav class="menu"><a href="./" class="on">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
 <div class="wrap">
-  <nav class="menu"><a href="./" class="on">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav>
   <header>
     <h1>어필리에이트 경쟁사 지면 모니터</h1>
     <p class="lede" id="lede">미국 어필리에이트 퍼블리셔 지면에 노출되는 LG와 가전 경쟁사의 캐시백·리워드 요율, 쿠폰, 브랜드 노출을 매일 캡처합니다.</p>

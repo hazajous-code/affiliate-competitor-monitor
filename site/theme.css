@@ -1,0 +1,86 @@
+/* Shared look for every page — loaded after each page's own styles so it wins. Always light. */
+:root{
+  --bg:#ffffff;--panel:#ffffff;--fg:#111827;--muted:#6b7280;--faint:#9ca3af;--line:#e5e7eb;--line2:#f1f2f4;
+  --chip:#f3f4f6;--note:#f9fafb;--noteline:#e5e7eb;--head:#f9fafb;
+  --lg:#a50034;--ss:#1428a0;--comp:#94a3b8;--retail:#d4a72c;
+  --ok:#15803d;--warn:#b45309;--bad:#b91c1c;--heat:165,0,52;
+  --hit:#15803d;--miss:#d1d5db;--fail:#b91c1c;--empty:#f3f4f6;
+  color-scheme:light;
+}
+html{background:#fff}
+body{background:#fff;color:var(--fg);font:14px/1.55 "Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+
+/* top app bar */
+.appbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(6px);border-bottom:1px solid var(--line)}
+.appbar-in{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;min-height:56px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;white-space:nowrap}
+.brand .mark{width:22px;height:22px;border-radius:5px;background:var(--lg);display:inline-block;position:relative}
+.brand .mark::after{content:"";position:absolute;inset:6px;border-radius:50%;border:2px solid #fff}
+.brand small{font-weight:500;color:var(--muted);font-size:12px;margin-left:2px}
+.appbar .menu{display:flex;gap:2px;border:0;margin:0;align-self:stretch;flex-wrap:wrap}
+.appbar .menu a{display:flex;align-items:center;padding:0 12px;font-size:13.5px;font-weight:500;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;margin:0}
+.appbar .menu a:hover{color:var(--fg)}
+.appbar .menu a.on{color:var(--fg);font-weight:600;border-bottom-color:var(--lg)}
+
+/* page */
+.wrap{max-width:1240px;padding:28px 24px 72px}
+header{padding-bottom:20px;border-bottom:1px solid var(--line)}
+h1{font-family:inherit;font-weight:700;font-size:24px;line-height:1.3;letter-spacing:-.02em;margin:0}
+.lede{color:var(--muted);font-size:14px;margin:6px 0 0;max-width:72rem}
+.meta{font-size:12.5px;color:var(--muted)}
+nav.toc{gap:4px;margin-top:14px}
+nav.toc a{font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted);background:#fff;text-decoration:none}
+nav.toc a:hover{border-color:var(--fg);color:var(--fg)}
+.banner{margin-top:14px;padding:10px 14px 10px 16px;border-radius:8px;background:var(--note);border:1px solid var(--line);border-left:3px solid var(--ok);font-size:12.5px;color:var(--fg)}
+
+/* sections & cards */
+section{margin-top:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+h2{font-size:15px;font-weight:700;letter-spacing:-.01em;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--fg);display:inline-block}
+.note{font-size:12.5px;color:var(--muted);margin:0 0 14px;line-height:1.6}
+h3{letter-spacing:-.01em}
+
+/* KPI tiles */
+.tiles{gap:12px;margin-top:20px}
+.tile{padding:16px 18px}
+.tile .l{font-size:12px;font-weight:500;color:var(--muted)}
+.tile .v{font-family:inherit;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.tile .s{font-size:12px;color:var(--faint);margin-top:2px}
+
+/* tables */
+.tw{border:1px solid var(--line);border-radius:8px}
+table{font-size:13px}
+th{background:var(--head);color:var(--muted);font-weight:600;font-size:12px;padding:9px 12px;border-bottom:1px solid var(--line)}
+td{padding:9px 12px;border-bottom:1px solid var(--line2)}
+tbody tr:hover td{background:#fafbfc}
+tbody tr:last-child td{border-bottom:0}
+
+/* chips, pills, controls */
+.pill{background:var(--chip);color:#374151;border-radius:4px;padding:1px 7px;font-size:11.5px;font-weight:500}
+.new{background:var(--ss);color:#fff}
+select,.chips button{font:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--fg);padding:5px 10px}
+.chips button.on{background:var(--fg);border-color:var(--fg);color:#fff}
+.legend{font-size:12px}
+a{color:inherit;text-decoration-color:var(--faint);text-underline-offset:2px}
+a:hover{text-decoration-color:var(--fg)}
+details summary{font-size:12.5px}
+
+/* lists of cards */
+.promo{border-radius:8px;background:#fff;transition:border-color .15s}
+.promo:hover{border-color:#cbd5e1}
+.promo .t{font-size:13.5px}
+.shot{border-radius:8px}
+.shot img{background:var(--chip)}
+
+/* change view */
+.duo .col{border-radius:8px;padding:14px 16px}
+.duo .col.ss{border-top-color:var(--ss)}
+.duo .row{padding:7px 0}
+
+/* status colours stay readable on white */
+.up,.s-ok{color:var(--ok)}.dn,.s-bad{color:var(--bad)}.warn,.s-warn,.soon{color:var(--warn)}
+.mute,.s-mute{color:var(--muted)}
+
+@media(max-width:700px){.appbar-in{gap:8px;padding:8px 16px 0}.appbar .menu{width:100%;overflow-x:auto;flex-wrap:nowrap}.appbar .menu a{padding:8px 10px;white-space:nowrap}.wrap{padding:20px 16px 56px}}
+.tiles .tile:first-child{border-top:3px solid var(--lg)}
