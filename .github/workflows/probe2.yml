@@ -1,0 +1,20 @@
+name: probe2
+on:
+  push:
+    branches: [probe2]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
+      - run: |
+          mkdir -p probe
+          python scripts/capture.py samsungcom-offers samsungcom-week samsungcom-tv-offers samsungcom-appliance-offers samsungcom-monitor-offers > probe/log.txt 2>&1 || true
+          python -c "import json;c=json.load(open('site/data/captures.json'));json.dump([x for x in c if x['target'].startswith('samsungcom')],open('probe/ss.json','w'),ensure_ascii=False,indent=1)" || true
+          mkdir -p probe/shots && cp site/shots/*/samsungcom-* probe/shots/ || true
+      - run: |
+          git config user.name probe && git config user.email probe@users.noreply.github.com
+          git add -f probe && git commit -m "probe2 output [skip ci]" && git push
