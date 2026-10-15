@@ -3,382 +3,209 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>어필리에이트 경쟁사 지면 모니터</title>
+<title>데일리 브리핑 · US Affiliate Monitor</title>
 <style>
-:root{--bg:#f7f6f3;--panel:#fff;--fg:#1f1e1c;--muted:#6b6862;--line:#e3e0da;--lg:#a50034;--comp:#8a8f98;--retail:#c9a227;--ok:#2f7d4f;--warn:#b26a00;--bad:#b3261e;--chip:#f0eee9;--note:#fbf6ea;--noteline:#ead9b0;--heat:165,0,52}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 64px}
-.menu{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap}
-.menu a{padding:8px 12px;text-decoration:none;color:var(--muted);font-size:14px;border-bottom:2px solid transparent;margin-bottom:-1px}
-.menu a.on{color:var(--fg);border-bottom-color:var(--lg);font-weight:600}
-h1{font:400 28px/1.25 Georgia,"Noto Serif KR",serif;margin:0}
-.lede{color:var(--muted);margin:6px 0 0;max-width:62rem}
-.meta{font-size:13px;color:var(--muted);margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.meta a{color:var(--fg)}
-nav.toc{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
-nav.toc a{font-size:12px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--muted);background:var(--panel)}
-.banner{margin-top:16px;padding:10px 14px;border-radius:10px;background:var(--note);border:1px solid var(--noteline);font-size:13px}
-.banner b{font-weight:600}
-section{margin-top:22px}
-h2{font-size:17px;font-weight:600;margin:0 0 4px}
-.note{font-size:13px;color:var(--muted);margin:0 0 12px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;margin-top:16px}
-.tile .l{font-size:12px;color:var(--muted)}.tile .v{font:400 28px/1.2 Georgia,serif;margin-top:4px;font-variant-numeric:tabular-nums}.tile .s{font-size:12px;color:var(--muted);margin-top:2px}
-.pub{margin-bottom:16px}.pub h3{font-size:14px;margin:0 0 6px}
-.br{display:grid;grid-template-columns:minmax(90px,150px) 1fr;gap:8px;align-items:center;font-size:13px;margin-bottom:5px}
-.br .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.trk{display:flex;align-items:center;gap:6px;min-width:0}.bar{height:14px;border-radius:4px;min-width:3px}
+body{margin:0}
+.paper{max-width:860px;margin:0 auto;padding:36px 24px 80px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--lg);text-transform:uppercase}
+.mast h1{font-size:28px;margin:6px 0 4px}
+.dateline{font-size:13px;color:var(--muted);display:flex;gap:6px 14px;flex-wrap:wrap}
+.dateline .ok{color:var(--ok);font-weight:600}.dateline .bad{color:var(--bad);font-weight:600}
+.rule{height:1px;background:var(--fg);margin:18px 0 0}
+.rule.thin{background:var(--line);margin:0}
+.lead{margin-top:22px;padding:18px 22px;background:#fafafa;border:1px solid var(--line);border-radius:10px}
+.lead h2{margin-bottom:10px}
+.lead ol{margin:0;padding-left:20px}
+.lead li{margin:7px 0;font-size:14.5px;line-height:1.6}
+.lead li b{font-weight:700}
+.sec{margin-top:34px}
+.sec .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:12px}
+.sec .hd h2{margin:0}
+.more{font-size:12.5px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.more:hover{color:var(--fg)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.box{border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.box.lg{border-top:3px solid var(--lg)}.box.ss{border-top:3px solid var(--ss)}
+.box h3{margin:0 0 2px;font-size:14.5px}
+.box .sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.box ul{margin:0;padding-left:16px;font-size:13px}.box li{margin:4px 0}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:0 6px;border-radius:4px;margin-right:4px;vertical-align:1px}
+.tag.new{background:#eef2ff;color:var(--ss)}.tag.end{background:#fff7ed;color:var(--warn)}.tag.hit{background:#ecfdf5;color:var(--ok)}.tag.miss{background:#f3f4f6;color:var(--muted)}.tag.up{background:#ecfdf5;color:var(--ok)}.tag.dn{background:#fef2f2;color:var(--bad)}
+td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
 .num{font-variant-numeric:tabular-nums;white-space:nowrap}
-.up{color:var(--ok)}.dn{color:var(--bad)}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-bottom:12px}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}
-.tw{max-height:520px;overflow:auto}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{text-align:left;font-weight:600;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:1}
-td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-td.c{text-align:center}
-.pill{display:inline-block;padding:0 8px;border-radius:999px;font-size:12px;background:var(--chip);white-space:nowrap}
-.s-ok{color:var(--ok)}.s-warn{color:var(--warn)}.s-bad{color:var(--bad)}.s-mute{color:var(--muted)}
-.lgtag{color:var(--lg);font-weight:600}
-a{color:inherit}
-.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-select{font:inherit;font-size:13px;padding:5px 8px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
-.shot{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
-.shot img{display:block;width:100%;height:190px;object-fit:cover;object-position:top;cursor:zoom-in;background:var(--chip)}
-.shot .cap{padding:8px 10px;font-size:12px}.shot .cap b{font-weight:600}
-.empty{color:var(--muted);font-size:13px;padding:14px 0}
-dialog{border:none;padding:0;max-width:96vw;max-height:94vh;background:transparent}dialog img{max-width:96vw;max-height:90vh;display:block;border-radius:6px}
-dialog::backdrop{background:rgba(0,0,0,.75)}
-.trend svg{width:100%;height:auto;display:block}
-.chg{display:grid;gap:8px}
-.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
-.duo .col{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.duo .col.lg{border-top:3px solid var(--lg)}.duo .col.ss{border-top:3px solid #1428a0}
-.duo h3{margin:0 0 2px;font-size:15px}.duo .sum{color:var(--muted);font-size:12px;margin-bottom:6px}
-.duo .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:5px 0;border-top:1px solid var(--line);font-size:13px;align-items:baseline}
-.duo .row .r{font-variant-numeric:tabular-nums;white-space:nowrap}.duo .row .r a{margin-left:8px}
-.duo .row.hot{font-weight:600}.duo .row .same{color:var(--muted);font-weight:400}
-.duo .promo{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}
-.chg-etc{margin-top:10px;font-size:13px}.chg-etc .k{color:var(--muted)}
-.chg .it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:13px}
-.chg .it .w{color:var(--muted);font-size:12px}
-.mx td.h{font-variant-numeric:tabular-nums;text-align:center;min-width:44px}
-.mx th.b{text-align:center;white-space:nowrap}
-.mx th.lgcol,.mx td.lgcol{border-left:2px solid var(--lg);border-right:2px solid var(--lg)}
-.cats{margin:0;padding-left:16px}
-details summary{cursor:pointer;color:var(--muted);font-size:12px}
-ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{margin:3px 0}
-@media(max-width:640px){.hide-sm{display:none}}
+table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top:0}td{vertical-align:top}.tw{overflow:auto}
+.empty{color:var(--muted);font-size:13px}
+.foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.7}
+.mute{color:var(--muted)}.up{color:var(--ok)}.dn{color:var(--bad)}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="appbar"><div class="appbar-in"><div class="brand"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></div><nav class="menu"><a href="./" class="on">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
-<div class="wrap">
-  <header>
-    <h1>어필리에이트 경쟁사 지면 모니터</h1>
-    <p class="lede" id="lede">미국 어필리에이트 퍼블리셔 지면에 노출되는 LG와 가전 경쟁사의 캐시백·리워드 요율, 쿠폰, 브랜드 노출을 매일 캡처합니다.</p>
-    <div class="meta"><span id="meta"></span><span>데이터 내려받기: <a href="data/captures.csv" download>CSV</a> · <a href="data/captures.json" download>JSON</a></span></div>
-    <nav class="toc"><a href="#changes">변화 감지</a><a href="#rates">요율 비교</a><a href="#terms">조건·제외</a><a href="#matrix">브랜드 노출</a><a href="#verify">수집 검증</a><a href="#trend">추이</a><a href="#gallery">스크린샷</a><a href="#coverage">퍼블리셔 범위</a><a href="#method">수집 기준</a></nav>
-    <div class="banner" id="banner"></div>
-  </header>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./" class="on">데일리 브리핑</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
+<div class="paper">
+  <div class="mast">
+    <div class="kicker" id="kicker">Daily Brief</div>
+    <h1>북미 어필리에이트 데일리 브리핑</h1>
+    <div class="dateline" id="dateline"></div>
+    <div class="rule"></div>
+  </div>
 
-  <div class="tiles" id="tiles"></div>
+  <div class="lead"><h2>오늘의 요약</h2><ol id="summary"><li class="mute">불러오는 중…</li></ol></div>
 
-  <section class="card" id="changes">
-    <h2>변화 감지</h2>
-    <p class="note" id="chgNote">직전 수집일과 비교한 요율 변화입니다. LG와 삼성을 먼저 보고, 나머지는 실제로 바뀐 것만 한 줄로 모읍니다.</p>
-    <div class="duo" id="chgDuo"></div>
-    <div class="chg-etc" id="chgEtc"></div>
-  </section>
+  <div class="sec">
+    <div class="hd"><h2>캐시백 요율 · LG vs 삼성</h2><a class="more" href="monitor.html">경쟁사 지면 모니터 →</a></div>
+    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th>LG</th><th>삼성</th><th>직전 대비 변동</th></tr></thead><tbody id="rateBody"></tbody></table></div>
+    <p class="note" style="margin-top:8px">퍼블리셔는 판매 실적 순입니다. 상점 페이지에 표시된 대표 요율 기준입니다.</p>
+  </div>
 
-  <section class="card" id="rates">
-    <h2>퍼블리셔별 요율 비교</h2>
-    <p class="note" id="ratesNote"></p>
-    <p class="note">퍼블리셔는 모든 표에서 판매 실적 순(CJ 리포트 2026년 1~8월 기준 순위)으로 정렬됩니다.</p>
-    <div class="legend"><span><i style="background:var(--lg)"></i>LG</span><span><i style="background:var(--comp)"></i>가전 경쟁사</span><span><i style="background:var(--retail)"></i>유통(참고)</span></div>
-    <div id="rateChart"></div>
-  </section>
+  <div class="sec">
+    <div class="hd"><h2>자사몰 프로모션</h2><span><a class="more" href="lgcom.html">LG.com →</a> &nbsp; <a class="more" href="samsung.html">Samsung.com →</a></span></div>
+    <div class="two"><div class="box lg" id="lgBox"></div><div class="box ss" id="ssBox"></div></div>
+  </div>
 
-  <section class="card" id="terms">
-    <h2>요율 조건·제외 문구</h2>
-    <p class="note">같은 요율이라도 적용 범위가 다릅니다. 지면에 표시된 카테고리별 요율과 제외 문구를 그대로 옮겼습니다. 실제 구매 적용 여부는 확인하지 않았습니다.</p>
-    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th>브랜드</th><th>대표 요율</th><th>카테고리별</th><th class="hide-sm">제외·제한</th></tr></thead><tbody id="termsBody"></tbody></table></div>
-  </section>
+  <div class="sec">
+    <div class="hd"><h2>편성 지면</h2><a class="more" href="placements.html">편성 지면 관측 →</a></div>
+    <div class="two"><div class="box" id="nowBox"></div><div class="box" id="nextBox"></div></div>
+  </div>
 
-  <section class="card" id="matrix">
-    <h2>브랜드 노출 매트릭스</h2>
-    <p class="note">특정 브랜드 전용이 아닌 딜·리뷰 지면(홈·리뷰 목록) 본문에 브랜드명이 나온 횟수입니다. 브랜드 쿠폰 페이지는 자기 브랜드가 당연히 많이 나오므로 제외했습니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다.</p>
-    <div class="tw"><table class="mx"><thead id="mxHead"></thead><tbody id="mxBody"></tbody></table></div>
-  </section>
+  <div class="sec">
+    <div class="hd"><h2>그 외 경쟁사 · 수집 상태</h2><a class="more" href="monitor.html#verify">수집 검증 →</a></div>
+    <div class="box" id="etcBox"></div>
+  </div>
 
-  <section class="card" id="verify">
-    <h2>오늘 수집 검증</h2>
-    <p class="note">지면마다 화면이 실제로 열렸는지, 필요한 값을 읽었는지 표시합니다. 봇 확인 화면·차단은 우회하지 않고 실패로 남깁니다.</p>
-    <div class="legend" id="vsum"></div>
-    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th class="hide-sm">유형</th><th>대상</th><th>상태</th><th>읽은 값</th><th class="hide-sm">사유</th><th>화면</th></tr></thead><tbody id="vbody"></tbody></table></div>
-  </section>
-
-  <section class="card trend" id="trend">
-    <h2>요율 추이</h2>
-    <p class="note">수집일이 쌓이면 브랜드별 요율 변화를 선으로 보여줍니다. 경쟁사 상향은 붉은 점으로 표시됩니다.</p>
-    <div id="trendBody"></div>
-  </section>
-
-  <section class="card" id="gallery">
-    <h2>지면 스크린샷</h2>
-    <p class="note">미국 동부 기준 수집. 이미지를 누르면 크게 보입니다.</p>
-    <div class="controls"><select id="gDate"></select><select id="gPub"></select><select id="gGroup"><option value="">전체 대상</option><option>LG</option><option>경쟁사</option><option>유통</option><option value="매체">딜·리뷰·입구</option><option value="지면">편성 지면 페이지</option></select></div>
-    <div class="gal" id="gal"></div>
-  </section>
-
-  <section class="card" id="coverage">
-    <h2>퍼블리셔 범위 (미국 기준)</h2>
-    <p class="note">지금까지 분석한 퍼블리셔와 LG 퍼블리셔로 확인된 공개 지면을 자동 수집 가능 여부로 나눈 표입니다. "오늘 결과"는 최근 실행 기준입니다.</p>
-    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th class="hide-sm">유형</th><th>분류</th><th>오늘 결과</th><th>비고</th></tr></thead><tbody id="cbody"></tbody></table></div>
-  </section>
-
-  <section class="card" id="method">
-    <h2>수집 기준</h2>
-    <ul class="rules">
-      <li>매일 미국 동부 오전(13:07 UTC 예약, GitHub 사정으로 늦어질 수 있음) GitHub 서버의 새 브라우저로 공개 페이지를 엽니다. 언어 en-US, 시간대 New York, 화면 1366×1500.</li>
-      <li>실행마다 접속 국가 코드만 기록합니다(IP 주소는 저장하지 않음). 미국으로 확인되지 않으면 상단에 "미검증"으로 표시합니다.</li>
-      <li>로그인하지 않습니다. 회원 전용 혜택 플랫폼은 공개 입구까지만 확인합니다. 봇 확인 화면·차단은 우회하지 않습니다.</li>
-      <li>날짜는 미국 동부 기준이며, 같은 날 다시 수집하면 그날 값을 최신 화면으로 바꿉니다.</li>
-      <li>요율은 지면에 표시된 대표 문구입니다. "Up to"는 최대치이고, 카테고리·제외 조건에 따라 실제 적용은 다릅니다.</li>
-      <li>브랜드 노출은 딜·리뷰 지면 본문의 이름 언급 횟수이며 광고 집행·노출량·구매 결과를 뜻하지 않습니다.</li>
-      <li>변화 감지는 읽어 낸 값(요율·카테고리·제외 문구·오퍼)을 비교합니다. 본문 전체 지문은 개인화·위젯 때문에 자주 바뀌므로 참고로만 둡니다.</li>
-      <li>공개 저장소이므로 내부 성과 수치는 넣지 않으며, 커밋 전에 자동 점검으로 막습니다.</li>
-    </ul>
-  </section>
+  <div class="foot">매일 미국 동부 오전, 미국 IP·비로그인으로 공개 화면을 자동 수집해 만든 요약입니다. 개인화·로그인 상태에 따라 실제 화면과 다를 수 있습니다. 숫자의 근거 화면은 각 탭에서 확인할 수 있습니다.</div>
 </div>
-<dialog id="dlg"><img id="dlgImg" alt=""></dialog>
 
 <script src="rank.js"></script>
 <script>
 (async function(){
-  const { rankOf, byRank } = await loadRank();
+  const { byRank } = await loadRank();
   const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
-  const [caps0, runs, cov] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/coverage.json')]);
+  const [caps0, runs, plan] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json')]);
   const caps = caps0 || [];
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
-  const pct = v => v == null ? '—' : (Math.round(v * 100) / 100) + '%';
-  const col = g => g === 'LG' ? 'var(--lg)' : g === '유통' ? 'var(--retail)' : 'var(--comp)';
+  const html = (e, s) => { e.innerHTML = s; return e; };
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const OK = s => s === '수집' || s === '수집(텍스트)';
-  const stCls = s => OK(s) ? 's-ok' : s === '요율 미확인' || s === '로그인 입구만' ? 's-warn' : 's-bad';
-  const isBrandRow = r => ['LG', '경쟁사', '유통'].includes(r.brand_group);
-  const dates = [...new Set(caps.map(r => r.date))].sort();
-  const day = dates[dates.length - 1];
-  const prevDay = dates[dates.length - 2];
+  const pct = v => v == null ? '—' : (Math.round(v * 100) / 100) + '%';
+  const fmt = d => d ? Number(d.slice(5, 7)) + '/' + Number(d.slice(8, 10)) : '—';
+  const STORE = k => ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'].includes(k);
+
+  const dates = reportDates(caps);
+  const day = dates[dates.length - 1], prevDay = dates[dates.length - 2];
+  if (!day) { $('summary').innerHTML = '<li>아직 수집된 데이터가 없습니다.</li>'; return; }
   const cur = caps.filter(r => r.date === day);
-  const prevBy = Object.fromEntries(caps.filter(r => r.date === prevDay && r.rate != null).map(r => [r.target, r.rate]));
-  const vr = (runs && runs.results && runs.results.length ? runs.results : cur).slice().sort((a, b) => byRank(a.publisher, b.publisher));
-  function openImg(src) { $('dlgImg').src = src; $('dlg').showModal(); }
-  $('dlg').onclick = () => $('dlg').close();
+  const prevRow = {}; caps.filter(r => r.date < day).sort((a, b) => a.date.localeCompare(b.date)).forEach(r => { prevRow[r.target] = r; });
+  const moved = r => { const p = prevRow[r.target]; return p && OK(r.status) && OK(p.status) && r.rate != null && p.rate != null && r.rate !== p.rate; };
+  const daysTo = d => Math.round((new Date(d) - new Date(day)) / 864e5);
+  const iso = v => { if (!v) return null; const p = v.split('/').map(Number); const y = p[2] ? (p[2] < 100 ? 2000 + p[2] : p[2]) : Number(day.slice(0, 4)); return y + '-' + String(p[0]).padStart(2, '0') + '-' + String(p[1]).padStart(2, '0'); };
 
-  $('meta').textContent = (runs && runs.run_at ? '최근 수집 ' + runs.run_at.replace('T', ' ') + ' (미국 동부)' : day + ' 수집 값') + ' · 누적 ' + dates.length + '일';
+  // masthead
+  const wd = ['일', '월', '화', '수', '목', '금', '토'][new Date(day + 'T12:00:00Z').getUTCDay()];
+  $('kicker').textContent = 'Daily Brief · No.' + dates.length;
+  const vr = runs && runs.results && runs.results.length ? runs.results : cur;
+  const okN = vr.filter(r => OK(r.status)).length;
+  const dl = $('dateline');
+  dl.append(el('span', null, day.slice(0, 4) + '년 ' + Number(day.slice(5, 7)) + '월 ' + Number(day.slice(8, 10)) + '일 (' + wd + ') · 미국 동부 기준'));
+  if (runs && runs.run_at) dl.append(el('span', null, '수집 ' + runs.run_at.slice(11, 16) + ' ET'));
+  dl.append(el('span', runs && runs.country === 'US' ? 'ok' : 'bad', runs && runs.country === 'US' ? '미국 IP 확인' : '미국 IP 미검증'));
+  dl.append(el('span', null, '정상 수집 ' + okN + '/' + vr.length));
+  if (runs && runs.run_at && (Date.now() - new Date(runs.run_at).getTime()) / 36e5 > 30) dl.append(el('span', 'bad', '⚠ 최신 수집이 30시간 이상 지났습니다'));
 
-  // country banner
-  const cc = runs && runs.country;
-  $('banner').innerHTML = '';
-  const bb = el('b', null, cc === 'US' ? '미국 IP 접속 확인 (US)' : cc ? '접속 국가 ' + cc + ' — 미국 IP 아님' : '미국 IP 접속 미검증');
-  $('banner').append(bb, ' · ' + (cc === 'US' ? '미국 사용자에게 보이는 비로그인 화면 기준입니다. 개인화·로그인 상태에 따라 다를 수 있습니다.' : '접속 국가를 확인하지 못했습니다. 미국 사용자 화면과 다를 수 있습니다.'));
-
-  // freshness: the daily run should land every ~24h; flag it when it does not
-  if (runs && runs.run_at) {
-    const hrs = (Date.now() - new Date(runs.run_at).getTime()) / 36e5;
-    const w = document.createElement('div');
-    w.style.marginTop = '4px';
-    w.style.color = hrs > 30 ? 'var(--bad)' : 'var(--muted)';
-    w.textContent = hrs > 30 ? '⚠ 마지막 자동 수집이 ' + Math.round(hrs) + '시간 전입니다. GitHub Actions 실행 상태를 확인해 주세요.' : '자동 수집 정상 · 마지막 수집 ' + Math.max(0, Math.round(hrs)) + '시간 전 · 매일 미국 동부 오전 실행(실패 시 같은 날 2회 재시도)';
-    $('banner').append(w);
-  }
-
-  // tiles
-  const rated = cur.filter(r => r.rate != null && isBrandRow(r));
-  const top = a => a.reduce((x, y) => y.rate > x.rate ? y : x, a[0]);
-  const lg = rated.filter(r => r.brand_group === 'LG' && r.brand !== 'LG Partner Store'), cp = rated.filter(r => r.brand_group === '경쟁사');
-  const tiles = [];
-  if (lg.length) { const t = top(lg); tiles.push(['LG 최고 요율', pct(t.rate), t.publisher]); }
-  if (cp.length) { const t = top(cp); tiles.push(['가전 경쟁사 최고 요율', pct(t.rate), t.brand + ' · ' + t.publisher]); }
-  tiles.push(['요율 변동', null, prevDay ? prevDay + ' 대비' : '비교일 없음']);
-  if (vr.length) tiles.push(['정상 수집 / 대상', vr.filter(r => OK(r.status)).length + ' / ' + vr.length, '요율 미확인·입구 ' + vr.filter(r => ['요율 미확인', '로그인 입구만'].includes(r.status)).length + ' · 실패 ' + vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만'].includes(r.status)).length]);
-  tiles.forEach(([l, v, s]) => { const c = el('div', 'card tile'); const vv = el('div', 'v', v); if (v == null) vv.id = 'tChg'; c.append(el('div', 'l', l), vv, el('div', 's', s)); $('tiles').append(c); });
-  if (lg.length && cp.length) $('lede').textContent = day + ' 기준 LG 최고 요율은 ' + top(lg).publisher + ' ' + pct(top(lg).rate) + ', 가전 경쟁사 최고는 ' + top(cp).brand + ' ' + pct(top(cp).rate) + '(' + top(cp).publisher + ')입니다.';
-
-  // changes — compare the values themselves, not the page fingerprint
-  const prevRow = {};
-  caps.filter(r => r.date < day).sort((a, b) => a.date.localeCompare(b.date)).forEach(r => { prevRow[r.target] = r; });
-  const STORE_KINDS = ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'];
-  const rateMoved = r => { const p = prevRow[r.target]; return p && STORE_KINDS.includes(r.kind) && OK(r.status) && OK(p.status) && ((r.rate != null && p.rate != null && r.rate !== p.rate) || (r.rate_text && p.rate_text && r.rate_text !== p.rate_text)); };
-  const termsMoved = r => { const p = prevRow[r.target]; if (!p || !OK(r.status) || !OK(p.status) || rateMoved(r)) return false;
-    const k = x => JSON.stringify([x.categories || [], x.exclusions || null, x.offers || null, STORE_KINDS.includes(x.kind) ? null : x.rate_text]); return k(r) !== k(p); };
-  const promoKey = x => (x.promos || []).map(p => p.title);
-  const storeRow = r => r.rate != null || (r.rate_text && OK(r.status));
-  function arrow(r) { const p = prevRow[r.target];
-    if (!rateMoved(r)) return el('span', 'same', '변동 없음');
-    const up = r.rate != null && p.rate != null ? r.rate > p.rate : null;
-    return el('span', up == null ? null : up ? 'up' : 'dn', (up == null ? '' : up ? '▲ ' : '▼ ') + (p.rate_text || '—') + ' → ' + (r.rate_text || '—')); }
-  function brandCol(title, cls, rows, promoTarget, promoLink) {
-    const c = el('div', 'col ' + cls); c.append(el('h3', null, title));
-    const moved = rows.filter(rateMoved).length;
-    c.append(el('div', 'sum', prevDay ? '퍼블리셔 ' + rows.length + '곳 · 요율 변동 ' + moved + '곳' : '비교할 이전 수집일이 아직 없습니다.'));
-    rows.slice().sort((a, b) => byRank(a.publisher, b.publisher)).forEach(r => {
-      const it = el('div', 'row' + (rateMoved(r) ? ' hot' : ''));
-      const l = el('div'); l.append(r.publisher + (r.brand === 'LG Partner Store' ? ' (Partner Store)' : '') + ' ', el('span', 'num', r.rate_text || pct(r.rate)));
-      const rt = el('div', 'r'); rt.append(arrow(r));
-      if (r.shot) { const x = el('a', null, ' 화면'); x.href = r.shot; x.onclick = e => { e.preventDefault(); openImg(r.shot); }; rt.append(x); }
-      it.append(l, rt); c.append(it);
-    });
-    const titles = (d, g) => new Set(caps.filter(r => r.date === d && r.brand_group === g).flatMap(r => (r.promos || []).map(p => (p.title || '').toLowerCase().slice(0, 80))));
-    const now = titles(day, promoTarget), before = prevDay ? titles(prevDay, promoTarget) : new Set();
-    if (now.size) {
-      const d = el('div', 'promo');
-      d.append(promoTarget + ' 프로모션 ' + now.size + '건' + (before.size ? ' · 신규 ' + [...now].filter(t => !before.has(t)).length + ' · 종료 ' + [...before].filter(t => !now.has(t)).length : '') + ' · ');
-      const a = el('a', null, '자세히'); a.href = promoLink; d.append(a); c.append(d);
-    }
-    return c;
-  }
-  const lgRows = cur.filter(r => r.brand_group === 'LG' && STORE_KINDS.includes(r.kind) && storeRow(r));
-  const ssRows = cur.filter(r => r.brand === 'Samsung' && STORE_KINDS.includes(r.kind) && storeRow(r));
-  $('chgDuo').append(brandCol('LG', 'lg', lgRows, 'LG.com', 'lgcom.html'), brandCol('Samsung', 'ss', ssRows, 'Samsung.com', 'samsung.html'));
-  const shown = new Set([...lgRows, ...ssRows].map(r => r.target));
-  const etc = cur.filter(r => !shown.has(r.target) && ['경쟁사', '유통', 'LG'].includes(r.brand_group) && rateMoved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
-  const terms = cur.filter(r => ['LG', '경쟁사', '유통'].includes(r.brand_group) && termsMoved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
-  const line = el('div'); line.append(el('span', 'k', '그 외 경쟁사·유통 요율 변동: '));
-  if (!prevDay) line.append('—');
-  else if (!etc.length) line.append('없음');
-  else etc.forEach((r, i) => { const p = prevRow[r.target]; line.append((i ? ' · ' : ''), el('b', null, r.brand), ' ' + r.publisher + ' ' + (p.rate_text || '—') + '→' + (r.rate_text || '—')); });
-  $('chgEtc').append(line);
-  if (terms.length) {
-    const d = el('details'); d.append(el('summary', null, '요율 외 카테고리·제외 문구·쿠폰 오퍼만 바뀐 곳 ' + terms.length + '곳'));
-    const ul = el('ul'); terms.forEach(r => ul.append(el('li', null, r.brand + ' · ' + r.publisher))); d.append(ul); $('chgEtc').append(d);
-  }
-  $('tChg').textContent = prevDay ? String([...lgRows, ...ssRows, ...etc].filter(rateMoved).length) : '—';
-
-  // rate chart
-  $('ratesNote').textContent = day + ' 기준. 화살표는 직전 수집일' + (prevDay ? '(' + prevDay + ')' : '') + ' 대비 변화. "Up to"는 최대치, 유통은 참고용. ID.me는 자격 인증 회원 대상 캐시백입니다.';
-  const max = Math.max(1, ...rated.map(r => r.rate));
-  const order = { LG: 0, '경쟁사': 1, '유통': 2 };
-  const pubs = [...new Set(rated.map(r => r.publisher))].sort(byRank);
+  // rates
+  const store = cur.filter(r => STORE(r.kind) && OK(r.status) && (r.rate != null || r.rate_text));
+  const lgS = store.filter(r => r.brand_group === 'LG' && r.brand !== 'LG Partner Store');
+  const ssS = store.filter(r => r.brand === 'Samsung');
+  const pubs = [...new Set([...lgS, ...ssS].map(r => r.publisher))].sort(byRank);
   pubs.forEach(p => {
-    const box = el('div', 'pub'); box.append(el('h3', null, p));
-    rated.filter(r => r.publisher === p).sort((a, b) => order[a.brand_group] - order[b.brand_group] || b.rate - a.rate).forEach(r => {
-      const row = el('div', 'br'); row.append(el('div', 'n', r.brand));
-      const t = el('div', 'trk'); const bar = el('div', 'bar'); bar.style.width = (r.rate / max * 80) + '%'; bar.style.background = col(r.brand_group);
-      t.append(bar, el('span', 'num', pct(r.rate)));
-      const pv = prevBy[r.target];
-      if (pv != null && pv !== r.rate) t.append(el('span', 'num ' + (r.rate > pv ? 'up' : 'dn'), (r.rate > pv ? '▲' : '▼') + ' ' + pct(Math.abs(r.rate - pv)) + 'p'));
-      row.append(t); box.append(row);
-    });
-    $('rateChart').append(box);
-  });
-  if (!pubs.length) $('rateChart').append(el('div', 'empty', '요율 데이터가 아직 없습니다.'));
-
-  // terms
-  const termRows = cur.filter(r => (r.categories && r.categories.length) || r.exclusions);
-  if (!termRows.length) { const tr = el('tr'); const td = el('td', 'empty', '다음 자동 수집부터 표시됩니다.'); td.colSpan = 5; tr.append(td); $('termsBody').append(tr); }
-  termRows.sort((a, b) => byRank(a.publisher, b.publisher) || order[a.brand_group] - order[b.brand_group]).forEach(r => {
-    const tr = el('tr'); tr.append(el('td', null, r.publisher), el('td', r.brand_group === 'LG' ? 'lgtag' : null, r.brand), el('td', 'num', r.rate_text || '—'));
-    const c = el('td'); if (r.categories && r.categories.length) { const ul = el('ul', 'cats'); r.categories.forEach(x => ul.append(el('li', null, x.label + ' — ' + (x.kind === 'discount' ? '최대 ' + x.rate + '% 할인' : pct(x.rate))))); c.append(ul); } else c.textContent = '—';
-    const e = el('td', 'hide-sm'); if (r.exclusions) { const d = el('details'); d.append(el('summary', null, r.exclusions.slice(0, 60) + (r.exclusions.length > 60 ? '…' : '')), el('div', null, r.exclusions)); e.append(d); } else e.textContent = '—';
-    tr.append(c, e); $('termsBody').append(tr);
+    const lg = lgS.find(r => r.publisher === p), ss = ssS.find(r => r.publisher === p);
+    const tr = el('tr'); tr.append(el('td', null, p));
+    const was = lg && /was\s+(\d+(?:\.\d+)?)%/i.exec(lg.rate_text || '');
+    const a = el('td', 'num lgv', lg ? pct(lg.rate) : '—'); if (was) a.append(' ', el('span', 'tag up', '평시 ' + was[1] + '%')); tr.append(a);
+    tr.append(el('td', 'num ssv', ss ? pct(ss.rate) : '—'));
+    const c = el('td', 'num');
+    [lg, ss].filter(Boolean).filter(moved).forEach(r => { const pv = prevRow[r.target].rate; c.append(el('span', 'tag ' + (r.rate > pv ? 'up' : 'dn'), (r.brand === 'Samsung' ? '삼성 ' : 'LG ') + pct(pv) + '→' + pct(r.rate))); });
+    if (!c.childNodes.length) c.append(el('span', 'mute', '변동 없음'));
+    tr.append(c); $('rateBody').append(tr);
   });
 
-  // brand matrix
-  const mxRows = cur.filter(r => OK(r.status) && r.brand_group === '매체' && r.mentions && Object.keys(r.mentions).length);
-  const tot = {}; mxRows.forEach(r => Object.entries(r.mentions).forEach(([b, n]) => tot[b] = (tot[b] || 0) + n));
-  const brands = Object.keys(tot).sort((a, b) => (b === 'LG') - (a === 'LG') || tot[b] - tot[a]);
-  const hr = el('tr'); hr.append(el('th', null, '지면'));
-  brands.forEach(b => hr.append(el('th', 'b' + (b === 'LG' ? ' lgcol' : ''), b))); $('mxHead').append(hr);
-  const mmax = Math.max(1, ...mxRows.flatMap(r => Object.values(r.mentions)));
-  if (!mxRows.length) { const tr = el('tr'); const td = el('td', 'empty', '다음 자동 수집부터 표시됩니다.'); td.colSpan = 2; tr.append(td); $('mxBody').append(tr); }
-  mxRows.sort((a, b) => byRank(a.publisher, b.publisher)).forEach(r => {
-    const tr = el('tr'); const nm = el('td'); nm.append(r.publisher + ' ', el('span', 's-mute', r.brand)); tr.append(nm);
-    brands.forEach(b => {
-      const n = r.mentions[b]; const td = el('td', 'h' + (b === 'LG' ? ' lgcol' : ''), n ? String(n) : '');
-      if (n) td.style.background = 'rgba(var(--heat),' + (0.08 + 0.5 * n / mmax).toFixed(2) + ')';
-      tr.append(td);
-    });
-    $('mxBody').append(tr);
-  });
-
-  // verification
-  const cnt = {}; vr.forEach(r => cnt[r.status] = (cnt[r.status] || 0) + 1);
-  Object.entries(cnt).forEach(([k, v]) => $('vsum').append(el('span', stCls(k), k + ' ' + v)));
-  vr.forEach(r => {
-    const tr = el('tr');
-    tr.append(el('td', null, r.publisher), el('td', 'hide-sm', r.kind || ''), el('td', r.brand_group === 'LG' ? 'lgtag' : null, r.brand));
-    tr.append(el('td', stCls(r.status), r.status));
-    const ms = r.mentions && Object.keys(r.mentions).length && !r.rate_text ? '언급 ' + Object.entries(r.mentions).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, v]) => k + ' ' + v).join(', ') : null;
-    tr.append(el('td', 'num', r.rate_text || ms || '—'));
-    tr.append(el('td', 'hide-sm', r.reason || ''));
-    const s = el('td');
-    if (r.shot) { const a = el('a', null, '보기'); a.href = r.shot; a.onclick = e => { e.preventDefault(); openImg(r.shot); }; s.append(a, ' · '); }
-    const o = el('a', null, '원본'); o.href = r.url; o.target = '_blank'; o.rel = 'noopener'; s.append(o);
-    tr.append(s); $('vbody').append(tr);
-  });
-
-  // trend
-  if (dates.length < 2) $('trendBody').append(el('div', 'empty', '수집일이 2일 이상 쌓이면 표시됩니다.'));
-  else {
-    const W = 560, H = 150, m = { l: 30, r: 120, t: 10, b: 22 };
-    pubs.forEach(p => {
-      const series = {}; caps.filter(r => r.publisher === p && r.rate != null && isBrandRow(r)).forEach(r => (series[r.brand] = series[r.brand] || { g: r.brand_group, pts: [] }).pts.push([r.date, r.rate]));
-      const ymax = Math.max(1, ...Object.values(series).flatMap(s => s.pts.map(x => x[1])));
-      const x = d => m.l + dates.indexOf(d) / (dates.length - 1) * (W - m.l - m.r), y = v => H - m.b - v / ymax * (H - m.t - m.b);
-      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="요율 추이"><line x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}" stroke="var(--line)"/>`;
-      svg += `<text x="${m.l - 4}" y="${y(ymax) + 4}" font-size="10" text-anchor="end" fill="var(--muted)">${ymax}%</text><text x="${m.l}" y="${H - 6}" font-size="10" fill="var(--muted)">${dates[0].slice(5)}</text><text x="${W - m.r}" y="${H - 6}" font-size="10" text-anchor="end" fill="var(--muted)">${day.slice(5)}</text>`;
-      const labels = [];
-      Object.entries(series).forEach(([b, s]) => {
-        s.pts.sort(); const c = col(s.g);
-        svg += `<polyline fill="none" stroke="${c}" stroke-width="${s.g === 'LG' ? 2.5 : 1.5}" stroke-linejoin="round" stroke-linecap="round" points="${s.pts.map(q => x(q[0]) + ',' + y(q[1])).join(' ')}"/>`;
-        s.pts.forEach((q, i) => { if (s.g === '경쟁사' && i && q[1] > s.pts[i - 1][1]) svg += `<circle cx="${x(q[0])}" cy="${y(q[1])}" r="3.5" fill="var(--bad)"/>`; });
-        const last = s.pts[s.pts.length - 1]; labels.push([y(last[1]), `${b} ${pct(last[1])}`, c]);
-      });
-      labels.sort((a, b) => a[0] - b[0]); let prev = -99;
-      labels.forEach(([yy, t, c]) => { yy = Math.max(yy, prev + 11); prev = yy; svg += `<text x="${W - m.r + 6}" y="${yy + 3}" font-size="10" fill="${c}">${t.replace(/[<&]/g, '')}</text>`; });
-      svg += '</svg>';
-      const box = el('div', 'pub'); box.append(el('h3', null, p)); const d = el('div'); d.innerHTML = svg; box.append(d); $('trendBody').append(box);
-    });
+  // own-site promotions
+  function promos(group, d) { const m = new Map(); caps.filter(r => r.date === d && r.brand_group === group && OK(r.status)).forEach(r => (r.promos || []).forEach(p => { const k = (p.title || '').toLowerCase().slice(0, 80); if (!m.has(k)) m.set(k, { ...p, end: iso(p.valid) }); })); return m; }
+  const CORE = c => ['TV·AV', '가전 전반', '냉장고', '세탁', '주방', '청소·공조', '모니터·PC', '오디오'].includes(c);
+  function promoBox(box, name, group, link) {
+    const now = promos(group, day), before = prevDay ? promos(group, prevDay) : new Map();
+    const list = [...now.entries()];
+    const fresh = before.size ? list.filter(([k]) => !before.has(k)) : [];
+    const gone = before.size ? [...before.entries()].filter(([k]) => !now.has(k)) : [];
+    const ending = list.filter(([, p]) => p.end && daysTo(p.end) >= 0 && daysTo(p.end) <= 7).sort((a, b) => a[1].end.localeCompare(b[1].end));
+    box.append(el('h3', null, name));
+    box.append(el('div', 'sub', list.length ? '진행 ' + list.length + '건 (가전·TV·모니터 ' + list.filter(([, p]) => CORE(p.category)).length + ')' + (before.size ? ' · 신규 ' + fresh.length + ' · 종료 ' + gone.length : '') : '오늘 읽은 프로모션 없음'));
+    const ul = el('ul');
+    fresh.slice(0, 4).forEach(([, p]) => ul.append(html(el('li'), '<span class="tag new">신규</span>' + esc(p.title))));
+    ending.slice(0, 5).forEach(([, p]) => ul.append(html(el('li'), '<span class="tag end">' + fmt(p.end) + ' 종료 · D-' + daysTo(p.end) + '</span>' + esc(p.title))));
+    gone.slice(0, 3).forEach(([, p]) => ul.append(html(el('li', 'mute'), '<span class="tag miss">내려감</span>' + esc(p.title))));
+    if (!ul.childNodes.length) list.filter(([, p]) => CORE(p.category)).slice(0, 4).forEach(([, p]) => ul.append(html(el('li'), esc(p.title) + (p.discount ? ' <span class="mute">· ' + esc(p.discount) + '</span>' : ''))));
+    box.append(ul);
+    return { list, fresh, ending };
   }
+  const LG = promoBox($('lgBox'), 'LG.com', 'LG.com'), SS = promoBox($('ssBox'), 'Samsung.com', 'Samsung.com');
 
-  // gallery
-  const shots = caps.filter(r => r.shot);
-  const sDates = [...new Set(shots.map(r => r.date))].sort().reverse();
-  if (!sDates.length) $('gDate').append(el('option', null, '스크린샷 없음'));
-  sDates.forEach(d => $('gDate').append(el('option', null, d)));
-  $('gPub').append(el('option', null, '전체 퍼블리셔')); $('gPub').options[0].value = '';
-  [...new Set(shots.map(r => r.publisher))].sort(byRank).forEach(p => $('gPub').append(el('option', null, p)));
-  const drawGal = () => {
-    const g = $('gal'); g.textContent = '';
-    const list = shots.slice().sort((a, b) => byRank(a.publisher, b.publisher)).filter(r => r.date === $('gDate').value && (!$('gPub').value || r.publisher === $('gPub').value) && (!$('gGroup').value || r.brand_group === $('gGroup').value));
-    if (!list.length) { g.append(el('div', 'empty', '해당 조건의 화면이 없습니다.')); return; }
-    list.forEach(r => {
-      const c = el('div', 'shot'); const im = el('img'); im.loading = 'lazy'; im.src = r.shot; im.alt = r.publisher + ' ' + r.brand; im.onclick = () => openImg(r.shot);
-      const cap = el('div', 'cap'); cap.append(el('b', r.brand_group === 'LG' ? 'lgtag' : null, r.brand), ' · ' + r.publisher);
-      cap.append(el('div', stCls(r.status), r.rate_text || r.status));
-      c.append(im, cap); g.append(c);
-    });
-  };
-  ['gDate', 'gPub', 'gGroup'].forEach(i => $(i).onchange = drawGal); drawGal();
-
-  // coverage
-  (cov || []).slice().sort((a, b) => byRank(a.publisher, b.publisher)).forEach(c => {
-    const tr = el('tr'); tr.append(el('td', null, c.publisher), el('td', 'hide-sm', c.type));
-    tr.append(el('td', c.status.startsWith('자동') ? 's-ok' : c.status.includes('로그인') ? 's-warn' : 's-mute', c.status));
-    const mine = vr.filter(r => r.publisher === c.publisher);
-    const td = el('td');
-    if (mine.length) { const ok = mine.filter(r => OK(r.status)).length; td.append(el('span', ok === mine.length ? 's-ok' : ok ? 's-warn' : 's-bad', ok + ' / ' + mine.length + ' 정상')); const bad = [...new Set(mine.filter(r => !OK(r.status)).map(r => r.status))]; if (bad.length) td.append(el('div', 's-mute', bad.join(', '))); }
-    else td.append(el('span', 's-mute', '—'));
-    tr.append(td, el('td', null, c.note)); $('cbody').append(tr);
+  // placements today / next 7 days (same judging rule as the placement tab)
+  const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
+  const BASE = { 'capone-lg': 2.5 };
+  const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
+  const elevated = r => r && OK(r.status) && r.rate != null && (/was\s/i.test(r.rate_text || '') || (BASE[r.target] != null && r.rate > BASE[r.target]));
+  const P = (plan && plan.placements) || [];
+  const active = P.filter(p => p.start && p.start <= day && (p.end || p.start) >= day && p.method !== 'n/a').sort((a, b) => byRank(a.publisher, b.publisher));
+  const judge = p => { if (!['rate', 'presence', 'partial'].includes(p.method)) return 'none'; const rows = p.targets.map(t => at[day] && at[day][t]).filter(Boolean); if (!rows.length) return 'none'; return rows.some(p.method === 'rate' ? elevated : lgSeen) ? 'hit' : 'miss'; };
+  const judged = active.map(p => ({ p, s: judge(p) }));
+  const nb = $('nowBox'); nb.append(el('h3', null, '오늘 진행 중'));
+  const chk = judged.filter(x => x.s !== 'none');
+  nb.append(el('div', 'sub', '편성 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건'));
+  const nul = el('ul');
+  judged.sort((a, b) => ({ hit: 0, miss: 1, none: 2 })[a.s] - ({ hit: 0, miss: 1, none: 2 })[b.s]).slice(0, 8).forEach(({ p, s }) => nul.append(html(el('li', s === 'none' ? 'mute' : null), '<span class="tag ' + (s === 'hit' ? 'hit' : 'miss') + '">' + ({ hit: '관측', miss: '미관측', none: '확인 불가' })[s] + '</span>' + esc(p.publisher) + ' · ' + esc(p.placement) + ' <span class="mute">(~' + fmt(p.end || p.start) + ')</span>')));
+  if (judged.length > 8) nul.append(el('li', 'mute', '외 ' + (judged.length - 8) + '건'));
+  if (!judged.length) nul.append(el('li', 'mute', '오늘 진행 중인 편성이 없습니다.'));
+  nb.append(nul);
+  const end7 = new Date(new Date(day).getTime() + 7 * 864e5).toISOString().slice(0, 10);
+  const nextEv = P.filter(p => p.start > day && p.start <= end7 && /cash ?back|flash cash|bonus|double|big stack|discover new stores/i.test(p.placement)).sort((a, b) => a.start.localeCompare(b.start) || byRank(a.publisher, b.publisher));
+  const xb = $('nextBox'); xb.append(el('h3', null, '7일 내 시작하는 캐시백 이벤트')); xb.append(el('div', 'sub', nextEv.length + '건'));
+  const xul = el('ul');
+  nextEv.slice(0, 8).forEach(p => {
+    const overlap = [...LG.list].filter(([, q]) => !q.end || q.end >= p.start).length;
+    xul.append(html(el('li'), '<b>' + fmt(p.start) + (p.end && p.end !== p.start ? '–' + fmt(p.end) : '') + '</b> ' + esc(p.publisher) + ' · ' + esc(p.placement) + ' <span class="mute">· 겹치는 LG.com 프로모션 ' + overlap + '건</span>'));
   });
+  if (!nextEv.length) xul.append(el('li', 'mute', '예정된 캐시백 이벤트가 없습니다.'));
+  xb.append(xul);
 
-  const named = document.getElementById(location.hash.slice(1)); if (named) named.scrollIntoView();
+  // other competitors + collection issues
+  const etc = cur.filter(r => STORE(r.kind) && ['경쟁사', '유통'].includes(r.brand_group) && r.brand !== 'Samsung' && moved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
+  const fails = vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만'].includes(r.status));
+  const eb = $('etcBox'); const eul = el('ul');
+  etc.forEach(r => { const pv = prevRow[r.target].rate; eul.append(html(el('li'), '<span class="tag ' + (r.rate > pv ? 'up' : 'dn') + '">' + pct(pv) + '→' + pct(r.rate) + '</span>' + esc(r.brand) + ' · ' + esc(r.publisher))); });
+  if (!etc.length) eul.append(el('li', 'mute', '그 외 경쟁사·유통 요율 변동 없음'));
+  eul.append(html(el('li', 'mute'), '수집 실패 ' + fails.length + '곳' + (fails.length ? ': ' + fails.map(r => esc((r.publisher || '') + ' ' + (r.target || '').split('-').slice(1).join('-')) + '(' + esc(r.status) + ')').join(', ') : '')));
+  eb.append(eul);
+
+  // summary bullets
+  const S = [];
+  if (lgS.length) {
+    const top = lgS.filter(r => r.rate != null).reduce((a, b) => b.rate > a.rate ? b : a);
+    const up = lgS.filter(r => /was\s/i.test(r.rate_text || ''));
+    S.push('<b>LG 캐시백</b> 최고 ' + pct(top.rate) + '(' + esc(top.publisher) + ')' + (up.length ? '. ' + up.map(r => esc(r.publisher) + ' 평시 ' + /was\s+(\d+(?:\.\d+)?)%/i.exec(r.rate_text)[1] + '% → ' + pct(r.rate) + ' 상향 중').join(', ') : '') + (lgS.some(moved) ? ' · 직전 대비 변동 ' + lgS.filter(moved).length + '곳' : ''));
+  }
+  if (ssS.length) {
+    const mv = ssS.filter(moved);
+    const top = ssS.filter(r => r.rate != null).reduce((a, b) => b.rate > a.rate ? b : a);
+    S.push('<b>삼성 캐시백</b> ' + (mv.length ? mv.map(r => esc(r.publisher) + ' ' + pct(prevRow[r.target].rate) + '→' + pct(r.rate) + (r.rate > prevRow[r.target].rate ? ' 상향' : ' 하향')).join(', ') : '직전 대비 변동 없음') + ' · 최고 ' + pct(top.rate) + '(' + esc(top.publisher) + ')');
+  }
+  if (LG.list.length) S.push('<b>LG.com</b> 프로모션 ' + LG.list.length + '건' + (LG.fresh.length ? ', 신규 ' + LG.fresh.length + '건' : '') + (LG.ending.length ? ' · 7일 내 종료 ' + LG.ending.length + '건(가장 빠른 ' + fmt(LG.ending[0][1].end) + ': ' + esc(LG.ending[0][1].title.slice(0, 60)) + ')' : ''));
+  if (SS.list.length) { const wk = SS.list.find(([, p]) => /samsung week/i.test(p.title) && p.end); S.push('<b>Samsung.com</b> 프로모션 ' + SS.list.length + '건(가전·TV·모니터 ' + SS.list.filter(([, p]) => CORE(p.category)).length + ')' + (SS.fresh.length ? ', 신규 ' + SS.fresh.length + '건' : '') + (wk ? ' · Samsung Week ~' + fmt(wk[1].end) + ' 진행 중' : '')); }
+  if (active.length) S.push('<b>편성</b> 오늘 진행 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건' + (nextEv.length ? ' · 7일 내 캐시백 이벤트 ' + nextEv.length + '건(' + nextEv.slice(0, 2).map(p => esc(p.publisher) + ' ' + fmt(p.start)).join(', ') + ')' : ''));
+  $('summary').innerHTML = S.map(s => '<li>' + s + '</li>').join('') || '<li class="mute">요약할 데이터가 없습니다.</li>';
 })();
 </script>
 </body>

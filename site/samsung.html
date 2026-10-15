@@ -51,7 +51,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="appbar"><div class="appbar-in"><div class="brand"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></div><nav class="menu"><a href="./">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html" class="on">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html" class="on">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
 <div class="wrap">
   <header>
     <h1>Samsung.com 프로모션</h1>
@@ -118,7 +118,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   function shotLink(src, label) { const a = el('a', null, label || '화면'); a.href = src; a.onclick = e => { e.preventDefault(); openImg(src); }; return a; }
   $('dlg').onclick = () => $('dlg').close();
 
-  const dates = [...new Set(caps.map(r => r.date))].sort();
+  const dates = reportDates(caps);
   const lastDay = dates[dates.length - 1], prevDay = dates[dates.length - 2];
   const iso = (v, ref) => { if (!v) return null; const p = v.split('/').map(Number); const y = p[2] ? (p[2] < 100 ? 2000 + p[2] : p[2]) : Number((ref || lastDay || '2026').slice(0, 4)); return `${y}-${String(p[0]).padStart(2, '0')}-${String(p[1]).padStart(2, '0')}`; };
   const CAT_ORDER = ['TV·AV', '가전 전반', '냉장고', '세탁', '주방', '청소·공조', '모니터·PC', '오디오', '행사·프로그램', '결제·금융', '모바일', '기타'];

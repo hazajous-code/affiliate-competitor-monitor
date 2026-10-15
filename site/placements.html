@@ -54,7 +54,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="appbar"><div class="appbar-in"><div class="brand"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></div><nav class="menu"><a href="./">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html" class="on">편성 지면 관측</a></nav></div></div>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html" class="on">편성 지면 관측</a></nav></div></div>
 <div class="wrap">
   <header>
     <h1>편성 지면 관측</h1>
@@ -107,7 +107,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
   const caps = caps0 || [];
   const P = plan ? plan.placements : [];
-  const dates = [...new Set(caps.map(r => r.date))].sort();
+  const dates = reportDates(caps);
   const firstDay = dates[0], lastDay = dates[dates.length - 1];
   const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
   const OK = s => s === '수집' || s === '수집(텍스트)';

@@ -84,3 +84,4 @@ details summary{font-size:12.5px}
 
 @media(max-width:700px){.appbar-in{gap:8px;padding:8px 16px 0}.appbar .menu{width:100%;overflow-x:auto;flex-wrap:nowrap}.appbar .menu a{padding:8px 10px;white-space:nowrap}.wrap{padding:20px 16px 56px}}
 .tiles .tile:first-child{border-top:3px solid var(--lg)}
+.brand{text-decoration:none;color:inherit}

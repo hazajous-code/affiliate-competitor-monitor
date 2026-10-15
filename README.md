@@ -27,6 +27,8 @@
 | `site/shots/<날짜>/` | 스크린샷(JPEG, 최근 60일). 저장소 이력이 커지지 않도록 `shots` 브랜치에 커밋 1개로 덮어써 보관 |
 | `plans/YYYY-MM.txt` | 월별 편성표 — 매칭용 필드만(퍼블리셔·기간·지면명·OBS/PS·카테고리·오퍼 문구). 비용·성과 열은 넣지 않음 |
 | `scripts/import_plan.py` | 편성표 → `site/data/placements.json` 변환 + 지면별 확인 방식 분류 |
+| `site/index.html` | 데일리 브리핑(첫 화면) — 요율·자사몰 프로모션·편성 요약, 각 탭으로 연결 |
+| `site/monitor.html` | 경쟁사 지면 모니터(요율·조건·노출·검증·스크린샷) |
 | `site/placements.html` | 편성 지면 관측 메뉴 |
 | `site/lgcom.html` | LG.com/us 프로모션 × 퍼블리셔 LG 캐시백 비교 메뉴 |
 | `site/samsung.html` | Samsung.com/us 오퍼 페이지 프로모션 × LG.com 카테고리 비교 × 퍼블리셔 삼성/LG 요율 |
