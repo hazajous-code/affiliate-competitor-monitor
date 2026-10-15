@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
-      - run: cd probe && mkdir -p ss && (python ss.py https://www.samsung.com/us/shop/all-deals/ https://www.samsung.com/us/shop/offers/ https://www.samsung.com/us/televisions-home-theater/tvs/all-tvs/offers/ https://www.samsung.com/us/home-appliances/offers/ https://www.samsung.com/us/computing/monitors/offers/ > out.txt 2>&1 || true)
+      - run: cd probe && mkdir -p ss && (python ss.py https://www.samsung.com/us/offer/ https://www.samsung.com/us/home-appliances/ > out.txt 2>&1 || true)
       - run: |
           git config user.name probe && git config user.email probe@users.noreply.github.com
           git add -f probe/out.txt probe/ss && git commit -m "probe output [skip ci]" && git push

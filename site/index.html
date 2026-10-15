@@ -54,6 +54,16 @@ dialog{border:none;padding:0;max-width:96vw;max-height:94vh;background:transpare
 dialog::backdrop{background:rgba(0,0,0,.75)}
 .trend svg{width:100%;height:auto;display:block}
 .chg{display:grid;gap:8px}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.duo .col{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.duo .col.lg{border-top:3px solid var(--lg)}.duo .col.ss{border-top:3px solid #1428a0}
+@media (prefers-color-scheme:dark){.duo .col.ss{border-top-color:#6f86ff}}
+.duo h3{margin:0 0 2px;font-size:15px}.duo .sum{color:var(--muted);font-size:12px;margin-bottom:6px}
+.duo .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:5px 0;border-top:1px solid var(--line);font-size:13px;align-items:baseline}
+.duo .row .r{font-variant-numeric:tabular-nums;white-space:nowrap}
+.duo .row.hot{font-weight:600}.duo .row .same{color:var(--muted);font-weight:400}
+.duo .promo{margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}
+.chg-etc{margin-top:10px;font-size:13px}.chg-etc .k{color:var(--muted)}
 .chg .it{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:13px}
 .chg .it .w{color:var(--muted);font-size:12px}
 .mx td.h{font-variant-numeric:tabular-nums;text-align:center;min-width:44px}
@@ -80,8 +90,9 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 
   <section class="card" id="changes">
     <h2>변화 감지</h2>
-    <p class="note" id="chgNote">같은 지면의 직전 수집일과 비교해 요율·조건·오퍼가 바뀐 곳입니다.</p>
-    <div class="chg" id="chgBody"></div>
+    <p class="note" id="chgNote">직전 수집일과 비교한 요율 변화입니다. LG와 삼성을 먼저 보고, 나머지는 실제로 바뀐 것만 한 줄로 모읍니다.</p>
+    <div class="duo" id="chgDuo"></div>
+    <div class="chg-etc" id="chgEtc"></div>
   </section>
 
   <section class="card" id="rates">
@@ -191,32 +202,63 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   const rated = cur.filter(r => r.rate != null && isBrandRow(r));
   const top = a => a.reduce((x, y) => y.rate > x.rate ? y : x, a[0]);
   const lg = rated.filter(r => r.brand_group === 'LG' && r.brand !== 'LG Partner Store'), cp = rated.filter(r => r.brand_group === '경쟁사');
-  const changed = cur.filter(r => r.changed === true);
   const tiles = [];
   if (lg.length) { const t = top(lg); tiles.push(['LG 최고 요율', pct(t.rate), t.publisher]); }
   if (cp.length) { const t = top(cp); tiles.push(['가전 경쟁사 최고 요율', pct(t.rate), t.brand + ' · ' + t.publisher]); }
-  tiles.push(['오늘 변화 감지', String(changed.length), prevDay ? prevDay + ' 대비' : '비교일 없음']);
+  tiles.push(['요율 변동', null, prevDay ? prevDay + ' 대비' : '비교일 없음']);
   if (vr.length) tiles.push(['정상 수집 / 대상', vr.filter(r => OK(r.status)).length + ' / ' + vr.length, '요율 미확인·입구 ' + vr.filter(r => ['요율 미확인', '로그인 입구만'].includes(r.status)).length + ' · 실패 ' + vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만'].includes(r.status)).length]);
-  tiles.forEach(([l, v, s]) => { const c = el('div', 'card tile'); c.append(el('div', 'l', l), el('div', 'v', v), el('div', 's', s)); $('tiles').append(c); });
+  tiles.forEach(([l, v, s]) => { const c = el('div', 'card tile'); const vv = el('div', 'v', v); if (v == null) vv.id = 'tChg'; c.append(el('div', 'l', l), vv, el('div', 's', s)); $('tiles').append(c); });
   if (lg.length && cp.length) $('lede').textContent = day + ' 기준 LG 최고 요율은 ' + top(lg).publisher + ' ' + pct(top(lg).rate) + ', 가전 경쟁사 최고는 ' + top(cp).brand + ' ' + pct(top(cp).rate) + '(' + top(cp).publisher + ')입니다.';
 
-  // changes
-  if (!prevDay) $('chgBody').append(el('div', 'empty', '비교할 이전 수집일이 아직 없습니다.'));
-  else {
-    $('chgNote').textContent = day + ' 수집을 지면별 직전 수집일과 비교한 결과입니다. 요율·카테고리·제외 문구·오퍼 중 하나라도 바뀌면 표시합니다.';
-    if (!changed.length) $('chgBody').append(el('div', 'empty', '바뀐 지면이 없습니다.'));
-    changed.sort((a, b) => (b.brand_group === '경쟁사') - (a.brand_group === '경쟁사')).forEach(r => {
-      const it = el('div', 'it'); const l = el('div');
-      const t = el('div'); t.append(el('b', r.brand_group === 'LG' ? 'lgtag' : null, r.brand), ' · ' + r.publisher);
-      const what = (r.prev_rate_text || '—') + ' → ' + (r.rate_text || '—');
-      const d = r.prev_rate != null && r.rate != null && r.prev_rate !== r.rate ? el('span', 'num ' + (r.rate > r.prev_rate ? 'up' : 'dn'), ' ' + (r.rate > r.prev_rate ? '▲' : '▼') + pct(Math.abs(r.rate - r.prev_rate)) + 'p') : null;
-      const w = el('div', 'w', (r.prev_rate_text === r.rate_text ? '요율 문구 동일 · 카테고리·제외 문구 또는 오퍼 변경' : what) + ' (' + r.prev_date + ' 대비)');
-      if (d) t.append(d);
-      l.append(t, w); it.append(l);
-      const a = el('div'); if (r.shot) { const x = el('a', null, '화면'); x.href = r.shot; x.onclick = e => { e.preventDefault(); openImg(r.shot); }; a.append(x); }
-      it.append(a); $('chgBody').append(it);
+  // changes — compare the values themselves, not the page fingerprint
+  const prevRow = {};
+  caps.filter(r => r.date < day).sort((a, b) => a.date.localeCompare(b.date)).forEach(r => { prevRow[r.target] = r; });
+  const STORE_KINDS = ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'];
+  const rateMoved = r => { const p = prevRow[r.target]; return p && STORE_KINDS.includes(r.kind) && OK(r.status) && OK(p.status) && ((r.rate != null && p.rate != null && r.rate !== p.rate) || (r.rate_text && p.rate_text && r.rate_text !== p.rate_text)); };
+  const termsMoved = r => { const p = prevRow[r.target]; if (!p || !OK(r.status) || !OK(p.status) || rateMoved(r)) return false;
+    const k = x => JSON.stringify([x.categories || [], x.exclusions || null, x.offers || null, STORE_KINDS.includes(x.kind) ? null : x.rate_text]); return k(r) !== k(p); };
+  const promoKey = x => (x.promos || []).map(p => p.title);
+  const storeRow = r => r.rate != null || (r.rate_text && OK(r.status));
+  function arrow(r) { const p = prevRow[r.target];
+    if (!rateMoved(r)) return el('span', 'same', '변동 없음');
+    const up = r.rate != null && p.rate != null ? r.rate > p.rate : null;
+    return el('span', up == null ? null : up ? 'up' : 'dn', (up == null ? '' : up ? '▲ ' : '▼ ') + (p.rate_text || '—') + ' → ' + (r.rate_text || '—')); }
+  function brandCol(title, cls, rows, promoTarget, promoLink) {
+    const c = el('div', 'col ' + cls); c.append(el('h3', null, title));
+    const moved = rows.filter(rateMoved).length;
+    c.append(el('div', 'sum', prevDay ? '퍼블리셔 ' + rows.length + '곳 · 요율 변동 ' + moved + '곳' : '비교할 이전 수집일이 아직 없습니다.'));
+    rows.slice().sort((a, b) => byRank(a.publisher, b.publisher)).forEach(r => {
+      const it = el('div', 'row' + (rateMoved(r) ? ' hot' : ''));
+      const l = el('div'); l.append(r.publisher + (r.brand === 'LG Partner Store' ? ' (Partner Store)' : '') + ' ', el('span', 'num', r.rate_text || pct(r.rate)));
+      const rt = el('div', 'r'); rt.append(arrow(r));
+      if (r.shot) { const x = el('a', null, ' 화면'); x.href = r.shot; x.onclick = e => { e.preventDefault(); openImg(r.shot); }; rt.append(x); }
+      it.append(l, rt); c.append(it);
     });
+    const pr = cur.find(r => r.target === promoTarget);
+    if (pr) {
+      const now = promoKey(pr), before = prevRow[promoTarget] ? promoKey(prevRow[promoTarget]) : null;
+      const d = el('div', 'promo');
+      d.append('자사몰 프로모션 ' + now.length + '건' + (before ? ' · 신규 ' + now.filter(t => !before.includes(t)).length + ' · 종료 ' + before.filter(t => !now.includes(t)).length : '') + ' · ');
+      const a = el('a', null, '자세히'); a.href = promoLink; d.append(a); c.append(d);
+    }
+    return c;
   }
+  const lgRows = cur.filter(r => r.brand_group === 'LG' && STORE_KINDS.includes(r.kind) && storeRow(r));
+  const ssRows = cur.filter(r => r.brand === 'Samsung' && STORE_KINDS.includes(r.kind) && storeRow(r));
+  $('chgDuo').append(brandCol('LG', 'lg', lgRows, 'lgcom-promotions', 'lgcom.html'), brandCol('Samsung', 'ss', ssRows, 'samsungcom-offers', 'samsung.html'));
+  const shown = new Set([...lgRows, ...ssRows].map(r => r.target));
+  const etc = cur.filter(r => !shown.has(r.target) && ['경쟁사', '유통', 'LG'].includes(r.brand_group) && rateMoved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
+  const terms = cur.filter(r => ['LG', '경쟁사', '유통'].includes(r.brand_group) && termsMoved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
+  const line = el('div'); line.append(el('span', 'k', '그 외 경쟁사·유통 요율 변동: '));
+  if (!prevDay) line.append('—');
+  else if (!etc.length) line.append('없음');
+  else etc.forEach((r, i) => { const p = prevRow[r.target]; line.append((i ? ' · ' : ''), el('b', null, r.brand), ' ' + r.publisher + ' ' + (p.rate_text || '—') + '→' + (r.rate_text || '—')); });
+  $('chgEtc').append(line);
+  if (terms.length) {
+    const d = el('details'); d.append(el('summary', null, '요율 외 카테고리·제외 문구·쿠폰 오퍼만 바뀐 곳 ' + terms.length + '곳'));
+    const ul = el('ul'); terms.forEach(r => ul.append(el('li', null, r.brand + ' · ' + r.publisher))); d.append(ul); $('chgEtc').append(d);
+  }
+  $('tChg').textContent = prevDay ? String([...lgRows, ...ssRows, ...etc].filter(rateMoved).length) : '—';
 
   // rate chart
   $('ratesNote').textContent = day + ' 기준. 화살표는 직전 수집일' + (prevDay ? '(' + prevDay + ')' : '') + ' 대비 변화. "Up to"는 최대치, 유통은 참고용. ID.me는 자격 인증 회원 대상 캐시백입니다.';
