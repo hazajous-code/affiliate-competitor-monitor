@@ -1,6 +1,6 @@
 {
  "run_at": "2026-10-15T13:44-04:00",
- "partial_at": null,
+ "partial_at": "2026-10-15T22:35-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
@@ -2549,7 +2549,7 @@
    "date": "2026-10-15",
    "target": "samsungcom-offers",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-15T13:58-04:00",
+   "captured_at": "2026-10-15T22:35-04:00",
    "rate": null,
    "rate_text": "프로모션 5건",
    "offers": null,
@@ -2603,13 +2603,13 @@
    "http": 200,
    "title": "Limited-Time Offers & Everyday Savings on Essentials | Samsung US",
    "sig": "3eec731c926b",
-   "body_hash": "aa8cb808078c",
+   "body_hash": "cc3ad21ce92d",
    "country": "US",
    "prev_date": "2026-10-14",
    "prev_rate_text": "프로모션 5건",
    "prev_rate": null,
    "changed": false,
-   "body_changed": false
+   "body_changed": true
   },
   {
    "publisher": "Samsung.com",
