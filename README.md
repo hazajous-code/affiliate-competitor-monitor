@@ -22,6 +22,7 @@
 | `site/data/captures.json` | 날짜 × 대상별 누적 원장 |
 | `site/data/captures.csv` | 같은 원장의 내려받기용 CSV |
 | `site/data/runs.json` | 최근 실행의 대상별 검증 결과 + 접속 국가 코드 |
+| `site/data/briefs.json` | 일자별 ‘오늘의 요약’ 보관(삭제하지 않음). `scripts/archive_briefs.py`가 매일 수집 후 저장 |
 | `scripts/verify.py` | 커밋 전 무결성·공개 안전성 점검(내부 성과 용어 차단) |
 | `site/data/coverage.json` | 분석 이력의 전체 퍼블리셔와 자동 수집 가능 여부 |
 | `site/shots/<날짜>/` | 스크린샷(JPEG, 최근 60일). 저장소 이력이 커지지 않도록 `shots` 브랜치에 커밋 1개로 덮어써 보관 |

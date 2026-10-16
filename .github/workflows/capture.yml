@@ -76,6 +76,9 @@ jobs:
       - name: Capture publisher pages
         if: steps.guard.outputs.run == 'true'
         run: python scripts/capture.py ${{ github.event.inputs.targets }}
+      - name: Archive today's briefing summary
+        if: steps.guard.outputs.run == 'true'
+        run: python scripts/archive_briefs.py
       - name: Check integrity and public-safety
         if: steps.guard.outputs.run == 'true'
         run: python scripts/verify.py
