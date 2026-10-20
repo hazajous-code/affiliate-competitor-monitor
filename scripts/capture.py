@@ -64,7 +64,7 @@ BRANDS = {
 }
 
 PCT = r"(\d{1,2}(?:\.\d{1,2})?)\s*%"
-STATUSES = ["수집", "요율 미확인", "로그인 입구만", "봇 확인 화면", "렌더링 실패",
+STATUSES = ["수집", "요율 확인 필요", "요율 미확인", "로그인 입구만", "봇 확인 화면", "렌더링 실패",
             "페이지 없음", "차단(HTTP)", "접속 실패"]
 
 
@@ -98,6 +98,47 @@ def parse_rate(parser, t):
             nums = [g for g in m.groups()[1:] if g and re.fullmatch(r"\d+(?:\.\d+)?", g)]
             return (float(nums[0]) if nums else None), m.group(1).strip()
     return None, None
+
+
+# ---------- rule 1: read the store rate from a fixed spot on the page ----------
+# Each portal shows the store's own rate in one block near the store name. Reading only that block
+# keeps event banners and menus ("10% Cash Back" in Rakuten's category bar) out of the store rate.
+HEADER_JS = r"""
+(parser) => {
+  const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+  const sq = s => (s || '').replace(/\s+/g, ' ').trim();
+  const up = (e, n) => { let box = e; for (let i = 0; i < n && box; i++, box = box.parentElement) { const t = sq(box.innerText); if (/\d+(?:\.\d+)?\s?%/.test(t)) return t.slice(0, 400); } return null; };
+  const btn = label => [...document.querySelectorAll('a,button')].find(e => vis(e) && sq(e.innerText).toLowerCase() === label);
+  const h1 = re => [...document.querySelectorAll('h1')].filter(vis).find(h => re.test(h.innerText));
+  const by = {
+    rakuten: () => { const b = btn('shop now'); return b && up(b, 4); },                       // "Samsung Up to 2% Cash Back Shop Now"
+    tcb: () => { const h = h1(/cash back/i); return h && up(h, 4); },                          // "Get 12% of the price back with our ..."
+    capone: () => { const b = btn('activate'); return b && up(b, 4); },                         // "UP TO 2.5% REWARDS Get up to 2.5% back ..."
+    befrugal: () => { const h = h1(/coupons|cash back/i); return h && up(h, 4); },             // "Apply All Coupons + Activate 7% Cash Back at Samsung"
+  };
+  return by[parser] ? by[parser]() : null;
+}
+"""
+HEADER_PATS = {
+    "rakuten": rf"((?:Up to\s+)?{PCT}\s*Cash Back(?:\s*was\s*{PCT})?)",
+    "tcb": rf"(Get\s+(?:up to\s+)?{PCT}\s+of the price back)",
+    "capone": rf"((up to\s+)?{PCT}\s+rewards)",
+    "befrugal": rf"Activate\s+((?:up to\s+)?{PCT}\s*Cash Back)\s+at",
+}
+
+
+def parse_header_rate(parser, header):
+    """(rate, rate_text) from the store's header block, in the same wording the text parser used."""
+    if not header or parser not in HEADER_PATS:
+        return None, None
+    m = re.search(HEADER_PATS[parser], header, re.I)
+    if not m:
+        return None, None
+    nums = [g for g in m.groups()[1:] if g and re.fullmatch(r"\d+(?:\.\d+)?", g)]
+    rate = float(nums[0]) if nums else None
+    if parser == "capone":   # keep the stored wording stable: "Rewards Up to 2.5%" / "Rewards 2%"
+        return rate, ("Rewards Up to " if m.group(2) else "Rewards ") + f"{rate:g}%"
+    return rate, m.group(1).strip()
 
 
 # ---------- rates by category + exclusion text ----------
@@ -424,6 +465,16 @@ def capture_one(ctx, tg, day):
             rate, rate_text, offers = parse_offers(t)
         elif tg["parser"] not in ("mentions", "slots", "sspromo"):
             rate, rate_text = parse_rate(tg["parser"], t)
+            source = "text"
+            if tg["parser"] in HEADER_PATS and rate != 0.0:
+                try:
+                    header = page.evaluate(HEADER_JS, tg["parser"])
+                except Exception:
+                    header = None
+                hr, ht = parse_header_rate(tg["parser"], header)
+                if hr is not None:
+                    rate, rate_text, source = hr, ht, "header"
+            row["rate_source"] = source
             cats, excl = parse_terms(tg["parser"], t, tg.get("brand") or "")
             if tg["parser"] == "idme" and cats:
                 rate_text = f"할인 최대 {cats[0]['rate']:g}%" + (f" · {rate_text}" if rate_text else "")
@@ -446,6 +497,47 @@ def capture_one(ctx, tg, day):
     return row
 
 
+STORE_PARSERS = {"rakuten", "tcb", "capone", "befrugal", "idme"}
+PROMO_MARK = re.compile(r"\bwas\b|improved|increased|bonus|elevated", re.I)
+
+
+def big_jump(a, b):
+    """A move worth a second look: 2%p or more, or doubling / halving (when at least 0.5%p)."""
+    d = abs(b - a)
+    return d >= 2 or (d >= 0.5 and a > 0 and (b / a >= 2 or b / a <= 0.5))
+
+
+def apply_checks(results, hist, parser_of):
+    """Rules 2 and 3. A store rate is held back (status '요율 확인 필요', not published) when
+    - rule 2: it is higher than every category rate listed on the same page, or
+    - rule 3: it moved sharply from the last published rate with no second source agreeing.
+    A second source is: an on-page promo marker ("was 3%", "Improved"), the category rates showing the
+    same number, or the same number read on the previous collection day (two days running)."""
+    last = {}
+    for h in sorted(hist, key=lambda r: r["date"]):
+        last.setdefault(h["target"], []).append(h)
+    for r in results:
+        if r.get("status") != "수집" or r.get("rate") is None or parser_of.get(r["target"]) not in STORE_PARSERS:
+            continue
+        earlier = [h for h in last.get(r["target"], []) if h["date"] < r["date"]]
+        published = next((h for h in reversed(earlier) if h.get("rate") is not None), None)
+        yesterday = earlier[-1] if earlier else None
+        cat_rates = [c["rate"] for c in (r.get("categories") or []) if c.get("rate") is not None]
+        cross = parser_of[r["target"]] != "idme" and bool(cat_rates)   # ID.me lists discounts, not cash back
+        why = []
+        if cross and r["rate"] > max(cat_rates) + 1e-9:
+            why.append(f"대표 요율 {r['rate']:g}%가 같은 화면의 카테고리 최고 요율 {max(cat_rates):g}%보다 높게 읽힘")
+        if published and big_jump(published["rate"], r["rate"]):
+            agreed = (bool(PROMO_MARK.search(r.get("rate_text") or ""))
+                      or (cross and abs(max(cat_rates) - r["rate"]) < 1e-9)
+                      or (yesterday is not None and yesterday.get("held_rate") == r["rate"]))
+            if not agreed:
+                why.append(f"직전 게시 {published['rate']:g}%({published['date']}) → {r['rate']:g}% 급변, 두 번째 근거 없음")
+        if why:
+            r.update(held_rate=r["rate"], held_rate_text=r.get("rate_text"), rate=None, rate_text=None,
+                     status="요율 확인 필요", reason="; ".join(why) + " — 다음 수집에서 같은 값이 확인되거나 화면 확인 전까지 게시 보류")
+
+
 def annotate_changes(results, hist):
     """Compare each result with the same target's latest earlier date."""
     prev = {}
@@ -465,7 +557,7 @@ def annotate_changes(results, hist):
                  body_changed=(p.get("body_hash") != r.get("body_hash")) if p.get("body_hash") and r.get("body_hash") else None)
 
 
-CSV_COLS = ["date", "captured_at", "publisher", "kind", "brand", "brand_group", "status", "rate", "rate_text",
+CSV_COLS = ["date", "captured_at", "publisher", "kind", "brand", "brand_group", "status", "rate", "rate_text", "held_rate", "rate_source",
             "offers", "categories", "exclusions", "mentions", "changed", "prev_date", "prev_rate_text",
             "reason", "url", "shot"]
 
@@ -520,6 +612,7 @@ def main():
 
     cap_path = DATA / "captures.json"
     hist = json.loads(cap_path.read_text()) if cap_path.exists() else []
+    apply_checks(results, hist, {t["id"]: t["parser"] for t in all_targets})
     annotate_changes(results, hist)
     new_keys = {(r["date"], r["target"]) for r in results}
     hist = [h for h in hist if (h["date"], h["target"]) not in new_keys] + results

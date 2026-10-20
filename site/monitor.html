@@ -150,6 +150,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
       <li>날짜는 미국 동부 기준이며, 같은 날 다시 수집하면 그날 값을 최신 화면으로 바꿉니다.</li>
       <li>요율은 지면에 표시된 대표 문구입니다. "Up to"는 최대치이고, 카테고리·제외 조건에 따라 실제 적용은 다릅니다.</li>
       <li>브랜드 노출은 딜·리뷰 지면 본문의 이름 언급 횟수이며 광고 집행·노출량·구매 결과를 뜻하지 않습니다.</li>
+      <li>요율은 포털마다 정해진 자리(상점 이름 옆 대표 요율)에서만 읽습니다. 같은 화면의 카테고리 요율보다 높게 읽히거나, 직전 게시 값에서 크게 바뀌었는데 두 번째 근거(“was N%” 같은 상향 표시, 카테고리 요율 일치, 다음 날 같은 값)가 없으면 ‘요율 확인 필요’로 두고 게시하지 않습니다.</li>
       <li>변화 감지는 읽어 낸 값(요율·카테고리·제외 문구·오퍼)을 비교합니다. 본문 전체 지문은 개인화·위젯 때문에 자주 바뀌므로 참고로만 둡니다.</li>
       <li>공개 저장소이므로 내부 성과 수치는 넣지 않으며, 커밋 전에 자동 점검으로 막습니다.</li>
     </ul>
@@ -169,7 +170,8 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   const pct = v => v == null ? '—' : (Math.round(v * 100) / 100) + '%';
   const col = g => g === 'LG' ? 'var(--lg)' : g === '유통' ? 'var(--retail)' : 'var(--comp)';
   const OK = s => s === '수집' || s === '수집(텍스트)';
-  const stCls = s => OK(s) ? 's-ok' : s === '요율 미확인' || s === '로그인 입구만' ? 's-warn' : 's-bad';
+  const WARN = ['요율 미확인', '로그인 입구만', '요율 확인 필요'];
+  const stCls = s => OK(s) ? 's-ok' : WARN.includes(s) ? 's-warn' : 's-bad';
   const isBrandRow = r => ['LG', '경쟁사', '유통'].includes(r.brand_group);
   const dates = reportDates(caps);
   const day = dates[dates.length - 1];
@@ -206,7 +208,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   if (lg.length) { const t = top(lg); tiles.push(['LG 최고 요율', pct(t.rate), t.publisher]); }
   if (cp.length) { const t = top(cp); tiles.push(['가전 경쟁사 최고 요율', pct(t.rate), t.brand + ' · ' + t.publisher]); }
   tiles.push(['요율 변동', null, prevDay ? prevDay + ' 대비' : '비교일 없음']);
-  if (vr.length) tiles.push(['정상 수집 / 대상', vr.filter(r => OK(r.status)).length + ' / ' + vr.length, '요율 미확인·입구 ' + vr.filter(r => ['요율 미확인', '로그인 입구만'].includes(r.status)).length + ' · 실패 ' + vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만'].includes(r.status)).length]);
+  if (vr.length) tiles.push(['정상 수집 / 대상', vr.filter(r => OK(r.status)).length + ' / ' + vr.length, '확인 필요·미확인·입구 ' + vr.filter(r => WARN.includes(r.status)).length + ' · 실패 ' + vr.filter(r => !OK(r.status) && !WARN.includes(r.status)).length]);
   tiles.forEach(([l, v, s]) => { const c = el('div', 'card tile'); const vv = el('div', 'v', v); if (v == null) vv.id = 'tChg'; c.append(el('div', 'l', l), vv, el('div', 's', s)); $('tiles').append(c); });
   if (lg.length && cp.length) $('lede').textContent = day + ' 기준 LG 최고 요율은 ' + top(lg).publisher + ' ' + pct(top(lg).rate) + ', 가전 경쟁사 최고는 ' + top(cp).brand + ' ' + pct(top(cp).rate) + '(' + top(cp).publisher + ')입니다.';
 
@@ -315,7 +317,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
     tr.append(el('td', null, r.publisher), el('td', 'hide-sm', r.kind || ''), el('td', r.brand_group === 'LG' ? 'lgtag' : null, r.brand));
     tr.append(el('td', stCls(r.status), r.status));
     const ms = r.mentions && Object.keys(r.mentions).length && !r.rate_text ? '언급 ' + Object.entries(r.mentions).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, v]) => k + ' ' + v).join(', ') : null;
-    tr.append(el('td', 'num', r.rate_text || ms || '—'));
+    tr.append(el('td', 'num', r.rate_text || (r.held_rate_text ? r.held_rate_text + ' (게시 보류)' : '') || ms || '—'));
     tr.append(el('td', 'hide-sm', r.reason || ''));
     const s = el('td');
     if (r.shot) { const a = el('a', null, '보기'); a.href = r.shot; a.onclick = e => { e.preventDefault(); openImg(r.shot); }; s.append(a, ' · '); }

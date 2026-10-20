@@ -246,10 +246,12 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     xb.append(xul);
 
     // other competitors + collection issues
-    const fails = vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만'].includes(r.status));
+    const fails = vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만', '요율 확인 필요'].includes(r.status));
+    const held = vr.filter(r => r.status === '요율 확인 필요');
     const eul = el('ul');
     etc.forEach(r => { const pv = prevRow[r.target].rate; eul.append(html(el('li'), '<span class="tag ' + (r.rate > pv ? 'up' : 'dn') + '">' + pct(pv) + '→' + pct(r.rate) + '</span>' + esc(r.brand) + ' · ' + esc(r.publisher))); });
     if (!etc.length) eul.append(el('li', 'mute', '그 외 경쟁사·유통 요율 변동 없음'));
+    if (held.length) eul.append(html(el('li'), '<span class="tag end">확인 필요 ' + held.length + '곳</span>' + held.map(r => esc(r.brand + ' · ' + r.publisher) + ' ' + esc(r.held_rate_text || '')).join(', ') + ' <span class="mute">— 급변·불일치로 게시 보류, 다음 수집에서 재확인</span>'));
     eul.append(html(el('li', 'mute'), '수집 실패 ' + fails.length + '곳' + (fails.length ? ': ' + fails.map(r => esc((r.publisher || '') + ' ' + (r.target || '').split('-').slice(1).join('-')) + '(' + esc(r.status) + ')').join(', ') : '')));
     $('etcBox').append(eul);
   }
