@@ -53,6 +53,15 @@ for c in caps:
         elif p.read_bytes()[:2] != b"\xff\xd8":
             fail(f"{k}: screenshot is not a JPEG")
 
+# A site-wide banner read as the store rate makes every store on one portal show the same number.
+by_day = {}
+for c in caps:
+    if c["target"].startswith("rakuten-") and c.get("rate") is not None:
+        by_day.setdefault(c["date"], []).append(c["rate"])
+for d, rates in by_day.items():
+    if len(rates) >= 6 and len(set(rates)) == 1:
+        fail(f"{d}: all {len(rates)} Rakuten stores read as {rates[0]}% — likely a site-wide banner, not the store rate")
+
 runs = json.loads((SITE / "data/runs.json").read_text())
 enabled = {t["id"] for t in targets if t.get("enabled", True)}
 got = [r["target"] for r in runs.get("results", [])]

@@ -83,7 +83,8 @@ def parse_rate(parser, t):
     if re.search(r"Cash Back is currently not available for", t, re.I):
         return 0.0, "캐시백 미제공(현재 중단)"
     pats = {
-        "rakuten": [rf"((?:Up to\s+)?{PCT}\s*Cash Back(?:\s*was\s*{PCT})?)"],
+        # the store rate sits right above "Shop Now"; on event days the category bar also says "10% Cash Back"
+        "rakuten": [rf"((?:Up to\s+)?{PCT}\s*Cash Back(?:\s*was\s*{PCT})?)\s+Shop Now"],
         "tcb": [rf"(Get\s+(?:up to\s+)?{PCT}\s+of the price back)",
                 rf"(Online Purchase\s+(?:Improved\s+)?(?:Up to\s+)?{PCT})"],
         "capone": [rf"(Rewards\s+((?:Up to\s+)?){PCT})", rf"((?:Up to\s+)?{PCT}\s+Rewards)"],
