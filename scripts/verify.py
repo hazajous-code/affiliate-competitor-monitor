@@ -44,6 +44,8 @@ for c in caps:
     k = f"{c['date']} {c['target']}"
     if c["status"] not in allowed:
         fail(f"{k}: unknown status {c['status']}")
+    if c.get("rate") is not None and c.get("kind") == "쿠폰":
+        fail(f"{k}: a coupon/deal site carries a rate — its listed offers (e.g. welcome codes) are not a cash-back rate")
     if c.get("rate") is not None and c["status"] not in ("수집", "수집(텍스트)"):
         fail(f"{k}: rate recorded on a non-collected row")
     if c.get("shot"):

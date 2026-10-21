@@ -172,7 +172,8 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   const OK = s => s === '수집' || s === '수집(텍스트)';
   const WARN = ['요율 미확인', '로그인 입구만', '요율 확인 필요'];
   const stCls = s => OK(s) ? 's-ok' : WARN.includes(s) ? 's-warn' : 's-bad';
-  const isBrandRow = r => ['LG', '경쟁사', '유통'].includes(r.brand_group);
+  // rates come only from cash-back / reward store pages; coupon & deal sites list offers, not a rate
+  const isBrandRow = r => ['LG', '경쟁사', '유통'].includes(r.brand_group) && ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'].includes(r.kind);
   const dates = reportDates(caps);
   const day = dates[dates.length - 1];
   const prevDay = dates[dates.length - 2];

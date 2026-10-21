@@ -52,6 +52,7 @@
 1. **정해진 자리에서만 읽기**: Rakuten은 Shop Now 버튼 위, TopCashback은 제목 아래 "Get N% of the price back", Capital One은 Activate 버튼 상자, BeFrugal은 제목부의 "Activate N% Cash Back at …"에서만 대표 요율을 읽음(`rate_source=header`). 자리를 못 찾을 때만 본문 검색으로 대체(`rate_source=text`).
 2. **두 군데 맞춰 보기**: 대표 요율이 같은 화면 카테고리별 요율의 최고값보다 높으면 보류(ID.me는 카테고리가 할인율이라 제외).
 3. **급변 보류**: 직전 게시 값에서 2%p 이상 또는 2배/절반 이상 바뀌었는데 두 번째 근거가 없으면 보류. 근거 = "was N%"·Improved 같은 상향 표시, 카테고리 요율 일치, 또는 다음 수집일에 같은 값(이틀 연속).
+- 쿠폰·딜 사이트(Savings.com·RetailMeNot·TechRadar 등)는 요율을 기록하지 않음. 페이지에 올라온 "Get 20% Cash Back with MyLG Rewards"(웰컴 쿠폰 WELCOME20) 같은 문구는 남의 오퍼이지 그 사이트의 캐시백 요율이 아니기 때문(2026-10-21 피드백 반영). 오퍼 수·최상단 딜만 기록.
 - 추가로, 한 날짜에 라쿠텐 상점 6곳 이상이 모두 같은 요율이면 `verify.py`가 게시 자체를 막음.
 
 - **변화 감지**: 읽어 낸 값(요율·카테고리·제외 문구·오퍼)의 지문을 직전 수집일과 비교

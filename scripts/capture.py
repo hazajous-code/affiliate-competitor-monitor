@@ -185,16 +185,15 @@ def parse_offers(t):
     top = (re.search(r"Today's top offer\s+((?:UP TO\s+)?[\d$.,]+%?\s*OFF)", t, re.I)
            or re.search(r"Top Offer\s+((?:up to\s+)?[\d$.,]+%?\s*OFF)", t, re.I)
            or re.search(r"((?:up to\s+)?(?:\d{1,2}%|\$\d[\d,]*)\s+off)", t, re.I))
-    cb = re.search(rf"((?:Up to\s+)?{PCT}\s+Cash Back)", t, re.I)
+    # Coupon/deal sites list other people's offers ("Get 20% Cash Back with MyLG Rewards", welcome codes
+    # such as WELCOME20). Those are deals, not the site's own cash-back rate, so no rate is recorded here.
     parts = []
     if n:
         parts.append(f"오퍼 {n.group(1)}건")
     if top:
         parts.append("최상단 " + top.group(1).title())
-    if cb:
-        parts.append(cb.group(1))
     count = int(n.group(1).replace(",", "")) if n else None
-    return (float(cb.group(2)) if cb else None), (" · ".join(parts) or None), count
+    return None, (" · ".join(parts) or None), count
 
 
 def mentions(t):
