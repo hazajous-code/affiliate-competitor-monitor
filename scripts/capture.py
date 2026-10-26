@@ -114,7 +114,7 @@ HEADER_JS = r"""
     tcb: () => { const h = h1(/cash back/i); return h && up(h, 4); },                          // "Get 12% of the price back with our ..."
     capone: () => { const b = btn('activate'); return b && up(b, 4); },                         // "UP TO 2.5% REWARDS Get up to 2.5% back ..."
     befrugal: () => { const h = h1(/coupons|cash back/i); return h && up(h, 4); },             // "Apply All Coupons + Activate 7% Cash Back at Samsung"
-    cartera: () => { const b = btn('shop now'); return b && up(b, 4); },                       // "Merchant Experience Earn 2 miles/$ Shop now"
+    cartera: () => { const b = btn('shop now') || btn('order now'); return b && up(b, 4); },    // "Earn 2 miles/$ Shop now" (some stores say "Order now")
   };
   return by[parser] ? by[parser]() : null;
 }
@@ -368,24 +368,35 @@ MENTION_JS = r"""
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const nodes = []; let n;
   while ((n = walker.nextNode())) { if (n.nodeValue && n.nodeValue.trim().length > 1) nodes.push(n); }
+  const W = window.innerWidth;
   for (const [name, src] of Object.entries(brands)) {
     const re = new RegExp(src);
     const picked = [];
     for (const tn of nodes) {
       if (picked.length >= 2) break;
-      if (!re.test(tn.nodeValue)) continue;
+      const m = tn.nodeValue && re.exec(tn.nodeValue);
+      if (!m) continue;
       const e = tn.parentElement;
       if (!e || e.closest('nav,header,footer,[role=navigation],[role=menu],[aria-hidden=true]')) continue;   // menus are not mentions
-      let box = e;
-      for (let i = 0; i < 8 && box; i++) { const r = box.getBoundingClientRect(); if (r.width >= 240 && r.height >= 80) break; box = box.parentElement; }
+      const range = document.createRange();
+      range.setStart(tn, m.index); range.setEnd(tn, m.index + m[0].length);
+      const tr = range.getBoundingClientRect();
+      if (!tr.width || !tr.height || tr.right < 0 || tr.left > W) continue;            // hidden or scrolled out of a carousel
+      let box = e;                                                                       // smallest card-sized block around it
+      for (let i = 0; i < 8 && box; i++) { const r = box.getBoundingClientRect(); if (r.width >= 140 && r.height >= 60) break; box = box.parentElement; }
       if (!box) continue;
       const r = box.getBoundingClientRect();
-      if (r.width < 160 || r.height < 30 || r.height > 700) continue;
-      if (picked.some(p => p.contains(box) || box.contains(p))) continue;
-      picked.push(box);
+      if (r.width < 120 || r.height < 30 || r.height > 700 || r.left > W || r.right < 0) continue;
+      if (picked.some(p => p.el.contains(box) || box.contains(p.el))) continue;
+      picked.push({ el: box, range });
     }
-    out[name] = picked.map((b, i) => { const id = name.replace(/\W+/g, '') + '_' + i; b.setAttribute('data-acm-m', id);
-      return { id, text: (b.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 220) }; });
+    out[name] = picked.map((p, i) => {
+      const id = name.replace(/\W+/g, '') + '_' + i;
+      p.el.setAttribute('data-acm-m', id);
+      const text = (p.el.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 220);
+      try { const mk = document.createElement('mark'); mk.style.cssText = 'background:#ffe066;outline:2px solid #f59f00;color:inherit'; p.range.surroundContents(mk); } catch (e) {}
+      return { id, text };
+    });
   }
   return out;
 }
@@ -545,7 +556,7 @@ def capture_one(ctx, tg, day):
             pts, rate_text, unit = parse_points(header)
             source = "header"
             if pts is None:   # fall back to the rate right before the first "Shop now" in the page text
-                seg = re.search(r"(.{0,160}?)\bShop now\b", t, re.I)
+                seg = re.search(r"(.{0,160}?)\b(?:Shop|Order) now\b", t, re.I)
                 pts, rate_text, unit = parse_points(seg.group(1) if seg else "")
                 source = "text"
             row.update(points=pts, unit=unit, rate_source=source)
