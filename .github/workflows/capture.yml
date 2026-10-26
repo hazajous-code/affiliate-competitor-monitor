@@ -71,7 +71,7 @@ jobs:
       - name: Install Playwright
         if: steps.guard.outputs.run == 'true'
         run: |
-          pip install playwright==1.47.0
+          pip install playwright==1.47.0 pillow
           python -m playwright install --with-deps chromium
       - name: Capture publisher pages
         if: steps.guard.outputs.run == 'true'
@@ -79,6 +79,14 @@ jobs:
       - name: Archive today's briefing summary
         if: steps.guard.outputs.run == 'true'
         run: python scripts/archive_briefs.py
+      - name: Archive original screenshots (GitHub Releases, one zip per day)
+        if: steps.guard.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/archive_shots.py
+      - name: Screenshot retention (compress after 14 days, keep 200 days, crops 365 days)
+        if: steps.guard.outputs.run == 'true'
+        run: python scripts/retention.py
       - name: Check integrity and public-safety
         if: steps.guard.outputs.run == 'true'
         run: python scripts/verify.py

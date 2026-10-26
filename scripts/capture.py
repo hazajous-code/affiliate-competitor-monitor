@@ -33,7 +33,6 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 DATA = SITE / "data"
 SHOTS = SITE / "shots"
-KEEP_DAYS = 60
 
 NY = ZoneInfo("America/New_York")
 
@@ -401,7 +400,6 @@ MENTION_JS = r"""
   return out;
 }
 """
-MENTION_KEEP_DAYS = 14
 
 
 def capture_mentions(page, tg, day, found):
@@ -749,27 +747,7 @@ def main():
         "results": results,
     }, ensure_ascii=False, indent=1))
 
-    mcut = (now - dt.timedelta(days=MENTION_KEEP_DAYS)).strftime("%Y-%m-%d")
-    for d in SHOTS.iterdir():
-        m = d / "m"
-        if d.is_dir() and d.name < mcut and m.is_dir():
-            for f in m.iterdir():
-                f.unlink()
-            m.rmdir()
-    for h in hist:   # crops older than 14 days are gone; drop the links to them
-        if h.get("mention_shots") and h["date"] < mcut:
-            h["mention_shots"] = {}
-    cap_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1))
-
-    cutoff = (now - dt.timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
-    for d in SHOTS.iterdir():
-        if d.is_dir() and d.name < cutoff:
-            for f in d.rglob("*"):
-                if f.is_file():
-                    f.unlink()
-            for sub in sorted((x for x in d.rglob("*") if x.is_dir()), reverse=True):
-                sub.rmdir()
-            d.rmdir()
+    # screenshot retention (compression, archive, budget) is handled by retention.py / archive_shots.py
 
 
 if __name__ == "__main__":

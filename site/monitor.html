@@ -122,7 +122,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 
   <section class="card" id="matrix">
     <h2>브랜드 노출 매트릭스</h2>
-    <p class="note">특정 브랜드 전용이 아닌 딜·리뷰 지면(홈·리뷰 목록) 본문에 브랜드명이 나온 횟수입니다. 브랜드 쿠폰 페이지는 자기 브랜드가 당연히 많이 나오므로 제외했습니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다. <b>숫자를 누르면 그 브랜드가 언급된 부분(딜 카드·리뷰 문단)의 캡처를 볼 수 있습니다</b>(최근 14일 보관).</p>
+    <p class="note">특정 브랜드 전용이 아닌 딜·리뷰 지면(홈·리뷰 목록) 본문에 브랜드명이 나온 횟수입니다. 브랜드 쿠폰 페이지는 자기 브랜드가 당연히 많이 나오므로 제외했습니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다. <b>숫자를 누르면 그 브랜드가 언급된 부분(딜 카드·리뷰 문단)의 캡처를 볼 수 있습니다</b>(1년 보관).</p>
     <div class="tw"><table class="mx"><thead id="mxHead"></thead><tbody id="mxBody"></tbody></table></div>
   </section>
 
@@ -141,7 +141,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 
   <section class="card" id="gallery">
     <h2>지면 스크린샷</h2>
-    <p class="note">미국 동부 기준 수집. 이미지를 누르면 크게 보입니다.</p>
+    <p class="note">미국 동부 기준 수집. 이미지를 누르면 크게 보입니다. 보관: 최근 14일은 원본, 그 이후는 압축본(약 200일). 원본은 <a href="https://github.com/hazajous-code/affiliate-competitor-monitor/releases" target="_blank" rel="noopener">월별 원본 보관함(GitHub Releases)</a>에서 날짜별 zip으로 내려받을 수 있습니다.</p>
     <div class="controls"><select id="gDate"></select><select id="gPub"></select><select id="gGroup"><option value="">전체 대상</option><option>LG</option><option>경쟁사</option><option>유통</option><option value="매체">딜·리뷰·입구</option><option value="지면">편성 지면 페이지</option></select></div>
     <div class="gal" id="gal"></div>
   </section>
@@ -300,7 +300,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
     $('mTitle').textContent = r.publisher + ' · ' + b + ' 언급 ' + (r.mentions[b] || 0) + '회 (' + r.date + ')';
     const body = $('mBody'); body.innerHTML = '';
     crops.forEach(c => { const f = el('figure'); const im = el('img'); im.src = c.shot; im.alt = b; im.loading = 'lazy'; im.onclick = () => openImg(c.shot); f.append(im, el('figcaption', null, c.text)); body.append(f); });
-    if (!crops.length) body.append(el('div', 'empty', '이 날짜에는 언급 부분 캡처가 없습니다(기능 도입 전 수집이거나 이미지 배너 안의 언급). 아래 페이지 전체 화면을 확인하세요.'));
+    if (!crops.length) body.append(el('div', 'empty', '이 날짜에는 언급 부분 캡처가 없습니다(기능 도입 전 수집, 이미지 배너 안의 언급, 또는 보관 기간 경과). 아래 페이지 전체 화면을 확인하세요.'));
     if (r.shot) { const f = el('figure'); const im = el('img'); im.src = r.shot; im.onclick = () => openImg(r.shot); f.append(im, el('figcaption', null, '페이지 전체 화면')); body.append(f); }
     $('mdlg').showModal();
   }

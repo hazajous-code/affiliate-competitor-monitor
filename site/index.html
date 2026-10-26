@@ -91,7 +91,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 
   <div class="sec" id="archive">
     <div class="hd"><h2>지난 브리핑</h2><span class="more" id="archMeta"></span></div>
-    <p class="note">매일 수집이 끝나면 그날의 ‘오늘의 요약’을 별도 파일(data/briefs.json)에 저장합니다. 원본 수집 데이터는 60일만 보관되지만, 요약은 계속 쌓입니다. 날짜를 누르면 그날 브리핑 전체를 다시 볼 수 있습니다(최근 60일).</p>
+    <p class="note">매일 수집이 끝나면 그날의 ‘오늘의 요약’을 별도 파일(data/briefs.json)에 저장합니다. 요약은 삭제하지 않고 계속 쌓입니다. 화면 캡처는 대시보드에서 약 200일(14일 이후 압축본) 볼 수 있고, 원본은 월별로 GitHub Releases에 영구 보관됩니다. 날짜를 누르면 그날 브리핑 전체를 다시 볼 수 있습니다.</p>
     <div id="archList"></div>
   </div>
 
@@ -281,7 +281,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
       det.append(sm);
       det.append(html(el('ol'), bullets.map(s => '<li>' + s + '</li>').join('')));
       if (dates.includes(d) && d !== current) { const a = el('a', 'go', '이날 브리핑 전체 보기 →'); a.href = d === dates[dates.length - 1] ? './' : '?date=' + d; det.append(a); }
-      else if (!dates.includes(d)) det.append(el('div', 'go mute', '원본 수집 데이터 보관 기간(60일)이 지나 요약만 남아 있습니다.'));
+      else if (!dates.includes(d)) det.append(el('div', 'go mute', '이날의 수집 데이터가 없어 요약만 남아 있습니다.'));
       box.append(det);
     });
   }
