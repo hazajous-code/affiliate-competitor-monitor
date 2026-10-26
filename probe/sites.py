@@ -2,17 +2,16 @@ import json, re
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 URLS = [
- "https://www.befrugal.com/store/lg/", "https://www.befrugal.com/store/lgelectronics/", "https://www.befrugal.com/store/lg-electronics/", "https://www.befrugal.com/store/lgcom/",
- "https://www.retailmenot.com/view/lg.com", "https://www.retailmenot.com/view/us.lg.com", "https://www.retailmenot.com/view/samsung.com",
- "https://www.aadvantageeshopping.com/", "https://www.aadvantageeshopping.com/b____.htm", "https://www.skymilesshopping.com/", "https://shop.mileageplus.com/",
- "https://rapidrewardsshopping.southwest.com/", "https://www.mileageplanshopping.com/",
- "https://www.upromise.com/", "https://www.upromise.com/stores/lg-electronics", "https://www.upromise.com/stores/samsung",
- "https://www.swagbucks.com/shop/lg-coupons", "https://www.swagbucks.com/shop/samsung-coupons", "https://www.swagbucks.com/shop",
- "https://www.mypoints.com/lg-electronics", "https://www.mypoints.com/samsung", "https://www.mypoints.com/stores",
+ "https://www.aadvantageeshopping.com/b____.htm", "https://www.skymilesshopping.com/b____.htm", "https://rapidrewardsshopping.southwest.com/b____.htm",
+ "https://www.atmosshopping.com/b____.htm", "https://shopping.mileageplus.com/", "https://www.mileageplusshopping.com/", "https://shopping.mileageplus.com/b____.htm",
+ "https://www.swagbucks.com/shop/lg-electronics-coupons", "https://www.swagbucks.com/shop/lgcom-coupons", "https://www.swagbucks.com/shop/lg-com-coupons",
+ "https://www.swagbucks.com/shop/whirlpool-coupons", "https://www.swagbucks.com/shop/allstores",
+ "https://www.upromise.com/store/lg-electronics", "https://www.upromise.com/stores/lg", "https://www.upromise.com/shop/lg-electronics", "https://www.upromise.com/stores/all",
+ "https://www.mypoints.com/", "https://www.mypoints.com/store/lg-electronics", "https://www.mypoints.com/stores/lg", "https://www.mypoints.com/stores/all",
 ]
 JS = r"""() => { const sq = s => (s||'').replace(/\s+/g,' ').trim();
-  const re = /\blg\b|lg-electronics|lgelectronics|lg\.com|samsung|whirlpool|ge-?appliances|frigidaire/i;
-  return [...new Set([...document.querySelectorAll('a[href]')].filter(a => re.test(a.href) || re.test(a.innerText)).map(a => sq(a.innerText).slice(0,60) + ' => ' + a.href.split('?')[0]))].slice(0, 40); }"""
+  const re = /\blg\b|lg-electronics|lgelectronics|lg\.com|samsung|whirlpool|ge-?appliances|frigidaire|\/stores?\//i;
+  return [...new Set([...document.querySelectorAll('a[href]')].filter(a => re.test(a.href) || re.test(a.innerText)).map(a => sq(a.innerText).slice(0,60) + ' => ' + a.href))].slice(0, 40); }"""
 out = {}
 with sync_playwright() as p:
     b = p.chromium.launch()
