@@ -414,6 +414,8 @@ def capture_mentions(page, tg, day, found):
     except Exception:
         return {}
     (SHOTS / day / "m").mkdir(parents=True, exist_ok=True)
+    for old in (SHOTS / day / "m").glob(f"{tg['id']}__*.jpg"):   # a re-run replaces that page's crops
+        old.unlink()
     out, total = {}, 0
     for brand, items in marks.items():
         for it in items:
