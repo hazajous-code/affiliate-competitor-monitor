@@ -70,6 +70,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   <div class="sec">
     <div class="hd"><h2>캐시백 요율 · LG vs 삼성</h2><a class="more" href="monitor.html">경쟁사 지면 모니터 →</a></div>
     <div class="tw"><table><thead><tr><th>퍼블리셔</th><th>LG</th><th>삼성</th><th>직전 대비 변동</th></tr></thead><tbody id="rateBody"></tbody></table></div>
+    <p class="note" id="milesLine" style="margin:10px 0 0;color:var(--fg)"></p>
     <p class="note" style="margin-top:8px">퍼블리셔는 판매 실적 순입니다. 상점 페이지에 표시된 대표 요율 기준입니다.</p>
   </div>
 
@@ -217,6 +218,14 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
       tr.append(c); $('rateBody').append(tr);
     });
     if (!pubs.length) { const tr = el('tr'); const td = el('td', 'empty', '이날 요율 데이터가 없습니다.'); td.colSpan = 4; tr.append(td); $('rateBody').append(tr); }
+    // Cartera airline portals earn miles/points per $, shown as one line under the table
+    const mi = cur.filter(r => r.kind === '마일·포인트 적립' && OK(r.status) && r.points != null);
+    $('milesLine').innerHTML = '';
+    if (mi.length) {
+      const span = b => { const v = mi.filter(r => r.brand === b).map(r => r.points); if (!v.length) return '—'; const lo = Math.min(...v), hi = Math.max(...v); return (lo === hi ? lo : lo + '~' + hi) + '/$'; };
+      const up = mi.filter(r => /was/i.test(r.rate_text || ''));
+      $('milesLine').innerHTML = '<b>Cartera 항공 쇼핑몰 ' + new Set(mi.map(r => r.publisher)).size + '곳</b> (마일·포인트 / $1): <span class="lgv">LG ' + span('LG Electronics') + '</span> · <span class="ssv">삼성 ' + span('Samsung') + '</span> · Whirlpool ' + span('Whirlpool') + (up.length ? ' · 상향 중: ' + up.map(r => esc(r.publisher.replace('Cartera · ', '') + ' ' + r.brand + ' ' + r.rate_text)).join(', ') : '');
+    }
 
     // own-site promotions
     function promoBox(box, name, X) {

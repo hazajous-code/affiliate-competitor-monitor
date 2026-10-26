@@ -21,7 +21,7 @@
   "publisher": "BeFrugal",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "상점 페이지 공개 — Samsung·GE·Whirlpool 수집. LG 상점 페이지는 없음(LG.com이 BeFrugal에 없음)"
+  "note": "상점 페이지 공개 — LG(befrugal.com/store/lgelectronics)·Samsung·GE·Whirlpool 수집"
  },
  {
   "publisher": "ID.me Shop",
@@ -44,8 +44,8 @@
  {
   "publisher": "RetailMeNot",
   "type": "쿠폰",
-  "status": "자동 수집 · LG 차단",
-  "note": "Samsung·GE 수집, LG 페이지는 HTTP 403 — 우회하지 않음"
+  "status": "차단(봇 확인)",
+  "note": "모든 상점 페이지가 Cloudflare 봇 확인 화면 — 우회하지 않음. 수집 불가(2026-10-26 확인)"
  },
  {
   "publisher": "Slickdeals",
@@ -150,12 +150,6 @@
   "note": "소속 기업 계정 필요"
  },
  {
-  "publisher": "Cartera Commerce",
-  "type": "항공·카드 쇼핑 포털 운영사",
-  "status": "경로 미확보",
-  "note": "포털 검색 주소가 홈으로 이동 — 상점 페이지 주소 확인 후 추가"
- },
- {
   "publisher": "Honey · Swagbucks",
   "type": "브라우저 확장·리워드",
   "status": "제외",
@@ -190,5 +184,29 @@
   "type": "카드 연동 오퍼",
   "status": "대상 아님",
   "note": "2026년 1월 종료"
+ },
+ {
+  "publisher": "Cartera Commerce",
+  "type": "마일·포인트 적립",
+  "status": "자동 수집",
+  "note": "항공 쇼핑몰 5곳(American AAdvantage·Delta SkyMiles·United MileagePlus·Southwest Rapid Rewards·Atmos Rewards) — LG·Samsung·Whirlpool 상점, $1당 마일·포인트"
+ },
+ {
+  "publisher": "Swagbucks (Prodege)",
+  "type": "캐시백 포털",
+  "status": "자동 수집 · LG 없음",
+  "note": "Samsung 상점 수집. LG·Whirlpool 상점은 Swagbucks에 없음(검색 결과 없음)"
+ },
+ {
+  "publisher": "Upromise (Prodege)",
+  "type": "캐시백 포털",
+  "status": "공개 상점 페이지 없음",
+  "note": "상점 페이지가 공개 주소로 열리지 않음(회원 전용 추정) — 비로그인 수집 불가"
+ },
+ {
+  "publisher": "MyPoints (Prodege)",
+  "type": "포인트 적립",
+  "status": "공개 상점 페이지 없음",
+  "note": "상점 페이지가 공개 주소로 열리지 않음(회원 전용 추정) — 비로그인 수집 불가"
  }
 ]

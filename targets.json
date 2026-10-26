@@ -767,5 +767,192 @@
   "url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/",
   "promo_cat": "모니터·PC",
   "promo_optional": true
+ },
+ {
+  "id": "befrugal-lg",
+  "publisher": "BeFrugal",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/lgelectronics/",
+  "parser": "befrugal",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-aa-lg",
+  "publisher": "Cartera · American AAdvantage eShopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6190",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-aa-samsung",
+  "publisher": "Cartera · American AAdvantage eShopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.aadvantageeshopping.com/me____.htm?gmid=4889",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-aa-whirlpool",
+  "publisher": "Cartera · American AAdvantage eShopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6147",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-delta-lg",
+  "publisher": "Cartera · Delta SkyMiles Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.skymilesshopping.com/me____.htm?gmid=6190",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-delta-samsung",
+  "publisher": "Cartera · Delta SkyMiles Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.skymilesshopping.com/me____.htm?gmid=4889",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-delta-whirlpool",
+  "publisher": "Cartera · Delta SkyMiles Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.skymilesshopping.com/me____.htm?gmid=6147",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-united-lg",
+  "publisher": "Cartera · United MileagePlus Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://shopping.mileageplus.com/me____.htm?gmid=6190",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-united-samsung",
+  "publisher": "Cartera · United MileagePlus Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://shopping.mileageplus.com/me____.htm?gmid=4889",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-united-whirlpool",
+  "publisher": "Cartera · United MileagePlus Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://shopping.mileageplus.com/me____.htm?gmid=6147",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-southwest-lg",
+  "publisher": "Cartera · Southwest Rapid Rewards Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6190",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-southwest-samsung",
+  "publisher": "Cartera · Southwest Rapid Rewards Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=4889",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-southwest-whirlpool",
+  "publisher": "Cartera · Southwest Rapid Rewards Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6147",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-atmos-lg",
+  "publisher": "Cartera · Atmos Rewards Shopping (Alaska·Hawaiian)",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.atmosshopping.com/me____.htm?gmid=6190",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-atmos-samsung",
+  "publisher": "Cartera · Atmos Rewards Shopping (Alaska·Hawaiian)",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.atmosshopping.com/me____.htm?gmid=4889",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "cartera-atmos-whirlpool",
+  "publisher": "Cartera · Atmos Rewards Shopping (Alaska·Hawaiian)",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.atmosshopping.com/me____.htm?gmid=6147",
+  "parser": "cartera",
+  "access": "public",
+  "enabled": true
+ },
+ {
+  "id": "swagbucks-samsung",
+  "publisher": "Swagbucks (Prodege)",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.swagbucks.com/shop/samsung-coupons",
+  "parser": "swagbucks",
+  "access": "public",
+  "enabled": true
  }
 ]

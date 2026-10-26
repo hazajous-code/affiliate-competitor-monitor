@@ -68,6 +68,16 @@ dialog::backdrop{background:rgba(0,0,0,.75)}
 .mx th.b{text-align:center;white-space:nowrap}
 .mx th.lgcol,.mx td.lgcol{border-left:2px solid var(--lg);border-right:2px solid var(--lg)}
 .cats{margin:0;padding-left:16px}
+.mx td.h.has{cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.mdlg{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;width:min(960px,94vw);max-height:90vh;overflow:auto}
+.mdlg::backdrop{background:rgba(0,0,0,.55)}
+.mdlg .mhd{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.mdlg .mhd button{font:inherit;font-size:12.5px;border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:12px}
+.mgrid figure{margin:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.mgrid img{display:block;width:100%;max-height:340px;object-fit:contain;background:#fafafa;cursor:zoom-in}
+.mgrid figcaption{padding:8px 10px;font-size:12px;color:var(--muted);line-height:1.5}
+.miles table td.v{font-variant-numeric:tabular-nums;white-space:nowrap}
 details summary{cursor:pointer;color:var(--muted);font-size:12px}
 ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{margin:3px 0}
 @media(max-width:640px){.hide-sm{display:none}}
@@ -101,6 +111,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
     <p class="note">퍼블리셔는 모든 표에서 판매 실적 순(CJ 리포트 2026년 1~8월 기준 순위)으로 정렬됩니다.</p>
     <div class="legend"><span><i style="background:var(--lg)"></i>LG</span><span><i style="background:var(--comp)"></i>가전 경쟁사</span><span><i style="background:var(--retail)"></i>유통(참고)</span></div>
     <div id="rateChart"></div>
+    <div id="miles" style="margin-top:22px"></div>
   </section>
 
   <section class="card" id="terms">
@@ -111,7 +122,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 
   <section class="card" id="matrix">
     <h2>브랜드 노출 매트릭스</h2>
-    <p class="note">특정 브랜드 전용이 아닌 딜·리뷰 지면(홈·리뷰 목록) 본문에 브랜드명이 나온 횟수입니다. 브랜드 쿠폰 페이지는 자기 브랜드가 당연히 많이 나오므로 제외했습니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다.</p>
+    <p class="note">특정 브랜드 전용이 아닌 딜·리뷰 지면(홈·리뷰 목록) 본문에 브랜드명이 나온 횟수입니다. 브랜드 쿠폰 페이지는 자기 브랜드가 당연히 많이 나오므로 제외했습니다. 빈칸은 미노출. 언급은 광고 집행이나 점유율을 뜻하지 않습니다. <b>숫자를 누르면 그 브랜드가 언급된 부분(딜 카드·리뷰 문단)의 캡처를 볼 수 있습니다</b>(최근 14일 보관).</p>
     <div class="tw"><table class="mx"><thead id="mxHead"></thead><tbody id="mxBody"></tbody></table></div>
   </section>
 
@@ -157,6 +168,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   </section>
 </div>
 <dialog id="dlg"><img id="dlgImg" alt=""></dialog>
+<dialog id="mdlg" class="mdlg"><div class="mhd"><b id="mTitle"></b><button id="mClose" type="button">닫기</button></div><div id="mBody" class="mgrid"></div></dialog>
 
 <script src="rank.js"></script>
 <script>
@@ -216,7 +228,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   // changes — compare the values themselves, not the page fingerprint
   const prevRow = {};
   caps.filter(r => r.date < day).sort((a, b) => a.date.localeCompare(b.date)).forEach(r => { prevRow[r.target] = r; });
-  const STORE_KINDS = ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'];
+  const STORE_KINDS = ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인', '마일·포인트 적립'];
   const rateMoved = r => { const p = prevRow[r.target]; return p && STORE_KINDS.includes(r.kind) && OK(r.status) && OK(p.status) && ((r.rate != null && p.rate != null && r.rate !== p.rate) || (r.rate_text && p.rate_text && r.rate_text !== p.rate_text)); };
   const termsMoved = r => { const p = prevRow[r.target]; if (!p || !OK(r.status) || !OK(p.status) || rateMoved(r)) return false;
     const k = x => JSON.stringify([x.categories || [], x.exclusions || null, x.offers || null, STORE_KINDS.includes(x.kind) ? null : x.rate_text]); return k(r) !== k(p); };
@@ -282,6 +294,49 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   });
   if (!pubs.length) $('rateChart').append(el('div', 'empty', '요율 데이터가 아직 없습니다.'));
 
+  // brand-mention crops
+  function openMentions(r, b) {
+    const crops = (r.mention_shots || {})[b] || [];
+    $('mTitle').textContent = r.publisher + ' · ' + b + ' 언급 ' + (r.mentions[b] || 0) + '회 (' + r.date + ')';
+    const body = $('mBody'); body.innerHTML = '';
+    crops.forEach(c => { const f = el('figure'); const im = el('img'); im.src = c.shot; im.alt = b; im.loading = 'lazy'; im.onclick = () => openImg(c.shot); f.append(im, el('figcaption', null, c.text)); body.append(f); });
+    if (!crops.length) body.append(el('div', 'empty', '이 날짜에는 언급 부분 캡처가 없습니다(기능 도입 전 수집이거나 이미지 배너 안의 언급). 아래 페이지 전체 화면을 확인하세요.'));
+    if (r.shot) { const f = el('figure'); const im = el('img'); im.src = r.shot; im.onclick = () => openImg(r.shot); f.append(im, el('figcaption', null, '페이지 전체 화면')); body.append(f); }
+    $('mdlg').showModal();
+  }
+  $('mClose').onclick = () => $('mdlg').close();
+  $('mdlg').onclick = e => { if (e.target === $('mdlg')) $('mdlg').close(); };
+
+  // Cartera airline shopping portals: miles / points per $1 (not comparable with % cash back)
+  (function () {
+    const rows = cur.filter(r => r.kind === '마일·포인트 적립');
+    if (!rows.length) return;
+    const box = $('miles'); box.className = 'miles';
+    box.append(el('h3', null, '항공 마일리지 쇼핑몰 (Cartera) — $1당 적립'));
+    box.append(el('p', 'note', '마일·포인트는 % 캐시백과 단위가 달라 위 막대와 따로 표시합니다. "was N"은 평시 대비 상향 중이라는 뜻입니다.'));
+    const brands = ['LG Electronics', 'Samsung', 'Whirlpool'];
+    const tw = el('div', 'tw'); const t = el('table'); const hd = el('tr'); hd.append(el('th', null, '쇼핑몰'));
+    brands.forEach(b => hd.append(el('th', b === 'LG Electronics' ? 'lgtag' : null, b.replace(' Electronics', ''))));
+    const th = el('thead'); th.append(hd); t.append(th); const tb = el('tbody');
+    [...new Set(rows.map(r => r.publisher))].forEach(p => {
+      const tr = el('tr'); tr.append(el('td', null, p.replace('Cartera · ', '')));
+      brands.forEach(b => {
+        const r = rows.find(x => x.publisher === p && x.brand === b);
+        const td = el('td', 'v' + (b === 'LG Electronics' ? ' lgtag' : ''));
+        if (!r) td.append(el('span', 's-mute', '—'));
+        else if (!OK(r.status)) td.append(el('span', r.status === '요율 확인 필요' ? 's-warn' : 's-bad', r.status));
+        else {
+          td.append(r.rate_text || '—');
+          const pv = prevRow[r.target];
+          if (pv && pv.points != null && r.points != null && pv.points !== r.points) td.append(' ', el('span', 'num ' + (r.points > pv.points ? 'up' : 'dn'), (r.points > pv.points ? '▲' : '▼') + Math.abs(r.points - pv.points)));
+        }
+        tr.append(td);
+      });
+      tb.append(tr);
+    });
+    t.append(tb); tw.append(t); box.append(tw);
+  })();
+
   // terms
   const termRows = cur.filter(r => (r.categories && r.categories.length) || r.exclusions);
   if (!termRows.length) { const tr = el('tr'); const td = el('td', 'empty', '다음 자동 수집부터 표시됩니다.'); td.colSpan = 5; tr.append(td); $('termsBody').append(tr); }
@@ -303,8 +358,9 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   mxRows.sort((a, b) => byRank(a.publisher, b.publisher)).forEach(r => {
     const tr = el('tr'); const nm = el('td'); nm.append(r.publisher + ' ', el('span', 's-mute', r.brand)); tr.append(nm);
     brands.forEach(b => {
-      const n = r.mentions[b]; const td = el('td', 'h' + (b === 'LG' ? ' lgcol' : ''), n ? String(n) : '');
-      if (n) td.style.background = 'rgba(var(--heat),' + (0.08 + 0.5 * n / mmax).toFixed(2) + ')';
+      const n = r.mentions[b]; const crops = (r.mention_shots || {})[b] || [];
+      const td = el('td', 'h' + (b === 'LG' ? ' lgcol' : '') + (n ? ' has' : ''), n ? String(n) + (crops.length ? '' : '') : '');
+      if (n) { td.style.background = 'rgba(var(--heat),' + (0.08 + 0.5 * n / mmax).toFixed(2) + ')'; td.title = crops.length ? '언급 부분 캡처 ' + crops.length + '장 보기' : '화면 보기'; td.onclick = () => openMentions(r, b); }
       tr.append(td);
     });
     $('mxBody').append(tr);

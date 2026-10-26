@@ -36,8 +36,6 @@ SHOTS = SITE / "shots"
 KEEP_DAYS = 60
 
 NY = ZoneInfo("America/New_York")
-UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
 
 BLOCK_HINTS = ["access denied", "just a moment", "verify you are human", "are you a robot",
                "captcha", "request blocked", "unusual traffic", "pardon our interruption",
@@ -91,6 +89,7 @@ def parse_rate(parser, t):
         # the store rate sits right above the "Shop Now" button; the nav bar also says "10% Cash Back"
         "befrugal": [rf"((?:up to\s+)?{PCT}\s*Cash Back)\s+Shop Now"],
         "idme": [rf"(Up to\s+{PCT}\s*cash back)"],
+        "swagbucks": [rf"Earn\s+((?:up to\s+)?{PCT}\s*Cash Back)\s+with Swagbucks"],
     }.get(parser, [])
     for p in pats:
         m = re.search(p, t, flags=re.I)
@@ -107,7 +106,7 @@ HEADER_JS = r"""
 (parser) => {
   const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
   const sq = s => (s || '').replace(/\s+/g, ' ').trim();
-  const up = (e, n) => { let box = e; for (let i = 0; i < n && box; i++, box = box.parentElement) { const t = sq(box.innerText); if (/\d+(?:\.\d+)?\s?%/.test(t)) return t.slice(0, 400); } return null; };
+  const up = (e, n) => { let box = e; for (let i = 0; i < n && box; i++, box = box.parentElement) { const t = sq(box.innerText); if (/\d+(?:\.\d+)?\s?(?:%|miles?\b|points?\b)/i.test(t)) return t.slice(0, 400); } return null; };
   const btn = label => [...document.querySelectorAll('a,button')].find(e => vis(e) && sq(e.innerText).toLowerCase() === label);
   const h1 = re => [...document.querySelectorAll('h1')].filter(vis).find(h => re.test(h.innerText));
   const by = {
@@ -115,6 +114,7 @@ HEADER_JS = r"""
     tcb: () => { const h = h1(/cash back/i); return h && up(h, 4); },                          // "Get 12% of the price back with our ..."
     capone: () => { const b = btn('activate'); return b && up(b, 4); },                         // "UP TO 2.5% REWARDS Get up to 2.5% back ..."
     befrugal: () => { const h = h1(/coupons|cash back/i); return h && up(h, 4); },             // "Apply All Coupons + Activate 7% Cash Back at Samsung"
+    cartera: () => { const b = btn('shop now'); return b && up(b, 4); },                       // "Merchant Experience Earn 2 miles/$ Shop now"
   };
   return by[parser] ? by[parser]() : null;
 }
@@ -125,6 +125,20 @@ HEADER_PATS = {
     "capone": rf"((up to\s+)?{PCT}\s+rewards)",
     "befrugal": rf"Activate\s+((?:up to\s+)?{PCT}\s*Cash Back)\s+at",
 }
+
+
+POINTS_PAT = r"(?:Was\s+(?:up to\s+)?(\d+(?:\.\d+)?)\s+Now\s+)?(?:Earn\s+)?(up to\s+)?(\d+(?:\.\d+)?)\s+(miles?|points?)\s*/\s*\$\s?1?"
+
+
+def parse_points(t):
+    """Cartera airline portals: (points per $, text like '2 miles/$' or '3 miles/$ was 1', unit)."""
+    m = re.search(POINTS_PAT, t or "", re.I)
+    if not m:
+        return None, None, None
+    was, upto, val, unit = m.groups()
+    unit = ("miles" if unit.lower().startswith("mile") else "points") + "/$"
+    text = ("Up to " if upto else "") + f"{float(val):g} {unit}" + (f" was {float(was):g}" if was else "")
+    return float(val), text, unit
 
 
 def parse_header_rate(parser, header):
@@ -347,6 +361,65 @@ def extract_ss_promos(page, page_cat=None, page_text=""):
     return sorted(keep, key=lambda o: order[id(o)])
 
 
+# ---------- brand mentions: crop the card / paragraph where each brand appears ----------
+MENTION_JS = r"""
+(brands) => {
+  const out = {};
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = []; let n;
+  while ((n = walker.nextNode())) { if (n.nodeValue && n.nodeValue.trim().length > 1) nodes.push(n); }
+  for (const [name, src] of Object.entries(brands)) {
+    const re = new RegExp(src);
+    const picked = [];
+    for (const tn of nodes) {
+      if (picked.length >= 2) break;
+      if (!re.test(tn.nodeValue)) continue;
+      const e = tn.parentElement;
+      if (!e || e.closest('nav,header,footer,[role=navigation],[role=menu],[aria-hidden=true]')) continue;   // menus are not mentions
+      let box = e;
+      for (let i = 0; i < 8 && box; i++) { const r = box.getBoundingClientRect(); if (r.width >= 240 && r.height >= 80) break; box = box.parentElement; }
+      if (!box) continue;
+      const r = box.getBoundingClientRect();
+      if (r.width < 160 || r.height < 30 || r.height > 700) continue;
+      if (picked.some(p => p.contains(box) || box.contains(p))) continue;
+      picked.push(box);
+    }
+    out[name] = picked.map((b, i) => { const id = name.replace(/\W+/g, '') + '_' + i; b.setAttribute('data-acm-m', id);
+      return { id, text: (b.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 220) }; });
+  }
+  return out;
+}
+"""
+MENTION_KEEP_DAYS = 14
+
+
+def capture_mentions(page, tg, day, found):
+    """Crop up to two blocks per mentioned brand. Returns {brand: [{"shot", "text"}]}."""
+    want = {b: BRANDS[b] for b in found if b in BRANDS}
+    if not want:
+        return {}
+    try:
+        marks = page.evaluate(MENTION_JS, want)
+    except Exception:
+        return {}
+    (SHOTS / day / "m").mkdir(parents=True, exist_ok=True)
+    out, total = {}, 0
+    for brand, items in marks.items():
+        for it in items:
+            if total >= 24:
+                break
+            rel = f"shots/{day}/m/{tg['id']}__{it['id']}.jpg"
+            try:
+                loc = page.locator(f'[data-acm-m="{it["id"]}"]').first
+                loc.scroll_into_view_if_needed(timeout=2500)
+                loc.screenshot(path=str(SITE / rel), type="jpeg", quality=50, timeout=5000)
+            except Exception:
+                continue
+            out.setdefault(brand, []).append({"shot": rel, "text": it["text"]})
+            total += 1
+    return out
+
+
 def lg_snippets(t, limit=6):
     """Short text around each LG mention — the evidence shown next to a placement."""
     out = []
@@ -379,6 +452,8 @@ def classify(tg, title, t, http_status, rate, rate_text, final_url):
         return "요율 미확인", "화면은 저장됨 — 요율 문구를 찾지 못함"
     if tg["parser"] in ("lgpromo", "sspromo") and rate_text is None and not tg.get("promo_optional"):
         return "요율 미확인", "화면은 저장됨 — 프로모션 문구를 찾지 못함"
+    if tg["parser"] in ("cartera", "swagbucks") and rate_text is None:
+        return "요율 미확인", "화면은 저장됨 — 적립률 문구를 찾지 못함"
     if tg["parser"] == "offers" and rate_text is None:
         return "요율 미확인", "화면은 저장됨 — 오퍼 수를 찾지 못함"
     return "수집", ""
@@ -462,6 +537,18 @@ def capture_one(ctx, tg, day):
             rate_text = f"프로모션 {len(promos)}건" if promos else None
         elif tg["parser"] == "offers":
             rate, rate_text, offers = parse_offers(t)
+        elif tg["parser"] == "cartera":
+            try:
+                header = page.evaluate(HEADER_JS, "cartera")
+            except Exception:
+                header = None
+            pts, rate_text, unit = parse_points(header)
+            source = "header"
+            if pts is None:   # fall back to the rate right before the first "Shop now" in the page text
+                seg = re.search(r"(.{0,160}?)\bShop now\b", t, re.I)
+                pts, rate_text, unit = parse_points(seg.group(1) if seg else "")
+                source = "text"
+            row.update(points=pts, unit=unit, rate_source=source)
         elif tg["parser"] not in ("mentions", "slots", "sspromo"):
             rate, rate_text = parse_rate(tg["parser"], t)
             source = "text"
@@ -478,6 +565,8 @@ def capture_one(ctx, tg, day):
             if tg["parser"] == "idme" and cats:
                 rate_text = f"할인 최대 {cats[0]['rate']:g}%" + (f" · {rate_text}" if rate_text else "")
         st, why = classify(tg, title, t, http, rate, rate_text, page.url)
+        if tg["parser"] == "mentions" and tg.get("access", "public") == "public" and st == "수집":
+            row["mention_shots"] = capture_mentions(page, tg, day, mentions(t))
         ok = st in ("수집", "요율 미확인", "로그인 입구만")
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
@@ -496,7 +585,7 @@ def capture_one(ctx, tg, day):
     return row
 
 
-STORE_PARSERS = {"rakuten", "tcb", "capone", "befrugal", "idme"}
+STORE_PARSERS = {"rakuten", "tcb", "capone", "befrugal", "idme", "swagbucks", "cartera"}
 PROMO_MARK = re.compile(r"\bwas\b|improved|increased|bonus|elevated", re.I)
 
 
@@ -515,25 +604,29 @@ def apply_checks(results, hist, parser_of):
     last = {}
     for h in sorted(hist, key=lambda r: r["date"]):
         last.setdefault(h["target"], []).append(h)
+    val = lambda x: x.get("rate") if x.get("rate") is not None else x.get("points")
     for r in results:
-        if r.get("status") != "수집" or r.get("rate") is None or parser_of.get(r["target"]) not in STORE_PARSERS:
+        if r.get("status") != "수집" or val(r) is None or parser_of.get(r["target"]) not in STORE_PARSERS:
             continue
+        v = val(r)
+        unit = r.get("unit") or "%"
+        fmtv = lambda x: f"{x:g}%" if unit == "%" else f"{x:g} {unit}"
         earlier = [h for h in last.get(r["target"], []) if h["date"] < r["date"]]
-        published = next((h for h in reversed(earlier) if h.get("rate") is not None), None)
+        published = next((h for h in reversed(earlier) if val(h) is not None), None)
         yesterday = earlier[-1] if earlier else None
         cat_rates = [c["rate"] for c in (r.get("categories") or []) if c.get("rate") is not None]
-        cross = parser_of[r["target"]] != "idme" and bool(cat_rates)   # ID.me lists discounts, not cash back
+        cross = parser_of[r["target"]] not in ("idme", "cartera") and bool(cat_rates)   # ID.me lists discounts, not cash back
         why = []
-        if cross and r["rate"] > max(cat_rates) + 1e-9:
-            why.append(f"대표 요율 {r['rate']:g}%가 같은 화면의 카테고리 최고 요율 {max(cat_rates):g}%보다 높게 읽힘")
-        if published and big_jump(published["rate"], r["rate"]):
+        if cross and v > max(cat_rates) + 1e-9:
+            why.append(f"대표 요율 {fmtv(v)}가 같은 화면의 카테고리 최고 요율 {fmtv(max(cat_rates))}보다 높게 읽힘")
+        if published and big_jump(val(published), v):
             agreed = (bool(PROMO_MARK.search(r.get("rate_text") or ""))
-                      or (cross and abs(max(cat_rates) - r["rate"]) < 1e-9)
-                      or (yesterday is not None and yesterday.get("held_rate") == r["rate"]))
+                      or (cross and abs(max(cat_rates) - v) < 1e-9)
+                      or (yesterday is not None and yesterday.get("held_rate") == v))
             if not agreed:
-                why.append(f"직전 게시 {published['rate']:g}%({published['date']}) → {r['rate']:g}% 급변, 두 번째 근거 없음")
+                why.append(f"직전 게시 {fmtv(val(published))}({published['date']}) → {fmtv(v)} 급변, 두 번째 근거 없음")
         if why:
-            r.update(held_rate=r["rate"], held_rate_text=r.get("rate_text"), rate=None, rate_text=None,
+            r.update(held_rate=v, held_rate_text=r.get("rate_text"), rate=None, points=None, rate_text=None,
                      status="요율 확인 필요", reason="; ".join(why) + " — 다음 수집에서 같은 값이 확인되거나 화면 확인 전까지 게시 보류")
 
 
@@ -556,7 +649,7 @@ def annotate_changes(results, hist):
                  body_changed=(p.get("body_hash") != r.get("body_hash")) if p.get("body_hash") and r.get("body_hash") else None)
 
 
-CSV_COLS = ["date", "captured_at", "publisher", "kind", "brand", "brand_group", "status", "rate", "rate_text", "held_rate", "rate_source",
+CSV_COLS = ["date", "captured_at", "publisher", "kind", "brand", "brand_group", "status", "rate", "rate_text", "held_rate", "points", "unit", "rate_source",
             "offers", "categories", "exclusions", "mentions", "changed", "prev_date", "prev_rate_text",
             "reason", "url", "shot"]
 
@@ -583,10 +676,11 @@ def main():
     (SHOTS / day).mkdir(parents=True, exist_ok=True)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
-        ctx = browser.new_context(user_agent=UA, locale="en-US", timezone_id="America/New_York",
+        # A plain automated browser: it does not hide that it is automated. Pages that answer with a
+        # bot check are recorded as such, never worked around.
+        browser = p.chromium.launch()
+        ctx = browser.new_context(locale="en-US", timezone_id="America/New_York",
                                   viewport={"width": 1366, "height": 1500}, device_scale_factor=1)
-        ctx.add_init_script("Object.defineProperty(navigator,'webdriver',{get:()=>undefined})")
         country = check_country(ctx)
         print("country:", country or "unknown")
         results = []
@@ -642,11 +736,26 @@ def main():
         "results": results,
     }, ensure_ascii=False, indent=1))
 
+    mcut = (now - dt.timedelta(days=MENTION_KEEP_DAYS)).strftime("%Y-%m-%d")
+    for d in SHOTS.iterdir():
+        m = d / "m"
+        if d.is_dir() and d.name < mcut and m.is_dir():
+            for f in m.iterdir():
+                f.unlink()
+            m.rmdir()
+    for h in hist:   # crops older than 14 days are gone; drop the links to them
+        if h.get("mention_shots") and h["date"] < mcut:
+            h["mention_shots"] = {}
+    cap_path.write_text(json.dumps(hist, ensure_ascii=False, indent=1))
+
     cutoff = (now - dt.timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
     for d in SHOTS.iterdir():
         if d.is_dir() and d.name < cutoff:
-            for f in d.iterdir():
-                f.unlink()
+            for f in d.rglob("*"):
+                if f.is_file():
+                    f.unlink()
+            for sub in sorted((x for x in d.rglob("*") if x.is_dir()), reverse=True):
+                sub.rmdir()
             d.rmdir()
 
 

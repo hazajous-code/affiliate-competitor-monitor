@@ -30,7 +30,7 @@ if len(ids) != len(set(ids)):
 for t in targets:
     if not t["url"].startswith("https://"):
         fail(f"{t['id']}: url must be https")
-    if t["parser"] not in {"rakuten", "tcb", "capone", "befrugal", "idme", "offers", "mentions", "slots", "lgpromo", "sspromo"}:
+    if t["parser"] not in {"rakuten", "tcb", "capone", "befrugal", "idme", "offers", "mentions", "slots", "lgpromo", "sspromo", "cartera", "swagbucks"}:
         fail(f"{t['id']}: unknown parser {t['parser']}")
     if t.get("access", "public") not in {"public", "entry_only"}:
         fail(f"{t['id']}: unknown access")
@@ -48,6 +48,11 @@ for c in caps:
         fail(f"{k}: a coupon/deal site carries a rate — its listed offers (e.g. welcome codes) are not a cash-back rate")
     if c.get("rate") is not None and c["status"] not in ("수집", "수집(텍스트)"):
         fail(f"{k}: rate recorded on a non-collected row")
+    for b, crops in (c.get("mention_shots") or {}).items():
+        for m in crops:
+            q = SITE / m["shot"]
+            if ".." in m["shot"] or not q.exists() or q.read_bytes()[:2] != b"\xff\xd8":
+                fail(f"{k}: mention crop missing or not JPEG {m['shot']}")
     if c.get("shot"):
         p = SITE / c["shot"]
         if ".." in c["shot"] or not p.exists():
