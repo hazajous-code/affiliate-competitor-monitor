@@ -40714,5 +40714,41 @@
   "prev_rate": null,
   "changed": false,
   "body_changed": true
+ },
+ {
+  "publisher": "BeFrugal",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/lgelectronics/",
+  "date": "2026-10-26",
+  "target": "befrugal-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-26T03:49-04:00",
+  "rate_source": "text",
+  "rate": 11.0,
+  "rate_text": "11% Cash Back",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "LG": 6
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-26/befrugal-lg.jpg",
+  "final_url": "https://www.befrugal.com/store/lgelectronics/",
+  "http": 200,
+  "title": "LG Electronics 11.0% Cash Back + 6 Coupons, Promo Codes & Deals",
+  "sig": "0135b07befa5",
+  "body_hash": "2390576700eb",
+  "country": "US",
+  "prev_date": "2026-10-25",
+  "prev_rate_text": "11% Cash Back",
+  "prev_rate": 11.0,
+  "changed": false,
+  "body_changed": true
  }
 ]
