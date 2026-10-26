@@ -1,11 +1,10 @@
 {
  "run_at": "2026-10-25T21:15-04:00",
- "partial_at": null,
+ "partial_at": "2026-10-25T21:44-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
-  "수집": 70,
-  "요율 미확인": 5,
+  "수집": 75,
   "로그인 입구만": 3,
   "봇 확인 화면": 2,
   "렌더링 실패": 1,
@@ -1311,18 +1310,44 @@
    "date": "2026-10-25",
    "target": "slickdeals-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:21-04:00",
+   "captured_at": "2026-10-25T21:44-04:00",
    "mention_shots": {
     "LG": [
      {
       "shot": "shots/2026-10-25/m/slickdeals-home__LG_0.jpg",
-      "text": "Found by TattyBear Oct 22, 2026 1:15 PM Invitation Only: Pokémon TCG 30th Celebration Elite Trainer Box $60 $90 + Free S&H Amazon 816 154 Found by SubZero5 Oct 20, 2026 2:11 AM Best Buy: Create a Best Buy Gamers Profile,"
+      "text": "Found by Champagne13 Oct 19, 2026 3:36 AM Personalized 55\" LG C6 OLED evo AI 4K Smart webOS TV (2026) $1,000 $2,000 + Free S&H Best Buy 196 66"
+     },
+     {
+      "shot": "shots/2026-10-25/m/slickdeals-home__LG_1.jpg",
+      "text": "Found by Mcsteebler Yesterday 10:29 PM New 48\" LG B6 OLED AI 4K 120Hz Smart webOS TV (2026) $700 $1,200 + Free S&H Best Buy 69 12"
      }
     ],
     "Samsung": [
      {
       "shot": "shots/2026-10-25/m/slickdeals-home__Samsung_0.jpg",
-      "text": "Aliexpress Promo Code Samsung Promo Code eBay Coupon Valvoline Coupon Lowes Promo Code Priceline Promo Code Cabela's Promo Code Newegg Promo Code Dell Coupon Code LegalZoom Promo Code"
+      "text": "Found by phoinix Today 3:09 PM New 85\" Samsung QN90H Neo 4K QLED Mini LED Smart TV (2026) $2,014 $2,498 + Free S&H Amazon 39 7"
+     },
+     {
+      "shot": "shots/2026-10-25/m/slickdeals-home__Samsung_1.jpg",
+      "text": "Found by Eragorn Oct 23, 2026 11:35 AM Select EPP/EDU: Samsung OLED S85H 4K 120Hz Smart TV: 77\" $1296; 65\" $842 $2,000 & More + Free S&H Samsung 47 26"
+     }
+    ],
+    "Sony": [
+     {
+      "shot": "shots/2026-10-25/m/slickdeals-home__Sony_0.jpg",
+      "text": "Found by BluEyeGuy Oct 20, 2026 9:08 AM Select Stores: Open Box 77\" Sony Bravia XR A95L QD-OLED 4K UHD Smart Google TV (2023) from $1125 + Free Pickup Best Buy 114 145"
+     }
+    ],
+    "TCL": [
+     {
+      "shot": "shots/2026-10-25/m/slickdeals-home__TCL_0.jpg",
+      "text": "Found by neomatrixviper Today 8:07 PM New TCL Q65H 5.1 Surround Sound Bar w/ Wireless Subwoofer $250 $350 + Free S&H Amazon 29 3"
+     }
+    ],
+    "Bosch": [
+     {
+      "shot": "shots/2026-10-25/m/slickdeals-home__Bosch_0.jpg",
+      "text": "Found by phoinix Yesterday 6:51 PM Bosch 12V Flexiclick 5-In-1 Cordless Multi-Head Electric Screwdriver Drill Set $142 $229 + Free S&H Amazon 25 7"
      }
     ]
    },
@@ -1347,7 +1372,7 @@
    "http": 200,
    "title": "Slickdeals: The Best Deals, Coupons, Promo Codes & Discounts",
    "sig": "1e0c3b064aed",
-   "body_hash": "3795d990fe68",
+   "body_hash": "2b5ab099a381",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1436,18 +1461,12 @@
    "date": "2026-10-25",
    "target": "techradar-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:21-04:00",
+   "captured_at": "2026-10-25T21:45-04:00",
    "mention_shots": {
     "Samsung": [
      {
       "shot": "shots/2026-10-25/m/techradar-home__Samsung_0.jpg",
       "text": "Samsung's next-gen OLED tech might arrive before LG's, bringing better brightness and efficiency"
-     }
-    ],
-    "Sony": [
-     {
-      "shot": "shots/2026-10-25/m/techradar-home__Sony_0.jpg",
-      "text": "Sony has stopped selling 4K Blu-ray players in Japan — is this the beginning of the end?"
      }
     ],
     "TCL": [
@@ -1459,10 +1478,6 @@
     "Shark": [
      {
       "shot": "shots/2026-10-25/m/techradar-home__Shark_0.jpg",
-      "text": "The best Shark vacuum cleaners for every home – tried and tested"
-     },
-     {
-      "shot": "shots/2026-10-25/m/techradar-home__Shark_1.jpg",
       "text": "The best Shark vacuum cleaners for every home – tried and tested"
      }
     ]
@@ -1488,7 +1503,7 @@
    "http": 200,
    "title": "TechRadar | the technology experts",
    "sig": "1e0c3b064aed",
-   "body_hash": "50c99237493e",
+   "body_hash": "d083bbe3f815",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1541,16 +1556,16 @@
    "date": "2026-10-25",
    "target": "tomsguide-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:22-04:00",
+   "captured_at": "2026-10-25T21:45-04:00",
    "mention_shots": {
     "Samsung": [
      {
       "shot": "shots/2026-10-25/m/tomsguide-home__Samsung_0.jpg",
-      "text": "I watched 3 movies with JBL and Samsung's 2026 flagship soundbars — here's the one I'd choose and why By Erin Bashford Published 15 hours ago"
+      "text": "I watched 3 movies with JBL and Samsung's 2026 flagship soundbars — here's the one I'd choose and why"
      },
      {
       "shot": "shots/2026-10-25/m/tomsguide-home__Samsung_1.jpg",
-      "text": "iPhone Duo zoom test — do you really need a telephoto lens? 7 ways the iPhone Duo already beats the Galaxy Z Fold 8 UGREEN’s New HomeAgent Brings Agentic AI to Your Home Apple’s Joz says developers will have a ‘field day"
+      "text": "I watched 3 movies with JBL and Samsung's 2026 flagship soundbars — here's the one I'd choose and why"
      }
     ]
    },
@@ -1571,7 +1586,7 @@
    "http": 200,
    "title": "Tom's Guide | Tech Product Reviews, Top Picks and How To",
    "sig": "1e0c3b064aed",
-   "body_hash": "045de6087753",
+   "body_hash": "8403fce0594e",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1588,15 +1603,11 @@
    "date": "2026-10-25",
    "target": "dealnews-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:23-04:00",
+   "captured_at": "2026-10-25T21:45-04:00",
    "mention_shots": {
     "Samsung": [
      {
       "shot": "shots/2026-10-25/m/dealnews-home__Samsung_0.jpg",
-      "text": ""
-     },
-     {
-      "shot": "shots/2026-10-25/m/dealnews-home__Samsung_1.jpg",
       "text": "Woot! An Amazon Company · 15 hrs ago Awesome Audio Sale at Woot Up to 90% off free shipping w/ Prime more Woot's Awesome Audio sale covers a wide mix of speakers, earbuds, and headphones from brands like JBL, Anker, Sams"
      }
     ]
@@ -1618,7 +1629,7 @@
    "http": 200,
    "title": "DealNews: Best Daily Deals, Discounts & Sales",
    "sig": "1e0c3b064aed",
-   "body_hash": "89829b71c9aa",
+   "body_hash": "9371612ebaf9",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1635,15 +1646,24 @@
    "date": "2026-10-25",
    "target": "bradsdeals-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:23-04:00",
-   "mention_shots": {},
+   "captured_at": "2026-10-25T21:46-04:00",
+   "mention_shots": {
+    "Frigidaire": [
+     {
+      "shot": "shots/2026-10-25/m/bradsdeals-home__Frigidaire_0.jpg",
+      "text": "Frigidaire Retro Mini Fridge $35 Perfect for dorm rooms, offices, cars, and bedrooms, this highly-rated Frigidaire Retro Mini Fridge drops from $49.99 to $35.48-$35.99 at Wayfair. We found the same one selling at other s"
+     }
+    ]
+   },
    "rate": null,
    "rate_text": null,
    "offers": null,
    "categories": [],
    "exclusions": null,
    "promos": [],
-   "mentions": {},
+   "mentions": {
+    "Frigidaire": 2
+   },
    "lg_snippets": [],
    "status": "수집",
    "reason": "",
@@ -1652,7 +1672,7 @@
    "http": 200,
    "title": "Brad's Deals. There's a real-life human behind every post.",
    "sig": "1e0c3b064aed",
-   "body_hash": "bb9e0623ff74",
+   "body_hash": "6c7c39725496",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1669,7 +1689,7 @@
    "date": "2026-10-25",
    "target": "rtings-tv",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:23-04:00",
+   "captured_at": "2026-10-25T21:46-04:00",
    "mention_shots": {
     "LG": [
      {
@@ -1680,19 +1700,23 @@
     "Samsung": [
      {
       "shot": "shots/2026-10-25/m/rtings-tv__Samsung_1.jpg",
-      "text": "LG G5 OLED vs. LG G6 OLED LG C6 OLED 2026 vs. LG B6 OLED 2026 Samsung S90F OLED vs. Samsung S90H OLED LG C5 OLED vs. LG B5 OLED"
+      "text": "Samsung S90F OLED vs. Samsung S90H OLED"
+     }
+    ],
+    "Hisense": [
+     {
+      "shot": "shots/2026-10-25/m/rtings-tv__Hisense_1.jpg",
+      "text": "REVIEW Hisense U6SF Pro"
      }
     ],
     "TCL": [
      {
-      "shot": "shots/2026-10-25/m/rtings-tv__TCL_1.jpg",
-      "text": "REVIEW Hisense U6SF Pro REVIEW Hisense U7SG REVIEW TCL QM6K REVIEW LG C6 OLED 2026"
-     }
-    ],
-    "Vizio": [
-     {
-      "shot": "shots/2026-10-25/m/rtings-tv__Vizio_0.jpg",
+      "shot": "shots/2026-10-25/m/rtings-tv__TCL_0.jpg",
       "text": "BEST TVs Brands Gaming 65-Inch OLED 55-Inch Smart 75-77 Inch Outdoor Hisense TCL 48-50 Inch Samsung 80-85 Inch Budget 98-100 Inch PS5/PS5 Pro 40-42-43 Inch Frame 32-Inch TOOLS Compare Size to Distance Results Table Tool "
+     },
+     {
+      "shot": "shots/2026-10-25/m/rtings-tv__TCL_1.jpg",
+      "text": "REVIEW TCL QM6K"
      }
     ]
    },
@@ -1718,7 +1742,7 @@
    "http": 200,
    "title": "TV Reviews & Recommendations - RTINGS.com",
    "sig": "1e0c3b064aed",
-   "body_hash": "3a1e90e87e02",
+   "body_hash": "759846eb5f9f",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1735,7 +1759,7 @@
    "date": "2026-10-25",
    "target": "forbes-vetted",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:23-04:00",
+   "captured_at": "2026-10-25T21:47-04:00",
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1767,7 +1791,7 @@
    "date": "2026-10-25",
    "target": "wired-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:24-04:00",
+   "captured_at": "2026-10-25T21:47-04:00",
    "mention_shots": {},
    "rate": null,
    "rate_text": null,
@@ -1784,7 +1808,7 @@
    "http": 200,
    "title": "WIRED - The Latest in Technology, Science, Culture and Business | WIRED",
    "sig": "1e0c3b064aed",
-   "body_hash": "57686a2c5bc4",
+   "body_hash": "38e7f310556c",
    "country": "US",
    "prev_date": "2026-10-24",
    "prev_rate_text": null,
@@ -1801,7 +1825,7 @@
    "date": "2026-10-25",
    "target": "goodhousekeeping-appliances",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:24-04:00",
+   "captured_at": "2026-10-25T21:47-04:00",
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -3177,12 +3201,12 @@
    "date": "2026-10-25",
    "target": "cartera-aa-whirlpool",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:32-04:00",
-   "points": null,
-   "unit": null,
-   "rate_source": "text",
+   "captured_at": "2026-10-25T21:48-04:00",
+   "points": 2.0,
+   "unit": "miles/$",
+   "rate_source": "header",
    "rate": null,
-   "rate_text": null,
+   "rate_text": "2 miles/$",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -3191,13 +3215,13 @@
     "Whirlpool": 7
    },
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 적립률 문구를 찾지 못함",
+   "status": "수집",
+   "reason": "",
    "shot": "shots/2026-10-25/cartera-aa-whirlpool.jpg",
    "final_url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6147",
    "http": 200,
    "title": "Whirlpool coupon & promo codes 2026 - American Airlines AAdvantage eShopping",
-   "sig": "1e0c3b064aed",
+   "sig": "baf9bc7fe541",
    "body_hash": "4e1a62578551",
    "country": "US",
    "prev_date": null,
@@ -3288,12 +3312,12 @@
    "date": "2026-10-25",
    "target": "cartera-delta-whirlpool",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:32-04:00",
-   "points": null,
-   "unit": null,
-   "rate_source": "text",
+   "captured_at": "2026-10-25T21:48-04:00",
+   "points": 2.0,
+   "unit": "miles/$",
+   "rate_source": "header",
    "rate": null,
-   "rate_text": null,
+   "rate_text": "2 miles/$",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -3302,13 +3326,13 @@
     "Whirlpool": 7
    },
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 적립률 문구를 찾지 못함",
+   "status": "수집",
+   "reason": "",
    "shot": "shots/2026-10-25/cartera-delta-whirlpool.jpg",
    "final_url": "https://www.skymilesshopping.com/me____.htm?gmid=6147",
    "http": 200,
    "title": "Whirlpool Coupon & Promo Codes 2026 - Delta SkyMiles Shopping",
-   "sig": "1e0c3b064aed",
+   "sig": "baf9bc7fe541",
    "body_hash": "c44ac660078e",
    "country": "US",
    "prev_date": null,
@@ -3399,12 +3423,12 @@
    "date": "2026-10-25",
    "target": "cartera-united-whirlpool",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:33-04:00",
-   "points": null,
-   "unit": null,
-   "rate_source": "text",
+   "captured_at": "2026-10-25T21:48-04:00",
+   "points": 2.0,
+   "unit": "miles/$",
+   "rate_source": "header",
    "rate": null,
-   "rate_text": null,
+   "rate_text": "2 miles/$",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -3413,13 +3437,13 @@
     "Whirlpool": 7
    },
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 적립률 문구를 찾지 못함",
+   "status": "수집",
+   "reason": "",
    "shot": "shots/2026-10-25/cartera-united-whirlpool.jpg",
    "final_url": "https://shopping.mileageplus.com/me____.htm?gmid=6147",
    "http": 200,
    "title": "Whirlpool coupon & promo codes 2026 - United MileagePlus Shopping",
-   "sig": "1e0c3b064aed",
+   "sig": "baf9bc7fe541",
    "body_hash": "b6c9eb447c7e",
    "country": "US",
    "prev_date": null,
@@ -3510,12 +3534,12 @@
    "date": "2026-10-25",
    "target": "cartera-southwest-whirlpool",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:33-04:00",
-   "points": null,
-   "unit": null,
-   "rate_source": "text",
+   "captured_at": "2026-10-25T21:48-04:00",
+   "points": 2.0,
+   "unit": "points/$",
+   "rate_source": "header",
    "rate": null,
-   "rate_text": null,
+   "rate_text": "2 points/$",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -3524,13 +3548,13 @@
     "Whirlpool": 7
    },
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 적립률 문구를 찾지 못함",
+   "status": "수집",
+   "reason": "",
    "shot": "shots/2026-10-25/cartera-southwest-whirlpool.jpg",
    "final_url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6147",
    "http": 200,
    "title": "Whirlpool Coupon & Promo Codes 2026 - Southwest Rapid Rewards Shopping",
-   "sig": "1e0c3b064aed",
+   "sig": "5246063e0d73",
    "body_hash": "a23d7e6fbc5f",
    "country": "US",
    "prev_date": null,
@@ -3621,12 +3645,12 @@
    "date": "2026-10-25",
    "target": "cartera-atmos-whirlpool",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-25T21:34-04:00",
-   "points": null,
-   "unit": null,
-   "rate_source": "text",
+   "captured_at": "2026-10-25T21:48-04:00",
+   "points": 2.0,
+   "unit": "points/$",
+   "rate_source": "header",
    "rate": null,
-   "rate_text": null,
+   "rate_text": "2 points/$",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -3635,13 +3659,13 @@
     "Whirlpool": 7
    },
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 적립률 문구를 찾지 못함",
+   "status": "수집",
+   "reason": "",
    "shot": "shots/2026-10-25/cartera-atmos-whirlpool.jpg",
    "final_url": "https://www.atmosshopping.com/me____.htm?gmid=6147",
    "http": 200,
    "title": "Whirlpool coupon & promo codes 2026 - Atmos™ Rewards Shopping",
-   "sig": "1e0c3b064aed",
+   "sig": "5246063e0d73",
    "body_hash": "aec52d7e8ff0",
    "country": "US",
    "prev_date": null,
