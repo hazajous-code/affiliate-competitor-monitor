@@ -339,11 +339,12 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
       cap.append(el('b', null, '#' + (i + 1) + (c.n > 1 ? ' · 언급 ' + c.n + '회' : '')), ' ' + c.text);
       f.append(im, cap); body.append(f);
     });
-    const full = r.full_shot || r.shot;
-    if (full) {
-      const f = el('figure', 'mfull'); const a = el('a'); a.href = full; a.target = '_blank'; a.rel = 'noopener';
-      const im = el('img'); im.src = full; im.loading = 'lazy'; a.append(im);
-      f.append(a, el('figcaption', null, r.full_shot ? '페이지 전체 (노란색 = LG, 파란색 = 경쟁 브랜드 언급) — 눌러서 새 탭에서 크게 보기' : '페이지 첫 화면'));
+    // only a full-page shot that contains the highlighted mentions is shown; no first-screen fallback
+    if (r.full_shot) {
+      const f = el('figure', 'mfull'); const a = el('a'); a.href = r.full_shot; a.target = '_blank'; a.rel = 'noopener';
+      const im = el('img'); im.src = r.full_shot; im.loading = 'lazy'; a.append(im);
+      f.append(a, el('figcaption', null, '페이지 전체 — 모든 브랜드 언급 위치 표시(노란색 = LG, 파란색 = 경쟁 브랜드)' +
+        (r.full_covers_all === false ? ' · 페이지가 매우 길어 맨 아래 일부 언급은 이 캡처 범위(16,000px) 밖에 있습니다' : '') + ' — 눌러서 새 탭에서 크게 보기'));
       body.append(f);
     }
     $('mdlg').showModal();

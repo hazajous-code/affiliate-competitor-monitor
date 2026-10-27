@@ -422,7 +422,12 @@ MARK_ALL_JS = r"""
       }
     }
   }
-  return total;
+  let bottom = 0;
+  for (const mk of document.querySelectorAll('mark[data-acm]')) {
+    const r = mk.getBoundingClientRect();
+    if (r.width && r.height) bottom = Math.max(bottom, r.bottom + window.scrollY);
+  }
+  return { total, bottom: Math.ceil(bottom) };
 }
 """
 
@@ -456,12 +461,14 @@ def capture_mentions(page, tg, day, found):
             total += 1
     full = None
     try:
-        page.evaluate(MARK_ALL_JS, want)
+        res = page.evaluate(MARK_ALL_JS, want)
         page.evaluate("window.scrollTo(0, 0)")
         page.wait_for_timeout(400)
-        h = min(12000, page.evaluate("document.documentElement.scrollHeight"))
-        full = f"shots/{day}/{tg['id']}__full.jpg"
-        page.screenshot(path=str(SITE / full), type="jpeg", quality=40, full_page=True,
+        page_h = page.evaluate("document.documentElement.scrollHeight")
+        # tall enough to include the lowest highlighted mention (16,000px is the browser's capture limit)
+        h = min(16000, page_h, max(1500, res["bottom"] + 300))
+        full = {"shot": f"shots/{day}/{tg['id']}__full.jpg", "covers_all": res["bottom"] <= h, "height": h}
+        page.screenshot(path=str(SITE / full["shot"]), type="jpeg", quality=40, full_page=True,
                         clip={"x": 0, "y": 0, "width": 1366, "height": h})
     except Exception:
         full = None
@@ -621,7 +628,9 @@ def capture_one(ctx, tg, day):
                 rate_text = f"할인 최대 {cats[0]['rate']:g}%" + (f" · {rate_text}" if rate_text else "")
         st, why = classify(tg, title, t, http, rate, rate_text, page.url)
         if tg["parser"] == "mentions" and tg.get("access", "public") == "public" and st == "수집":
-            row["mention_shots"], row["full_shot"] = capture_mentions(page, tg, day, mentions(t))
+            row["mention_shots"], fs = capture_mentions(page, tg, day, mentions(t))
+            if fs:
+                row.update(full_shot=fs["shot"], full_covers_all=fs["covers_all"])
         ok = st in ("수집", "요율 미확인", "로그인 입구만")
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
