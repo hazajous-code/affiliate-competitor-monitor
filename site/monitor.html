@@ -347,7 +347,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
         const im = el('img'); im.src = src; im.loading = 'lazy'; a.append(im);
         f.append(a, el('figcaption', null, '페이지 전체' + (parts.length > 1 ? ' (' + (i + 1) + '/' + parts.length + ', 위에서부터 이어짐)' : '') +
           ' — 모든 브랜드 언급 위치 표시(노란색 = LG, 파란색 = 경쟁 브랜드)' +
-          (i === parts.length - 1 && r.full_covers_all === false ? ' · 페이지가 매우 길어 맨 아래 일부 언급은 캡처 범위 밖에 있습니다' : '') + ' — 눌러서 새 탭에서 크게 보기'));
+          (i === parts.length - 1 && r.full_covers_all === false ? ' · 끝없이 이어지는 피드라 위에서부터 ' + (parts.length * 16) + ',000px까지만 담았습니다' + (r.full_inside && r.full_inside[b] ? ' (' + b + ' 언급 위치 ' + r.full_inside[b][0] + '/' + r.full_inside[b][1] + '회 포함)' : '') : '') + ' — 눌러서 새 탭에서 크게 보기'));
         body.append(f);
       });
     }

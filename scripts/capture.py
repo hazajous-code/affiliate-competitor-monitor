@@ -422,13 +422,13 @@ MARK_ALL_JS = r"""
       }
     }
   }
-  let bottom = 0;
+  let bottom = 0; const pos = [];
   for (const mk of document.querySelectorAll('mark[data-acm]')) {
     if (mk.closest('footer,[role=contentinfo]')) continue;          // footer site-map links don't set the length
     const r = mk.getBoundingClientRect();
-    if (r.width && r.height) bottom = Math.max(bottom, r.bottom + window.scrollY);
+    if (r.width && r.height) { const y = Math.ceil(r.bottom + window.scrollY); bottom = Math.max(bottom, y); pos.push([mk.getAttribute('data-acm'), y]); }
   }
-  return { total, bottom: Math.ceil(bottom) };
+  return { total, bottom: Math.ceil(bottom), pos };
 }
 """
 
@@ -476,7 +476,10 @@ def capture_mentions(page, tg, day, found):
                             clip={"x": 0, "y": y, "width": 1366, "height": h})
             parts.append(rel)
             y += h
-        full = {"shot": parts[0], "parts": parts, "covers_all": res["bottom"] <= y}
+        inside = {}
+        for brand, py in res.get("pos", []):                   # visible mentions inside the captured height, per brand
+            a = inside.setdefault(brand, [0, 0]); a[1] += 1; a[0] += py <= y
+        full = {"shot": parts[0], "parts": parts, "covers_all": res["bottom"] <= y, "inside": inside}
     except Exception:
         full = None
     return out, full
@@ -637,7 +640,7 @@ def capture_one(ctx, tg, day):
         if tg["parser"] == "mentions" and tg.get("access", "public") == "public" and st == "수집":
             row["mention_shots"], fs = capture_mentions(page, tg, day, mentions(t))
             if fs:
-                row.update(full_shot=fs["shot"], full_parts=fs["parts"], full_covers_all=fs["covers_all"])
+                row.update(full_shot=fs["shot"], full_parts=fs["parts"], full_covers_all=fs["covers_all"], full_inside=fs["inside"])
         ok = st in ("수집", "요율 미확인", "로그인 입구만")
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
