@@ -44450,5 +44450,622 @@
   "prev_rate": null,
   "changed": false,
   "body_changed": true
+ },
+ {
+  "publisher": "Brad's Deals",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://www.bradsdeals.com/",
+  "date": "2026-10-27",
+  "target": "bradsdeals-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:42-04:00",
+  "mention_shots": {
+   "Frigidaire": [
+    {
+     "shot": "shots/2026-10-27/m/bradsdeals-home__Frigidaire_0.jpg",
+     "text": "Frigidaire Retro Mini Fridge $35 Perfect for dorm rooms, offices, cars, and bedrooms, this highly-rated Frigidaire Retro Mini Fridge drops from $49.99 to $35.48-$35.99 at Wayfair. We found the same one selling at other s",
+     "n": 2
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/bradsdeals-home__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "Frigidaire": 2
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/bradsdeals-home.jpg",
+  "final_url": "https://www.bradsdeals.com/",
+  "http": 200,
+  "title": "Brad's Deals. There's a real-life human behind every post.",
+  "sig": "1e0c3b064aed",
+  "body_hash": "5a8eaba91b9b",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "DealNews",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://www.dealnews.com/",
+  "date": "2026-10-27",
+  "target": "dealnews-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:40-04:00",
+  "mention_shots": {
+   "Samsung": [
+    {
+     "shot": "shots/2026-10-27/m/dealnews-home__Samsung_0.jpg",
+     "text": "Lowe's · 16 hrs ago Lowe's Major Appliance Special Values Up to 35% off free delivery on select items more During their appliance savings event, Lowe's is taking up to 35% off select major appliances. MyLowe's members wh",
+     "n": 3
+    }
+   ],
+   "Sony": [
+    {
+     "shot": "shots/2026-10-27/m/dealnews-home__Sony_0.jpg",
+     "text": "Vantrue · 3 days ago Vantrue S1 Pro Max 4K Dual Dash Cam $180 $300 free shipping more The Vantrue S1 Pro Max is $180 via coupon code \"S1PM40\", down from $300. It records 4K video from both the front and rear cameras usin",
+     "n": 2
+    }
+   ],
+   "Whirlpool": [
+    {
+     "shot": "shots/2026-10-27/m/dealnews-home__Whirlpool_0.jpg",
+     "text": "Covers refrigerators, washers, dryers, and wall ovens from brands including Whirlpool, GE, KitchenAid, Frigidaire, and Samsung Discounts apply to select major appliances priced $396 and up Spending $1,999 on select Samsu",
+     "n": 1
+    }
+   ],
+   "Shark": [
+    {
+     "shot": "shots/2026-10-27/m/dealnews-home__Shark_0.jpg",
+     "text": "Shark NeverChange Detect iQ Compact Pro BreatheClear HP062GN Air Purifier",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/dealnews-home__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "Samsung": 3,
+   "Sony": 2,
+   "Whirlpool": 1,
+   "Frigidaire": 1,
+   "KitchenAid": 1,
+   "Shark": 4
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/dealnews-home.jpg",
+  "final_url": "https://www.dealnews.com/",
+  "http": 200,
+  "title": "DealNews: Best Daily Deals, Discounts & Sales",
+  "sig": "1e0c3b064aed",
+  "body_hash": "4b760d9b9856",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Forbes Vetted",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.forbes.com/vetted/",
+  "date": "2026-10-27",
+  "target": "forbes-vetted",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:42-04:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "봇 확인 화면",
+  "reason": "보안 확인 화면만 열림 — 우회하지 않음",
+  "shot": "shots/2026-10-27/forbes-vetted.jpg",
+  "final_url": "https://www.forbes.com/vetted/",
+  "http": 200,
+  "title": "Forbes Vetted",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "Good Housekeeping",
+  "brand": "(가전)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.goodhousekeeping.com/appliances/",
+  "date": "2026-10-27",
+  "target": "goodhousekeeping-appliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:43-04:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "봇 확인 화면",
+  "reason": "보안 확인 화면만 열림 — 우회하지 않음",
+  "shot": "shots/2026-10-27/goodhousekeeping-appliances.jpg",
+  "final_url": "https://www.goodhousekeeping.com/appliances/",
+  "http": 200,
+  "title": "Home Appliance Reviews - Best Kitchen and Small Home Appliances",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "RTINGS",
+  "brand": "(TV 리뷰)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.rtings.com/tv",
+  "date": "2026-10-27",
+  "target": "rtings-tv",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:42-04:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__LG_1.jpg",
+     "text": "LG G5 OLED vs. LG G6 OLED The LG G6 OLED and the LG G5 OLED are very similar overall. The G6 is brighter in SDR and has superior reflection handling, making it the better option for bright rooms. The G6 also has superior",
+     "n": 4
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__LG_2.jpg",
+     "text": "LG C5 OLED vs. LG C6 OLED 2026",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__LG_3.jpg",
+     "text": "LG C6 OLED 2026 vs. LG B6 OLED 2026",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__LG_4.jpg",
+     "text": "REVIEW LG C6 OLED 2026",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__LG_5.jpg",
+     "text": "ARTICLE UPDATE LG vs. Samsung TVs: Which One Is The Best For You? 6 MONTHS AGO 4",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__Samsung_1.jpg",
+     "text": "Samsung S90F OLED vs. Samsung S90H OLED",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__Samsung_2.jpg",
+     "text": "REVIEW Samsung S95H OLED The Samsung S95H is the flagship 4k OLED model in Samsung's 2026 lineup, sitting above the Samsung S90H. Also known as the Samsung S99H in some regions, this TV ...",
+     "n": 5
+    }
+   ],
+   "Hisense": [
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__Hisense_1.jpg",
+     "text": "REVIEW Hisense U7SG",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__Hisense_2.jpg",
+     "text": "REVIEW Hisense U6SF Pro",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__Hisense_3.jpg",
+     "text": "REVIEW Hisense U6SF Review 20 5 DAYS AGO",
+     "n": 1
+    }
+   ],
+   "TCL": [
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__TCL_0.jpg",
+     "text": "BEST TVs Brands Gaming 65-Inch OLED 55-Inch Smart 75-77 Inch Outdoor Hisense TCL 48-50 Inch Samsung 80-85 Inch Budget 98-100 Inch PS5/PS5 Pro 40-42-43 Inch Frame 32-Inch TOOLS Compare Size to Distance Results Table Tool ",
+     "n": 6
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__TCL_1.jpg",
+     "text": "TCL QM6K vs. TCL QM7K",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__TCL_2.jpg",
+     "text": "REVIEW TCL QM6K",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/rtings-tv__TCL_3.jpg",
+     "text": "ARTICLE RESEARCH TCL vs. Hisense TVs: Which One Is The Best For You? 6 MONTHS AGO 11",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/rtings-tv__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "LG": 15,
+   "Samsung": 14,
+   "Sony": 2,
+   "Hisense": 7,
+   "TCL": 10,
+   "Vizio": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/rtings-tv.jpg",
+  "final_url": "https://www.rtings.com/tv",
+  "http": 200,
+  "title": "TV Reviews & Recommendations - RTINGS.com",
+  "sig": "1e0c3b064aed",
+  "body_hash": "16c30c8fab30",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Slickdeals",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://slickdeals.net/",
+  "date": "2026-10-27",
+  "target": "slickdeals-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:39-04:00",
+  "mention_shots": {
+   "Samsung": [
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_0.jpg",
+     "text": "Samsung Galaxy Tab A11+ 6GB RAM, 128GB + Expandable Storage",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_1.jpg",
+     "text": "Found by tunabreath Yesterday 11:23 PM New 3-Pk Insignia Glass Screen Protectors (Apple iPhone Air or Samsung S25 Edge) $5.00 $20 + Free S&H Best Buy 104 1",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_2.jpg",
+     "text": "Found by phoinix Yesterday 7:15 PM New 512GB Samsung P9 microSD Express Memory Card $99 $150 + Free S&H Amazon 35 13",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_3.jpg",
+     "text": "Found by iconian Yesterday 6:58 PM New 32\" Samsung Odyssey OLED G7 G73SH 165Hz 4K HDR Gaming Monitor $500 $1,100 + Free S&H B&H Photo Video 50 18",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_4.jpg",
+     "text": "Found by phoinix Yesterday 4:43 PM New 256GB Samsung P9 Express microSD Express Card $48 $80 + Free S&H Amazon 59 23",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_5.jpg",
+     "text": "Found by Ralphlevy11 Yesterday 2:32 PM New Samsung Galaxy Buds 4 Pro True Wireless Bluetooth Earbuds (International Model) $155 $250 + Free S&H w/ Prime Woot! 51 18",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_6.jpg",
+     "text": "Found by phoinix Yesterday 10:32 AM New 34″ Samsung Odyssey G5 3440x1440 165Hz Curved Ultrawide Monitor $250 $400 + Free S&H Amazon 59 7",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_7.jpg",
+     "text": "Found by phoinix Oct 25, 2026 3:09 PM 85\" Samsung QN90H Neo 4K QLED Mini LED Smart TV (2026) $2,014 $2,498 + Free S&H Amazon 42 8",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_8.jpg",
+     "text": "Samsung Promo Code",
+     "n": 1
+    }
+   ],
+   "Sony": [
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Sony_0.jpg",
+     "text": "Found by BluEyeGuy Oct 20, 2026 9:08 AM Select Stores: Open Box 77\" Sony Bravia XR A95L QD-OLED 4K UHD Smart Google TV (2023) from $1125 + Free Pickup Best Buy 115 150",
+     "n": 1
+    }
+   ],
+   "Hisense": [
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Hisense_0.jpg",
+     "text": "Found by neomatrixviper Yesterday 3:53 PM New 13.2\" Hisense WeBoom IP67 Bluetooth 5.4 Portable Speaker $150 $200 + Free S&H Amazon 32 4",
+     "n": 1
+    }
+   ],
+   "Shark": [
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Shark_0.jpg",
+     "text": "Found by phoinix Today 4:22 AM New Shark IY143H Cordless Pet Cordless Lightweight Stick Vacuum Cleaner $160 $300 + Free S&H Best Buy 27 0",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Shark_1.jpg",
+     "text": "Found by htp182 Yesterday 8:53 AM New Shark PowerDetect Speed Cordless Vacuum w/ HEPA Filtration & Up to 60-Min Runtime $200 $500 + Free S&H Best Buy 36 11",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/slickdeals-home__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "Samsung": 9,
+   "Sony": 1,
+   "Hisense": 1,
+   "Shark": 2
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/slickdeals-home.jpg",
+  "final_url": "https://slickdeals.net/",
+  "http": 200,
+  "title": "Slickdeals: The Best Deals, Coupons, Promo Codes & Discounts",
+  "sig": "1e0c3b064aed",
+  "body_hash": "ed8f7e8b40dc",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "TechRadar",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.techradar.com/",
+  "date": "2026-10-27",
+  "target": "techradar-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:39-04:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__LG_1.jpg",
+     "text": "Why wait for Black Friday? The five-star LG C6 OLED TV just dropped to a record-low price on Amazon",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__Samsung_0.jpg",
+     "text": "Apple iPhone Duo vs Samsung Galaxy Z Fold 8: a big battle of small differences",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__Samsung_1.jpg",
+     "text": "The best Samsung TV for all budgets, tested by our reviewers",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__Samsung_2.jpg",
+     "text": "A report makes alarming privacy claims about Samsung smart TVs — but here's why I'm not worried",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__Samsung_3.jpg",
+     "text": "Samsung has new clip-on buds, OnePlus has new clip-on buds — when do we say 'that's enough new open earbuds'?",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__Samsung_4.jpg",
+     "text": "The best Samsung TV for all budgets, tested by our reviewers",
+     "n": 1
+    }
+   ],
+   "TCL": [
+    {
+     "shot": "shots/2026-10-27/m/techradar-home__TCL_0.jpg",
+     "text": "I tested TCL's mid-range mini-LED TV against LG's most affordable OLED TV in a head-to-head clash",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/techradar-home__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "LG": 4,
+   "Samsung": 7,
+   "TCL": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/techradar-home.jpg",
+  "final_url": "https://www.techradar.com/",
+  "http": 200,
+  "title": "TechRadar | the technology experts",
+  "sig": "1e0c3b064aed",
+  "body_hash": "e81462c2bfcb",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.tomsguide.com/",
+  "date": "2026-10-27",
+  "target": "tomsguide-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:40-04:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-10-27/m/tomsguide-home__LG_0.jpg",
+     "text": "Get up to 50% off with these 7 early Black Friday TV deals, including our favorite LG OLED",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_0.jpg",
+     "text": "iPhone Duo vs. Samsung Galaxy Z Fold 8: Which foldable is the best?",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_1.jpg",
+     "text": "As more reports reveal new details about cracks in the iPhone Duo display, IDC analyst Francisco Jeronimo speculated on what it could mean for Apple and how the company should respond. \"What matters now is how the compan",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_2.jpg",
+     "text": "Put your chores on easy mode with 9 Samsung AI appliance deals at Best Buy – up to 49% off",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_3.jpg",
+     "text": "I watched 3 movies with JBL and Samsung's 2026 flagship soundbars — here's the one I'd choose and why",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/tomsguide-home__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "LG": 1,
+   "Samsung": 4
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/tomsguide-home.jpg",
+  "final_url": "https://www.tomsguide.com/",
+  "http": 200,
+  "title": "Tom's Guide | Tech Product Reviews, Top Picks and How To",
+  "sig": "1e0c3b064aed",
+  "body_hash": "cf19f7f72426",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "WIRED",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.wired.com/",
+  "date": "2026-10-27",
+  "target": "wired-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-10-27T05:43-04:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-10-27/m/wired-home__LG_0.jpg",
+     "text": "LG’s Cheapest OLED Struggles to Keep Up With the Pack",
+     "n": 1
+    }
+   ],
+   "Dyson": [
+    {
+     "shot": "shots/2026-10-27/m/wired-home__Dyson_0.jpg",
+     "text": "CLEANIN’ UP Dyson’s Strongest Vacuum Is on Sale for Dyson Week",
+     "n": 2
+    }
+   ]
+  },
+  "full_shot": "shots/2026-10-27/wired-home__full.jpg",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "mentions": {
+   "LG": 1,
+   "Dyson": 2
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-10-27/wired-home.jpg",
+  "final_url": "https://www.wired.com/",
+  "http": 200,
+  "title": "WIRED - The Latest in Technology, Science, Culture and Business | WIRED",
+  "sig": "1e0c3b064aed",
+  "body_hash": "b498b0f26bfb",
+  "country": "US",
+  "prev_date": "2026-10-26",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
  }
 ]
