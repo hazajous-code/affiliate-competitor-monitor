@@ -1,6 +1,6 @@
 {
  "run_at": "2026-10-26T15:10-04:00",
- "partial_at": "2026-10-27T06:09-04:00",
+ "partial_at": "2026-10-27T06:14-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
@@ -1309,7 +1309,7 @@
    "date": "2026-10-27",
    "target": "slickdeals-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T06:09-04:00",
+   "captured_at": "2026-10-27T06:14-04:00",
    "mention_shots": {
     "Samsung": [
      {
@@ -1397,6 +1397,24 @@
     "shots/2026-10-27/slickdeals-home__full_3.jpg"
    ],
    "full_covers_all": false,
+   "full_inside": {
+    "Sony": [
+     1,
+     2
+    ],
+    "Shark": [
+     2,
+     2
+    ],
+    "Samsung": [
+     8,
+     9
+    ],
+    "Hisense": [
+     1,
+     1
+    ]
+   },
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1417,7 +1435,7 @@
    "http": 200,
    "title": "Slickdeals: The Best Deals, Coupons, Promo Codes & Discounts",
    "sig": "1e0c3b064aed",
-   "body_hash": "348611e0c748",
+   "body_hash": "2148a9f2004c",
    "country": "US",
    "prev_date": "2026-10-26",
    "prev_rate_text": null,
