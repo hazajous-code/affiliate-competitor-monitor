@@ -44506,13 +44506,18 @@
   "date": "2026-10-27",
   "target": "dealnews-home",
   "method": "자동 스크린샷",
-  "captured_at": "2026-10-27T06:03-04:00",
+  "captured_at": "2026-10-27T06:10-04:00",
   "mention_shots": {
    "Samsung": [
     {
      "shot": "shots/2026-10-27/m/dealnews-home__Samsung_0.jpg",
      "text": "Includes a 6-ft. braided USB-C to USB-C cable Supports data transfer speeds up to 480 Mbps Foldable plug for compact storage and travel Compatible with Apple and Samsung smartphones, tablets, and other USB-C devices",
      "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/dealnews-home__Samsung_1.jpg",
+     "text": "Lowe's · 16 hrs ago Lowe's Major Appliance Special Values Up to 35% off free delivery on select items more During their appliance savings event, Lowe's is taking up to 35% off select major appliances. MyLowe's members wh",
+     "n": 3
     }
    ],
    "Sony": [
@@ -44520,6 +44525,13 @@
      "shot": "shots/2026-10-27/m/dealnews-home__Sony_0.jpg",
      "text": "Vantrue · 3 days ago Vantrue S1 Pro Max 4K Dual Dash Cam $180 $300 free shipping more The Vantrue S1 Pro Max is $180 via coupon code \"S1PM40\", down from $300. It records 4K video from both the front and rear cameras usin",
      "n": 2
+    }
+   ],
+   "Whirlpool": [
+    {
+     "shot": "shots/2026-10-27/m/dealnews-home__Whirlpool_0.jpg",
+     "text": "Covers refrigerators, washers, dryers, and wall ovens from brands including Whirlpool, GE, KitchenAid, Frigidaire, and Samsung Discounts apply to select major appliances priced $396 and up Spending $1,999 on select Samsu",
+     "n": 1
     }
    ],
    "Shark": [
@@ -44531,7 +44543,12 @@
    ]
   },
   "full_shot": "shots/2026-10-27/dealnews-home__full.jpg",
-  "full_covers_all": false,
+  "full_parts": [
+   "shots/2026-10-27/dealnews-home__full.jpg",
+   "shots/2026-10-27/dealnews-home__full_2.jpg",
+   "shots/2026-10-27/dealnews-home__full_3.jpg"
+  ],
+  "full_covers_all": true,
   "rate": null,
   "rate_text": null,
   "offers": null,
@@ -44539,8 +44556,11 @@
   "exclusions": null,
   "promos": [],
   "mentions": {
-   "Samsung": 1,
+   "Samsung": 4,
    "Sony": 2,
+   "Whirlpool": 1,
+   "Frigidaire": 1,
+   "KitchenAid": 1,
    "Shark": 4
   },
   "lg_snippets": [],
@@ -44551,7 +44571,7 @@
   "http": 200,
   "title": "DealNews: Best Daily Deals, Discounts & Sales",
   "sig": "1e0c3b064aed",
-  "body_hash": "c28cdcf19546",
+  "body_hash": "b076c7f62783",
   "country": "US",
   "prev_date": "2026-10-26",
   "prev_rate_text": null,
@@ -44754,7 +44774,7 @@
   "date": "2026-10-27",
   "target": "slickdeals-home",
   "method": "자동 스크린샷",
-  "captured_at": "2026-10-27T06:01-04:00",
+  "captured_at": "2026-10-27T06:09-04:00",
   "mention_shots": {
    "Samsung": [
     {
@@ -44806,6 +44826,11 @@
    "Sony": [
     {
      "shot": "shots/2026-10-27/m/slickdeals-home__Sony_0.jpg",
+     "text": "Found by pennysave Today 6:06 AM New $100 Sony PlayStation eGift Card (Email Delivery) $85 $100 Newegg 18 5",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-10-27/m/slickdeals-home__Sony_1.jpg",
      "text": "Found by BluEyeGuy Oct 20, 2026 9:08 AM Select Stores: Open Box 77\" Sony Bravia XR A95L QD-OLED 4K UHD Smart Google TV (2023) from $1125 + Free Pickup Best Buy 115 150",
      "n": 1
     }
@@ -44831,6 +44856,11 @@
    ]
   },
   "full_shot": "shots/2026-10-27/slickdeals-home__full.jpg",
+  "full_parts": [
+   "shots/2026-10-27/slickdeals-home__full.jpg",
+   "shots/2026-10-27/slickdeals-home__full_2.jpg",
+   "shots/2026-10-27/slickdeals-home__full_3.jpg"
+  ],
   "full_covers_all": false,
   "rate": null,
   "rate_text": null,
@@ -44840,7 +44870,7 @@
   "promos": [],
   "mentions": {
    "Samsung": 9,
-   "Sony": 1,
+   "Sony": 2,
    "Hisense": 1,
    "Shark": 2
   },
@@ -44852,7 +44882,7 @@
   "http": 200,
   "title": "Slickdeals: The Best Deals, Coupons, Promo Codes & Discounts",
   "sig": "1e0c3b064aed",
-  "body_hash": "f44e28497f76",
+  "body_hash": "348611e0c748",
   "country": "US",
   "prev_date": "2026-10-26",
   "prev_rate_text": null,
