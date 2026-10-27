@@ -1,8 +1,8 @@
 """Screenshot retention, run after every collection (before the integrity check).
 
-- last 14 days: originals as captured
-- older full-page screenshots: shrunk to 720px wide, JPEG quality 30 (~3 MB/day, text stays readable),
-  kept for 200 days on the dashboard
+- last 7 days: originals as captured
+- older screenshots (incl. highlighted full-page mention shots): shrunk to 720px wide, JPEG quality 30
+  (~5 MB/day, text stays readable), kept for 120 days on the dashboard
 - brand-mention crops (shots/<day>/m/): kept for 365 days unchanged (~0.25 MB/day)
 - safety budget: if site/shots grows past 850 MB (GitHub Pages limit is 1 GB), the oldest compressed
   full-page days are dropped first
@@ -21,8 +21,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 SHOTS = SITE / "shots"
 DATA = SITE / "data"
-ORIGINAL_DAYS = 14
-VIEW_DAYS = 200
+ORIGINAL_DAYS = 7
+VIEW_DAYS = 120
 CROP_DAYS = 365
 BUDGET = 850 * 1024 * 1024
 WIDTH, QUALITY = 720, 30

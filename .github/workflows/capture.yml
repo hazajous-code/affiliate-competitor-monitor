@@ -84,7 +84,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/archive_shots.py
-      - name: Screenshot retention (compress after 14 days, keep 200 days, crops 365 days)
+      - name: Screenshot retention (compress after 7 days, keep 120 days, crops 365 days)
         if: steps.guard.outputs.run == 'true'
         run: python scripts/retention.py
       - name: Check integrity and public-safety
