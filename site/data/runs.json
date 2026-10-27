@@ -1,6 +1,6 @@
 {
  "run_at": "2026-10-26T15:10-04:00",
- "partial_at": "2026-10-27T05:39-04:00",
+ "partial_at": "2026-10-27T06:01-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
@@ -1309,7 +1309,7 @@
    "date": "2026-10-27",
    "target": "slickdeals-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:39-04:00",
+   "captured_at": "2026-10-27T06:01-04:00",
    "mention_shots": {
     "Samsung": [
      {
@@ -1324,7 +1324,7 @@
      },
      {
       "shot": "shots/2026-10-27/m/slickdeals-home__Samsung_2.jpg",
-      "text": "Found by phoinix Yesterday 7:15 PM New 512GB Samsung P9 microSD Express Memory Card $99 $150 + Free S&H Amazon 35 13",
+      "text": "Found by phoinix Yesterday 7:15 PM New 512GB Samsung P9 microSD Express Memory Card $99 $150 + Free S&H Amazon 36 13",
       "n": 1
      },
      {
@@ -1375,7 +1375,7 @@
     "Shark": [
      {
       "shot": "shots/2026-10-27/m/slickdeals-home__Shark_0.jpg",
-      "text": "Found by phoinix Today 4:22 AM New Shark IY143H Cordless Pet Cordless Lightweight Stick Vacuum Cleaner $160 $300 + Free S&H Best Buy 27 0",
+      "text": "Found by phoinix Today 4:22 AM New Shark IY143H Cordless Pet Cordless Lightweight Stick Vacuum Cleaner $160 $300 + Free S&H Best Buy 29 0",
       "n": 1
      },
      {
@@ -1386,6 +1386,7 @@
     ]
    },
    "full_shot": "shots/2026-10-27/slickdeals-home__full.jpg",
+   "full_covers_all": false,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1406,7 +1407,7 @@
    "http": 200,
    "title": "Slickdeals: The Best Deals, Coupons, Promo Codes & Discounts",
    "sig": "1e0c3b064aed",
-   "body_hash": "ed8f7e8b40dc",
+   "body_hash": "f44e28497f76",
    "country": "US",
    "prev_date": "2026-10-26",
    "prev_rate_text": null,
@@ -1495,7 +1496,7 @@
    "date": "2026-10-27",
    "target": "techradar-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:39-04:00",
+   "captured_at": "2026-10-27T06:01-04:00",
    "mention_shots": {
     "LG": [
      {
@@ -1540,6 +1541,7 @@
     ]
    },
    "full_shot": "shots/2026-10-27/techradar-home__full.jpg",
+   "full_covers_all": true,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1559,7 +1561,7 @@
    "http": 200,
    "title": "TechRadar | the technology experts",
    "sig": "1e0c3b064aed",
-   "body_hash": "e81462c2bfcb",
+   "body_hash": "6e69c06b8a4d",
    "country": "US",
    "prev_date": "2026-10-26",
    "prev_rate_text": null,
@@ -1612,11 +1614,11 @@
    "date": "2026-10-27",
    "target": "tomsguide-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:40-04:00",
+   "captured_at": "2026-10-27T06:02-04:00",
    "mention_shots": {
     "LG": [
      {
-      "shot": "shots/2026-10-27/m/tomsguide-home__LG_0.jpg",
+      "shot": "shots/2026-10-27/m/tomsguide-home__LG_1.jpg",
       "text": "Get up to 50% off with these 7 early Black Friday TV deals, including our favorite LG OLED",
       "n": 1
      }
@@ -1624,27 +1626,38 @@
     "Samsung": [
      {
       "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_0.jpg",
-      "text": "iPhone Duo vs. Samsung Galaxy Z Fold 8: Which foldable is the best?",
+      "text": "After all the uproar over LG TVs reportedly spying on users, it would be unfair to assume other manufacturers weren't up to the same tricks. And according to a hacker on Reddit that reverse-engineered his Samsung smart T",
       "n": 1
      },
      {
       "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_1.jpg",
-      "text": "As more reports reveal new details about cracks in the iPhone Duo display, IDC analyst Francisco Jeronimo speculated on what it could mean for Apple and how the company should respond. \"What matters now is how the compan",
+      "text": "Scary stuff. But is it all that surprising? Samsung has previously hailed Family Care and Pet Care (listening out for babies and dogs) as selling points for its sets. The company has already confirmed it's discontinuing ",
       "n": 1
      },
      {
       "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_2.jpg",
-      "text": "Put your chores on easy mode with 9 Samsung AI appliance deals at Best Buy – up to 49% off",
+      "text": "As more reports reveal new details about cracks in the iPhone Duo display, IDC analyst Francisco Jeronimo speculated on what it could mean for Apple and how the company should respond. \"What matters now is how the compan",
       "n": 1
      },
      {
       "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_3.jpg",
+      "text": "iPhone Duo vs. Samsung Galaxy Z Fold 8: Which foldable is the best?",
+      "n": 1
+     },
+     {
+      "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_4.jpg",
+      "text": "Put your chores on easy mode with 9 Samsung AI appliance deals at Best Buy – up to 49% off",
+      "n": 1
+     },
+     {
+      "shot": "shots/2026-10-27/m/tomsguide-home__Samsung_5.jpg",
       "text": "I watched 3 movies with JBL and Samsung's 2026 flagship soundbars — here's the one I'd choose and why",
       "n": 1
      }
     ]
    },
    "full_shot": "shots/2026-10-27/tomsguide-home__full.jpg",
+   "full_covers_all": true,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1652,8 +1665,8 @@
    "exclusions": null,
    "promos": [],
    "mentions": {
-    "LG": 1,
-    "Samsung": 4
+    "LG": 2,
+    "Samsung": 7
    },
    "lg_snippets": [],
    "status": "수집",
@@ -1663,7 +1676,7 @@
    "http": 200,
    "title": "Tom's Guide | Tech Product Reviews, Top Picks and How To",
    "sig": "1e0c3b064aed",
-   "body_hash": "cf19f7f72426",
+   "body_hash": "d17ca888270f",
    "country": "US",
    "prev_date": "2026-10-26",
    "prev_rate_text": null,
@@ -1680,13 +1693,13 @@
    "date": "2026-10-27",
    "target": "dealnews-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:40-04:00",
+   "captured_at": "2026-10-27T06:03-04:00",
    "mention_shots": {
     "Samsung": [
      {
       "shot": "shots/2026-10-27/m/dealnews-home__Samsung_0.jpg",
-      "text": "Lowe's · 16 hrs ago Lowe's Major Appliance Special Values Up to 35% off free delivery on select items more During their appliance savings event, Lowe's is taking up to 35% off select major appliances. MyLowe's members wh",
-      "n": 3
+      "text": "Includes a 6-ft. braided USB-C to USB-C cable Supports data transfer speeds up to 480 Mbps Foldable plug for compact storage and travel Compatible with Apple and Samsung smartphones, tablets, and other USB-C devices",
+      "n": 1
      }
     ],
     "Sony": [
@@ -1694,13 +1707,6 @@
       "shot": "shots/2026-10-27/m/dealnews-home__Sony_0.jpg",
       "text": "Vantrue · 3 days ago Vantrue S1 Pro Max 4K Dual Dash Cam $180 $300 free shipping more The Vantrue S1 Pro Max is $180 via coupon code \"S1PM40\", down from $300. It records 4K video from both the front and rear cameras usin",
       "n": 2
-     }
-    ],
-    "Whirlpool": [
-     {
-      "shot": "shots/2026-10-27/m/dealnews-home__Whirlpool_0.jpg",
-      "text": "Covers refrigerators, washers, dryers, and wall ovens from brands including Whirlpool, GE, KitchenAid, Frigidaire, and Samsung Discounts apply to select major appliances priced $396 and up Spending $1,999 on select Samsu",
-      "n": 1
      }
     ],
     "Shark": [
@@ -1712,6 +1718,7 @@
     ]
    },
    "full_shot": "shots/2026-10-27/dealnews-home__full.jpg",
+   "full_covers_all": false,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1719,11 +1726,8 @@
    "exclusions": null,
    "promos": [],
    "mentions": {
-    "Samsung": 3,
+    "Samsung": 1,
     "Sony": 2,
-    "Whirlpool": 1,
-    "Frigidaire": 1,
-    "KitchenAid": 1,
     "Shark": 4
    },
    "lg_snippets": [],
@@ -1734,7 +1738,7 @@
    "http": 200,
    "title": "DealNews: Best Daily Deals, Discounts & Sales",
    "sig": "1e0c3b064aed",
-   "body_hash": "4b760d9b9856",
+   "body_hash": "c28cdcf19546",
    "country": "US",
    "prev_date": "2026-10-26",
    "prev_rate_text": null,
@@ -1751,7 +1755,7 @@
    "date": "2026-10-27",
    "target": "bradsdeals-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:42-04:00",
+   "captured_at": "2026-10-27T06:04-04:00",
    "mention_shots": {
     "Frigidaire": [
      {
@@ -1762,6 +1766,7 @@
     ]
    },
    "full_shot": "shots/2026-10-27/bradsdeals-home__full.jpg",
+   "full_covers_all": true,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1779,7 +1784,7 @@
    "http": 200,
    "title": "Brad's Deals. There's a real-life human behind every post.",
    "sig": "1e0c3b064aed",
-   "body_hash": "5a8eaba91b9b",
+   "body_hash": "bfb94a7c6dfb",
    "country": "US",
    "prev_date": "2026-10-26",
    "prev_rate_text": null,
@@ -1796,7 +1801,7 @@
    "date": "2026-10-27",
    "target": "rtings-tv",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:42-04:00",
+   "captured_at": "2026-10-27T06:04-04:00",
    "mention_shots": {
     "LG": [
      {
@@ -1878,6 +1883,7 @@
     ]
    },
    "full_shot": "shots/2026-10-27/rtings-tv__full.jpg",
+   "full_covers_all": true,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1917,7 +1923,7 @@
    "date": "2026-10-27",
    "target": "forbes-vetted",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:42-04:00",
+   "captured_at": "2026-10-27T06:05-04:00",
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -1949,7 +1955,7 @@
    "date": "2026-10-27",
    "target": "wired-home",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:43-04:00",
+   "captured_at": "2026-10-27T06:05-04:00",
    "mention_shots": {
     "LG": [
      {
@@ -1967,6 +1973,7 @@
     ]
    },
    "full_shot": "shots/2026-10-27/wired-home__full.jpg",
+   "full_covers_all": true,
    "rate": null,
    "rate_text": null,
    "offers": null,
@@ -2002,7 +2009,7 @@
    "date": "2026-10-27",
    "target": "goodhousekeeping-appliances",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-27T05:43-04:00",
+   "captured_at": "2026-10-27T06:05-04:00",
    "rate": null,
    "rate_text": null,
    "offers": null,
