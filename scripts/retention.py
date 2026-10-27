@@ -98,8 +98,9 @@ def main():
         rows = doc["results"] if name == "runs.json" else doc
         changed = False
         for r in rows:
-            if r.get("shot") and not exists(r["shot"]):
-                r["shot"] = None; changed = True
+            for key in ("shot", "full_shot"):
+                if r.get(key) and not exists(r[key]):
+                    r[key] = None; changed = True
             ms = r.get("mention_shots")
             if ms:
                 kept = {b: [m for m in v if exists(m["shot"])] for b, v in ms.items()}

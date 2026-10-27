@@ -372,7 +372,7 @@ MENTION_JS = r"""
     const re = new RegExp(src);
     const picked = [];
     for (const tn of nodes) {
-      if (picked.length >= 2) break;
+      if (picked.length >= 15) break;
       const m = tn.nodeValue && re.exec(tn.nodeValue);
       if (!m) continue;
       const e = tn.parentElement;
@@ -392,9 +392,11 @@ MENTION_JS = r"""
     out[name] = picked.map((p, i) => {
       const id = name.replace(/\W+/g, '') + '_' + i;
       p.el.setAttribute('data-acm-m', id);
-      const text = (p.el.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 220);
+      const full = (p.el.innerText || '').replace(/\s+/g, ' ').trim();
+      const text = full.slice(0, 220);
+      const n = (full.match(new RegExp(src, 'g')) || []).length || 1;               // mentions this crop covers
       try { const mk = document.createElement('mark'); mk.style.cssText = 'background:#ffe066;outline:2px solid #f59f00;color:inherit'; p.range.surroundContents(mk); } catch (e) {}
-      return { id, text };
+      return { id, text, n };
     });
   }
   return out;
@@ -402,22 +404,46 @@ MENTION_JS = r"""
 """
 
 
+MARK_ALL_JS = r"""
+(brands) => {
+  // highlight every occurrence of each brand on the page: LG in yellow, others in blue
+  let total = 0;
+  for (const [name, src] of Object.entries(brands)) {
+    const style = name === 'LG' ? 'background:#ffe066;outline:2px solid #f59f00;color:inherit' : 'background:#d0ebff;outline:2px solid #339af0;color:inherit';
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = []; let n;
+    while ((n = walker.nextNode())) { if (n.nodeValue && new RegExp(src).test(n.nodeValue) && !(n.parentElement && n.parentElement.closest('mark[data-acm]'))) nodes.push(n); }
+    for (const tn of nodes) {
+      const re = new RegExp(src, 'g'); const hits = []; let m;
+      while ((m = re.exec(tn.nodeValue))) { hits.push([m.index, m[0].length]); if (!m[0].length) break; }
+      for (const [i, len] of hits.reverse()) {
+        try { const r = document.createRange(); r.setStart(tn, i); r.setEnd(tn, i + len);
+              const mk = document.createElement('mark'); mk.setAttribute('data-acm', name); mk.style.cssText = style; r.surroundContents(mk); total++; } catch (e) {}
+      }
+    }
+  }
+  return total;
+}
+"""
+
+
 def capture_mentions(page, tg, day, found):
-    """Crop up to two blocks per mentioned brand. Returns {brand: [{"shot", "text"}]}."""
+    """Crop the blocks where each brand is mentioned (up to 15 per brand) and take a full-page shot with
+    every brand mention highlighted. Returns ({brand: [{"shot", "text", "n"}]}, full_page_rel or None)."""
     want = {b: BRANDS[b] for b in found if b in BRANDS}
     if not want:
-        return {}
+        return {}, None
     try:
         marks = page.evaluate(MENTION_JS, want)
     except Exception:
-        return {}
+        return {}, None
     (SHOTS / day / "m").mkdir(parents=True, exist_ok=True)
     for old in (SHOTS / day / "m").glob(f"{tg['id']}__*.jpg"):   # a re-run replaces that page's crops
         old.unlink()
     out, total = {}, 0
     for brand, items in marks.items():
         for it in items:
-            if total >= 24:
+            if total >= 80:
                 break
             rel = f"shots/{day}/m/{tg['id']}__{it['id']}.jpg"
             try:
@@ -426,9 +452,20 @@ def capture_mentions(page, tg, day, found):
                 loc.screenshot(path=str(SITE / rel), type="jpeg", quality=50, timeout=5000)
             except Exception:
                 continue
-            out.setdefault(brand, []).append({"shot": rel, "text": it["text"]})
+            out.setdefault(brand, []).append({"shot": rel, "text": it["text"], "n": it.get("n", 1)})
             total += 1
-    return out
+    full = None
+    try:
+        page.evaluate(MARK_ALL_JS, want)
+        page.evaluate("window.scrollTo(0, 0)")
+        page.wait_for_timeout(400)
+        h = min(12000, page.evaluate("document.documentElement.scrollHeight"))
+        full = f"shots/{day}/{tg['id']}__full.jpg"
+        page.screenshot(path=str(SITE / full), type="jpeg", quality=40, full_page=True,
+                        clip={"x": 0, "y": 0, "width": 1366, "height": h})
+    except Exception:
+        full = None
+    return out, full
 
 
 def lg_snippets(t, limit=6):
@@ -526,6 +563,13 @@ def capture_one(ctx, tg, day):
         text = page.inner_text("body", timeout=10000)
         t = squash(text)
         rel = f"shots/{day}/{tg['id']}.jpg"
+        if tg["parser"] == "mentions" and tg.get("access", "public") == "public":
+            for _ in range(10):                      # load lazy tiles so every mention is counted
+                page.mouse.wheel(0, 1200)
+                page.wait_for_timeout(350)
+            page.evaluate("window.scrollTo(0, 0)")
+            page.wait_for_timeout(600)
+            t = squash(page.inner_text("body", timeout=10000))
         if tg["parser"] in ("slots", "lgpromo", "sspromo"):
             # placement / promotion pages: scroll once so lazy tiles render, then keep the top 3,600px
             page.mouse.wheel(0, 3000)
@@ -577,7 +621,7 @@ def capture_one(ctx, tg, day):
                 rate_text = f"할인 최대 {cats[0]['rate']:g}%" + (f" · {rate_text}" if rate_text else "")
         st, why = classify(tg, title, t, http, rate, rate_text, page.url)
         if tg["parser"] == "mentions" and tg.get("access", "public") == "public" and st == "수집":
-            row["mention_shots"] = capture_mentions(page, tg, day, mentions(t))
+            row["mention_shots"], row["full_shot"] = capture_mentions(page, tg, day, mentions(t))
         ok = st in ("수집", "요율 미확인", "로그인 입구만")
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
