@@ -101,6 +101,8 @@ def main():
             for key in ("shot", "full_shot"):
                 if r.get(key) and not exists(r[key]):
                     r[key] = None; changed = True
+            if r.get("full_parts") and not all(exists(x) for x in r["full_parts"]):
+                r["full_parts"] = [x for x in r["full_parts"] if exists(x)]; changed = True
             ms = r.get("mention_shots")
             if ms:
                 kept = {b: [m for m in v if exists(m["shot"])] for b, v in ms.items()}

@@ -53,10 +53,11 @@ for c in caps:
             q = SITE / m["shot"]
             if ".." in m["shot"] or not q.exists() or q.read_bytes()[:2] != b"\xff\xd8":
                 fail(f"{k}: mention crop missing or not JPEG {m['shot']}")
-    if c.get("full_shot"):
-        q = SITE / c["full_shot"]
-        if ".." in c["full_shot"] or not q.exists() or q.read_bytes()[:2] != b"\xff\xd8":
-            fail(f"{k}: full-page shot missing or not JPEG {c['full_shot']}")
+    for fsh in [c.get("full_shot"), *(c.get("full_parts") or [])]:
+        if fsh:
+            q = SITE / fsh
+            if ".." in fsh or not q.exists() or q.read_bytes()[:2] != b"\xff\xd8":
+                fail(f"{k}: full-page shot missing or not JPEG {fsh}")
     if c.get("shot"):
         p = SITE / c["shot"]
         if ".." in c["shot"] or not p.exists():

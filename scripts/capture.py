@@ -424,6 +424,7 @@ MARK_ALL_JS = r"""
   }
   let bottom = 0;
   for (const mk of document.querySelectorAll('mark[data-acm]')) {
+    if (mk.closest('footer,[role=contentinfo]')) continue;          // footer site-map links don't set the length
     const r = mk.getBoundingClientRect();
     if (r.width && r.height) bottom = Math.max(bottom, r.bottom + window.scrollY);
   }
@@ -443,8 +444,8 @@ def capture_mentions(page, tg, day, found):
     except Exception:
         return {}, None
     (SHOTS / day / "m").mkdir(parents=True, exist_ok=True)
-    for old in (SHOTS / day / "m").glob(f"{tg['id']}__*.jpg"):   # a re-run replaces that page's crops
-        old.unlink()
+    for old in [*(SHOTS / day / "m").glob(f"{tg['id']}__*.jpg"), *(SHOTS / day).glob(f"{tg['id']}__full*.jpg")]:
+        old.unlink()                                                # a re-run replaces that page's crops
     out, total = {}, 0
     for brand, items in marks.items():
         for it in items:
@@ -465,11 +466,17 @@ def capture_mentions(page, tg, day, found):
         page.evaluate("window.scrollTo(0, 0)")
         page.wait_for_timeout(400)
         page_h = page.evaluate("document.documentElement.scrollHeight")
-        # tall enough to include the lowest highlighted mention (16,000px is the browser's capture limit)
-        h = min(16000, page_h, max(1500, res["bottom"] + 300))
-        full = {"shot": f"shots/{day}/{tg['id']}__full.jpg", "covers_all": res["bottom"] <= h, "height": h}
-        page.screenshot(path=str(SITE / full["shot"]), type="jpeg", quality=40, full_page=True,
-                        clip={"x": 0, "y": 0, "width": 1366, "height": h})
+        need = min(page_h, max(1500, res["bottom"] + 300))
+        SEG, MAXSEG = 16000, 3                       # the browser captures at most ~16,000px per image
+        parts, y = [], 0
+        while y < need and len(parts) < MAXSEG:
+            h = min(SEG, need - y)
+            rel = f"shots/{day}/{tg['id']}__full{'' if not parts else '_' + str(len(parts) + 1)}.jpg"
+            page.screenshot(path=str(SITE / rel), type="jpeg", quality=40, full_page=True,
+                            clip={"x": 0, "y": y, "width": 1366, "height": h})
+            parts.append(rel)
+            y += h
+        full = {"shot": parts[0], "parts": parts, "covers_all": res["bottom"] <= y}
     except Exception:
         full = None
     return out, full
@@ -630,7 +637,7 @@ def capture_one(ctx, tg, day):
         if tg["parser"] == "mentions" and tg.get("access", "public") == "public" and st == "수집":
             row["mention_shots"], fs = capture_mentions(page, tg, day, mentions(t))
             if fs:
-                row.update(full_shot=fs["shot"], full_covers_all=fs["covers_all"])
+                row.update(full_shot=fs["shot"], full_parts=fs["parts"], full_covers_all=fs["covers_all"])
         ok = st in ("수집", "요율 미확인", "로그인 입구만")
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
