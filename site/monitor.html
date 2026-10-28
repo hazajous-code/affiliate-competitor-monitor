@@ -184,8 +184,9 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
 <script>
 (async function(){
   const { rankOf, byRank } = await loadRank();
-  const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+  const get = p => loadJSON(p);
   const [caps0, runs, cov] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/coverage.json')]);
+  loadDone(!!caps0);
   const caps = caps0 || [];
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
@@ -196,7 +197,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   const stCls = s => OK(s) ? 's-ok' : WARN.includes(s) ? 's-warn' : 's-bad';
   // rates come only from cash-back / reward store pages; coupon & deal sites list offers, not a rate
   const isBrandRow = r => ['LG', '경쟁사', '유통'].includes(r.brand_group) && ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'].includes(r.kind);
-  const dates = reportDates(caps);
+  const dates = publishedDates(caps, runs);
   const latest = dates[dates.length - 1];
   const wantDay = new URLSearchParams(location.search).get('date');
   const day = dates.includes(wantDay) ? wantDay : latest;      // ?date=YYYY-MM-DD shows that day
@@ -204,11 +205,12 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
   const prevDay = dates[dates.indexOf(day) - 1];
   const cur = caps.filter(r => r.date === day);
   const prevBy = Object.fromEntries(caps.filter(r => r.date === prevDay && r.rate != null).map(r => [r.target, r.rate]));
-  const vr = (isLatest && runs && runs.results && runs.results.length ? runs.results : cur).slice().sort((a, b) => byRank(a.publisher, b.publisher));
+  const vr = cur.slice().sort((a, b) => byRank(a.publisher, b.publisher));
   function openImg(src) { $('dlgImg').src = src; $('dlg').showModal(); }
   $('dlg').onclick = () => $('dlg').close();
 
-  $('meta').textContent = (isLatest && runs && runs.run_at ? '최근 수집 ' + runs.run_at.replace('T', ' ') + ' (미국 동부)' : day + ' 수집 값') + ' · 누적 ' + dates.length + '일';
+  const lastAt = cur.map(r => r.captured_at || '').sort().pop();
+  $('meta').textContent = (lastAt ? '수집 ' + lastAt.replace('T', ' ') + ' (미국 동부)' : day + ' 수집 값') + ' · 누적 ' + dates.length + '일';
   // date picker: ← previous · date · next →
   const goto = d => { location.search = !d || d === latest ? '' : '?date=' + d; };
   const dp = el('span', 'datepick');

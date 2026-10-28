@@ -93,8 +93,9 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 <script>
 (async function(){
   const { byRank } = await loadRank();
-  const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+  const get = p => loadJSON(p);
   const [caps0, runs, plan] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json')]);
+  loadDone(!!caps0);
   const caps = caps0 || [];
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
@@ -104,7 +105,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   function openImg(src) { $('dlgImg').src = src; $('dlg').showModal(); }
   $('dlg').onclick = () => $('dlg').close();
 
-  const dates = reportDates(caps);
+  const dates = publishedDates(caps, runs);
   const lastDay = dates[dates.length - 1];
   // ISO date from "10/21/26" style
   const iso = (v, ref) => { if (!v) return null; const p = v.split('/').map(Number); const y = p[2] ? (p[2] < 100 ? 2000 + p[2] : p[2]) : Number((ref || lastDay || '2026').slice(0, 4)); return `${y}-${String(p[0]).padStart(2, '0')}-${String(p[1]).padStart(2, '0')}`; };
@@ -131,7 +132,11 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 
   // today's promotions
   const prevDay = dates[dates.length - 2];
-  const today = [...(promosOn[lastDay] || new Map()).entries()];
+  // if LG.com could not be read on the published day, keep showing the latest day that has promotions
+  let promoDay = lastDay;
+  if (!(promosOn[lastDay] && promosOn[lastDay].size)) { const alt = [...dates].reverse().find(d => promosOn[d] && promosOn[d].size); if (alt) promoDay = alt; }
+  const today = [...(promosOn[promoDay] || new Map()).entries()];
+  if (promoDay !== lastDay) $('todayNote').textContent = promoDay + ' 기준 내용입니다 — ' + lastDay + '에는 LG.com 페이지를 읽지 못해 가장 최근 수집분을 보여 줍니다.';
   const prevKeys = new Set([...(promosOn[prevDay] || new Map()).keys()]);
   if (!today.length) $('promoGrid').append(el('div', 'empty', lgRows.length ? '읽은 프로모션이 없습니다. 아래 화면을 확인하세요.' : '다음 자동 수집부터 표시됩니다.'));
   today.sort((a, b) => (a[1].end || '9').localeCompare(b[1].end || '9')).forEach(([k, p]) => {

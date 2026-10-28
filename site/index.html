@@ -102,8 +102,9 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 <script>
 (async function(){
   const { byRank } = await loadRank();
-  const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+  const get = p => loadJSON(p);
   const [caps0, runs, plan, briefs0] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json'), get('data/briefs.json')]);
+  loadDone(!!caps0);
   const caps = caps0 || [], briefs = briefs0 || {};
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
@@ -116,7 +117,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   const CORE = c => ['TV·AV', '가전 전반', '냉장고', '세탁', '주방', '청소·공조', '모니터·PC', '오디오'].includes(c);
   const WD = ['일', '월', '화', '수', '목', '금', '토'];
   const longDate = d => d.slice(0, 4) + '년 ' + Number(d.slice(5, 7)) + '월 ' + Number(d.slice(8, 10)) + '일 (' + WD[new Date(d + 'T12:00:00Z').getUTCDay()] + ')';
-  const dates = reportDates(caps);
+  const dates = publishedDates(caps, runs);
   const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
   const P = (plan && plan.placements) || [];
   const BASE = { 'capone-lg': 2.5 };
@@ -136,9 +137,13 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     const ssS = store.filter(r => r.brand === 'Samsung');
     function promos(group, d) { const m = new Map(); caps.filter(r => r.date === d && r.brand_group === group && OK(r.status)).forEach(r => (r.promos || []).forEach(p => { const k = (p.title || '').toLowerCase().slice(0, 80); if (!m.has(k)) m.set(k, { ...p, end: iso(p.valid) }); })); return m; }
     function promoSet(group) {
-      const now = promos(group, day), before = prevDay ? promos(group, prevDay) : new Map();
+      // if the site could not be read that day, fall back to the latest earlier day that has promotions
+      let pday = day, now = promos(group, day);
+      if (!now.size) { const alt = dates.filter(d => d < day).reverse().find(d => promos(group, d).size); if (alt) { pday = alt; now = promos(group, alt); } }
+      const pprev = dates[dates.indexOf(pday) - 1];
+      const before = pprev ? promos(group, pprev) : new Map();
       const list = [...now.entries()];
-      return { list, before, fresh: before.size ? list.filter(([k]) => !before.has(k)) : [], gone: before.size ? [...before.entries()].filter(([k]) => !now.has(k)) : [],
+      return { list, before, pday, fresh: before.size ? list.filter(([k]) => !before.has(k)) : [], gone: before.size ? [...before.entries()].filter(([k]) => !now.has(k)) : [],
                ending: list.filter(([, p]) => p.end && daysTo(p.end) >= 0 && daysTo(p.end) <= 7).sort((a, b) => a[1].end.localeCompare(b[1].end)) };
     }
     const LG = promoSet('LG.com'), SS = promoSet('Samsung.com');
@@ -150,7 +155,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     const nextEv = P.filter(p => p.start > day && p.start <= end7 && /cash ?back|flash cash|bonus|double|big stack|discover new stores/i.test(p.placement)).sort((a, b) => a.start.localeCompare(b.start) || byRank(a.publisher, b.publisher));
     const etc = cur.filter(r => STORE(r.kind) && ['경쟁사', '유통'].includes(r.brand_group) && r.brand !== 'Samsung' && moved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
     const isLatest = day === dates[dates.length - 1];
-    const vr = isLatest && runs && runs.results && runs.results.length ? runs.results : cur;
+    const vr = cur;
     return { day, prevDay, cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, active, judged, chk, nextEv, etc, vr, isLatest };
   }
 
@@ -190,7 +195,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     if (!isLatest) dl.append(el('span', 'pastflag', '지난 브리핑'));
     dl.append(el('span', null, longDate(day) + ' · 미국 동부 기준'));
     const country = isLatest ? runs && runs.country : (cur.find(r => r.country) || {}).country;
-    if (isLatest && runs && runs.run_at) dl.append(el('span', null, '수집 ' + runs.run_at.slice(11, 16) + ' ET'));
+    const lastAt = cur.map(r => r.captured_at || '').sort().pop(); if (lastAt) dl.append(el('span', null, '수집 ' + lastAt.slice(11, 16) + ' ET'));
     dl.append(el('span', country === 'US' ? 'ok' : 'bad', country === 'US' ? '미국 IP 확인' : '미국 IP 미검증'));
     dl.append(el('span', null, '정상 수집 ' + vr.filter(r => OK(r.status)).length + '/' + vr.length));
     if (isLatest && runs && runs.run_at && (Date.now() - new Date(runs.run_at).getTime()) / 36e5 > 30) dl.append(el('span', 'bad', '⚠ 최신 수집이 30시간 이상 지났습니다'));
@@ -230,6 +235,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     // own-site promotions
     function promoBox(box, name, X) {
       box.append(el('h3', null, name));
+      if (X.pday && X.pday !== day) box.append(el('div', 'sub', '※ ' + X.pday + ' 기준 — 이날은 페이지를 읽지 못해 가장 최근 수집분입니다'));
       box.append(el('div', 'sub', X.list.length ? '진행 ' + X.list.length + '건 (가전·TV·모니터 ' + X.list.filter(([, p]) => CORE(p.category)).length + ')' + (X.before.size ? ' · 신규 ' + X.fresh.length + ' · 종료 ' + X.gone.length : '') : '이날 읽은 프로모션 없음'));
       const ul = el('ul');
       X.fresh.slice(0, 4).forEach(([, p]) => ul.append(html(el('li'), '<span class="tag new">신규</span>' + esc(p.title))));

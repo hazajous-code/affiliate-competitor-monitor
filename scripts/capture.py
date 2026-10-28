@@ -801,8 +801,18 @@ def main():
         run_at, partial_at = prev.get("run_at") or run_at, now.isoformat(timespec="minutes")
     order = {t["id"]: i for i, t in enumerate(all_targets)}
     results.sort(key=lambda r: order.get(r["target"], 999))
+    # complete_day = the US date the dashboard publishes. It moves only when a full run collected at
+    # least 70% of targets; partial re-runs and poor runs leave it on the previous complete day, so
+    # visitors keep seeing the last complete day until the new one is fully in.
+    complete_day = prev.get("complete_day") or (prev.get("run_at") or "")[:10] or None
+    if not only:
+        ok_share = sum(1 for r in results if r["status"] in ("수집", "요율 확인 필요", "로그인 입구만")) / max(1, len(results))
+        if ok_share >= 0.7:
+            complete_day = day
+        print(f"collected share {ok_share:.0%} -> published day {complete_day}")
     runs_path.write_text(json.dumps({
         "run_at": run_at,
+        "complete_day": complete_day,
         "partial_at": partial_at,
         "country": country,
         "us_ip_verified": country == "US",

@@ -106,8 +106,9 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 <script>
 (async function(){
   const { byRank } = await loadRank();
-  const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+  const get = p => loadJSON(p);
   const [caps0, runs] = await Promise.all([get('data/captures.json'), get('data/runs.json')]);
+  loadDone(!!caps0);
   const caps = caps0 || [];
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
@@ -118,7 +119,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   function shotLink(src, label) { const a = el('a', null, label || '화면'); a.href = src; a.onclick = e => { e.preventDefault(); openImg(src); }; return a; }
   $('dlg').onclick = () => $('dlg').close();
 
-  const dates = reportDates(caps);
+  const dates = publishedDates(caps, runs);
   const lastDay = dates[dates.length - 1], prevDay = dates[dates.length - 2];
   const iso = (v, ref) => { if (!v) return null; const p = v.split('/').map(Number); const y = p[2] ? (p[2] < 100 ? 2000 + p[2] : p[2]) : Number((ref || lastDay || '2026').slice(0, 4)); return `${y}-${String(p[0]).padStart(2, '0')}-${String(p[1]).padStart(2, '0')}`; };
   const CAT_ORDER = ['TV·AV', '가전 전반', '냉장고', '세탁', '주방', '청소·공조', '모니터·PC', '오디오', '행사·프로그램', '결제·금융', '모바일', '기타'];
@@ -146,7 +147,10 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   }
 
   // LG vs Samsung by category
-  const ssToday = [...(ssOn[lastDay] || new Map()).entries()];
+  let ssDay = lastDay;
+  if (!(ssOn[lastDay] && ssOn[lastDay].size)) { const alt = [...dates].reverse().find(d => ssOn[d] && ssOn[d].size); if (alt) ssDay = alt; }
+  const ssToday = [...(ssOn[ssDay] || new Map()).entries()];
+  if (ssDay !== lastDay) $('todayNote').textContent = ssDay + ' 기준 내용입니다 — ' + lastDay + '에는 Samsung.com 페이지를 읽지 못해 가장 최근 수집분을 보여 줍니다.';
   const lgToday = [...(lgOn[lastDay] || new Map()).values()];
   const cats = [...new Set([...ssToday.map(([, p]) => p.category), ...lgToday.map(p => p.category)])].sort((a, b) => ci(a) - ci(b));
   const amt = d => { if (!d) return 0; const m = /\$([\d,]+)/.exec(d); if (m) return Number(m[1].replace(/,/g, '')); const q = /(\d+)\s?%/.exec(d); return q ? Number(q[1]) * 10 : 0; };

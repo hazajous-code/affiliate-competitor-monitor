@@ -50,7 +50,7 @@ jobs:
           try:
               runs = json.load(open("site/data/runs.json"))
               targets = [t for t in json.load(open("targets.json")) if t.get("enabled", True)]
-              done = (runs.get("run_at") or "")[:10] == today and len(runs.get("results", [])) >= len(targets)
+              done = runs.get("complete_day") == today and len(runs.get("results", [])) >= len(targets)
           except Exception:
               done = False
           print("run=" + ("false" if done else "true"))

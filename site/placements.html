@@ -101,13 +101,14 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 <script>
 (async function(){
   const { rankOf, byRank } = await loadRank();
-  const get = p => fetch(p + '?v=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+  const get = p => loadJSON(p);
   const [plan, caps0, runs] = await Promise.all([get('data/placements.json'), get('data/captures.json'), get('data/runs.json')]);
+  loadDone(!!caps0);
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
   const caps = caps0 || [];
   const P = plan ? plan.placements : [];
-  const dates = reportDates(caps);
+  const dates = publishedDates(caps, runs);
   const firstDay = dates[0], lastDay = dates[dates.length - 1];
   const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
   const OK = s => s === '수집' || s === '수집(텍스트)';
