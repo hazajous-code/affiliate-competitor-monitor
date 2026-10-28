@@ -1,6 +1,7 @@
 {
  "run_at": "2026-10-28T14:49-04:00",
- "partial_at": null,
+ "complete_day": "2026-10-28",
+ "partial_at": "2026-10-28T19:42-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
@@ -3447,7 +3448,7 @@
    "date": "2026-10-28",
    "target": "befrugal-lg",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-28T15:05-04:00",
+   "captured_at": "2026-10-28T19:42-04:00",
    "rate_source": "text",
    "rate": 11.0,
    "rate_text": "11% Cash Back",
@@ -3466,7 +3467,7 @@
    "http": 200,
    "title": "LG Electronics 11.0% Cash Back + 6 Coupons, Promo Codes & Deals",
    "sig": "0135b07befa5",
-   "body_hash": "8e8625ff6495",
+   "body_hash": "311c391beb53",
    "country": "US",
    "prev_date": "2026-10-27",
    "prev_rate_text": "11% Cash Back",
@@ -4079,6 +4080,5 @@
    "changed": false,
    "body_changed": true
   }
- ],
- "complete_day": "2026-10-28"
+ ]
 }
