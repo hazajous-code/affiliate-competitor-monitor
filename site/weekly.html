@@ -57,6 +57,8 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
 .arch summary b{font-variant-numeric:tabular-nums;min-width:150px}
 .arch summary .first{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .arch ol{margin:8px 0 2px;padding-left:22px;font-size:13.5px;line-height:1.6}
+#listBody td.lgv,#listBody td.ssv{white-space:normal}
+#listBody li.lgv{color:var(--lg);font-weight:600}#listBody li.ssv{color:var(--ss);font-weight:600}
 .foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.7}
 @media (max-width:640px){.cal{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -102,6 +104,13 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     <div class="legend"><span><i style="background:#fdf2f6"></i>캐시백 상향 + LG.com 프로모션</span><span><i style="background:#ecfdf5"></i>캐시백 상향 단독</span><span><i></i>상향 없음</span><span><i style="background:#fafafa"></i>수집 없음</span></div>
   </div>
 
+  <div class="sec" id="lists">
+    <div class="hd"><h2>카테고리별 추천 목록 순위</h2><span class="more" id="listMeta"></span></div>
+    <div class="kpis" id="listKpis"></div>
+    <div class="tw"><table><thead><tr><th>카테고리</th><th>매체</th><th>LG</th><th>삼성</th><th>1위 제품</th><th>전주 대비</th></tr></thead><tbody id="listBody"></tbody></table></div>
+    <p class="note" style="margin-top:8px">리뷰 매체의 ‘Best TV · Best Refrigerator’ 같은 추천 목록에서 제품이 나온 순서를 순위로 봅니다(그 주 마지막 수집일 기준). 목록은 보통 몇 주~몇 달 단위로 바뀌며, 순위는 매체의 추천 순서일 뿐 판매량이나 광고 집행을 뜻하지 않습니다. 봇 확인 화면으로 막히는 매체는 포함하지 않습니다.</p>
+  </div>
+
   <div class="sec" id="archive">
     <div class="hd"><h2>지난 주간 다이제스트</h2><span class="more" id="archMeta"></span></div>
     <p class="note">매일 수집이 끝나면 그 주의 요약을 별도 파일(data/weekly.json)에 저장합니다. 진행 중인 주는 수집될 때마다 갱신되고, 주가 끝나면 그대로 남습니다.</p>
@@ -140,6 +149,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
   const BASE = { 'capone-lg': 2.5 };   // same rule as the placements page
   const elevated = r => r && OK(r.status) && r.rate != null && (wasOf(r) != null || (BASE[r.target] != null && r.rate > BASE[r.target]));
   const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
+  const LIST_CATS = ['TV', '냉장고', '세탁기', '모니터'];
   const shortPub = p => String(p).replace(/^Cartera · /, '').replace(/ Shopping$/, '');
 
   const dates = publishedDates(caps, runs);
@@ -205,7 +215,13 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     });
     const got = cal.filter(c => !c.nodata);
     const upDays = got.filter(c => c.raised.length), both = upDays.filter(c => c.promos), solo = upDays.filter(c => c.read && !c.promos), unread = upDays.filter(c => !c.read), ownBoth = upDays.filter(c => c.own.length);
-    return { wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, cmpDays, lgLeadDays, ssAnyDays, ups, ssMoves,
+    // 5) best-of lists: latest collected day in the week for each list
+    const lists = [...new Set(caps.filter(r => r.kind === '추천 목록').map(r => r.target))].map(t => {
+      // lists change slowly, so any collection inside the week counts (also a partial re-run)
+      const r = caps.filter(x => x.target === t && x.date >= all[0] && x.date <= all[6] && OK(x.status) && x.ranking && x.ranking.length).sort((x, y) => y.date.localeCompare(x.date))[0];
+      return r ? { t, r, cat: r.category, pub: r.publisher, rk: r.ranking, lg: r.ranking.filter(x => x.brand === 'LG'), ss: r.ranking.filter(x => x.brand === 'Samsung') } : null;
+    }).filter(Boolean).sort((a, b) => LIST_CATS.indexOf(a.cat) - LIST_CATS.indexOf(b.cat) || byRank(a.pub, b.pub));
+    return { lists, wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, cmpDays, lgLeadDays, ssAnyDays, ups, ssMoves,
       pres, pA, pS, coverage, inWeek, pl, hit, miss, brand, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
   }
 
@@ -227,6 +243,11 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     }
     const ck = W.hit.length + W.miss.length + W.brand.length;
     if (W.inWeek.length) S.push('<b>편성</b> 주중 진행 ' + W.inWeek.length + '건 · 공개 화면 확인 ' + ck + '건 중 관측 ' + W.hit.length + '건' + (ck ? '(관측률 ' + Math.round(W.hit.length / ck * 100) + '%' + (V && V.hit.length + V.miss.length + V.brand.length ? ', 전주 ' + Math.round(V.hit.length / (V.hit.length + V.miss.length + V.brand.length) * 100) + '%' : '') + (W.brand.length ? ' · 브랜드 존재만 ' + W.brand.length + '건은 관측에서 제외' : '') + ')' : '') + (W.miss.length ? ' · 미관측 ' + missList(W.miss) : ''));
+    if (W.lists.length) {
+      const L = W.lists, lgIn = L.filter(x => x.lg.length), ssIn = L.filter(x => x.ss.length);
+      const best = c => { const xs = L.filter(x => x.cat === c && x.lg.length).map(x => x.lg[0].n); return xs.length ? Math.min(...xs) + '위' : '없음'; };
+      S.push('<b>추천 목록</b> ' + L.length + '개 목록 중 LG 포함 ' + lgIn.length + '개(1위 ' + L.filter(x => x.lg.length && x.lg[0].n === 1).length + ') · 삼성 포함 ' + ssIn.length + '개(1위 ' + L.filter(x => x.ss.length && x.ss[0].n === 1).length + ') · LG 최고 순위 ' + LIST_CATS.filter(c => L.some(x => x.cat === c)).map(c => c + ' ' + best(c)).join(', '));
+    }
     if (W.got.length) S.push('<b>프로모션 × 캐시백</b> 수집 ' + W.got.length + '일 중 캐시백 상향 ' + W.upDays.length + '일' + (W.upDays.length ? ', 그중 LG.com 프로모션과 겹친 날 ' + W.both.length + '일' + (W.ownBoth.length ? '(LG.com 자체 리워드 프로모션 동시 ' + W.ownBoth.length + '일)' : '') + (W.solo.length ? ', 캐시백 단독 ' + W.solo.length + '일' : '') + (W.unread.length ? ', LG.com 미수집 ' + W.unread.length + '일' : '') : ''));
     return S;
   }
@@ -295,6 +316,34 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     $('plBox').append(html(el('div', 'mute', ''), '<span style="font-size:12.5px">미관측 지면은 공개 화면에서 한 번도 확인되지 않은 것으로, CJ·퍼블리셔에 집행 증빙을 요청할 후보입니다. 부분 확인(타기팅·순환) 지면은 안 보여도 미집행으로 단정하지 않습니다.</span>'));
     if (!ul.childNodes.length) ul.append(el('li', 'mute', '이 주에 공개 화면으로 확인할 수 있는 편성이 없습니다.'));
     $('plBox').append(ul);
+
+    // best-of lists
+    const L = W.lists;
+    if (L.length) {
+      const lgIn = L.filter(x => x.lg.length), ssIn = L.filter(x => x.ss.length);
+      kpi('listKpis', 'lg', 'LG가 포함된 목록', lgIn.length + '<small> / ' + L.length + '개</small>', '1위 ' + L.filter(x => x.lg.length && x.lg[0].n === 1).length + '개 · 3위 안 ' + L.filter(x => x.lg.length && x.lg[0].n <= 3).length + '개');
+      kpi('listKpis', 'ss', '삼성이 포함된 목록', ssIn.length + '<small> / ' + L.length + '개</small>', '1위 ' + L.filter(x => x.ss.length && x.ss[0].n === 1).length + '개 · 3위 안 ' + L.filter(x => x.ss.length && x.ss[0].n <= 3).length + '개');
+      const share = (b) => L.reduce((a, x) => a + x.rk.filter(y => y.brand === b).length, 0), tot = L.reduce((a, x) => a + x.rk.length, 0);
+      kpi('listKpis', null, '추천 제품 수 비중', 'LG ' + Math.round(share('LG') / tot * 100) + '%<small> · 삼성 ' + Math.round(share('Samsung') / tot * 100) + '%</small>', '전체 ' + tot + '개 제품 기준');
+      $('listMeta').textContent = '목록 ' + L.length + '개';
+      const rkTxt = xs => xs.length ? xs.map(x => x.n + '위').join(', ') : '<span class="mute">없음</span>';
+      L.forEach(x => {
+        const v = V && V.lists.find(y => y.t === x.t);
+        const tr = el('tr');
+        tr.append(el('td', null, x.cat));
+        const a = el('a', null, x.pub); a.href = x.r.url; a.target = '_blank'; a.rel = 'noopener'; const td = el('td'); td.append(a); tr.append(td);
+        tr.append(html(el('td', 'num lgv'), rkTxt(x.lg)), html(el('td', 'num ssv'), rkTxt(x.ss)));
+        const top = x.rk[0]; tr.append(html(el('td'), esc(cutWords(top.name, 34)) + ' <span class="mute">(' + esc(top.brand) + ')</span>'));
+        let ch = '<span class="mute">—</span>';
+        if (v) { const a1 = x.lg.length ? x.lg[0].n : null, b1 = v.lg.length ? v.lg[0].n : null;
+          ch = a1 === b1 ? '<span class="mute">LG 변동 없음</span>' : a1 == null ? '<span class="dn">LG 빠짐(전주 ' + b1 + '위)</span>' : b1 == null ? '<span class="up">LG 진입 ' + a1 + '위</span>' : '<span class="' + (a1 < b1 ? 'up' : 'dn') + '">LG ' + b1 + '→' + a1 + '위</span>'; }
+        tr.append(html(el('td', 'num'), ch));
+        const det = el('tr'); const dtd = el('td'); dtd.colSpan = 6; dtd.style.paddingTop = '0';
+        dtd.append(html(el('details'), '<summary class="mute">전체 목록 ' + x.rk.length + '개</summary><ol style="margin:6px 0 0;padding-left:20px;font-size:12.5px">' + x.rk.map(y => '<li' + (y.brand === 'LG' ? ' class="lgv"' : y.brand === 'Samsung' ? ' class="ssv"' : '') + '>' + esc(y.name) + '</li>').join('') + '</ol>'));
+        det.append(dtd);
+        $('listBody').append(tr, det);
+      });
+    } else { $('listKpis').append(el('div', 'empty', '이 주에 수집된 추천 목록이 없습니다.')); }
 
     // overlap
     kpi('ovKpis', null, '캐시백 상향일', W.upDays.length + '<small> / 수집 ' + W.got.length + '일</small>', V ? '전주 ' + V.upDays.length + '/' + V.got.length + '일' : '');

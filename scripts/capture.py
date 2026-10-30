@@ -86,8 +86,9 @@ BESTLIST_JS = r"""
   const clean = t => (t || '').replace(/\s+/g, ' ').trim()
     .replace(/^(?:#?\d{1,2}[.):]|\d{1,2}\s)\s*/, '')                       // "1. LG C5"
     .replace(/^(?:best|the best|our|top)\b[^:]{0,60}:\s*/i, '')               // "Best TV overall: LG C5"
-    .replace(/\s*[-–—|]\s*(?:best|our|top|great|runner|the)\b.*$/i, '');      // "LG C5 — best overall"
-  const ok = t => t && t.length <= 90 && t.split(' ').length <= 14 && !/\bvs\.?\b|\?|\bhow\b|\bwhy\b|\bwhich\b|\breview(s)?\b(?!ed)|\bdeals?\b/i.test(t);
+    .replace(/\s*[-–—|]\s*(?:best|our|top|great|runner|the)\b.*$/i, '')       // "LG C5 — best overall"
+    .replace(/\s*:\s*$/, '');                                                  // "LG G6 OLED:"
+  const ok = t => t && t.length <= 90 && t.split(' ').length <= 14 && !/\bvs\.?\b|\?|\bhow\b|\bwhy\b|\bwhich\b|\breview(s)?\b(?!ed)|\bdeals?\b|test results|\bspecs\b|specifications|pros and cons|\bprices?\b/i.test(t);
   function scan(sel) {
     const out = [], seen = new Set();
     for (const h of root.querySelectorAll(sel)) {
@@ -95,7 +96,7 @@ BESTLIST_JS = r"""
       const name = clean(h.innerText);
       if (!ok(name)) continue;
       const b = brandOf(name); if (!b) continue;
-      const key = name.toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(' ').slice(0, 4).join(' ');
+      const key = name.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(' ').slice(0, 4).join(' ');
       if (seen.has(key)) continue;
       seen.add(key); out.push({ name, brand: b });
       if (out.length >= 15) break;
@@ -661,6 +662,10 @@ def capture_one(ctx, tg, day):
                 ranking = page.evaluate(BESTLIST_JS, LIST_BRANDS)
             except Exception:
                 ranking = []
+            # "The 6 Best TVs of 2026": anything after the 6th product is "notable mentions", not a pick
+            cap = re.search(r"\b(\d{1,2})\s+best\b", title or "", re.I)
+            if cap and 3 <= int(cap.group(1)) < len(ranking):
+                ranking = ranking[:int(cap.group(1))]
             if len(ranking) >= 3:
                 lg = [x["n"] for x in ranking if x["brand"] == "LG"]
                 rate_text = f"제품 {len(ranking)}개 · LG " + (f"{len(lg)}개(최고 {lg[0]}위)" if lg else "없음")

@@ -6,6 +6,7 @@
 - 캐시백·리워드: Rakuten, TopCashback, Capital One Shopping, BeFrugal, RebatesMe, ID.me Shop
 - 쿠폰: RetailMeNot, Savings.com, Slickdeals, TechRadar, Tom's Guide
 - 딜·리뷰(브랜드 노출): Slickdeals, DealNews, Brad's Deals, RTINGS, TechRadar, Tom's Guide, Forbes Vetted, WIRED, Good Housekeeping
+- 추천 목록(카테고리별 순위): TV · 냉장고 · 세탁기 · 모니터의 ‘Best …’ 페이지 — RTINGS, Tom's Guide, TechRadar, Reviewed. 제품 제목 순서를 순위로 기록(제목에 ‘6 Best’처럼 개수가 있으면 그 개수까지)
 - 회원 전용 혜택 플랫폼(공개 입구만): PerkSpot, BenefitHub, Next Jump, GOVX
 
 - 대시보드: GitHub Pages (`site/`)
