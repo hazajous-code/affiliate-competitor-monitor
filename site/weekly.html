@@ -167,6 +167,9 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     const allLg = Object.values(pubs).flatMap(q => q.lg), allSs = Object.values(pubs).flatMap(q => q.ss);
     const lgWinDays = Object.values(pubs).reduce((a, q) => a + q.lg.filter((v, i) => v > q.ss[i]).length, 0);
     const ssWinDays = Object.values(pubs).reduce((a, q) => a + q.ss.filter((v, i) => v > q.lg[i]).length, 0);
+    // day level: a day counts as an LG lead when LG is higher on every shared publisher that day
+    const dayPairs = ds.map(d => { const st = rowsOn(d).filter(r => STORE(r.kind) && OK(r.status) && r.rate != null); return st.filter(r => r.brand === 'Samsung').map(s => [st.find(x => x.brand === 'LG Electronics' && x.publisher === s.publisher), s]).filter(([l]) => l); }).filter(x => x.length);
+    const cmpDays = dayPairs.length, lgLeadDays = dayPairs.filter(x => x.every(([l, s]) => l.rate > s.rate)).length, ssAnyDays = dayPairs.filter(x => x.some(([l, s]) => s.rate > l.rate)).length;
     // LG store raises (all LG stores, not only shared ones)
     const ups = {};
     ds.forEach(d => rowsOn(d).filter(r => STORE(r.kind) && r.brand === 'LG Electronics' && wasOf(r) != null && OK(r.status)).forEach(r => { const u = ups[r.publisher] = ups[r.publisher] || { days: [], max: 0, bases: [] }; u.days.push(d); u.max = Math.max(u.max, r.rate); if (!u.bases.includes(wasOf(r))) u.bases.push(wasOf(r)); }));
@@ -202,7 +205,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     });
     const got = cal.filter(c => !c.nodata);
     const upDays = got.filter(c => c.raised.length), both = upDays.filter(c => c.promos), solo = upDays.filter(c => c.read && !c.promos), unread = upDays.filter(c => !c.read), ownBoth = upDays.filter(c => c.own.length);
-    return { wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, ups, ssMoves,
+    return { wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, cmpDays, lgLeadDays, ssAnyDays, ups, ssMoves,
       pres, pA, pS, coverage, inWeek, pl, hit, miss, brand, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
   }
 
@@ -215,7 +218,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
 
   function summary(W, V) {
     const S = [];
-    if (W.gap != null) S.push('<b>요율 격차</b> 같은 퍼블리셔 ' + W.gapRows.length + '곳 주평균 LG ' + pct(W.lgAvg) + ' vs 삼성 ' + pct(W.ssAvg) + '(격차 ' + pp(W.gap) + (V && V.gap != null ? ', 전주 ' + pp(V.gap) : '') + ') · LG 우위 ' + W.lgWinDays + '/' + W.pairDays + '일' + (W.ssWinDays ? ', 삼성 우위 ' + W.ssWinDays + '일' : ''));
+    if (W.gap != null) S.push('<b>요율 격차</b> 같은 퍼블리셔 ' + W.gapRows.length + '곳 주평균 LG ' + pct(W.lgAvg) + ' vs 삼성 ' + pct(W.ssAvg) + '(격차 ' + pp(W.gap) + (V && V.gap != null ? ', 전주 ' + pp(V.gap) : '') + ')' + (W.cmpDays ? ' · LG 우위 ' + W.lgLeadDays + '/' + W.cmpDays + '일' + (W.ssAnyDays ? '(삼성이 한 곳이라도 높은 날 ' + W.ssAnyDays + '일)' : '') : ''));
     const ups = Object.entries(W.ups).sort((a, b) => byRank(a[0], b[0]));
     S.push('<b>LG 캐시백 상향</b> ' + (ups.length ? ups.map(([p, u]) => esc(p) + ' ' + u.days.length + '일(평시 ' + u.bases.map(pct).join('→') + ' → 최고 ' + pct(u.max) + ')').join(', ') : '수집일 중 상향 없음') + (W.ssMoves ? ' · 삼성 요율 변동 ' + W.ssMoves + '건' : ' · 삼성 요율 변동 없음'));
     if (W.pres.length) {
@@ -250,13 +253,13 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     $('summary').innerHTML = summary(W, V).map(s => '<li>' + s + '</li>').join('') || '<li class="mute">요약할 데이터가 없습니다.</li>';
 
     const kpi = (box, cls, l, v, s) => $(box).append(html(el('div', 'kpi ' + (cls || '')), '<div class="l">' + l + '</div><div class="v">' + v + '</div>' + (s ? '<div class="s">' + s + '</div>' : '')));
-    const delta = (a, b, unit) => a == null || b == null ? '' : ' <span class="' + (a - b > 0 ? 'up' : a - b < 0 ? 'dn' : 'mute') + '">' + (a - b > 0 ? '▲' : a - b < 0 ? '▼' : '–') + Math.abs(r1(a - b)) + (unit || '') + '</span>';
+    const delta = (a, b, unit) => { if (a == null || b == null) return ''; const d = r1(r1(a) - r1(b)); return ' <span class="' + (d > 0 ? 'up' : d < 0 ? 'dn' : 'mute') + '">' + (d > 0 ? '▲' + d + (unit || '') : d < 0 ? '▼' + Math.abs(d) + (unit || '') : '변동 없음') + '</span>'; };
 
     // gap
-    kpi('gapKpis', 'lg', 'LG 주평균 (같은 퍼블리셔)', pct(W.lgAvg), W.gapRows.length + '곳 · ' + W.pairDays + '퍼블리셔·일');
+    kpi('gapKpis', 'lg', 'LG 주평균 (같은 퍼블리셔)', pct(W.lgAvg), '공통 퍼블리셔 ' + W.gapRows.length + '곳 · 수집 ' + W.cmpDays + '일 평균');
     kpi('gapKpis', 'ss', '삼성 주평균 (같은 퍼블리셔)', pct(W.ssAvg), '삼성 요율 변동 ' + W.ssMoves + '건');
     kpi('gapKpis', null, '격차 (LG − 삼성)', pp(W.gap), V && V.gap != null ? '전주 ' + pp(V.gap) + delta(W.gap, V.gap, '%p') : '전주 비교 없음');
-    kpi('gapKpis', null, 'LG 우위 일수', W.pairDays ? W.lgWinDays + '<small> / ' + W.pairDays + '</small>' : '—', W.ssWinDays ? '삼성 우위 ' + W.ssWinDays + '일' : '삼성 우위 없음');
+    kpi('gapKpis', null, 'LG 우위 일수', W.cmpDays ? W.lgLeadDays + '<small> / ' + W.cmpDays + '일</small>' : '—', W.cmpDays ? '모든 공통 퍼블리셔에서 LG가 높은 날' + (W.ssAnyDays ? ' · 삼성이 한 곳이라도 높은 날 ' + W.ssAnyDays + '일' : '') : '비교 가능한 날 없음');
     W.gapRows.forEach(g => {
       const v = V && V.gapRows.find(x => x.p === g.p);
       const tr = el('tr'); tr.append(el('td', null, g.p), el('td', 'num lgv', pct(g.lg)), el('td', 'num ssv', pct(g.ss)), el('td', 'num', pp(g.gap)));
