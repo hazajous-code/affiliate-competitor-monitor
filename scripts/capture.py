@@ -7,6 +7,7 @@ For each target in targets.json:
       store pages  -> headline cash back / rewards rate, rates by category, exclusion text
       coupon pages -> number of offers and the top offer
       deal/review  -> brand mention counts only
+      best-of list -> recommended products in page order with their brand (rank in the list)
   - classifies the outcome (collected / rate not found / login entrance only /
     bot check / render failed / page not found / blocked / connection failed)
   - fingerprints the extracted values and the page body to flag day-over-day changes
@@ -59,6 +60,54 @@ BRANDS = {
     "Shark": r"\bShark(?:Ninja)?\b",
     "Vizio": r"\bVizio\b",
 }
+
+# Product brands for best-of lists (TV / refrigerator / washer / monitor). A product heading counts
+# only when it starts with one of these names; the value is the brand shown on the dashboard.
+LIST_BRANDS = [
+    ("LG", r"LG"), ("Samsung", r"Samsung"), ("Sony", r"Sony"), ("TCL", r"TCL"), ("Hisense", r"Hisense"),
+    ("Vizio", r"Vizio"), ("Panasonic", r"Panasonic"), ("Philips", r"Philips"), ("Roku", r"Roku"),
+    ("Amazon", r"Amazon"), ("Insignia", r"Insignia"),
+    ("GE Appliances", r"GE Profile|GE Café|Café|Cafe|GE"), ("Whirlpool", r"Whirlpool"), ("Maytag", r"Maytag"),
+    ("KitchenAid", r"KitchenAid"), ("Frigidaire", r"Frigidaire"), ("Electrolux", r"Electrolux"),
+    ("Bosch", r"Bosch"), ("Miele", r"Miele"), ("Beko", r"Beko"), ("Haier", r"Haier"), ("Hotpoint", r"Hotpoint"),
+    ("Fisher & Paykel", r"Fisher ?& ?Paykel"), ("Speed Queen", r"Speed Queen"), ("Midea", r"Midea"),
+    ("Kenmore", r"Kenmore"), ("Amana", r"Amana"), ("Thermador", r"Thermador"), ("Sub-Zero", r"Sub-Zero"),
+    ("Dell", r"Dell|Alienware"), ("ASUS", r"Asus|ROG"), ("Acer", r"Acer"), ("BenQ", r"BenQ"), ("MSI", r"MSI"),
+    ("Gigabyte", r"Gigabyte"), ("HP", r"HP|Omen"), ("Lenovo", r"Lenovo"), ("ViewSonic", r"ViewSonic"),
+    ("AOC", r"AOC"), ("Apple", r"Apple"), ("Sceptre", r"Sceptre"), ("Corsair", r"Corsair"), ("Xiaomi", r"Xiaomi"),
+]
+
+BESTLIST_JS = r"""
+(brands) => {
+  const res = brands.map(([b, p]) => [b, new RegExp('^(?:the\\s+)?(?:' + p + ')\\b', 'i')]);
+  const brandOf = t => { for (const [b, re] of res) if (re.test(t)) return b; return null; };
+  const skip = el => el.closest('nav,header,footer,aside,form,[role=navigation],[role=complementary],[class*="related" i],[class*="popular" i],[class*="sidebar" i],[class*="newsletter" i],[class*="footer" i],[class*="menu" i],[class*="trending" i]');
+  const root = document.querySelector('article') || document.querySelector('main, [role=main]') || document.body;
+  const clean = t => (t || '').replace(/\s+/g, ' ').trim()
+    .replace(/^(?:#?\d{1,2}[.):]|\d{1,2}\s)\s*/, '')                       // "1. LG C5"
+    .replace(/^(?:best|the best|our|top)\b[^:]{0,60}:\s*/i, '')               // "Best TV overall: LG C5"
+    .replace(/\s*[-–—|]\s*(?:best|our|top|great|runner|the)\b.*$/i, '');      // "LG C5 — best overall"
+  const ok = t => t && t.length <= 90 && t.split(' ').length <= 14 && !/\bvs\.?\b|\?|\bhow\b|\bwhy\b|\bwhich\b|\breview(s)?\b(?!ed)|\bdeals?\b/i.test(t);
+  function scan(sel) {
+    const out = [], seen = new Set();
+    for (const h of root.querySelectorAll(sel)) {
+      if (skip(h)) continue;
+      const name = clean(h.innerText);
+      if (!ok(name)) continue;
+      const b = brandOf(name); if (!b) continue;
+      const key = name.toLowerCase().replace(/[^a-z0-9]+/g, ' ').split(' ').slice(0, 4).join(' ');
+      if (seen.has(key)) continue;
+      seen.add(key); out.push({ name, brand: b });
+      if (out.length >= 15) break;
+    }
+    return out;
+  }
+  let list = scan('h2, h3, h4');
+  if (list.length < 3) list = scan('h2, h3, h4, [class*="product-name" i], [class*="productname" i], [class*="product__name" i], [class*="product-title" i], strong');
+  if (list.length < 3) list = scan('a');
+  return list.map((x, i) => ({ n: i + 1, ...x }));
+}
+"""
 
 PCT = r"(\d{1,2}(?:\.\d{1,2})?)\s*%"
 STATUSES = ["수집", "요율 확인 필요", "요율 미확인", "로그인 입구만", "봇 확인 화면", "렌더링 실패",
@@ -519,6 +568,8 @@ def classify(tg, title, t, http_status, rate, rate_text, final_url):
         return "요율 미확인", "화면은 저장됨 — 프로모션 문구를 찾지 못함"
     if tg["parser"] in ("cartera", "swagbucks") and rate_text is None:
         return "요율 미확인", "화면은 저장됨 — 적립률 문구를 찾지 못함"
+    if tg["parser"] == "bestlist" and rate_text is None:
+        return "요율 미확인", "화면은 저장됨 — 추천 제품 목록을 찾지 못함"
     if tg["parser"] == "offers" and rate_text is None:
         return "요율 미확인", "화면은 저장됨 — 오퍼 수를 찾지 못함"
     return "수집", ""
@@ -580,7 +631,7 @@ def capture_one(ctx, tg, day):
         text = page.inner_text("body", timeout=10000)
         t = squash(text)
         rel = f"shots/{day}/{tg['id']}.jpg"
-        if tg["parser"] == "mentions" and tg.get("access", "public") == "public":
+        if tg["parser"] == "bestlist" or (tg["parser"] == "mentions" and tg.get("access", "public") == "public"):
             for _ in range(10):                      # load lazy tiles so every mention is counted
                 page.mouse.wheel(0, 1200)
                 page.wait_for_timeout(350)
@@ -604,6 +655,15 @@ def capture_one(ctx, tg, day):
         rate = rate_text = offers = None
         cats, excl = [], None
         promos = []
+        ranking = []
+        if tg["parser"] == "bestlist":
+            try:
+                ranking = page.evaluate(BESTLIST_JS, LIST_BRANDS)
+            except Exception:
+                ranking = []
+            if len(ranking) >= 3:
+                lg = [x["n"] for x in ranking if x["brand"] == "LG"]
+                rate_text = f"제품 {len(ranking)}개 · LG " + (f"{len(lg)}개(최고 {lg[0]}위)" if lg else "없음")
         if tg["parser"] in ("lgpromo", "sspromo"):
             promos = extract_lg_promos(page) if tg["parser"] == "lgpromo" else extract_ss_promos(page, tg.get("promo_cat"), t)
             rate_text = f"프로모션 {len(promos)}건" if promos else None
@@ -621,7 +681,7 @@ def capture_one(ctx, tg, day):
                 pts, rate_text, unit = parse_points(seg.group(1) if seg else "")
                 source = "text"
             row.update(points=pts, unit=unit, rate_source=source)
-        elif tg["parser"] not in ("mentions", "slots", "sspromo"):
+        elif tg["parser"] not in ("mentions", "slots", "sspromo", "bestlist"):
             rate, rate_text = parse_rate(tg["parser"], t)
             source = "text"
             if tg["parser"] in HEADER_PATS and rate != 0.0:
@@ -645,10 +705,11 @@ def capture_one(ctx, tg, day):
         row.update(rate=rate if st == "수집" else None, rate_text=rate_text if ok else None,
                    offers=offers, categories=cats if ok else [], exclusions=excl if ok else None,
                    promos=promos if ok else [],
-                   mentions=mentions(t) if st in ("수집", "요율 미확인") else {},
+                   ranking=ranking if st == "수집" else [], category=tg.get("category"),
+                   mentions=mentions(t) if st in ("수집", "요율 미확인") and tg["parser"] != "bestlist" else {},
                    lg_snippets=lg_snippets(t) if tg["parser"] == "slots" and st == "수집" else [],
                    status=st, reason=why, shot=rel, final_url=page.url, http=http, title=short(title, 120),
-                   sig=fp(rate_text, cats, excl, offers, [(p["title"], p["valid"]) for p in promos]) if ok else None,
+                   sig=fp(rate_text, cats, excl, offers, [(p["title"], p["valid"]) for p in promos], [(x["name"], x["n"]) for x in ranking]) if ok else None,
                    body_hash=fp(t) if ok else None)
     except Exception as e:  # timeout, DNS, crash
         row.update(rate=None, rate_text=None, offers=None, categories=[], exclusions=None, mentions={},

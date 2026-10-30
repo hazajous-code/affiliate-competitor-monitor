@@ -30,7 +30,7 @@ if len(ids) != len(set(ids)):
 for t in targets:
     if not t["url"].startswith("https://"):
         fail(f"{t['id']}: url must be https")
-    if t["parser"] not in {"rakuten", "tcb", "capone", "befrugal", "idme", "offers", "mentions", "slots", "lgpromo", "sspromo", "cartera", "swagbucks"}:
+    if t["parser"] not in {"rakuten", "tcb", "capone", "befrugal", "idme", "offers", "mentions", "slots", "lgpromo", "sspromo", "cartera", "swagbucks", "bestlist"}:
         fail(f"{t['id']}: unknown parser {t['parser']}")
     if t.get("access", "public") not in {"public", "entry_only"}:
         fail(f"{t['id']}: unknown access")
