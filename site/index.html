@@ -50,15 +50,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 .arch summary .first{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .arch ol{margin:8px 0 2px;padding-left:22px;font-size:13.5px;line-height:1.6}.arch li{margin:4px 0}
 .arch .go{font-size:12px;margin-left:22px}
-.todo{margin-top:22px;padding:14px 18px;border:1px solid var(--line);border-left:3px solid var(--lg);border-radius:10px}
-.todo-hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.todo-hd h2{margin:0}.todo-hd span{font-size:12px}
-.todo ul{list-style:none;margin:8px 0 0;padding:0}
-.todo li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line2);font-size:13.5px;line-height:1.5}
-.todo li:first-child{border-top:0}
-.todo li input{margin-top:4px;accent-color:var(--lg)}
-.todo li.done .t{color:var(--faint);text-decoration:line-through}
-.todo li .t{flex:1}.todo li .why{display:block;font-size:12px;color:var(--muted)}
-.todo li a{font-size:12px;white-space:nowrap}
 .cats{display:block;font-size:11.5px;font-weight:400;color:var(--muted);white-space:normal}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,185px),1fr));gap:10px}
 .kpi{border:1px solid var(--line);border-top:3px solid var(--ss);border-radius:10px;padding:12px 14px}
@@ -81,8 +72,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     <div class="dnav" id="dnav"></div>
     <div class="rule"></div>
   </div>
-
-  <div class="todo" id="todoBox"><div class="todo-hd"><h2>오늘 확인할 일</h2><span class="mute" id="todoMeta"></span></div><ul id="todo"></ul></div>
 
   <div class="lead"><h2>오늘의 요약</h2><ol id="summary"><li class="mute">불러오는 중…</li></ol></div>
 
@@ -261,7 +250,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   window.briefReady = true;
 
   function render(day) {
-    ['dateline', 'dnav', 'todo', 'rateBody', 'lgBox', 'ssBox', 'nowBox', 'nextBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
+    ['dateline', 'dnav', 'rateBody', 'lgBox', 'ssBox', 'nowBox', 'nextBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
     const m = model(day);
     const { cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, judged, chk, active, nextEv, etc, vr, isLatest } = m;
 
@@ -281,35 +270,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     sel.onchange = () => { location.search = sel.value === dates[dates.length - 1] ? '' : '?date=' + sel.value; };
     nav.append(link(dates[i - 1], '← 이전'), sel, link(dates[i + 1], '다음 →'));
     if (!isLatest) nav.append(link(dates[dates.length - 1], '최신으로'));
-
-    // what to check today: changes nobody planned, held rates, paid slots not seen, failed key pages
-    const todos = [];
-    // a move is expected when a cash back event for that store runs today or ended since the previous collection
-    const planned = r => P.some(p => p.method === 'rate' && p.targets.includes(r.target) && p.start && p.start <= day && (p.end || p.start) >= (m.prevDay || day));
-    lgS.filter(moved).forEach(r => { const tag = m.moveTag(r); if (planned(r)) return;
-      todos.push({ id: 'mv-' + r.target, t: esc(r.publisher) + ' LG 요율 ' + pct(prevRow[r.target].rate) + '→' + pct(r.rate) + ' ' + tag, why: '편성표에 없는 변경 — 예정된 변경인지 CJ·퍼블리셔 확인', shot: r.shot }); });
-    ssS.filter(moved).filter(r => r.rate > prevRow[r.target].rate).forEach(r => todos.push({ id: 'ss-' + r.target, t: '삼성 ' + esc(r.publisher) + ' ' + pct(prevRow[r.target].rate) + '→' + pct(r.rate) + ' 상향', why: '같은 퍼블리셔 LG 요율 ' + (lgS.find(x => x.publisher === r.publisher) ? pct(lgS.find(x => x.publisher === r.publisher).rate) : '미게시') + ' — 대응 필요 여부 검토', shot: r.shot }));
-    cur.filter(r => r.status === '요율 확인 필요' && ['LG', '경쟁사'].includes(r.brand_group) && (r.brand_group === 'LG' || r.brand === 'Samsung')).forEach(r => todos.push({ id: 'held-' + r.target, t: esc(r.brand) + ' · ' + esc(r.publisher) + ' 요율 게시 보류(' + esc(r.held_rate_text || '') + ')', why: '급변·불일치로 자동 게시를 멈춤 — 화면으로 직접 확인', shot: r.shot }));
-    const sofar = dates.filter(d => d <= day);
-    const missing = active.filter(p => ['rate', 'presence'].includes(p.method)).map(p => ({ p, J: PJ.judge(p, sofar) })).filter(x => x.J.s === 'miss' && x.J.of >= 2);
-    const byPub = new Map(); missing.forEach(x => { if (!byPub.has(x.p.publisher)) byPub.set(x.p.publisher, []); byPub.get(x.p.publisher).push(x); });
-    [...byPub.entries()].sort((a, b) => byRank(a[0], b[0])).forEach(([pub, xs]) => todos.push({ id: 'pl-' + pub, t: esc(pub) + ' 진행 중 편성 ' + xs.length + '건 미관측(' + esc(cutWords(xs[0].p.placement, 34)) + (xs.length > 1 ? ' 외' : '') + ')', why: '시작 후 ' + Math.max(...xs.map(x => x.J.of)) + '일째 공개 화면에서 확인 안 됨 — 집행 증빙 요청', href: 'placements.html' }));
-    cur.filter(r => STORE(r.kind) && r.brand_group === 'LG' && !OK(r.status) && !['요율 확인 필요', '로그인 입구만'].includes(r.status) && rankOf(r.publisher) <= 10).forEach(r => todos.push({ id: 'fail-' + r.target, t: esc(r.publisher) + ' LG 상점 페이지 수집 실패(' + esc(r.status) + ')', why: '판매 실적 상위 퍼블리셔 — 직접 열어 요율 확인', href: r.url, ext: true }));
-    const key = id => 'todo:' + day + ':' + id;
-    const isDone = id => { try { return localStorage.getItem(key(id)) === '1'; } catch (e) { return false; } };
-    const tl = $('todo');
-    todos.forEach(x => {
-      const li = el('li', isDone(x.id) ? 'done' : null); const cb = el('input'); cb.type = 'checkbox'; cb.checked = isDone(x.id); cb.title = '확인 완료';
-      cb.onchange = () => { try { cb.checked ? localStorage.setItem(key(x.id), '1') : localStorage.removeItem(key(x.id)); } catch (e) {} li.className = cb.checked ? 'done' : ''; meta(); };
-      const t = html(el('span', 't'), x.t + '<span class="why">' + x.why + '</span>');
-      li.append(cb, t);
-      if (x.shot) { const a = el('a', null, '근거 화면'); a.href = x.shot; a.target = '_blank'; a.rel = 'noopener'; li.append(a); }
-      else if (x.href) { const a = el('a', null, x.ext ? '페이지 열기' : '근거 보기'); a.href = x.href; if (x.ext) { a.target = '_blank'; a.rel = 'noopener'; } li.append(a); }
-      tl.append(li);
-    });
-    function meta() { $('todoMeta').textContent = todos.length ? '완료 ' + todos.filter(x => isDone(x.id)).length + '/' + todos.length + ' · 체크는 이 브라우저에만 저장' : ''; }
-    if (!todos.length) tl.append(el('li', 'mute', '확인이 필요한 변경·미관측·수집 실패가 없습니다.'));
-    meta();
 
     // summary
     $('summary').innerHTML = summary(m).map(s => '<li>' + s + '</li>').join('') || '<li class="mute">요약할 데이터가 없습니다.</li>';
