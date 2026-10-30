@@ -1,7 +1,7 @@
 {
  "run_at": "2026-10-29T14:55-04:00",
  "complete_day": "2026-10-29",
- "partial_at": "2026-10-30T02:19-04:00",
+ "partial_at": "2026-10-30T02:27-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
@@ -4086,9 +4086,9 @@
    "date": "2026-10-30",
    "target": "rtings-best-tv",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:24-04:00",
+   "captured_at": "2026-10-30T02:27-04:00",
    "rate": null,
-   "rate_text": "제품 15개 · LG 5개(최고 1위)",
+   "rate_text": "제품 6개 · LG 2개(최고 1위)",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -4096,91 +4096,46 @@
    "ranking": [
     {
      "n": 1,
-     "name": "LG G6 OLED:",
+     "name": "LG G6 OLED",
      "brand": "LG"
     },
     {
      "n": 2,
-     "name": "Samsung S90F OLED:",
+     "name": "Samsung S90F OLED",
      "brand": "Samsung"
     },
     {
      "n": 3,
-     "name": "Sony BRAVIA 7 II:",
+     "name": "Sony BRAVIA 7 II",
      "brand": "Sony"
     },
     {
      "n": 4,
-     "name": "LG B6 OLED 2026:",
+     "name": "LG B6 OLED 2026",
      "brand": "LG"
     },
     {
      "n": 5,
-     "name": "Hisense QD6QF:",
+     "name": "Hisense QD6QF",
      "brand": "Hisense"
     },
     {
      "n": 6,
      "name": "Roku Pro Series OLED",
      "brand": "Roku"
-    },
-    {
-     "n": 7,
-     "name": "Hisense U6SF",
-     "brand": "Hisense"
-    },
-    {
-     "n": 8,
-     "name": "Samsung S85H OLED",
-     "brand": "Samsung"
-    },
-    {
-     "n": 9,
-     "name": "Hisense U6SF Pro",
-     "brand": "Hisense"
-    },
-    {
-     "n": 10,
-     "name": "LG QNED75B",
-     "brand": "LG"
-    },
-    {
-     "n": 11,
-     "name": "LG UA77",
-     "brand": "LG"
-    },
-    {
-     "n": 12,
-     "name": "Samsung U8000H",
-     "brand": "Samsung"
-    },
-    {
-     "n": 13,
-     "name": "LG B6E OLED",
-     "brand": "LG"
-    },
-    {
-     "n": 14,
-     "name": "Sony BRAVIA 6 OLED",
-     "brand": "Sony"
-    },
-    {
-     "n": 15,
-     "name": "TCL QM6K",
-     "brand": "TCL"
     }
    ],
    "category": "TV",
    "mentions": {},
    "lg_snippets": [],
    "status": "수집",
-   "reason": "(재시도)",
+   "reason": "",
    "shot": "shots/2026-10-30/rtings-best-tv.jpg",
    "final_url": "https://www.rtings.com/tv/reviews/best/tvs-on-the-market",
    "http": 200,
    "title": "The 6 Best TVs of 2026 - RTINGS.com",
-   "sig": "cfd6579c673d",
-   "body_hash": "1f3a6d092bf5",
+   "sig": "541c3982e84b",
+   "body_hash": "27ba89382635",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4196,7 +4151,7 @@
    "date": "2026-10-30",
    "target": "tomsguide-best-tv",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:20-04:00",
+   "captured_at": "2026-10-30T02:27-04:00",
    "rate": null,
    "rate_text": "제품 5개 · LG 1개(최고 1위)",
    "offers": null,
@@ -4240,7 +4195,7 @@
    "http": 200,
    "title": "The 5 best TVs we've tested for movies, sports and gaming | Tom's Guide",
    "sig": "9d9ec82f564f",
-   "body_hash": "c3f98e821eb4",
+   "body_hash": "1e40134eda33",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4256,9 +4211,9 @@
    "date": "2026-10-30",
    "target": "techradar-best-tv",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:21-04:00",
+   "captured_at": "2026-10-30T02:28-04:00",
    "rate": null,
-   "rate_text": "제품 14개 · LG 4개(최고 1위)",
+   "rate_text": "제품 7개 · LG 2개(최고 1위)",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -4271,67 +4226,32 @@
     },
     {
      "n": 2,
-     "name": "LG C6 TEST RESULTS",
-     "brand": "LG"
-    },
-    {
-     "n": 3,
      "name": "Samsung S99H",
      "brand": "Samsung"
     },
     {
-     "n": 4,
-     "name": "SAMSUNG S99H TEST RESULTS",
-     "brand": "Samsung"
-    },
-    {
-     "n": 5,
+     "n": 3,
      "name": "Roku Plus Series",
      "brand": "Roku"
     },
     {
-     "n": 6,
-     "name": "ROKU PLUS SERIES TEST RESULTS",
-     "brand": "Roku"
-    },
-    {
-     "n": 7,
+     "n": 4,
      "name": "Hisense U8QG",
      "brand": "Hisense"
     },
     {
-     "n": 8,
-     "name": "HISENSE U8QG TEST RESULTS",
-     "brand": "Hisense"
-    },
-    {
-     "n": 9,
+     "n": 5,
      "name": "LG C5",
      "brand": "LG"
     },
     {
-     "n": 10,
-     "name": "LG C5 TEST RESULTS",
-     "brand": "LG"
-    },
-    {
-     "n": 11,
+     "n": 6,
      "name": "TCL QM8L",
      "brand": "TCL"
     },
     {
-     "n": 12,
-     "name": "TCL QM8L TEST RESULTS",
-     "brand": "TCL"
-    },
-    {
-     "n": 13,
+     "n": 7,
      "name": "Samsung QN90F",
-     "brand": "Samsung"
-    },
-    {
-     "n": 14,
-     "name": "SAMSUNG QN90F TEST RESULTS",
      "brand": "Samsung"
     }
    ],
@@ -4344,8 +4264,8 @@
    "final_url": "https://www.techradar.com/news/best-tv",
    "http": 200,
    "title": "The best TVs in 2026, based on our real-world tests | TechRadar",
-   "sig": "fdae36bf1769",
-   "body_hash": "e862f94cdc41",
+   "sig": "ab96f901e712",
+   "body_hash": "5f01b4e4dcc3",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4361,7 +4281,7 @@
    "date": "2026-10-30",
    "target": "reviewed-best-tv",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:21-04:00",
+   "captured_at": "2026-10-30T02:28-04:00",
    "rate": null,
    "rate_text": "제품 5개 · LG 2개(최고 1위)",
    "offers": null,
@@ -4421,7 +4341,7 @@
    "date": "2026-10-30",
    "target": "tomsguide-best-fridge",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:22-04:00",
+   "captured_at": "2026-10-30T02:28-04:00",
    "rate": null,
    "rate_text": "제품 3개 · LG 1개(최고 3위)",
    "offers": null,
@@ -4455,7 +4375,7 @@
    "http": 200,
    "title": "Best refrigerators in 2026 | Tom's Guide",
    "sig": "7c6d06249e0d",
-   "body_hash": "b52ba57b5d78",
+   "body_hash": "5a710127442b",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4471,7 +4391,7 @@
    "date": "2026-10-30",
    "target": "reviewed-best-fridge",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:22-04:00",
+   "captured_at": "2026-10-30T02:29-04:00",
    "rate": null,
    "rate_text": "제품 4개 · LG 1개(최고 2위)",
    "offers": null,
@@ -4526,7 +4446,7 @@
    "date": "2026-10-30",
    "target": "tomsguide-best-washer",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:22-04:00",
+   "captured_at": "2026-10-30T02:29-04:00",
    "rate": null,
    "rate_text": "제품 5개 · LG 2개(최고 2위)",
    "offers": null,
@@ -4570,7 +4490,7 @@
    "http": 200,
    "title": "Best washing machines in 2026 | Tom's Guide",
    "sig": "8985e5096117",
-   "body_hash": "7c403b40f044",
+   "body_hash": "0a464aa98429",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4586,7 +4506,7 @@
    "date": "2026-10-30",
    "target": "reviewed-best-washer",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:22-04:00",
+   "captured_at": "2026-10-30T02:29-04:00",
    "rate": null,
    "rate_text": "제품 5개 · LG 없음",
    "offers": null,
@@ -4646,9 +4566,9 @@
    "date": "2026-10-30",
    "target": "rtings-best-monitor",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:23-04:00",
+   "captured_at": "2026-10-30T02:29-04:00",
    "rate": null,
-   "rate_text": "제품 15개 · LG 3개(최고 3위)",
+   "rate_text": "제품 6개 · LG 1개(최고 3위)",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -4656,78 +4576,33 @@
    "ranking": [
     {
      "n": 1,
-     "name": "ASUS ROG Swift OLED PG34WCDN:",
+     "name": "ASUS ROG Swift OLED PG34WCDN",
      "brand": "ASUS"
     },
     {
      "n": 2,
-     "name": "Dell S3225QC:",
+     "name": "Dell S3225QC",
      "brand": "Dell"
     },
     {
      "n": 3,
-     "name": "LG 27GM950B-B:",
+     "name": "LG 27GM950B-B",
      "brand": "LG"
     },
     {
      "n": 4,
-     "name": "TCL 32R84:",
+     "name": "TCL 32R84",
      "brand": "TCL"
     },
     {
      "n": 5,
-     "name": "Dell Alienware AW2725DM:",
+     "name": "Dell Alienware AW2725DM",
      "brand": "Dell"
     },
     {
      "n": 6,
      "name": "Dell S3425DW",
      "brand": "Dell"
-    },
-    {
-     "n": 7,
-     "name": "LG 32GX870B-B",
-     "brand": "LG"
-    },
-    {
-     "n": 8,
-     "name": "ASUS ROG Strix OLED XG32UCWMG",
-     "brand": "ASUS"
-    },
-    {
-     "n": 9,
-     "name": "Samsung Odyssey OLED G73SH S32HG732S",
-     "brand": "Samsung"
-    },
-    {
-     "n": 10,
-     "name": "LG 32GS95UE-B",
-     "brand": "LG"
-    },
-    {
-     "n": 11,
-     "name": "Dell S3225QC",
-     "brand": "Dell"
-    },
-    {
-     "n": 12,
-     "name": "MSI MPG 274URDFW E16M",
-     "brand": "MSI"
-    },
-    {
-     "n": 13,
-     "name": "Acer Nitro XV275K P5biipruzx",
-     "brand": "Acer"
-    },
-    {
-     "n": 14,
-     "name": "MSI MAG 274QPF X30MV",
-     "brand": "MSI"
-    },
-    {
-     "n": 15,
-     "name": "TCL 32R84",
-     "brand": "TCL"
     }
    ],
    "category": "모니터",
@@ -4739,8 +4614,8 @@
    "final_url": "https://www.rtings.com/monitor/reviews/best/monitors",
    "http": 200,
    "title": "The 6 Best Monitors of 2026 - RTINGS.com",
-   "sig": "27654947f00a",
-   "body_hash": "fd07b6be5fa4",
+   "sig": "3221bde5df6e",
+   "body_hash": "22182ea63eca",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4756,9 +4631,9 @@
    "date": "2026-10-30",
    "target": "tomsguide-best-monitor",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:23-04:00",
+   "captured_at": "2026-10-30T02:30-04:00",
    "rate": null,
-   "rate_text": "제품 15개 · LG 없음",
+   "rate_text": "제품 10개 · LG 없음",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -4776,66 +4651,41 @@
     },
     {
      "n": 3,
-     "name": "Alienware AW2726DM Test Results",
-     "brand": "Dell"
-    },
-    {
-     "n": 4,
      "name": "Alienware AW2525HM",
      "brand": "Dell"
     },
     {
-     "n": 5,
-     "name": "Alienware AW2525HM Test Results",
-     "brand": "Dell"
-    },
-    {
-     "n": 6,
+     "n": 4,
      "name": "Alienware AW2725D",
      "brand": "Dell"
     },
     {
-     "n": 7,
-     "name": "Alienware AW2725D Test Results",
-     "brand": "Dell"
-    },
-    {
-     "n": 8,
+     "n": 5,
      "name": "MSI MPG 321URXW QD-OLED",
      "brand": "MSI"
     },
     {
-     "n": 9,
+     "n": 6,
      "name": "BenQ Creative Pro PD2730S",
      "brand": "BenQ"
     },
     {
-     "n": 10,
+     "n": 7,
      "name": "Alienware 39 5K2K OLED (AW3926QW)",
      "brand": "Dell"
     },
     {
-     "n": 11,
-     "name": "Alienware AW3926QW Test Results",
-     "brand": "Dell"
-    },
-    {
-     "n": 12,
+     "n": 8,
      "name": "MSI Pro Max 271UPXW12G",
      "brand": "MSI"
     },
     {
-     "n": 13,
+     "n": 9,
      "name": "BenQ PD3226G",
      "brand": "BenQ"
     },
     {
-     "n": 14,
-     "name": "BenQ PD3226G Test Results",
-     "brand": "BenQ"
-    },
-    {
-     "n": 15,
+     "n": 10,
      "name": "Samsung Odyssey OLED G9",
      "brand": "Samsung"
     }
@@ -4849,8 +4699,8 @@
    "final_url": "https://www.tomsguide.com/best-picks/best-monitors",
    "http": 200,
    "title": "The best monitors of 2026: Our top picks built for work and gaming | Tom's Guide",
-   "sig": "cfb00a784b5a",
-   "body_hash": "13230d51a873",
+   "sig": "bfe56eb697f5",
+   "body_hash": "622be619e79e",
    "country": "US",
    "prev_date": null,
    "changed": null,
@@ -4866,7 +4716,7 @@
    "date": "2026-10-30",
    "target": "techradar-best-monitor",
    "method": "자동 스크린샷",
-   "captured_at": "2026-10-30T02:23-04:00",
+   "captured_at": "2026-10-30T02:30-04:00",
    "rate": null,
    "rate_text": "제품 6개 · LG 1개(최고 4위)",
    "offers": null,
@@ -4915,7 +4765,7 @@
    "http": 200,
    "title": "The best monitor in 2026: our top picks for work, gaming, and more | TechRadar",
    "sig": "1ef432dbfdfb",
-   "body_hash": "d2cc5a5ab125",
+   "body_hash": "15d8c9f4a911",
    "country": "US",
    "prev_date": null,
    "changed": null,
