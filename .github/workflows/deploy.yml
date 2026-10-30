@@ -32,6 +32,8 @@ jobs:
             git fetch -q --depth 1 origin shots
             git archive FETCH_HEAD | tar -x -C site/shots
           fi
+      - name: Stamp shared files with this commit so browsers do not mix old and new code
+        run: sed -i "s/rank.js?v=[A-Za-z0-9]*/rank.js?v=${GITHUB_SHA::8}/; s/theme.css?v=[A-Za-z0-9]*/theme.css?v=${GITHUB_SHA::8}/" site/*.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

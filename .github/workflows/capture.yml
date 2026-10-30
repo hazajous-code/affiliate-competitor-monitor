@@ -114,6 +114,9 @@ jobs:
             sleep 15
           done
           exit 1
+      - name: Stamp shared files with this commit so browsers do not mix old and new code
+        if: steps.guard.outputs.run == 'true'
+        run: sed -i "s/rank.js?v=[A-Za-z0-9]*/rank.js?v=${GITHUB_SHA::8}/; s/theme.css?v=[A-Za-z0-9]*/theme.css?v=${GITHUB_SHA::8}/" site/*.html
       - uses: actions/configure-pages@v5
         if: steps.guard.outputs.run == 'true'
       - uses: actions/upload-pages-artifact@v3
