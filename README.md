@@ -23,6 +23,7 @@
 | `site/data/captures.csv` | 같은 원장의 내려받기용 CSV |
 | `site/data/runs.json` | 최근 실행의 대상별 검증 결과 + 접속 국가 코드 |
 | `site/data/briefs.json` | 일자별 ‘오늘의 요약’ 보관(삭제하지 않음). `scripts/archive_briefs.py`가 매일 수집 후 저장 |
+| `site/data/weekly.json` | 주별(월~일, 미국 동부) 주간 다이제스트 요약 보관(삭제하지 않음). 같은 스크립트가 매일 진행 중인 주를 갱신 |
 | `scripts/verify.py` | 커밋 전 무결성·공개 안전성 점검(내부 성과 용어 차단) |
 | `site/data/coverage.json` | 분석 이력의 전체 퍼블리셔와 자동 수집 가능 여부 |
 | `site/shots/<날짜>/` | 스크린샷(JPEG). 최근 7일은 원본, 이후 720px·품질 30으로 압축해 120일 보관(언급 페이지 전체 캡처 `*__full.jpg` 포함), 언급 캡처(`m/`)는 365일. 850MB를 넘으면 가장 오래된 압축본부터 삭제(`scripts/retention.py`). 저장소 이력이 커지지 않도록 `shots` 브랜치에 커밋 1개로 덮어써 보관 |
@@ -30,6 +31,7 @@
 | `plans/YYYY-MM.txt` | 월별 편성표 — 매칭용 필드만(퍼블리셔·기간·지면명·OBS/PS·카테고리·오퍼 문구). 비용·성과 열은 넣지 않음 |
 | `scripts/import_plan.py` | 편성표 → `site/data/placements.json` 변환 + 지면별 확인 방식 분류 |
 | `site/index.html` | 데일리 브리핑(첫 화면) — 요율·자사몰 프로모션·편성 요약, 각 탭으로 연결 |
+| `site/weekly.html` | 주간 다이제스트 — 주간 LG·삼성 요율 격차, 삼성 잔존도, 편성 관측률, LG.com 프로모션 × 캐시백 겹친 날, 전주 비교 |
 | `site/monitor.html` | 경쟁사 지면 모니터(요율·조건·노출·검증·스크린샷) |
 | `site/placements.html` | 편성 지면 관측 메뉴 |
 | `site/lgcom.html` | LG.com/us 프로모션 × 퍼블리셔 LG 캐시백 비교 메뉴 |

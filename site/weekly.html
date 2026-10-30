@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주간 다이제스트 · US Affiliate Monitor</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0}
+.paper{max-width:900px;margin:0 auto;padding:36px 24px 80px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--lg);text-transform:uppercase}
+.mast h1{font-size:28px;margin:6px 0 4px}
+.dateline{font-size:13px;color:var(--muted);display:flex;gap:6px 14px;flex-wrap:wrap}
+.dateline .warn{color:var(--warn);font-weight:600}
+.rule{height:1px;background:var(--fg);margin:18px 0 0}
+.dnav{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:12.5px}
+.dnav a{text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:3px 10px;color:var(--fg)}
+.dnav a.off{color:var(--faint);pointer-events:none}
+.dnav select{padding:3px 8px}
+.lead{margin-top:22px;padding:18px 22px;background:#fafafa;border:1px solid var(--line);border-radius:10px}
+.lead h2{margin-bottom:10px}
+.lead ol{margin:0;padding-left:20px}
+.lead li{margin:7px 0;font-size:14.5px;line-height:1.6}
+.sec{margin-top:34px}
+.sec .hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:12px}
+.sec .hd h2{margin:0}
+.more{font-size:12.5px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.more:hover{color:var(--fg)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px;margin-bottom:12px}
+.kpi{border:1px solid var(--line);border-top:3px solid var(--fg);border-radius:10px;padding:12px 14px}
+.kpi.lg{border-top-color:var(--lg)}.kpi.ss{border-top-color:var(--ss)}
+.kpi .l{font-size:12px;color:var(--muted)}
+.kpi .v{font-size:20px;font-weight:700;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi .v small{font-size:12.5px;font-weight:500;color:var(--muted)}
+.kpi .s{font-size:12px;color:var(--muted);margin-top:2px}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+table{width:100%;border-collapse:collapse}th{text-align:left}td{vertical-align:top}.tw{overflow:auto}
+td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:0 6px;border-radius:4px;margin-right:4px;vertical-align:1px}
+.tag.hit{background:#ecfdf5;color:var(--ok)}.tag.miss{background:#f3f4f6;color:var(--muted)}.tag.up{background:#ecfdf5;color:var(--ok)}.tag.dn{background:#fef2f2;color:var(--bad)}.tag.end{background:#fff7ed;color:var(--warn)}
+.mute{color:var(--muted)}.up{color:var(--ok)}.dn{color:var(--bad)}
+.empty{color:var(--muted);font-size:13px}
+.box{border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.box ul{margin:6px 0 0;padding-left:16px;font-size:13px}.box li{margin:4px 0}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .d{border:1px solid var(--line);border-radius:8px;padding:8px;font-size:12px;min-height:92px}
+.cal .d .h{font-weight:600;margin-bottom:4px}
+.cal .d.both{background:#fdf2f6;border-color:#f2c4d3}
+.cal .d.cb{background:#ecfdf5;border-color:#bbe5cc}
+.cal .d.nodata{background:#fafafa;color:var(--faint)}
+.cal .d .b{display:block;margin-top:2px;line-height:1.35}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px;border:1px solid var(--line)}
+.arch{border-top:1px solid var(--line2);padding:10px 0}
+.arch summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:baseline;font-size:13.5px}
+.arch summary::-webkit-details-marker{display:none}
+.arch summary b{font-variant-numeric:tabular-nums;min-width:150px}
+.arch summary .first{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.arch ol{margin:8px 0 2px;padding-left:22px;font-size:13.5px;line-height:1.6}
+.foot{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.7}
+@media (max-width:640px){.cal{grid-template-columns:repeat(2,1fr)}}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="weekly.html" class="on">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
+<div class="paper">
+  <div class="mast">
+    <div class="kicker" id="kicker">Weekly Digest</div>
+    <h1>북미 어필리에이트 주간 다이제스트</h1>
+    <div class="dateline" id="dateline"></div>
+    <div class="dnav" id="dnav"></div>
+    <div class="rule"></div>
+  </div>
+
+  <div class="lead"><h2>이번 주 요약</h2><ol id="summary"><li class="mute">불러오는 중…</li></ol></div>
+
+  <div class="sec">
+    <div class="hd"><h2>캐시백 요율 격차 · LG vs 삼성</h2><a class="more" href="monitor.html#rates">요율 비교 →</a></div>
+    <div class="kpis" id="gapKpis"></div>
+    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th>LG 주평균</th><th>삼성 주평균</th><th>격차</th><th>LG 상향 일수</th><th>전주 격차</th></tr></thead><tbody id="gapBody"></tbody></table></div>
+    <p class="note" id="gapNote" style="margin-top:8px"></p>
+  </div>
+
+  <div class="sec">
+    <div class="hd"><h2>삼성 어필리에이트 잔존도</h2><a class="more" href="./#presence">일별 추이 →</a></div>
+    <div class="kpis" id="presKpis"></div>
+    <p class="note" style="margin-top:0">공개 화면에서 삼성 상점·요율·언급이 보이는지를 셉니다. 제휴 계약이나 지출 규모를 뜻하지 않습니다. 상점 게시·쿠폰 오퍼는 수집일 평균, 언급은 주간 합계이며, 수집 대상이 바뀐 주는 전주와 직접 비교하지 않도록 표시합니다.</p>
+  </div>
+
+  <div class="sec">
+    <div class="hd"><h2>편성 지면 관측률</h2><a class="more" href="placements.html">편성 지면 관측 →</a></div>
+    <div class="kpis" id="plKpis"></div>
+    <div class="box" id="plBox"></div>
+  </div>
+
+  <div class="sec">
+    <div class="hd"><h2>LG.com 프로모션 × 캐시백 겹침</h2><a class="more" href="lgcom.html">LG.com 프로모션 × 캐시백 →</a></div>
+    <div class="kpis" id="ovKpis"></div>
+    <div class="cal" id="ovCal"></div>
+    <div class="legend"><span><i style="background:#fdf2f6"></i>캐시백 상향 + LG.com 프로모션</span><span><i style="background:#ecfdf5"></i>캐시백 상향 단독</span><span><i></i>상향 없음</span><span><i style="background:#fafafa"></i>수집 없음</span></div>
+  </div>
+
+  <div class="sec" id="archive">
+    <div class="hd"><h2>지난 주간 다이제스트</h2><span class="more" id="archMeta"></span></div>
+    <p class="note">매일 수집이 끝나면 그 주의 요약을 별도 파일(data/weekly.json)에 저장합니다. 진행 중인 주는 수집될 때마다 갱신되고, 주가 끝나면 그대로 남습니다.</p>
+    <div id="archList"></div>
+  </div>
+
+  <div class="foot">주는 월요일~일요일(미국 동부 날짜) 기준입니다. 매일 미국 동부 오전, 미국 IP·비로그인으로 공개 화면을 자동 수집한 값을 묶은 요약이며, 개인화·로그인 상태에 따라 실제 화면과 다를 수 있습니다. 하루 중 일부 시간만 걸리는 이벤트는 놓칠 수 있습니다.</div>
+</div>
+
+<script src="rank.js"></script>
+<script>
+(async function(){
+  const { byRank } = await loadRank();
+  const [caps0, runs, plan, weekly0] = await Promise.all([loadJSON('data/captures.json'), loadJSON('data/runs.json'), loadJSON('data/placements.json'), loadJSON('data/weekly.json')]);
+  loadDone(!!caps0);
+  const caps = caps0 || [], stored = weekly0 || {};
+  const P = (plan && plan.placements) || [];
+  const $ = id => document.getElementById(id);
+  const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  const html = (e, s) => { e.innerHTML = s; return e; };
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const OK = s => s === '수집' || s === '수집(텍스트)';
+  const r1 = v => Math.round(v * 10) / 10;
+  const pct = v => v == null ? '—' : r1(v) + '%';
+  const pp = v => v == null ? '—' : (v > 0 ? '+' : '') + r1(v) + '%p';
+  const fmt = d => Number(d.slice(5, 7)) + '/' + Number(d.slice(8, 10));
+  const WD = ['일', '월', '화', '수', '목', '금', '토'];
+  const wd = d => WD[new Date(d + 'T12:00:00Z').getUTCDay()];
+  const addDays = (d, n) => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+  const monday = d => addDays(d, -((new Date(d + 'T12:00:00Z').getUTCDay() + 6) % 7));
+  const STORE = k => ['캐시백 포털', '쇼핑 리워드', '인증 회원 할인'].includes(k);
+  const PRES_KIND = k => STORE(k) || k === '마일·포인트 적립';
+  const CORE = c => ['TV·AV', '가전 전반', '냉장고', '세탁', '주방', '청소·공조', '모니터·PC', '오디오'].includes(c);
+  const valOf = r => r.rate != null ? r.rate : r.points;
+  const wasOf = r => { const m = r && /was\s+(\d+(?:\.\d+)?)%/i.exec(r.rate_text || ''); return m ? Number(m[1]) : null; };
+  const BASE = { 'capone-lg': 2.5 };   // same rule as the placements page
+  const elevated = r => r && OK(r.status) && r.rate != null && (wasOf(r) != null || (BASE[r.target] != null && r.rate > BASE[r.target]));
+  const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
+  const shortPub = p => String(p).replace(/^Cartera · /, '').replace(/ Shopping$/, '');
+
+  const dates = publishedDates(caps, runs);
+  const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
+  const rowsOn = d => caps.filter(r => r.date === d);
+  const weeks = [...new Set(dates.map(monday))].sort();
+
+  function week(wk) {
+    const all = [...Array(7)].map((_, i) => addDays(wk, i));
+    const ds = all.filter(d => dates.includes(d));
+    // 1) LG vs Samsung rate gap on publishers where both are posted (percent rates only; Cartera miles kept apart)
+    const pubs = {};
+    ds.forEach(d => {
+      const st = rowsOn(d).filter(r => STORE(r.kind) && OK(r.status) && r.rate != null);
+      st.filter(r => r.brand === 'Samsung').forEach(s => {
+        const l = st.find(x => x.brand === 'LG Electronics' && x.publisher === s.publisher); if (!l) return;
+        const q = pubs[s.publisher] = pubs[s.publisher] || { lg: [], ss: [], up: 0, upMax: 0 };
+        q.lg.push(l.rate); q.ss.push(s.rate); if (wasOf(l) != null) { q.up++; q.upMax = Math.max(q.upMax, l.rate); }
+      });
+    });
+    const avg = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+    const gapRows = Object.entries(pubs).map(([p, q]) => ({ p, lg: avg(q.lg), ss: avg(q.ss), gap: avg(q.lg) - avg(q.ss), days: q.lg.length, up: q.up, upMax: q.upMax })).sort((a, b) => byRank(a.p, b.p));
+    const pairDays = gapRows.reduce((a, r) => a + r.days, 0);
+    const allLg = Object.values(pubs).flatMap(q => q.lg), allSs = Object.values(pubs).flatMap(q => q.ss);
+    const lgWinDays = Object.values(pubs).reduce((a, q) => a + q.lg.filter((v, i) => v > q.ss[i]).length, 0);
+    const ssWinDays = Object.values(pubs).reduce((a, q) => a + q.ss.filter((v, i) => v > q.lg[i]).length, 0);
+    // LG store raises (all LG stores, not only shared ones)
+    const ups = {};
+    ds.forEach(d => rowsOn(d).filter(r => STORE(r.kind) && r.brand === 'LG Electronics' && wasOf(r) != null && OK(r.status)).forEach(r => { const u = ups[r.publisher] = ups[r.publisher] || { days: [], max: 0, bases: [] }; u.days.push(d); u.max = Math.max(u.max, r.rate); if (!u.bases.includes(wasOf(r))) u.bases.push(wasOf(r)); }));
+    const ssMoves = ds.reduce((a, d, i) => { if (!i) return a; const prev = ds[i - 1]; return a + rowsOn(d).filter(r => r.brand === 'Samsung' && STORE(r.kind) && OK(r.status) && r.rate != null).filter(r => { const p = at[prev] && at[prev][r.target]; return p && OK(p.status) && p.rate != null && p.rate !== r.rate; }).length; }, 0);
+    // 2) Samsung presence
+    const pres = ds.map(d => {
+      const cur = rowsOn(d), st = cur.filter(r => PRES_KIND(r.kind));
+      const ss = st.filter(r => r.brand === 'Samsung'), lg = st.filter(r => r.brand === 'LG Electronics');
+      const ssP = ss.filter(r => OK(r.status) && valOf(r) != null), lgP = lg.filter(r => OK(r.status) && valOf(r) != null);
+      const ed = cur.filter(r => ['딜 사이트', '리뷰·매체'].includes(r.kind) && OK(r.status));
+      const nOff = r => Array.isArray(r.offers) ? r.offers.length : (typeof r.offers === 'number' ? r.offers : null);
+      const cp = cur.filter(r => r.kind === '쿠폰' && OK(r.status) && nOff(r) != null);
+      const cpPairs = cp.filter(r => r.brand === 'Samsung').map(s => [cp.find(l => l.brand === 'LG Electronics' && l.publisher === s.publisher), s]).filter(([l]) => l);
+      return { d, ssN: ss.length, ssP: ssP.length, lgN: lg.length, lgP: lgP.length,
+        mSS: ed.reduce((a, r) => a + ((r.mentions || {}).Samsung || 0), 0), mLG: ed.reduce((a, r) => a + ((r.mentions || {}).LG || 0), 0), edN: ed.length,
+        oSS: cpPairs.reduce((a, [, s]) => a + nOff(s), 0), oLG: cpPairs.reduce((a, [l]) => a + nOff(l), 0), cpN: cpPairs.length };
+    });
+    const pA = k => pres.length ? avg(pres.map(x => x[k])) : null, pS = k => pres.reduce((a, x) => a + x[k], 0);
+    const coverage = [...new Set(pres.map(x => x.ssN))];
+    // 3) placements running in the week
+    const inWeek = P.filter(p => p.start && p.start <= all[6] && (p.end || p.start) >= all[0] && p.method !== 'n/a').sort((a, b) => byRank(a.publisher, b.publisher));
+    const pl = inWeek.map(p => {
+      if (!['rate', 'presence', 'partial'].includes(p.method)) return { p, s: 'none' };
+      const win = ds.filter(d => d >= p.start && d <= (p.end || p.start));
+      const rows = win.flatMap(d => p.targets.map(t => at[d] && at[d][t]).filter(Boolean));
+      if (!rows.length) return { p, s: 'none' };
+      const hitDays = win.filter(d => p.targets.some(t => (p.method === 'rate' ? elevated : lgSeen)(at[d] && at[d][t])));
+      if (hitDays.length) return { p, s: 'hit', days: hitDays.length, of: win.length };
+      return { p, s: rows.some(r => OK(r.status) || ['요율 미확인', '요율 확인 필요'].includes(r.status)) ? 'miss' : 'none', of: win.length };
+    });
+    const hit = pl.filter(x => x.s === 'hit'), miss = pl.filter(x => x.s === 'miss');
+    // 4) LG.com promotions x cashback raises, per collected day
+    const cal = all.map(d => {
+      if (!dates.includes(d)) return { d, nodata: true };
+      const cur = rowsOn(d);
+      const raised = cur.filter(r => STORE(r.kind) && r.brand_group === 'LG' && r.brand !== 'LG Partner Store' && elevated(r));
+      const promos = promoMap(cur.filter(r => r.brand_group === 'LG.com' && OK(r.status)).flatMap(r => (r.promos || []).map(p => [promoKey(p.title), p])));
+      const list = [...promos.values()], core = list.filter(p => CORE(p.category));
+      const own = list.filter(p => /\bback\b|reward/i.test(p.title || ''));   // LG.com's own "plus 10% back" type offers
+      return { d, raised, promos: list.length, core: core.length, own, read: cur.some(r => r.brand_group === 'LG.com' && OK(r.status)) };
+    });
+    const got = cal.filter(c => !c.nodata);
+    const upDays = got.filter(c => c.raised.length), both = upDays.filter(c => c.promos), solo = upDays.filter(c => c.read && !c.promos), unread = upDays.filter(c => !c.read), ownBoth = upDays.filter(c => c.own.length);
+    return { wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, ups, ssMoves,
+      pres, pA, pS, coverage, inWeek, pl, hit, miss, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
+  }
+
+  // unique placement names (the plan repeats a slot once per category); count always adds up
+  function missList(miss) {
+    const g = new Map(); miss.forEach(x => { const k = x.p.publisher + ' ' + cutWords(x.p.placement, 30); g.set(k, (g.get(k) || 0) + 1); });
+    const keys = [...g.keys()], rest = keys.slice(3).reduce((a, k) => a + g.get(k), 0);
+    return keys.slice(0, 3).map(k => esc(k) + (g.get(k) > 1 ? ' ×' + g.get(k) : '')).join(', ') + (rest ? ' 외 ' + rest + '건' : '');
+  }
+
+  function summary(W, V) {
+    const S = [];
+    if (W.gap != null) S.push('<b>요율 격차</b> 같은 퍼블리셔 ' + W.gapRows.length + '곳 주평균 LG ' + pct(W.lgAvg) + ' vs 삼성 ' + pct(W.ssAvg) + '(격차 ' + pp(W.gap) + (V && V.gap != null ? ', 전주 ' + pp(V.gap) : '') + ') · LG 우위 ' + W.lgWinDays + '/' + W.pairDays + '일' + (W.ssWinDays ? ', 삼성 우위 ' + W.ssWinDays + '일' : ''));
+    const ups = Object.entries(W.ups).sort((a, b) => byRank(a[0], b[0]));
+    S.push('<b>LG 캐시백 상향</b> ' + (ups.length ? ups.map(([p, u]) => esc(p) + ' ' + u.days.length + '일(평시 ' + u.bases.map(pct).join('→') + ' → 최고 ' + pct(u.max) + ')').join(', ') : '수집일 중 상향 없음') + (W.ssMoves ? ' · 삼성 요율 변동 ' + W.ssMoves + '건' : ' · 삼성 요율 변동 없음'));
+    if (W.pres.length) {
+      const same = V && V.pres.length && V.coverage.length === 1 && W.coverage.length === 1 && V.coverage[0] === W.coverage[0];
+      S.push('<b>삼성 잔존도</b> 상점 요율 게시 평균 ' + r1(W.pA('ssP')) + '/' + r1(W.pA('ssN')) + '곳 · 딜·리뷰 언급 삼성 ' + W.pS('mSS') + ' : LG ' + W.pS('mLG') + (same ? '(전주 ' + V.pS('mSS') + ' : ' + V.pS('mLG') + ')' : '') + (W.pres.some(x => x.cpN) ? ' · 쿠폰 오퍼 일평균 삼성 ' + r1(W.pA('oSS')) + ' : LG ' + r1(W.pA('oLG')) : ''));
+    }
+    const ck = W.hit.length + W.miss.length;
+    if (W.inWeek.length) S.push('<b>편성</b> 주중 진행 ' + W.inWeek.length + '건 · 공개 화면 확인 ' + ck + '건 중 관측 ' + W.hit.length + '건' + (ck ? '(관측률 ' + Math.round(W.hit.length / ck * 100) + '%' + (V && V.hit.length + V.miss.length ? ', 전주 ' + Math.round(V.hit.length / (V.hit.length + V.miss.length) * 100) + '%' : '') + ')' : '') + (W.miss.length ? ' · 미관측 ' + missList(W.miss) : ''));
+    if (W.got.length) S.push('<b>프로모션 × 캐시백</b> 수집 ' + W.got.length + '일 중 캐시백 상향 ' + W.upDays.length + '일' + (W.upDays.length ? ', 그중 LG.com 프로모션과 겹친 날 ' + W.both.length + '일' + (W.ownBoth.length ? '(LG.com 자체 리워드 프로모션 동시 ' + W.ownBoth.length + '일)' : '') + (W.solo.length ? ', 캐시백 단독 ' + W.solo.length + '일' : '') + (W.unread.length ? ', LG.com 미수집 ' + W.unread.length + '일' : '') : ''));
+    return S;
+  }
+
+  const model = {}; weeks.forEach(w => { model[w] = week(w); });
+  const prevOf = w => model[addDays(w, -7)] || null;
+  window.weekKeys = weeks;
+  window.weekSummary = w => model[w] ? { bullets: summary(model[w], prevOf(w)), days: model[w].ds.length, label: label(w) } : null;
+  window.weekReady = true;
+  function label(w) { return fmt(w) + '(월) ~ ' + fmt(addDays(w, 6)) + '(일)'; }
+
+  function render(w) {
+    const W = model[w], V = prevOf(w), i = weeks.indexOf(w);
+    $('kicker').textContent = 'Weekly Digest · ' + w.slice(0, 4) + ' W' + String(Math.ceil((((new Date(w + 'T12:00:00Z') - new Date(w.slice(0, 4) + '-01-01T12:00:00Z')) / 864e5) + 1) / 7) + 1).padStart(2, '0');
+    const dl = $('dateline');
+    dl.append(el('span', null, label(w) + ' · 미국 동부 기준'));
+    dl.append(el('span', W.partial ? 'warn' : null, '수집 ' + W.ds.length + '/7일' + (W.partial ? (i === weeks.length - 1 && W.ds[W.ds.length - 1] === dates[dates.length - 1] ? ' · 진행 중인 주' : ' · 일부 수집') : '')));
+    const nav = $('dnav');
+    const link = (x, t) => { const a = el('a', x ? null : 'off', t); a.href = x ? '?week=' + x : '#'; return a; };
+    const sel = el('select'); [...weeks].reverse().forEach(x => { const o = el('option', null, label(x)); o.value = x; if (x === w) o.selected = true; sel.append(o); });
+    sel.onchange = () => { location.search = '?week=' + sel.value; };
+    nav.append(link(weeks[i - 1], '← 이전 주'), sel, link(weeks[i + 1], '다음 주 →'));
+
+    $('summary').innerHTML = summary(W, V).map(s => '<li>' + s + '</li>').join('') || '<li class="mute">요약할 데이터가 없습니다.</li>';
+
+    const kpi = (box, cls, l, v, s) => $(box).append(html(el('div', 'kpi ' + (cls || '')), '<div class="l">' + l + '</div><div class="v">' + v + '</div>' + (s ? '<div class="s">' + s + '</div>' : '')));
+    const delta = (a, b, unit) => a == null || b == null ? '' : ' <span class="' + (a - b > 0 ? 'up' : a - b < 0 ? 'dn' : 'mute') + '">' + (a - b > 0 ? '▲' : a - b < 0 ? '▼' : '–') + Math.abs(r1(a - b)) + (unit || '') + '</span>';
+
+    // gap
+    kpi('gapKpis', 'lg', 'LG 주평균 (같은 퍼블리셔)', pct(W.lgAvg), W.gapRows.length + '곳 · ' + W.pairDays + '퍼블리셔·일');
+    kpi('gapKpis', 'ss', '삼성 주평균 (같은 퍼블리셔)', pct(W.ssAvg), '삼성 요율 변동 ' + W.ssMoves + '건');
+    kpi('gapKpis', null, '격차 (LG − 삼성)', pp(W.gap), V && V.gap != null ? '전주 ' + pp(V.gap) + delta(W.gap, V.gap, '%p') : '전주 비교 없음');
+    kpi('gapKpis', null, 'LG 우위 일수', W.pairDays ? W.lgWinDays + '<small> / ' + W.pairDays + '</small>' : '—', W.ssWinDays ? '삼성 우위 ' + W.ssWinDays + '일' : '삼성 우위 없음');
+    W.gapRows.forEach(g => {
+      const v = V && V.gapRows.find(x => x.p === g.p);
+      const tr = el('tr'); tr.append(el('td', null, g.p), el('td', 'num lgv', pct(g.lg)), el('td', 'num ssv', pct(g.ss)), el('td', 'num', pp(g.gap)));
+      tr.append(html(el('td', 'num'), g.up ? '<span class="tag up">' + g.up + '/' + g.days + '일</span> 최고 ' + pct(g.upMax) : '<span class="mute">—</span>'));
+      tr.append(html(el('td', 'num'), v ? pp(v.gap) + delta(g.gap, v.gap, '%p') : '<span class="mute">—</span>'));
+      $('gapBody').append(tr);
+    });
+    if (!W.gapRows.length) { const tr = el('tr'); const td = el('td', 'empty', '이 주에 LG·삼성 요율이 함께 게시된 퍼블리셔가 없습니다.'); td.colSpan = 6; tr.append(td); $('gapBody').append(tr); }
+    const solo = Object.entries(W.ups).filter(([p]) => !W.gapRows.some(g => g.p === p));
+    $('gapNote').innerHTML = '퍼블리셔는 판매 실적 순. 상점 대표 요율(%) 기준이며 Cartera 항공 쇼핑몰(마일·포인트)은 단위가 달라 제외했습니다.' + (solo.length ? ' 삼성 비교 대상이 없는 LG 상향: ' + solo.map(([p, u]) => esc(p) + ' ' + u.days.length + '일').join(', ') + '.' : '');
+
+    // presence
+    const sameCov = V && V.coverage.length === 1 && W.coverage.length === 1 && V.coverage[0] === W.coverage[0];
+    const covNote = W.coverage.length > 1 ? '주중 수집 범위 변경(' + W.coverage.join('→') + '곳)' : (V && !sameCov ? '전주와 수집 범위 다름 · 비교 생략' : '');
+    if (W.pres.length) {
+      kpi('presKpis', 'ss', '삼성 상점 요율 게시', r1(W.pA('ssP')) + '<small> / ' + r1(W.pA('ssN')) + '곳</small>', 'LG ' + r1(W.pA('lgP')) + ' / ' + r1(W.pA('lgN')) + '곳 · 수집일 평균' + (covNote ? '<br>' + covNote : ''));
+      kpi('presKpis', 'ss', '딜·리뷰 본문 언급 (주 합계)', '삼성 ' + W.pS('mSS') + '<small> : LG ' + W.pS('mLG') + '</small>', sameCov ? '전주 ' + V.pS('mSS') + ' : ' + V.pS('mLG') : '페이지·일 ' + W.pS('edN'));
+      kpi('presKpis', 'ss', '삼성 언급 비중', W.pS('mSS') + W.pS('mLG') ? Math.round(W.pS('mSS') / (W.pS('mSS') + W.pS('mLG')) * 100) + '%' : '—', sameCov && V.pS('mSS') + V.pS('mLG') ? '전주 ' + Math.round(V.pS('mSS') / (V.pS('mSS') + V.pS('mLG')) * 100) + '%' : '삼성 ÷ (삼성 + LG)');
+      kpi('presKpis', 'ss', '쿠폰 오퍼 (일평균)', W.pres.some(x => x.cpN) ? '삼성 ' + r1(W.pA('oSS')) + '<small> : LG ' + r1(W.pA('oLG')) + '</small>' : '—', '같은 쿠폰 사이트끼리');
+    } else $('presKpis').append(el('div', 'empty', '이 주의 수집 데이터가 없습니다.'));
+
+    // placements
+    const ck = W.hit.length + W.miss.length, vck = V ? V.hit.length + V.miss.length : 0;
+    kpi('plKpis', null, '주중 진행 편성', W.inWeek.length + '<small>건</small>', '공개 화면 확인 대상 ' + ck + '건');
+    kpi('plKpis', null, '관측률', ck ? Math.round(W.hit.length / ck * 100) + '%' : '—', ck ? '관측 ' + W.hit.length + ' / 확인 ' + ck + (vck ? ' · 전주 ' + Math.round(V.hit.length / vck * 100) + '%' : '') : '확인 가능한 지면 없음');
+    kpi('plKpis', null, '공개 웹 확인 불가', W.pl.filter(x => x.s === 'none').length + '<small>건</small>', '이메일·앱·회원 전용 등 — 퍼블리셔 증빙 필요');
+    const ul = el('ul');
+    W.miss.forEach(x => ul.append(html(el('li'), '<span class="tag miss">미관측</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + fmt(x.p.start) + '~' + fmt(x.p.end || x.p.start) + ', 수집 ' + x.of + '일)</span>')));
+    W.hit.forEach(x => ul.append(html(el('li'), '<span class="tag hit">관측</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + x.days + '/' + x.of + '일)</span>')));
+    $('plBox').append(html(el('div', 'mute', ''), '<span style="font-size:12.5px">미관측 지면은 공개 화면에서 한 번도 확인되지 않은 것으로, CJ·퍼블리셔에 집행 증빙을 요청할 후보입니다. 부분 확인(타기팅·순환) 지면은 안 보여도 미집행으로 단정하지 않습니다.</span>'));
+    if (!ul.childNodes.length) ul.append(el('li', 'mute', '이 주에 공개 화면으로 확인할 수 있는 편성이 없습니다.'));
+    $('plBox').append(ul);
+
+    // overlap
+    kpi('ovKpis', null, '캐시백 상향일', W.upDays.length + '<small> / 수집 ' + W.got.length + '일</small>', V ? '전주 ' + V.upDays.length + '/' + V.got.length + '일' : '');
+    kpi('ovKpis', 'lg', 'LG.com 프로모션과 겹친 날', W.both.length + '<small>일</small>', W.ownBoth.length ? 'LG.com 자체 리워드 프로모션 동시 ' + W.ownBoth.length + '일' : 'LG.com 자체 리워드 프로모션 동시 없음');
+    kpi('ovKpis', null, '캐시백 단독', W.solo.length + '<small>일</small>', 'LG.com에 읽힌 프로모션이 없던 날' + (W.unread.length ? ' · LG.com 미수집 ' + W.unread.length + '일 별도' : ''));
+    W.cal.forEach(c => {
+      const b = el('div', 'd ' + (c.nodata ? 'nodata' : c.raised.length ? (c.promos ? 'both' : 'cb') : ''));
+      b.append(el('div', 'h', fmt(c.d) + ' (' + wd(c.d) + ')'));
+      if (c.nodata) b.append(el('span', 'b', '수집 없음'));
+      else {
+        c.raised.sort((x, y) => byRank(x.publisher, y.publisher)).forEach(r => b.append(html(el('span', 'b'), '<b>' + esc(shortPub(r.publisher)) + ' ' + pct(r.rate) + '</b>' + (wasOf(r) != null ? ' <span class="mute">(평시 ' + pct(wasOf(r)) + ')</span>' : ''))));
+        if (!c.raised.length) b.append(el('span', 'b mute', '상향 없음'));
+        b.append(el('span', 'b mute', c.read ? 'LG.com 프로모션 ' + c.promos + '건' : 'LG.com 미수집'));
+        if (c.own.length) b.append(el('span', 'b', '리워드: ' + cutWords(c.own[0].title, 40)));
+      }
+      $('ovCal').append(b);
+    });
+  }
+
+  function drawArchive(cur) {
+    const all = { ...stored };
+    weeks.forEach(w => { all[w] = { ...window.weekSummary(w) }; });
+    const keys = Object.keys(all).sort().reverse();
+    $('archMeta').textContent = keys.length + '주 보관';
+    keys.forEach(w => {
+      const x = all[w] || {}; const det = el('details', 'arch'); if (w === cur) det.open = true;
+      const sm = el('summary'); sm.append(el('b', null, x.label || label(w))); const f = el('span', 'first'); f.innerHTML = (x.bullets || [])[0] || '—'; sm.append(f); det.append(sm);
+      det.append(html(el('ol'), (x.bullets || []).map(s => '<li>' + s + '</li>').join('')));
+      if (weeks.includes(w) && w !== cur) { const a = el('a', 'more', '이 주 전체 보기 →'); a.href = '?week=' + w; a.style.marginLeft = '22px'; det.append(a); }
+      $('archList').append(det);
+    });
+  }
+
+  if (!weeks.length) { $('summary').innerHTML = '<li>아직 수집된 데이터가 없습니다.</li>'; drawArchive(null); return; }
+  const want = new URLSearchParams(location.search).get('week');
+  const w = weeks.includes(want) ? want : weeks[weeks.length - 1];
+  render(w); drawArchive(w);
+})();
+</script>
+</body>
+</html>
