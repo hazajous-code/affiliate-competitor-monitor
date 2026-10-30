@@ -1,0 +1,48 @@
+name: deploy-site
+
+# Publishes site/ to GitHub Pages without collecting anything.
+# Runs when page code is pushed to main (the daily capture deploys its own results),
+# or by hand from Actions › deploy-site › Run workflow.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore screenshots from the rolling 'shots' branch
+        run: |
+          mkdir -p site/shots
+          if git ls-remote --exit-code --heads origin shots >/dev/null; then
+            git fetch -q --depth 1 origin shots
+            git archive FETCH_HEAD | tar -x -C site/shots
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

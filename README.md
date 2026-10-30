@@ -9,6 +9,7 @@
 - 회원 전용 혜택 플랫폼(공개 입구만): PerkSpot, BenefitHub, Next Jump, GOVX
 
 - 대시보드: GitHub Pages (`site/`)
+- 화면 코드 배포: `site/`를 수정해 main에 올리면 `deploy-site` 워크플로가 수집 없이 바로 배포(수동 실행도 가능)
 - 수집 시각: 매일 13:07 UTC (미국 동부 오전 9시 전후), GitHub Actions 서버에서 실행 — 개인 PC·Claude 세션과 무관
 - 안정 장치: 같은 날 17:37·22:37 UTC 백업 실행(그날 전체 수집이 이미 있으면 건너뜀), 실패 대상 1회 재시도, 실행 때마다 스케줄 재활성화(GitHub의 60일 비활성 정지 방지), 대시보드에 30시간 넘게 수집이 없으면 경고 표시
 - 공개 페이지만 수집합니다. 로그인이 필요한 회원 전용 혜택 플랫폼(Next Jump · Passport · BenefitHub 등)과
