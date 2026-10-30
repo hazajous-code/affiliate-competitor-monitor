@@ -3,49 +3,49 @@
   "publisher": "Rakuten",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "LG·LG 파트너스토어·경쟁사 6곳·유통 2곳 상점 페이지"
+  "note": "LG·LG 파트너스토어·경쟁사 6곳·유통 2곳 브랜드 페이지"
  },
  {
   "publisher": "TopCashback",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "상점 페이지 공개"
+  "note": "브랜드 페이지 공개"
  },
  {
   "publisher": "Capital One Shopping",
   "type": "쇼핑 리워드",
   "status": "자동 수집",
-  "note": "상점 쿠폰 페이지 공개 · 카테고리별 리워드 표 포함"
+  "note": "브랜드 쿠폰 페이지 공개 · 카테고리별 리워드 표 포함"
  },
  {
   "publisher": "BeFrugal",
   "type": "캐시백 포털",
   "status": "자동 수집",
-  "note": "상점 페이지 공개 — LG(befrugal.com/store/lgelectronics)·Samsung·GE·Whirlpool 수집"
+  "note": "브랜드 페이지 공개 — LG(befrugal.com/store/lgelectronics)·Samsung·GE·Whirlpool 수집"
  },
  {
   "publisher": "ID.me Shop",
   "type": "인증 회원 할인",
   "status": "자동 수집",
-  "note": "상점 페이지 공개(정정) — Samsung·GE 수집. LG 상점 페이지는 미확인. 구매는 자격 인증 필요"
+  "note": "브랜드 페이지 공개(정정) — Samsung·GE 수집. LG 페이지는 미확인. 구매는 자격 인증 필요"
  },
  {
   "publisher": "Savings.com",
   "type": "쿠폰",
   "status": "자동 수집",
-  "note": "상점 쿠폰 페이지"
+  "note": "브랜드 쿠폰 페이지"
  },
  {
   "publisher": "RebatesMe",
   "type": "캐시백 포털",
   "status": "로그인 필요",
-  "note": "상점 주소가 가입 화면으로 이동 — 비로그인으로는 요율 확인 불가"
+  "note": "브랜드 페이지 주소가 가입 화면으로 이동 — 비로그인으로는 요율 확인 불가"
  },
  {
   "publisher": "RetailMeNot",
   "type": "쿠폰",
   "status": "차단(봇 확인)",
-  "note": "모든 상점 페이지가 Cloudflare 봇 확인 화면 — 우회하지 않음. 수집 불가(2026-10-26 확인)"
+  "note": "모든 브랜드 페이지가 Cloudflare 봇 확인 화면 — 우회하지 않음. 수집 불가(2026-10-26 확인)"
  },
  {
   "publisher": "Slickdeals",
@@ -189,24 +189,24 @@
   "publisher": "Cartera Commerce",
   "type": "마일·포인트 적립",
   "status": "자동 수집",
-  "note": "항공 쇼핑몰 5곳(American AAdvantage·Delta SkyMiles·United MileagePlus·Southwest Rapid Rewards·Atmos Rewards) — LG·Samsung·Whirlpool 상점, $1당 마일·포인트"
+  "note": "항공 쇼핑몰 5곳(American AAdvantage·Delta SkyMiles·United MileagePlus·Southwest Rapid Rewards·Atmos Rewards) — LG·Samsung·Whirlpool 페이지, $1당 마일·포인트"
  },
  {
   "publisher": "Swagbucks (Prodege)",
   "type": "캐시백 포털",
   "status": "자동 수집 · LG 없음",
-  "note": "Samsung 상점 수집. LG·Whirlpool 상점은 Swagbucks에 없음(검색 결과 없음)"
+  "note": "Samsung 페이지 수집. LG·Whirlpool 페이지는 Swagbucks에 없음(검색 결과 없음)"
  },
  {
   "publisher": "Upromise (Prodege)",
   "type": "캐시백 포털",
   "status": "공개 상점 페이지 없음",
-  "note": "상점 페이지가 공개 주소로 열리지 않음(회원 전용 추정) — 비로그인 수집 불가"
+  "note": "브랜드 페이지가 공개 주소로 열리지 않음(회원 전용 추정) — 비로그인 수집 불가"
  },
  {
   "publisher": "MyPoints (Prodege)",
   "type": "포인트 적립",
   "status": "공개 상점 페이지 없음",
-  "note": "상점 페이지가 공개 주소로 열리지 않음(회원 전용 추정) — 비로그인 수집 불가"
+  "note": "브랜드 페이지가 공개 주소로 열리지 않음(회원 전용 추정) — 비로그인 수집 불가"
  }
 ]

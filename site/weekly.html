@@ -88,7 +88,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
   <div class="sec">
     <div class="hd"><h2>삼성 어필리에이트 잔존도</h2><a class="more" href="./#presence">일별 추이 →</a></div>
     <div class="kpis" id="presKpis"></div>
-    <p class="note" style="margin-top:0">공개 화면에서 삼성 상점·요율·언급이 보이는지를 셉니다. 제휴 계약이나 지출 규모를 뜻하지 않습니다. 캐시백 제공 퍼블리셔는 그 주 마지막 수집일 기준, 쿠폰 오퍼는 수집일 평균, 언급은 주간 합계이며, 수집 대상이 바뀐 주는 전주와 직접 비교하지 않도록 표시합니다.</p>
+    <p class="note" style="margin-top:0">공개 화면에서 퍼블리셔의 삼성 페이지·요율·언급이 보이는지를 셉니다. 제휴 계약이나 지출 규모를 뜻하지 않습니다. 캐시백 제공 퍼블리셔는 그 주 마지막 수집일 기준, 쿠폰 오퍼는 수집일 평균, 언급은 주간 합계이며, 수집 대상이 바뀐 주는 전주와 직접 비교하지 않도록 표시합니다.</p>
   </div>
 
   <div class="sec">
@@ -268,14 +268,14 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     });
     if (!W.gapRows.length) { const tr = el('tr'); const td = el('td', 'empty', '이 주에 LG·삼성 요율이 함께 게시된 퍼블리셔가 없습니다.'); td.colSpan = 6; tr.append(td); $('gapBody').append(tr); }
     const solo = Object.entries(W.ups).filter(([p]) => !W.gapRows.some(g => g.p === p));
-    $('gapNote').innerHTML = '퍼블리셔는 판매 실적 순. 상점 대표 요율(%) 기준이며 Cartera 항공 쇼핑몰(마일·포인트)은 단위가 달라 제외했습니다.' + (solo.length ? ' 삼성 비교 대상이 없는 LG 상향: ' + solo.map(([p, u]) => esc(p) + ' ' + u.days.length + '일').join(', ') + '.' : '');
+    $('gapNote').innerHTML = '퍼블리셔는 판매 실적 순. 브랜드 페이지 대표 요율(%) 기준이며 Cartera 항공 쇼핑몰(마일·포인트)은 단위가 달라 제외했습니다.' + (solo.length ? ' 삼성 비교 대상이 없는 LG 상향: ' + solo.map(([p, u]) => esc(p) + ' ' + u.days.length + '일').join(', ') + '.' : '');
 
     // presence
     const sameCov = V && V.coverage.length === 1 && W.coverage.length === 1 && V.coverage[0] === W.coverage[0];
     const covNote = W.coverage.length > 1 ? '주중 수집 범위 변경(' + W.coverage.join('→') + '곳)' : (V && !sameCov ? '전주와 수집 범위 다름 · 비교 생략' : '');
     if (W.pres.length) {
       const L = W.pres[W.pres.length - 1];
-      kpi('presKpis', 'ss', '삼성 캐시백 제공 퍼블리셔', L.ssP + '<small>곳 / 확인 ' + L.ssN + '곳</small>', fmt(L.d) + ' 기준 · 삼성 상점에 캐시백·리워드 요율이 표시된 곳 · LG ' + L.lgP + '/' + L.lgN + '곳' + (covNote ? '<br>' + covNote : ''));
+      kpi('presKpis', 'ss', '삼성 캐시백 제공 퍼블리셔', L.ssP + '<small>곳 / 확인 ' + L.ssN + '곳</small>', fmt(L.d) + ' 기준 · 퍼블리셔의 삼성 페이지에 캐시백·리워드 요율이 표시된 곳 · LG ' + L.lgP + '/' + L.lgN + '곳' + (covNote ? '<br>' + covNote : ''));
       kpi('presKpis', 'ss', '딜·리뷰 본문 언급 (주 합계)', '삼성 ' + W.pS('mSS') + '<small> : LG ' + W.pS('mLG') + '</small>', sameCov ? '전주 ' + V.pS('mSS') + ' : ' + V.pS('mLG') : '딜·리뷰 페이지 ' + Math.max(...W.pres.map(x => x.edN)) + '곳 · 수집 ' + W.pres.length + '일 합계');
       kpi('presKpis', 'ss', '삼성 언급 비중', W.pS('mSS') + W.pS('mLG') ? Math.round(W.pS('mSS') / (W.pS('mSS') + W.pS('mLG')) * 100) + '%' : '—', sameCov && V.pS('mSS') + V.pS('mLG') ? '전주 ' + Math.round(V.pS('mSS') / (V.pS('mSS') + V.pS('mLG')) * 100) + '%' : '삼성 ÷ (삼성 + LG)');
       kpi('presKpis', 'ss', '쿠폰 오퍼 (일평균)', W.pres.some(x => x.cpN) ? '삼성 ' + r1(W.pA('oSS')) + '<small> : LG ' + r1(W.pA('oLG')) + '</small>' : '—', '같은 쿠폰 사이트끼리');
