@@ -8,6 +8,19 @@ window.loadRank = async function () {
   return { rankOf, byRank, order };
 };
 
+// Promotion identity. Samsung.com cards are read sometimes as the headline only ("Save up to $900 on ranges")
+// and sometimes as eyebrow + headline + body ("Save up to $900 on ranges enjoy installation on us ..."),
+// which used to show up as 9~10 'new' and 'ended' promotions a day. Two titles are the same promotion when
+// the shorter normalized title (20+ chars) sits inside the longer one.
+window.promoKey = t => String(t || '').toLowerCase().replace(/[®™*]/g, '').replace(/[^a-z0-9$%]+/g, ' ').trim().slice(0, 160);
+window.samePromo = (a, b) => a === b || (Math.min(a.length, b.length) >= 20 && (a.length <= b.length ? b.includes(a) : a.includes(b)));
+window.findPromo = (keys, k) => { for (const x of keys) if (samePromo(x, k)) return x; return null; };
+// Map of key -> promo for one day, merging cards that are the same promotion.
+window.promoMap = (list) => { const m = new Map(); list.forEach(([k, p]) => { if (k && !findPromo(m.keys(), k)) m.set(k, p); }); return m; };
+
+// Shorten text at a word boundary (no half words in the briefing).
+window.cutWords = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n); const i = c.lastIndexOf(' '); return (i > n * 0.5 ? c.slice(0, i) : c).replace(/[\s,.;:—–-]+$/, '') + '…'; };
+
 // Dates that hold a complete collection. A one-page re-run creates a date with only a few rows;
 // such a date is left out until the full run fills it, so every tab compares like with like.
 window.reportDates = function (caps) {

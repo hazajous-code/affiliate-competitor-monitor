@@ -127,11 +127,11 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   const CORE = c => ci(c) <= 7;
 
   function promosBy(group) {
-    const on = {};
+    const raw = {}, on = {};
     caps.filter(r => r.brand_group === group && OK(r.status)).forEach(r => {
-      const m = on[r.date] = on[r.date] || new Map();
-      (r.promos || []).forEach(p => { const k = (p.title || '').toLowerCase().slice(0, 80); if (!m.has(k)) m.set(k, { ...p, page: r.target, kind: r.kind, shot: r.shot, end: iso(p.valid, r.date) }); });
+      (raw[r.date] = raw[r.date] || []).push(...(r.promos || []).map(p => [promoKey(p.title), { ...p, page: r.target, kind: r.kind, shot: r.shot, end: iso(p.valid, r.date) }]));
     });
+    Object.keys(raw).forEach(d => { on[d] = promoMap(raw[d]); });
     return on;
   }
   const ssOn = promosBy('Samsung.com'), lgOn = promosBy('LG.com');
@@ -171,7 +171,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
     list.forEach(([k, p]) => {
       const c = el('div', 'promo'); c.append(el('div', 't', p.title));
       const m = el('div', 'm');
-      if (prevDay && prevKeys.size && !prevKeys.has(k)) m.append(el('span', 'pill new', 'NEW'));
+      if (prevDay && prevKeys.size && !findPromo(prevKeys, k)) m.append(el('span', 'pill new', 'NEW'));
       m.append(el('span', 'pill', p.category));
       if (p.discount) m.append(el('span', null, p.discount));
       if (p.end) { const left = Math.round((new Date(p.end) - new Date(lastDay)) / 864e5); m.append(el('span', left <= 3 ? 'soon' : null, '~' + fmt(p.end) + (left >= 0 ? ' (D-' + left + ')' : ' (종료)'))); }
@@ -214,7 +214,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
     else {
       td.append(el('div', null, '진행 ' + cur.size + '건 (가전·TV·모니터 ' + [...cur.values()].filter(p => CORE(p.category)).length + ')'));
       if (prev && prev.size) {
-        const started = [...cur.keys()].filter(k => !prev.has(k)), ended = [...prev.keys()].filter(k => !cur.has(k));
+        const started = [...cur.keys()].filter(k => !findPromo(prev.keys(), k)), ended = [...prev.keys()].filter(k => !findPromo(cur.keys(), k));
         if (started.length) { const ul = el('ul', 'tight'); started.forEach(k => ul.append(el('li', 'ssc', '시작: ' + cur.get(k).title))); td.append(ul); }
         if (ended.length) { const ul = el('ul', 'tight'); ended.forEach(k => ul.append(el('li', 'mute', '종료: ' + prev.get(k).title))); td.append(ul); }
       }

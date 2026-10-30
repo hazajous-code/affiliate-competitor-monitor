@@ -277,11 +277,11 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
       if (r.shot) { const x = el('a', null, ' 화면'); x.href = r.shot; x.onclick = e => { e.preventDefault(); openImg(r.shot); }; rt.append(x); }
       it.append(l, rt); c.append(it);
     });
-    const titles = (d, g) => new Set(caps.filter(r => r.date === d && r.brand_group === g).flatMap(r => (r.promos || []).map(p => (p.title || '').toLowerCase().slice(0, 80))));
+    const titles = (d, g) => new Set(promoMap(caps.filter(r => r.date === d && r.brand_group === g).flatMap(r => (r.promos || []).map(p => [promoKey(p.title), p]))).keys());
     const now = titles(day, promoTarget), before = prevDay ? titles(prevDay, promoTarget) : new Set();
     if (now.size) {
       const d = el('div', 'promo');
-      d.append(promoTarget + ' 프로모션 ' + now.size + '건' + (before.size ? ' · 신규 ' + [...now].filter(t => !before.has(t)).length + ' · 종료 ' + [...before].filter(t => !now.has(t)).length : '') + ' · ');
+      d.append(promoTarget + ' 프로모션 ' + now.size + '건' + (before.size ? ' · 신규 ' + [...now].filter(t => !findPromo(before, t)).length + ' · 종료 ' + [...before].filter(t => !findPromo(now, t)).length : '') + ' · ');
       const a = el('a', null, '자세히'); a.href = promoLink; d.append(a); c.append(d);
     }
     return c;
