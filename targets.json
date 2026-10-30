@@ -525,7 +525,8 @@
   "url": "https://www.rakuten.com/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "rakuten-hotdeals",
@@ -536,7 +537,8 @@
   "url": "https://www.rakuten.com/coupons",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "rakuten-cat-home",
@@ -547,7 +549,8 @@
   "url": "https://www.rakuten.com/home-garden",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "rakuten-cat-electronics",
@@ -558,7 +561,8 @@
   "url": "https://www.rakuten.com/electronics",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "tcb-home",
@@ -569,7 +573,8 @@
   "url": "https://www.topcashback.com/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "tcb-offers",
@@ -580,7 +585,8 @@
   "url": "https://www.topcashback.com/offers/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "tcb-cat-tech",
@@ -591,7 +597,8 @@
   "url": "https://www.topcashback.com/category/tech/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "tcb-cat-appliances",
@@ -602,7 +609,8 @@
   "url": "https://www.topcashback.com/category/home-appliances/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "rmn-home",
@@ -613,7 +621,8 @@
   "url": "https://www.retailmenot.com/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "cartera-aa-home",
@@ -624,7 +633,8 @@
   "url": "https://www.aadvantageeshopping.com/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "idme-home",
@@ -635,7 +645,8 @@
   "url": "https://shop.id.me/",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "techradar-deals",
@@ -646,7 +657,8 @@
   "url": "https://www.techradar.com/deals",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "tomsguide-deals",
@@ -657,7 +669,8 @@
   "url": "https://www.tomsguide.com/deals",
   "parser": "slots",
   "access": "public",
-  "enabled": true
+  "enabled": false,
+  "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
   "id": "lgcom-promotions",

@@ -66,7 +66,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
 <link rel="stylesheet" href="theme.css?v=dev">
 </head>
 <body>
-<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="weekly.html" class="on">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="weekly.html" class="on">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a></nav></div></div>
 <div class="paper">
   <div class="mast">
     <div class="kicker" id="kicker">Weekly Digest</div>
@@ -89,12 +89,6 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     <div class="hd"><h2>삼성 어필리에이트 잔존도</h2><a class="more" href="./#presence">일별 추이 →</a></div>
     <div class="kpis" id="presKpis"></div>
     <p class="note" style="margin-top:0">공개 화면에서 삼성 상점·요율·언급이 보이는지를 셉니다. 제휴 계약이나 지출 규모를 뜻하지 않습니다. 캐시백 제공 퍼블리셔는 그 주 마지막 수집일 기준, 쿠폰 오퍼는 수집일 평균, 언급은 주간 합계이며, 수집 대상이 바뀐 주는 전주와 직접 비교하지 않도록 표시합니다.</p>
-  </div>
-
-  <div class="sec">
-    <div class="hd"><h2>편성 지면 관측률</h2><a class="more" href="placements.html">편성 지면 관측 →</a></div>
-    <div class="kpis" id="plKpis"></div>
-    <div class="box" id="plBox"></div>
   </div>
 
   <div class="sec">
@@ -124,10 +118,9 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
 <script>
 (async function(){
   const { byRank } = await loadRank();
-  const [caps0, runs, plan, weekly0] = await Promise.all([loadJSON('data/captures.json'), loadJSON('data/runs.json'), loadJSON('data/placements.json'), loadJSON('data/weekly.json')]);
+  const [caps0, runs, weekly0] = await Promise.all([loadJSON('data/captures.json'), loadJSON('data/runs.json'), loadJSON('data/weekly.json')]);
   loadDone(!!caps0);
   const caps = caps0 || [], stored = weekly0 || {};
-  const P = (plan && plan.placements) || [];
   const $ = id => document.getElementById(id);
   const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
   const html = (e, s) => { e.innerHTML = s; return e; };
@@ -146,15 +139,13 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
   const CORE = c => ['TV·AV', '가전 전반', '냉장고', '세탁', '주방', '청소·공조', '모니터·PC', '오디오'].includes(c);
   const valOf = r => r.rate != null ? r.rate : r.points;
   const wasOf = r => { const m = r && /was\s+(\d+(?:\.\d+)?)%/i.exec(r.rate_text || ''); return m ? Number(m[1]) : null; };
-  const BASE = { 'capone-lg': 2.5 };   // same rule as the placements page
+  const BASE = { 'capone-lg': 2.5 };   // usual Capital One LG rate when no event runs
   const elevated = r => r && OK(r.status) && r.rate != null && (wasOf(r) != null || (BASE[r.target] != null && r.rate > BASE[r.target]));
-  const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
   const LIST_CATS = ['TV', '냉장고', '세탁기', '모니터'];
   const shortPub = p => String(p).replace(/^Cartera · /, '').replace(/ Shopping$/, '');
 
   const dates = publishedDates(caps, runs);
   const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
-  const PJ = placementJudge(at, dates);
   const rowsOn = d => caps.filter(r => r.date === d);
   const weeks = [...new Set(dates.map(monday))].sort();
 
@@ -199,10 +190,6 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     });
     const pA = k => pres.length ? avg(pres.map(x => x[k])) : null, pS = k => pres.reduce((a, x) => a + x[k], 0);
     const coverage = [...new Set(pres.map(x => x.ssN))];
-    // 3) placements running in the week
-    const inWeek = P.filter(p => p.start && p.start <= all[6] && (p.end || p.start) >= all[0] && p.method !== 'n/a').sort((a, b) => byRank(a.publisher, b.publisher));
-    const pl = inWeek.map(p => { const J = PJ.judge(p, ds); return { p, s: J.s, days: J.hits ? J.hits.length : 0, of: J.of, level: J.level }; });
-    const hit = pl.filter(x => x.s === 'hit'), miss = pl.filter(x => x.s === 'miss'), brand = pl.filter(x => x.s === 'brand');
     // 4) LG.com promotions x cashback raises, per collected day
     const cal = all.map(d => {
       if (!dates.includes(d)) return { d, nodata: true };
@@ -222,14 +209,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
       return r ? { t, r, cat: r.category, pub: r.publisher, rk: r.ranking, lg: r.ranking.filter(x => x.brand === 'LG'), ss: r.ranking.filter(x => x.brand === 'Samsung') } : null;
     }).filter(Boolean).sort((a, b) => LIST_CATS.indexOf(a.cat) - LIST_CATS.indexOf(b.cat) || byRank(a.pub, b.pub));
     return { lists, wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, cmpDays, lgLeadDays, ssAnyDays, ups, ssMoves,
-      pres, pA, pS, coverage, inWeek, pl, hit, miss, brand, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
-  }
-
-  // unique placement names (the plan repeats a slot once per category); count always adds up
-  function missList(miss) {
-    const g = new Map(); miss.forEach(x => { const k = x.p.publisher + ' ' + cutWords(x.p.placement, 30); g.set(k, (g.get(k) || 0) + 1); });
-    const keys = [...g.keys()], rest = keys.slice(3).reduce((a, k) => a + g.get(k), 0);
-    return keys.slice(0, 3).map(k => esc(k) + (g.get(k) > 1 ? ' ×' + g.get(k) : '')).join(', ') + (rest ? ' 외 ' + rest + '건' : '');
+      pres, pA, pS, coverage, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
   }
 
   function summary(W, V) {
@@ -241,8 +221,6 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
       const same = V && V.pres.length && V.coverage.length === 1 && W.coverage.length === 1 && V.coverage[0] === W.coverage[0];
       S.push('<b>삼성 잔존도</b> 캐시백 제공 퍼블리셔 ' + W.pres[W.pres.length - 1].ssP + '곳(확인 ' + W.pres[W.pres.length - 1].ssN + '곳, ' + fmt(W.pres[W.pres.length - 1].d) + ' 기준) · 딜·리뷰 언급 삼성 ' + W.pS('mSS') + ' : LG ' + W.pS('mLG') + (same ? '(전주 ' + V.pS('mSS') + ' : ' + V.pS('mLG') + ')' : '') + (W.pres.some(x => x.cpN) ? ' · 쿠폰 오퍼 일평균 삼성 ' + r1(W.pA('oSS')) + ' : LG ' + r1(W.pA('oLG')) : ''));
     }
-    const ck = W.hit.length + W.miss.length + W.brand.length;
-    if (W.inWeek.length) S.push('<b>편성</b> 주중 진행 ' + W.inWeek.length + '건 · 공개 화면 확인 ' + ck + '건 중 관측 ' + W.hit.length + '건' + (ck ? '(관측률 ' + Math.round(W.hit.length / ck * 100) + '%' + (V && V.hit.length + V.miss.length + V.brand.length ? ', 전주 ' + Math.round(V.hit.length / (V.hit.length + V.miss.length + V.brand.length) * 100) + '%' : '') + (W.brand.length ? ' · 브랜드 존재만 ' + W.brand.length + '건은 관측에서 제외' : '') + ')' : '') + (W.miss.length ? ' · 미관측 ' + missList(W.miss) : ''));
     if (W.lists.length) {
       const L = W.lists, lgIn = L.filter(x => x.lg.length), ssIn = L.filter(x => x.ss.length);
       const best = c => { const xs = L.filter(x => x.cat === c && x.lg.length).map(x => x.lg[0].n); return xs.length ? Math.min(...xs) + '위' : '없음'; };
@@ -302,20 +280,6 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
       kpi('presKpis', 'ss', '삼성 언급 비중', W.pS('mSS') + W.pS('mLG') ? Math.round(W.pS('mSS') / (W.pS('mSS') + W.pS('mLG')) * 100) + '%' : '—', sameCov && V.pS('mSS') + V.pS('mLG') ? '전주 ' + Math.round(V.pS('mSS') / (V.pS('mSS') + V.pS('mLG')) * 100) + '%' : '삼성 ÷ (삼성 + LG)');
       kpi('presKpis', 'ss', '쿠폰 오퍼 (일평균)', W.pres.some(x => x.cpN) ? '삼성 ' + r1(W.pA('oSS')) + '<small> : LG ' + r1(W.pA('oLG')) + '</small>' : '—', '같은 쿠폰 사이트끼리');
     } else $('presKpis').append(el('div', 'empty', '이 주의 수집 데이터가 없습니다.'));
-
-    // placements
-    const ck = W.hit.length + W.miss.length + W.brand.length, vck = V ? V.hit.length + V.miss.length + V.brand.length : 0;
-    kpi('plKpis', null, '주중 진행 편성', W.inWeek.length + '<small>건</small>', '공개 화면 확인 대상 ' + ck + '건');
-    kpi('plKpis', null, '관측률', ck ? Math.round(W.hit.length / ck * 100) + '%' : '—', ck ? '관측 ' + W.hit.length + ' / 확인 ' + ck + (vck ? ' · 전주 ' + Math.round(V.hit.length / vck * 100) + '%' : '') : '확인 가능한 지면 없음');
-    kpi('plKpis', null, '브랜드 존재만', W.brand.length + '<small>건</small>', '기간 밖에도 LG가 보이는 페이지 — 관측에서 제외');
-    kpi('plKpis', null, '공개 웹 확인 불가', W.pl.filter(x => x.s === 'none' || x.s === 'fail').length + '<small>건</small>', '이메일·앱·회원 전용 등 — 퍼블리셔 증빙 필요');
-    const ul = el('ul');
-    W.miss.forEach(x => ul.append(html(el('li'), '<span class="tag miss">미관측</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + fmt(x.p.start) + '~' + fmt(x.p.end || x.p.start) + ', 수집 ' + x.of + '일)</span>')));
-    W.brand.forEach(x => ul.append(html(el('li'), '<span class="tag end">브랜드 존재만</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + x.days + '/' + x.of + '일, 기간 밖에도 LG 노출)</span>')));
-    W.hit.forEach(x => ul.append(html(el('li'), '<span class="tag hit">관측 · ' + esc(x.level) + '</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + x.days + '/' + x.of + '일)</span>')));
-    $('plBox').append(html(el('div', 'mute', ''), '<span style="font-size:12.5px">미관측 지면은 공개 화면에서 한 번도 확인되지 않은 것으로, CJ·퍼블리셔에 집행 증빙을 요청할 후보입니다. 부분 확인(타기팅·순환) 지면은 안 보여도 미집행으로 단정하지 않습니다.</span>'));
-    if (!ul.childNodes.length) ul.append(el('li', 'mute', '이 주에 공개 화면으로 확인할 수 있는 편성이 없습니다.'));
-    $('plBox').append(ul);
 
     // best-of lists
     const L = W.lists;

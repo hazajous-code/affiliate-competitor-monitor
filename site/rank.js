@@ -25,44 +25,6 @@ window.cleanDiscount = p => { const d = p && p.discount; if (!d) return d; if (/
 window.promoMap = (list) => { const m = new Map(); list.forEach(([k, p]) => { if (k && isBenefit(p) && !findPromo(m.keys(), k)) m.set(k, { ...p, discount: cleanDiscount(p) }); }); return m; };
 window.promoNotices = (list) => list.filter(([, p]) => !isBenefit(p)).length;
 
-// Placement evidence. Seeing LG on a page proves the slot ran only if LG is NOT there on ordinary days.
-//  - rate:   LG store rate raised in the window                 -> '요율 상향' (counts as observed)
-//  - window: LG on the page in the window, mostly absent outside -> '기간 한정 노출' (counts as observed)
-//  - brand:  LG on the page in the window but also on most days outside it, or no outside days to compare
-//            -> '브랜드 존재만' (does not prove the slot; not counted as observed)
-window.placementJudge = function (at, dates) {
-  const OK = s => s === '수집' || s === '수집(텍스트)';
-  const BASE = { 'capone-lg': 2.5 };   // usual public reward rate when no event runs
-  const elevated = r => r && OK(r.status) && r.rate != null && (/was\s/i.test(r.rate_text || '') || (BASE[r.target] != null && r.rate > BASE[r.target]));
-  const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
-  const row = (d, t) => at[d] && at[d][t];
-  const outside = p => { const out = dates.filter(d => d < p.start || d > (p.end || p.start)); const seen = out.filter(d => p.targets.some(t => lgSeen(row(d, t)))); return { n: out.length, seen: seen.length }; };
-  const judgeDay = (p, d) => {
-    const rows = p.targets.map(t => row(d, t)).filter(Boolean);
-    if (!rows.length) return { s: 'none' };
-    const hit = rows.find(p.method === 'rate' ? elevated : lgSeen);
-    if (hit) return { s: 'hit', row: hit };
-    if (rows.some(r => OK(r.status) || r.status === '요율 미확인' || r.status === '요율 확인 필요')) return { s: 'miss', row: rows[0] };
-    return { s: 'fail', row: rows[0] };
-  };
-  // judge over the given days (a single day, a week, or the whole window)
-  const judge = (p, days) => {
-    if (!['rate', 'presence', 'partial'].includes(p.method) || !p.start) return { s: 'none', of: 0 };
-    const win = days.filter(d => d >= p.start && d <= (p.end || p.start));
-    const per = win.map(d => ({ d, ...judgeDay(p, d) }));
-    const hits = per.filter(x => x.s === 'hit');
-    const o = p.method === 'rate' ? null : outside(p);
-    if (hits.length) {
-      const brand = o && (o.n === 0 || o.seen / o.n >= 0.5);
-      return { s: brand ? 'brand' : 'hit', level: p.method === 'rate' ? '요율 상향' : brand ? '브랜드 존재만' : '기간 한정 노출', hits, per, of: win.length, outside: o };
-    }
-    if (per.some(x => x.s === 'miss')) return { s: 'miss', per, of: win.length, outside: o };
-    if (per.some(x => x.s === 'fail')) return { s: 'fail', per, of: win.length, outside: o };
-    return { s: 'none', per, of: win.length, outside: o };
-  };
-  return { judge, judgeDay, elevated, lgSeen, outside };
-};
-
 // Shorten text at a word boundary (no half words in the briefing).
 window.cutWords = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n); const i = c.lastIndexOf(' '); return (i > n * 0.5 ? c.slice(0, i) : c).replace(/[\s,.;:—–-]+$/, '') + '…'; };
 

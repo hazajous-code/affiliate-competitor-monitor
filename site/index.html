@@ -63,7 +63,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 <link rel="stylesheet" href="theme.css?v=dev">
 </head>
 <body>
-<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./" class="on">데일리 브리핑</a><a href="weekly.html">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./" class="on">데일리 브리핑</a><a href="weekly.html">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a></nav></div></div>
 <div class="paper">
   <div class="mast">
     <div class="kicker" id="kicker">Daily Brief</div>
@@ -96,11 +96,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   </div>
 
   <div class="sec">
-    <div class="hd"><h2>편성 지면</h2><a class="more" href="placements.html">편성 지면 관측 →</a></div>
-    <div class="two"><div class="box" id="nowBox"></div><div class="box" id="nextBox"></div></div>
-  </div>
-
-  <div class="sec">
     <div class="hd"><h2>그 외 경쟁사 · 수집 상태</h2><a class="more" href="monitor.html#verify">수집 검증 →</a></div>
     <div class="box" id="etcBox"></div>
   </div>
@@ -119,7 +114,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 (async function(){
   const { byRank, rankOf } = await loadRank();
   const get = p => loadJSON(p);
-  const [caps0, runs, plan, briefs0] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json'), get('data/briefs.json')]);
+  const [caps0, runs, briefs0] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/briefs.json')]);
   loadDone(!!caps0);
   const caps = caps0 || [], briefs = briefs0 || {};
   const $ = id => document.getElementById(id);
@@ -135,11 +130,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   const longDate = d => d.slice(0, 4) + '년 ' + Number(d.slice(5, 7)) + '월 ' + Number(d.slice(8, 10)) + '일 (' + WD[new Date(d + 'T12:00:00Z').getUTCDay()] + ')';
   const dates = publishedDates(caps, runs);
   const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
-  const P = (plan && plan.placements) || [];
-  const BASE = { 'capone-lg': 2.5 };
-  const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
-  const elevated = r => r && OK(r.status) && r.rate != null && (/was\s/i.test(r.rate_text || '') || (BASE[r.target] != null && r.rate > BASE[r.target]));
-  const PJ = placementJudge(at, dates);
 
   // Everything the briefing shows for one collection day, using only data up to that day.
   function model(day) {
@@ -164,11 +154,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
                ending: list.filter(([, p]) => p.end && daysTo(p.end) >= 0 && daysTo(p.end) <= 7).sort((a, b) => a[1].end.localeCompare(b[1].end)) };
     }
     const LG = promoSet('LG.com'), SS = promoSet('Samsung.com');
-    const active = P.filter(p => p.start && p.start <= day && (p.end || p.start) >= day && p.method !== 'n/a').sort((a, b) => byRank(a.publisher, b.publisher));
-    const judged = active.map(p => { const J = PJ.judge(p, [day]); return { p, s: J.s, J }; });
-    const chk = judged.filter(x => ['hit', 'brand', 'miss'].includes(x.s));
-    const end7 = new Date(new Date(day).getTime() + 7 * 864e5).toISOString().slice(0, 10);
-    const nextEv = P.filter(p => p.start > day && p.start <= end7 && /cash ?back|flash cash|bonus|double|big stack|discover new stores/i.test(p.placement)).sort((a, b) => a.start.localeCompare(b.start) || byRank(a.publisher, b.publisher));
     const etc = cur.filter(r => STORE(r.kind) && ['경쟁사', '유통'].includes(r.brand_group) && r.brand !== 'Samsung' && moved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
     const isLatest = day === dates[dates.length - 1];
     const vr = cur;
@@ -185,7 +170,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     }).filter(Boolean);
     const moveTag = r => { const p = prevRow[r.target]; const a = wasOf(p) != null, b = wasOf(r) != null; return !a && b ? '(상향 시작)' : a && !b ? '(상향 종료)' : a && b ? '(상향 폭 변경)' : ''; };
     const SSP = presence(day);
-    return { day, prevDay, cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, active, judged, chk, nextEv, etc, vr, isLatest, wasOf, baseMoves, moveTag, SSP };
+    return { day, prevDay, cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, etc, vr, isLatest, wasOf, baseMoves, moveTag, SSP };
   }
 
   // Samsung presence on the same public pages, for the "did Samsung actually leave affiliate?" question.
@@ -221,7 +206,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   // The summary lines — the same text the archive keeps.
   function summary(m) {
     const S = [];
-    const { lgS, ssS, LG, SS, active, chk, nextEv, moved, prevRow, wasOf, baseMoves, moveTag, SSP } = m;
+    const { lgS, ssS, LG, SS, moved, prevRow, wasOf, baseMoves, moveTag, SSP } = m;
     if (lgS.length) {
       const rated = lgS.filter(r => r.rate != null);
       const top = rated.length ? rated.reduce((a, b) => b.rate > a.rate ? b : a) : null;
@@ -241,7 +226,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     }
     if (LG.list.length) S.push('<b>LG.com</b> 프로모션 ' + LG.list.length + '건' + (LG.fresh.length ? ', 신규 ' + LG.fresh.length + '건(' + esc(cutWords(LG.fresh[0][1].title, 50)) + (LG.fresh.length > 1 ? ' 외' : '') + ')' : '') + (LG.gone.length ? ', 내려감 ' + LG.gone.length + '건' : '') + (LG.ending.length ? ' · 7일 내 종료 ' + LG.ending.length + '건(가장 빠른 ' + fmt(LG.ending[0][1].end) + ': ' + esc(cutWords(LG.ending[0][1].title, 60)) + ')' : ''));
     if (SS.list.length) { const wk = SS.list.find(([, p]) => /samsung week/i.test(p.title) && p.end); S.push('<b>Samsung.com</b> 프로모션 ' + SS.list.length + '건(가전·TV·모니터 ' + SS.list.filter(([, p]) => CORE(p.category)).length + ')' + (SS.fresh.length ? ', 신규 ' + SS.fresh.length + '건' : '') + (SS.gone.length ? ', 내려감 ' + SS.gone.length + '건' : '') + (wk ? ' · Samsung Week ~' + fmt(wk[1].end) + ' 진행 중' : '')); }
-    if (active.length) S.push('<b>편성</b> 진행 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건' + (chk.some(x => x.s === 'brand') ? '(브랜드 존재만 ' + chk.filter(x => x.s === 'brand').length + '건 별도)' : '') + (nextEv.length ? ' · 7일 내 캐시백 이벤트 ' + nextEv.length + '건(' + evList(nextEv) + ')' : ''));
     return S;
   }
   // used by scripts/archive_briefs.py after each collection
@@ -250,9 +234,9 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   window.briefReady = true;
 
   function render(day) {
-    ['dateline', 'dnav', 'rateBody', 'lgBox', 'ssBox', 'nowBox', 'nextBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
+    ['dateline', 'dnav', 'rateBody', 'lgBox', 'ssBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
     const m = model(day);
-    const { cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, judged, chk, active, nextEv, etc, vr, isLatest } = m;
+    const { cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, etc, vr, isLatest } = m;
 
     // masthead
     $('kicker').textContent = 'Daily Brief · No.' + (dates.indexOf(day) + 1);
@@ -347,20 +331,6 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
       box.append(ul);
     }
     promoBox($('lgBox'), 'LG.com', LG); promoBox($('ssBox'), 'Samsung.com', SS);
-
-    // placements
-    const nb = $('nowBox'); nb.append(el('h3', null, isLatest ? '오늘 진행 중' : '이날 진행 중'));
-    nb.append(el('div', 'sub', '편성 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건 · 브랜드 존재만 ' + chk.filter(x => x.s === 'brand').length + '건'));
-    const nul = el('ul'); const rk = { hit: 0, brand: 1, miss: 2, fail: 3, none: 4 };
-    judged.slice().sort((a, b) => rk[a.s] - rk[b.s]).slice(0, 8).forEach(({ p, s, J }) => nul.append(html(el('li', s === 'none' ? 'mute' : null), '<span class="tag ' + (s === 'hit' ? 'hit' : s === 'brand' ? 'end' : 'miss') + '">' + ({ hit: '관측 · ' + (J.level || ''), brand: '브랜드 존재만', miss: '미관측', fail: '수집 실패', none: '확인 불가' })[s] + '</span>' + esc(p.publisher) + ' · ' + esc(p.placement) + ' <span class="mute">(~' + fmt(p.end || p.start) + ')</span>')));
-    if (judged.length > 8) nul.append(el('li', 'mute', '외 ' + (judged.length - 8) + '건'));
-    if (!judged.length) nul.append(el('li', 'mute', '진행 중인 편성이 없습니다.'));
-    nb.append(nul);
-    const xb = $('nextBox'); xb.append(el('h3', null, '7일 내 시작하는 캐시백 이벤트')); xb.append(el('div', 'sub', nextEv.length + '건'));
-    const xul = el('ul');
-    nextEv.slice(0, 8).forEach(p => { const overlap = LG.list.filter(([, q]) => !q.end || q.end >= p.start).length; xul.append(html(el('li'), '<b>' + fmt(p.start) + (p.end && p.end !== p.start ? '–' + fmt(p.end) : '') + '</b> ' + esc(p.publisher) + ' · ' + esc(p.placement) + ' <span class="mute">· 겹치는 LG.com 프로모션 ' + overlap + '건</span>')); });
-    if (!nextEv.length) xul.append(el('li', 'mute', '예정된 캐시백 이벤트가 없습니다.'));
-    xb.append(xul);
 
     // other competitors + collection issues
     const fails = vr.filter(r => !OK(r.status) && !['요율 미확인', '로그인 입구만', '요율 확인 필요'].includes(r.status));

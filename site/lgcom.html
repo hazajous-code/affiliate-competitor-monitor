@@ -45,7 +45,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 <link rel="stylesheet" href="theme.css?v=dev">
 </head>
 <body>
-<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="weekly.html">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html" class="on">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="placements.html">편성 지면 관측</a></nav></div></div>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="weekly.html">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html" class="on">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a></nav></div></div>
 <div class="wrap">
   <header>
     <h1>LG.com 프로모션 × 캐시백</h1>
@@ -67,14 +67,8 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 
   <section class="card" id="timeline">
     <h2>일자별 타임라인</h2>
-    <p class="note">하루 한 줄. LG.com 프로모션 시작·종료와 퍼블리셔 LG 요율 변화, 편성표의 캐시백 이벤트를 같은 줄에 놓았습니다.</p>
+    <p class="note">하루 한 줄. LG.com 프로모션 시작·종료와 퍼블리셔 LG 요율 변화를 같은 줄에 놓았습니다.</p>
     <div class="tw"><table><thead id="tlHead"></thead><tbody id="tlBody"></tbody></table></div>
-  </section>
-
-  <section class="card" id="ahead">
-    <h2>예정된 캐시백 이벤트와 프로모션 겹침</h2>
-    <p class="note">편성표의 캐시백·보너스 이벤트 기간에, 현재 LG.com 프로모션의 유효기간이 겹치는지 봅니다. 프로모션 시작일은 처음 관측한 날로 봅니다.</p>
-    <div class="tw"><table><thead><tr><th>퍼블리셔</th><th>캐시백 이벤트</th><th>기간</th><th>겹치는 LG.com 프로모션</th></tr></thead><tbody id="aheadBody"></tbody></table></div>
   </section>
 
   <section class="card" id="method">
@@ -94,7 +88,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 (async function(){
   const { byRank } = await loadRank();
   const get = p => loadJSON(p);
-  const [caps0, runs, plan] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json')]);
+  const [caps0, runs] = await Promise.all([get('data/captures.json'), get('data/runs.json')]);
   loadDone(!!caps0);
   const caps = caps0 || [];
   const $ = id => document.getElementById(id);
@@ -116,8 +110,6 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
     const m = promosOn[r.date] = promosOn[r.date] || new Map();
     (r.promos || []).filter(isBenefit).forEach(p => { const k = p.url || p.title; if (!m.has(k)) m.set(k, { ...p, page: r.target, shot: r.shot, end: iso(p.valid, r.date) }); });
   });
-  const firstSeen = {};
-  dates.forEach(d => (promosOn[d] || new Map()).forEach((p, k) => { if (!firstSeen[k]) firstSeen[k] = d; }));
 
   // banner + freshness
   const lgRows = caps.filter(r => r.date === lastDay && r.brand_group === 'LG.com');
@@ -178,10 +170,9 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 
   // timeline
   const pubTargets = [...new Map(caps.filter(r => r.brand_group === 'LG' && r.brand !== 'LG Partner Store' && STORE(r.kind) && r.rate != null).map(r => [r.target, r.publisher])).entries()].sort((a, b) => byRank(a[1], b[1]));
-  const events = (plan ? plan.placements : []).filter(p => p.start && /cash ?back|flash cash|big stack|discover new stores|bonus days/i.test(p.placement) && !/email/i.test(p.placement));
   const th = el('tr'); ['날짜', 'LG.com 프로모션'].forEach(h => th.append(el('th', null, h)));
   pubTargets.forEach(([, p]) => th.append(el('th', null, p + ' LG')));
-  th.append(el('th', 'hide-sm', '편성 캐시백 이벤트')); $('tlHead').append(th);
+  $('tlHead').append(th);
   [...dates].reverse().forEach((d, i, arr) => {
     const tr = el('tr'); tr.append(el('td', 'num', fmt(d)));
     const cur = promosOn[d] || new Map(); const prev = promosOn[arr[i + 1]] || null;
@@ -203,24 +194,10 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
       else { c.append(el('span', /was\s/i.test(r.rate_text || '') ? 'hi' : null, r.rate != null ? pct(r.rate) : r.status)); }
       tr.append(c);
     });
-    const ev = events.filter(p => p.start <= d && d <= p.end).sort((a, b) => byRank(a.publisher, b.publisher));
-    const e = el('td', 'hide-sm'); if (ev.length) { const ul = el('ul', 'tight'); ev.forEach(p => ul.append(el('li', null, p.publisher + ' · ' + p.placement))); e.append(ul); } else e.append(el('span', 'mute', '—'));
-    tr.append(e); $('tlBody').append(tr);
+    $('tlBody').append(tr);
   });
   if (!dates.length) { const tr = el('tr'); tr.append(el('td', 'empty', '다음 자동 수집부터 표시됩니다.')); $('tlBody').append(tr); }
 
-  // upcoming cash back events vs current promotions
-  const active = today.map(([k, p]) => ({ ...p, start: firstSeen[k] }));
-  const upcoming = events.filter(p => !lastDay || p.end >= lastDay).sort((a, b) => a.start.localeCompare(b.start) || byRank(a.publisher, b.publisher));
-  if (!upcoming.length) { const tr = el('tr'); const td = el('td', 'empty', '편성표에 남은 캐시백 이벤트가 없습니다.'); td.colSpan = 4; tr.append(td); $('aheadBody').append(tr); }
-  upcoming.forEach(p => {
-    const tr = el('tr'); tr.append(el('td', null, p.publisher), el('td', null, p.placement), el('td', 'num', fmt(p.start) + (p.end !== p.start ? '–' + fmt(p.end) : '')));
-    const ov = active.filter(a => (!a.end || a.end >= p.start) && (!a.start || a.start <= p.end));
-    const c = el('td');
-    if (!ov.length) c.append(el('span', 'warn', today.length ? '겹치는 프로모션 없음 (현재 기준)' : '프로모션 데이터 수집 전'));
-    else { const ul = el('ul', 'tight'); ov.forEach(a => ul.append(el('li', null, a.title + (a.end ? ' (~' + fmt(a.end) + ')' : '')))); c.append(ul); }
-    tr.append(c); $('aheadBody').append(tr);
-  });
 })();
 </script>
 </body>
