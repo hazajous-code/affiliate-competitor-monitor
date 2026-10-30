@@ -281,7 +281,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px;color:var(--fg)}ul.rules li{m
     const now = titles(day, promoTarget), before = prevDay ? titles(prevDay, promoTarget) : new Set();
     if (now.size) {
       const d = el('div', 'promo');
-      d.append(promoTarget + ' 프로모션 ' + now.size + '건' + (before.size ? ' · 신규 ' + [...now].filter(t => !findPromo(before, t)).length + ' · 종료 ' + [...before].filter(t => !findPromo(now, t)).length : '') + ' · ');
+      d.append(promoTarget + ' 프로모션 ' + now.size + '건' + (before.size ? ' · 신규 ' + [...now].filter(t => !findPromo(before, t)).length + ' · 내려감 ' + [...before].filter(t => !findPromo(now, t)).length : '') + ' · ');
       const a = el('a', null, '자세히'); a.href = promoLink; d.append(a); c.append(d);
     }
     return c;

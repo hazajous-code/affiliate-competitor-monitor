@@ -144,6 +144,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
 
   const dates = publishedDates(caps, runs);
   const at = {}; caps.forEach(r => (at[r.date] = at[r.date] || {})[r.target] = r);
+  const PJ = placementJudge(at, dates);
   const rowsOn = d => caps.filter(r => r.date === d);
   const weeks = [...new Set(dates.map(monday))].sort();
 
@@ -187,16 +188,8 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     const coverage = [...new Set(pres.map(x => x.ssN))];
     // 3) placements running in the week
     const inWeek = P.filter(p => p.start && p.start <= all[6] && (p.end || p.start) >= all[0] && p.method !== 'n/a').sort((a, b) => byRank(a.publisher, b.publisher));
-    const pl = inWeek.map(p => {
-      if (!['rate', 'presence', 'partial'].includes(p.method)) return { p, s: 'none' };
-      const win = ds.filter(d => d >= p.start && d <= (p.end || p.start));
-      const rows = win.flatMap(d => p.targets.map(t => at[d] && at[d][t]).filter(Boolean));
-      if (!rows.length) return { p, s: 'none' };
-      const hitDays = win.filter(d => p.targets.some(t => (p.method === 'rate' ? elevated : lgSeen)(at[d] && at[d][t])));
-      if (hitDays.length) return { p, s: 'hit', days: hitDays.length, of: win.length };
-      return { p, s: rows.some(r => OK(r.status) || ['요율 미확인', '요율 확인 필요'].includes(r.status)) ? 'miss' : 'none', of: win.length };
-    });
-    const hit = pl.filter(x => x.s === 'hit'), miss = pl.filter(x => x.s === 'miss');
+    const pl = inWeek.map(p => { const J = PJ.judge(p, ds); return { p, s: J.s, days: J.hits ? J.hits.length : 0, of: J.of, level: J.level }; });
+    const hit = pl.filter(x => x.s === 'hit'), miss = pl.filter(x => x.s === 'miss'), brand = pl.filter(x => x.s === 'brand');
     // 4) LG.com promotions x cashback raises, per collected day
     const cal = all.map(d => {
       if (!dates.includes(d)) return { d, nodata: true };
@@ -210,7 +203,7 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     const got = cal.filter(c => !c.nodata);
     const upDays = got.filter(c => c.raised.length), both = upDays.filter(c => c.promos), solo = upDays.filter(c => c.read && !c.promos), unread = upDays.filter(c => !c.read), ownBoth = upDays.filter(c => c.own.length);
     return { wk, all, ds, gapRows, pairDays, lgAvg: avg(allLg), ssAvg: avg(allSs), gap: allLg.length ? avg(allLg) - avg(allSs) : null, lgWinDays, ssWinDays, ups, ssMoves,
-      pres, pA, pS, coverage, inWeek, pl, hit, miss, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
+      pres, pA, pS, coverage, inWeek, pl, hit, miss, brand, cal, got, upDays, both, solo, unread, ownBoth, partial: ds.length < 7 };
   }
 
   // unique placement names (the plan repeats a slot once per category); count always adds up
@@ -229,8 +222,8 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
       const same = V && V.pres.length && V.coverage.length === 1 && W.coverage.length === 1 && V.coverage[0] === W.coverage[0];
       S.push('<b>삼성 잔존도</b> 상점 요율 게시 평균 ' + r1(W.pA('ssP')) + '/' + r1(W.pA('ssN')) + '곳 · 딜·리뷰 언급 삼성 ' + W.pS('mSS') + ' : LG ' + W.pS('mLG') + (same ? '(전주 ' + V.pS('mSS') + ' : ' + V.pS('mLG') + ')' : '') + (W.pres.some(x => x.cpN) ? ' · 쿠폰 오퍼 일평균 삼성 ' + r1(W.pA('oSS')) + ' : LG ' + r1(W.pA('oLG')) : ''));
     }
-    const ck = W.hit.length + W.miss.length;
-    if (W.inWeek.length) S.push('<b>편성</b> 주중 진행 ' + W.inWeek.length + '건 · 공개 화면 확인 ' + ck + '건 중 관측 ' + W.hit.length + '건' + (ck ? '(관측률 ' + Math.round(W.hit.length / ck * 100) + '%' + (V && V.hit.length + V.miss.length ? ', 전주 ' + Math.round(V.hit.length / (V.hit.length + V.miss.length) * 100) + '%' : '') + ')' : '') + (W.miss.length ? ' · 미관측 ' + missList(W.miss) : ''));
+    const ck = W.hit.length + W.miss.length + W.brand.length;
+    if (W.inWeek.length) S.push('<b>편성</b> 주중 진행 ' + W.inWeek.length + '건 · 공개 화면 확인 ' + ck + '건 중 관측 ' + W.hit.length + '건' + (ck ? '(관측률 ' + Math.round(W.hit.length / ck * 100) + '%' + (V && V.hit.length + V.miss.length + V.brand.length ? ', 전주 ' + Math.round(V.hit.length / (V.hit.length + V.miss.length + V.brand.length) * 100) + '%' : '') + (W.brand.length ? ' · 브랜드 존재만 ' + W.brand.length + '건은 관측에서 제외' : '') + ')' : '') + (W.miss.length ? ' · 미관측 ' + missList(W.miss) : ''));
     if (W.got.length) S.push('<b>프로모션 × 캐시백</b> 수집 ' + W.got.length + '일 중 캐시백 상향 ' + W.upDays.length + '일' + (W.upDays.length ? ', 그중 LG.com 프로모션과 겹친 날 ' + W.both.length + '일' + (W.ownBoth.length ? '(LG.com 자체 리워드 프로모션 동시 ' + W.ownBoth.length + '일)' : '') + (W.solo.length ? ', 캐시백 단독 ' + W.solo.length + '일' : '') + (W.unread.length ? ', LG.com 미수집 ' + W.unread.length + '일' : '') : ''));
     return S;
   }
@@ -286,13 +279,15 @@ td.lgv{color:var(--lg);font-weight:600}td.ssv{color:var(--ss);font-weight:600}
     } else $('presKpis').append(el('div', 'empty', '이 주의 수집 데이터가 없습니다.'));
 
     // placements
-    const ck = W.hit.length + W.miss.length, vck = V ? V.hit.length + V.miss.length : 0;
+    const ck = W.hit.length + W.miss.length + W.brand.length, vck = V ? V.hit.length + V.miss.length + V.brand.length : 0;
     kpi('plKpis', null, '주중 진행 편성', W.inWeek.length + '<small>건</small>', '공개 화면 확인 대상 ' + ck + '건');
     kpi('plKpis', null, '관측률', ck ? Math.round(W.hit.length / ck * 100) + '%' : '—', ck ? '관측 ' + W.hit.length + ' / 확인 ' + ck + (vck ? ' · 전주 ' + Math.round(V.hit.length / vck * 100) + '%' : '') : '확인 가능한 지면 없음');
-    kpi('plKpis', null, '공개 웹 확인 불가', W.pl.filter(x => x.s === 'none').length + '<small>건</small>', '이메일·앱·회원 전용 등 — 퍼블리셔 증빙 필요');
+    kpi('plKpis', null, '브랜드 존재만', W.brand.length + '<small>건</small>', '기간 밖에도 LG가 보이는 페이지 — 관측에서 제외');
+    kpi('plKpis', null, '공개 웹 확인 불가', W.pl.filter(x => x.s === 'none' || x.s === 'fail').length + '<small>건</small>', '이메일·앱·회원 전용 등 — 퍼블리셔 증빙 필요');
     const ul = el('ul');
     W.miss.forEach(x => ul.append(html(el('li'), '<span class="tag miss">미관측</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + fmt(x.p.start) + '~' + fmt(x.p.end || x.p.start) + ', 수집 ' + x.of + '일)</span>')));
-    W.hit.forEach(x => ul.append(html(el('li'), '<span class="tag hit">관측</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + x.days + '/' + x.of + '일)</span>')));
+    W.brand.forEach(x => ul.append(html(el('li'), '<span class="tag end">브랜드 존재만</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + x.days + '/' + x.of + '일, 기간 밖에도 LG 노출)</span>')));
+    W.hit.forEach(x => ul.append(html(el('li'), '<span class="tag hit">관측 · ' + esc(x.level) + '</span>' + esc(x.p.publisher) + ' · ' + esc(x.p.placement) + ' <span class="mute">(' + x.days + '/' + x.of + '일)</span>')));
     $('plBox').append(html(el('div', 'mute', ''), '<span style="font-size:12.5px">미관측 지면은 공개 화면에서 한 번도 확인되지 않은 것으로, CJ·퍼블리셔에 집행 증빙을 요청할 후보입니다. 부분 확인(타기팅·순환) 지면은 안 보여도 미집행으로 단정하지 않습니다.</span>'));
     if (!ul.childNodes.length) ul.append(el('li', 'mute', '이 주에 공개 화면으로 확인할 수 있는 편성이 없습니다.'));
     $('plBox').append(ul);

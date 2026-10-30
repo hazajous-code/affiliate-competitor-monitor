@@ -50,6 +50,16 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 .arch summary .first{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
 .arch ol{margin:8px 0 2px;padding-left:22px;font-size:13.5px;line-height:1.6}.arch li{margin:4px 0}
 .arch .go{font-size:12px;margin-left:22px}
+.todo{margin-top:22px;padding:14px 18px;border:1px solid var(--line);border-left:3px solid var(--lg);border-radius:10px}
+.todo-hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.todo-hd h2{margin:0}.todo-hd span{font-size:12px}
+.todo ul{list-style:none;margin:8px 0 0;padding:0}
+.todo li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line2);font-size:13.5px;line-height:1.5}
+.todo li:first-child{border-top:0}
+.todo li input{margin-top:4px;accent-color:var(--lg)}
+.todo li.done .t{color:var(--faint);text-decoration:line-through}
+.todo li .t{flex:1}.todo li .why{display:block;font-size:12px;color:var(--muted)}
+.todo li a{font-size:12px;white-space:nowrap}
+.cats{display:block;font-size:11.5px;font-weight:400;color:var(--muted);white-space:normal}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,185px),1fr));gap:10px}
 .kpi{border:1px solid var(--line);border-top:3px solid var(--ss);border-radius:10px;padding:12px 14px}
 .kpi .l{font-size:12px;color:var(--muted)}
@@ -71,6 +81,8 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     <div class="dnav" id="dnav"></div>
     <div class="rule"></div>
   </div>
+
+  <div class="todo" id="todoBox"><div class="todo-hd"><h2>오늘 확인할 일</h2><span class="mute" id="todoMeta"></span></div><ul id="todo"></ul></div>
 
   <div class="lead"><h2>오늘의 요약</h2><ol id="summary"><li class="mute">불러오는 중…</li></ol></div>
 
@@ -116,7 +128,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 <script src="rank.js"></script>
 <script>
 (async function(){
-  const { byRank } = await loadRank();
+  const { byRank, rankOf } = await loadRank();
   const get = p => loadJSON(p);
   const [caps0, runs, plan, briefs0] = await Promise.all([get('data/captures.json'), get('data/runs.json'), get('data/placements.json'), get('data/briefs.json')]);
   loadDone(!!caps0);
@@ -138,6 +150,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   const BASE = { 'capone-lg': 2.5 };
   const lgSeen = r => r && OK(r.status) && ((r.lg_snippets && r.lg_snippets.length) || (r.mentions && r.mentions.LG));
   const elevated = r => r && OK(r.status) && r.rate != null && (/was\s/i.test(r.rate_text || '') || (BASE[r.target] != null && r.rate > BASE[r.target]));
+  const PJ = placementJudge(at, dates);
 
   // Everything the briefing shows for one collection day, using only data up to that day.
   function model(day) {
@@ -163,9 +176,8 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     }
     const LG = promoSet('LG.com'), SS = promoSet('Samsung.com');
     const active = P.filter(p => p.start && p.start <= day && (p.end || p.start) >= day && p.method !== 'n/a').sort((a, b) => byRank(a.publisher, b.publisher));
-    const judge = p => { if (!['rate', 'presence', 'partial'].includes(p.method)) return 'none'; const rows = p.targets.map(t => at[day] && at[day][t]).filter(Boolean); if (!rows.length) return 'none'; return rows.some(p.method === 'rate' ? elevated : lgSeen) ? 'hit' : 'miss'; };
-    const judged = active.map(p => ({ p, s: judge(p) }));
-    const chk = judged.filter(x => x.s !== 'none');
+    const judged = active.map(p => { const J = PJ.judge(p, [day]); return { p, s: J.s, J }; });
+    const chk = judged.filter(x => ['hit', 'brand', 'miss'].includes(x.s));
     const end7 = new Date(new Date(day).getTime() + 7 * 864e5).toISOString().slice(0, 10);
     const nextEv = P.filter(p => p.start > day && p.start <= end7 && /cash ?back|flash cash|bonus|double|big stack|discover new stores/i.test(p.placement)).sort((a, b) => a.start.localeCompare(b.start) || byRank(a.publisher, b.publisher));
     const etc = cur.filter(r => STORE(r.kind) && ['경쟁사', '유통'].includes(r.brand_group) && r.brand !== 'Samsung' && moved(r)).sort((a, b) => byRank(a.publisher, b.publisher));
@@ -238,9 +250,9 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
         + (P2.ss.length ? ' · 잔존: 상점 요율 게시 ' + P2.ssP.length + '/' + P2.ss.length + '곳' + (P2.pairs.length ? '(같은 퍼블리셔 ' + P2.pairs.length + '곳 중 삼성 우위 ' + P2.ssUp.length + ')' : '') : '')
         + (P2.ed.length ? ', 딜·리뷰 언급 삼성 ' + P2.mSS + ' : LG ' + P2.mLG : ''));
     }
-    if (LG.list.length) S.push('<b>LG.com</b> 프로모션 ' + LG.list.length + '건' + (LG.fresh.length ? ', 신규 ' + LG.fresh.length + '건(' + esc(cutWords(LG.fresh[0][1].title, 50)) + (LG.fresh.length > 1 ? ' 외' : '') + ')' : '') + (LG.gone.length ? ', 종료 ' + LG.gone.length + '건' : '') + (LG.ending.length ? ' · 7일 내 종료 ' + LG.ending.length + '건(가장 빠른 ' + fmt(LG.ending[0][1].end) + ': ' + esc(cutWords(LG.ending[0][1].title, 60)) + ')' : ''));
-    if (SS.list.length) { const wk = SS.list.find(([, p]) => /samsung week/i.test(p.title) && p.end); S.push('<b>Samsung.com</b> 프로모션 ' + SS.list.length + '건(가전·TV·모니터 ' + SS.list.filter(([, p]) => CORE(p.category)).length + ')' + (SS.fresh.length ? ', 신규 ' + SS.fresh.length + '건' : '') + (SS.gone.length ? ', 종료 ' + SS.gone.length + '건' : '') + (wk ? ' · Samsung Week ~' + fmt(wk[1].end) + ' 진행 중' : '')); }
-    if (active.length) S.push('<b>편성</b> 진행 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건' + (nextEv.length ? ' · 7일 내 캐시백 이벤트 ' + nextEv.length + '건(' + evList(nextEv) + ')' : ''));
+    if (LG.list.length) S.push('<b>LG.com</b> 프로모션 ' + LG.list.length + '건' + (LG.fresh.length ? ', 신규 ' + LG.fresh.length + '건(' + esc(cutWords(LG.fresh[0][1].title, 50)) + (LG.fresh.length > 1 ? ' 외' : '') + ')' : '') + (LG.gone.length ? ', 내려감 ' + LG.gone.length + '건' : '') + (LG.ending.length ? ' · 7일 내 종료 ' + LG.ending.length + '건(가장 빠른 ' + fmt(LG.ending[0][1].end) + ': ' + esc(cutWords(LG.ending[0][1].title, 60)) + ')' : ''));
+    if (SS.list.length) { const wk = SS.list.find(([, p]) => /samsung week/i.test(p.title) && p.end); S.push('<b>Samsung.com</b> 프로모션 ' + SS.list.length + '건(가전·TV·모니터 ' + SS.list.filter(([, p]) => CORE(p.category)).length + ')' + (SS.fresh.length ? ', 신규 ' + SS.fresh.length + '건' : '') + (SS.gone.length ? ', 내려감 ' + SS.gone.length + '건' : '') + (wk ? ' · Samsung Week ~' + fmt(wk[1].end) + ' 진행 중' : '')); }
+    if (active.length) S.push('<b>편성</b> 진행 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건' + (chk.some(x => x.s === 'brand') ? '(브랜드 존재만 ' + chk.filter(x => x.s === 'brand').length + '건 별도)' : '') + (nextEv.length ? ' · 7일 내 캐시백 이벤트 ' + nextEv.length + '건(' + evList(nextEv) + ')' : ''));
     return S;
   }
   // used by scripts/archive_briefs.py after each collection
@@ -249,7 +261,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   window.briefReady = true;
 
   function render(day) {
-    ['dateline', 'dnav', 'rateBody', 'lgBox', 'ssBox', 'nowBox', 'nextBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
+    ['dateline', 'dnav', 'todo', 'rateBody', 'lgBox', 'ssBox', 'nowBox', 'nextBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
     const m = model(day);
     const { cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, judged, chk, active, nextEv, etc, vr, isLatest } = m;
 
@@ -270,17 +282,54 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     nav.append(link(dates[i - 1], '← 이전'), sel, link(dates[i + 1], '다음 →'));
     if (!isLatest) nav.append(link(dates[dates.length - 1], '최신으로'));
 
+    // what to check today: changes nobody planned, held rates, paid slots not seen, failed key pages
+    const todos = [];
+    // a move is expected when a cash back event for that store runs today or ended since the previous collection
+    const planned = r => P.some(p => p.method === 'rate' && p.targets.includes(r.target) && p.start && p.start <= day && (p.end || p.start) >= (m.prevDay || day));
+    lgS.filter(moved).forEach(r => { const tag = m.moveTag(r); if (planned(r)) return;
+      todos.push({ id: 'mv-' + r.target, t: esc(r.publisher) + ' LG 요율 ' + pct(prevRow[r.target].rate) + '→' + pct(r.rate) + ' ' + tag, why: '편성표에 없는 변경 — 예정된 변경인지 CJ·퍼블리셔 확인', shot: r.shot }); });
+    ssS.filter(moved).filter(r => r.rate > prevRow[r.target].rate).forEach(r => todos.push({ id: 'ss-' + r.target, t: '삼성 ' + esc(r.publisher) + ' ' + pct(prevRow[r.target].rate) + '→' + pct(r.rate) + ' 상향', why: '같은 퍼블리셔 LG 요율 ' + (lgS.find(x => x.publisher === r.publisher) ? pct(lgS.find(x => x.publisher === r.publisher).rate) : '미게시') + ' — 대응 필요 여부 검토', shot: r.shot }));
+    cur.filter(r => r.status === '요율 확인 필요' && ['LG', '경쟁사'].includes(r.brand_group) && (r.brand_group === 'LG' || r.brand === 'Samsung')).forEach(r => todos.push({ id: 'held-' + r.target, t: esc(r.brand) + ' · ' + esc(r.publisher) + ' 요율 게시 보류(' + esc(r.held_rate_text || '') + ')', why: '급변·불일치로 자동 게시를 멈춤 — 화면으로 직접 확인', shot: r.shot }));
+    const sofar = dates.filter(d => d <= day);
+    const missing = active.filter(p => ['rate', 'presence'].includes(p.method)).map(p => ({ p, J: PJ.judge(p, sofar) })).filter(x => x.J.s === 'miss' && x.J.of >= 2);
+    const byPub = new Map(); missing.forEach(x => { if (!byPub.has(x.p.publisher)) byPub.set(x.p.publisher, []); byPub.get(x.p.publisher).push(x); });
+    [...byPub.entries()].sort((a, b) => byRank(a[0], b[0])).forEach(([pub, xs]) => todos.push({ id: 'pl-' + pub, t: esc(pub) + ' 진행 중 편성 ' + xs.length + '건 미관측(' + esc(cutWords(xs[0].p.placement, 34)) + (xs.length > 1 ? ' 외' : '') + ')', why: '시작 후 ' + Math.max(...xs.map(x => x.J.of)) + '일째 공개 화면에서 확인 안 됨 — 집행 증빙 요청', href: 'placements.html' }));
+    cur.filter(r => STORE(r.kind) && r.brand_group === 'LG' && !OK(r.status) && !['요율 확인 필요', '로그인 입구만'].includes(r.status) && rankOf(r.publisher) <= 10).forEach(r => todos.push({ id: 'fail-' + r.target, t: esc(r.publisher) + ' LG 상점 페이지 수집 실패(' + esc(r.status) + ')', why: '판매 실적 상위 퍼블리셔 — 직접 열어 요율 확인', href: r.url, ext: true }));
+    const key = id => 'todo:' + day + ':' + id;
+    const isDone = id => { try { return localStorage.getItem(key(id)) === '1'; } catch (e) { return false; } };
+    const tl = $('todo');
+    todos.forEach(x => {
+      const li = el('li', isDone(x.id) ? 'done' : null); const cb = el('input'); cb.type = 'checkbox'; cb.checked = isDone(x.id); cb.title = '확인 완료';
+      cb.onchange = () => { try { cb.checked ? localStorage.setItem(key(x.id), '1') : localStorage.removeItem(key(x.id)); } catch (e) {} li.className = cb.checked ? 'done' : ''; meta(); };
+      const t = html(el('span', 't'), x.t + '<span class="why">' + x.why + '</span>');
+      li.append(cb, t);
+      if (x.shot) { const a = el('a', null, '근거 화면'); a.href = x.shot; a.target = '_blank'; a.rel = 'noopener'; li.append(a); }
+      else if (x.href) { const a = el('a', null, x.ext ? '페이지 열기' : '근거 보기'); a.href = x.href; if (x.ext) { a.target = '_blank'; a.rel = 'noopener'; } li.append(a); }
+      tl.append(li);
+    });
+    function meta() { $('todoMeta').textContent = todos.length ? '완료 ' + todos.filter(x => isDone(x.id)).length + '/' + todos.length + ' · 체크는 이 브라우저에만 저장' : ''; }
+    if (!todos.length) tl.append(el('li', 'mute', '확인이 필요한 변경·미관측·수집 실패가 없습니다.'));
+    meta();
+
     // summary
     $('summary').innerHTML = summary(m).map(s => '<li>' + s + '</li>').join('') || '<li class="mute">요약할 데이터가 없습니다.</li>';
 
-    // rates
+    // rates — when a store pays different rates by category, show them under the headline rate (TV first)
+    function catLine(td, r) {
+      const cs = (r && r.categories || []).filter(c => c.rate != null);
+      if (new Set(cs.map(c => c.rate)).size < 2) return;
+      const nm = l => /\bTVs?\b|television|home electronics/i.test(l) ? 'TV' : /partners? mall/i.test(l) ? '파트너스토어' : /^lg\.com/i.test(l) ? 'LG.com' : /all other|non-excluded|everything else/i.test(l) ? '그 외' : /appliance/i.test(l) ? '가전' : /monitor/i.test(l) ? '모니터' : cutWords(l, 16);
+      const seen = new Map(); cs.forEach(c => { const k = nm(c.label); if (!seen.has(k)) seen.set(k, c.rate); });
+      const list = [...seen.entries()].sort((a, b) => (a[0] === 'TV' ? -1 : b[0] === 'TV' ? 1 : a[0] === '그 외' ? 1 : b[0] === '그 외' ? -1 : 0));
+      td.append(el('span', 'cats', list.map(([k, v]) => k + ' ' + pct(v)).join(' · ')));
+    }
     const pubs = [...new Set([...lgS, ...ssS].map(r => r.publisher))].sort(byRank);
     pubs.forEach(p => {
       const lg = lgS.find(r => r.publisher === p), ss = ssS.find(r => r.publisher === p);
       const tr = el('tr'); tr.append(el('td', null, p));
       const was = lg && /was\s+(\d+(?:\.\d+)?)%/i.exec(lg.rate_text || '');
-      const a = el('td', 'num lgv', lg ? pct(lg.rate) : '—'); if (was) a.append(' ', el('span', 'tag up', '평시 ' + was[1] + '%')); tr.append(a);
-      tr.append(el('td', 'num ssv', ss ? pct(ss.rate) : '—'));
+      const a = el('td', 'num lgv', lg ? pct(lg.rate) : '—'); if (was) a.append(' ', el('span', 'tag up', '평시 ' + was[1] + '%')); catLine(a, lg); tr.append(a);
+      const sv = el('td', 'num ssv', ss ? pct(ss.rate) : '—'); catLine(sv, ss); tr.append(sv);
       const c = el('td', 'num');
       [lg, ss].filter(Boolean).filter(moved).forEach(r => { const pv = prevRow[r.target].rate; c.append(el('span', 'tag ' + (r.rate > pv ? 'up' : 'dn'), (r.brand === 'Samsung' ? '삼성 ' : 'LG ') + pct(pv) + '→' + pct(r.rate))); });
       if (!c.childNodes.length) c.append(el('span', 'mute', '변동 없음'));
@@ -329,7 +378,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     function promoBox(box, name, X) {
       box.append(el('h3', null, name));
       if (X.pday && X.pday !== day) box.append(el('div', 'sub', '※ ' + X.pday + ' 기준 — 이날은 페이지를 읽지 못해 가장 최근 수집분입니다'));
-      box.append(el('div', 'sub', X.list.length ? '진행 ' + X.list.length + '건 (가전·TV·모니터 ' + X.list.filter(([, p]) => CORE(p.category)).length + ')' + (X.before.size ? ' · 신규 ' + X.fresh.length + ' · 종료 ' + X.gone.length : '') : '이날 읽은 프로모션 없음'));
+      box.append(el('div', 'sub', X.list.length ? '진행 ' + X.list.length + '건 (가전·TV·모니터 ' + X.list.filter(([, p]) => CORE(p.category)).length + ')' + (X.before.size ? ' · 신규 ' + X.fresh.length + ' · 내려감 ' + X.gone.length : '') : '이날 읽은 프로모션 없음'));
       const ul = el('ul');
       X.fresh.slice(0, 4).forEach(([, p]) => ul.append(html(el('li'), '<span class="tag new">신규</span>' + esc(p.title))));
       X.ending.slice(0, 5).forEach(([, p]) => ul.append(html(el('li'), '<span class="tag end">' + fmt(p.end) + ' 종료 · D-' + daysTo(p.end) + '</span>' + esc(p.title))));
@@ -341,9 +390,9 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 
     // placements
     const nb = $('nowBox'); nb.append(el('h3', null, isLatest ? '오늘 진행 중' : '이날 진행 중'));
-    nb.append(el('div', 'sub', '편성 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건'));
-    const nul = el('ul'); const rk = { hit: 0, miss: 1, none: 2 };
-    judged.slice().sort((a, b) => rk[a.s] - rk[b.s]).slice(0, 8).forEach(({ p, s }) => nul.append(html(el('li', s === 'none' ? 'mute' : null), '<span class="tag ' + (s === 'hit' ? 'hit' : 'miss') + '">' + ({ hit: '관측', miss: '미관측', none: '확인 불가' })[s] + '</span>' + esc(p.publisher) + ' · ' + esc(p.placement) + ' <span class="mute">(~' + fmt(p.end || p.start) + ')</span>')));
+    nb.append(el('div', 'sub', '편성 ' + active.length + '건 · 공개 화면 확인 ' + chk.length + '건 중 관측 ' + chk.filter(x => x.s === 'hit').length + '건 · 브랜드 존재만 ' + chk.filter(x => x.s === 'brand').length + '건'));
+    const nul = el('ul'); const rk = { hit: 0, brand: 1, miss: 2, fail: 3, none: 4 };
+    judged.slice().sort((a, b) => rk[a.s] - rk[b.s]).slice(0, 8).forEach(({ p, s, J }) => nul.append(html(el('li', s === 'none' ? 'mute' : null), '<span class="tag ' + (s === 'hit' ? 'hit' : s === 'brand' ? 'end' : 'miss') + '">' + ({ hit: '관측 · ' + (J.level || ''), brand: '브랜드 존재만', miss: '미관측', fail: '수집 실패', none: '확인 불가' })[s] + '</span>' + esc(p.publisher) + ' · ' + esc(p.placement) + ' <span class="mute">(~' + fmt(p.end || p.start) + ')</span>')));
     if (judged.length > 8) nul.append(el('li', 'mute', '외 ' + (judged.length - 8) + '건'));
     if (!judged.length) nul.append(el('li', 'mute', '진행 중인 편성이 없습니다.'));
     nb.append(nul);
