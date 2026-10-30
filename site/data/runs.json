@@ -1,11 +1,11 @@
 {
  "run_at": "2026-10-29T14:55-04:00",
  "complete_day": "2026-10-29",
- "partial_at": null,
+ "partial_at": "2026-10-30T02:19-04:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
-  "수집": 76,
+  "수집": 87,
   "로그인 입구만": 3,
   "봇 확인 화면": 2,
   "렌더링 실패": 1,
@@ -4076,6 +4076,851 @@
    "prev_rate": 1.0,
    "changed": false,
    "body_changed": true
+  },
+  {
+   "publisher": "RTINGS",
+   "brand": "(TV 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.rtings.com/tv/reviews/best/tvs-on-the-market",
+   "date": "2026-10-30",
+   "target": "rtings-best-tv",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:24-04:00",
+   "rate": null,
+   "rate_text": "제품 15개 · LG 5개(최고 1위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "LG G6 OLED:",
+     "brand": "LG"
+    },
+    {
+     "n": 2,
+     "name": "Samsung S90F OLED:",
+     "brand": "Samsung"
+    },
+    {
+     "n": 3,
+     "name": "Sony BRAVIA 7 II:",
+     "brand": "Sony"
+    },
+    {
+     "n": 4,
+     "name": "LG B6 OLED 2026:",
+     "brand": "LG"
+    },
+    {
+     "n": 5,
+     "name": "Hisense QD6QF:",
+     "brand": "Hisense"
+    },
+    {
+     "n": 6,
+     "name": "Roku Pro Series OLED",
+     "brand": "Roku"
+    },
+    {
+     "n": 7,
+     "name": "Hisense U6SF",
+     "brand": "Hisense"
+    },
+    {
+     "n": 8,
+     "name": "Samsung S85H OLED",
+     "brand": "Samsung"
+    },
+    {
+     "n": 9,
+     "name": "Hisense U6SF Pro",
+     "brand": "Hisense"
+    },
+    {
+     "n": 10,
+     "name": "LG QNED75B",
+     "brand": "LG"
+    },
+    {
+     "n": 11,
+     "name": "LG UA77",
+     "brand": "LG"
+    },
+    {
+     "n": 12,
+     "name": "Samsung U8000H",
+     "brand": "Samsung"
+    },
+    {
+     "n": 13,
+     "name": "LG B6E OLED",
+     "brand": "LG"
+    },
+    {
+     "n": 14,
+     "name": "Sony BRAVIA 6 OLED",
+     "brand": "Sony"
+    },
+    {
+     "n": 15,
+     "name": "TCL QM6K",
+     "brand": "TCL"
+    }
+   ],
+   "category": "TV",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "(재시도)",
+   "shot": "shots/2026-10-30/rtings-best-tv.jpg",
+   "final_url": "https://www.rtings.com/tv/reviews/best/tvs-on-the-market",
+   "http": 200,
+   "title": "The 6 Best TVs of 2026 - RTINGS.com",
+   "sig": "cfd6579c673d",
+   "body_hash": "1f3a6d092bf5",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Tom's Guide",
+   "brand": "(TV 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.tomsguide.com/us/best-tvs,review-2224.html",
+   "date": "2026-10-30",
+   "target": "tomsguide-best-tv",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:20-04:00",
+   "rate": null,
+   "rate_text": "제품 5개 · LG 1개(최고 1위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "LG B6",
+     "brand": "LG"
+    },
+    {
+     "n": 2,
+     "name": "Hisense QD7",
+     "brand": "Hisense"
+    },
+    {
+     "n": 3,
+     "name": "Samsung S90F OLED",
+     "brand": "Samsung"
+    },
+    {
+     "n": 4,
+     "name": "TCL QM9K",
+     "brand": "TCL"
+    },
+    {
+     "n": 5,
+     "name": "TCL QM8L",
+     "brand": "TCL"
+    }
+   ],
+   "category": "TV",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/tomsguide-best-tv.jpg",
+   "final_url": "https://www.tomsguide.com/us/best-tvs,review-2224.html",
+   "http": 200,
+   "title": "The 5 best TVs we've tested for movies, sports and gaming | Tom's Guide",
+   "sig": "9d9ec82f564f",
+   "body_hash": "c3f98e821eb4",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "TechRadar",
+   "brand": "(TV 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.techradar.com/news/best-tv",
+   "date": "2026-10-30",
+   "target": "techradar-best-tv",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:21-04:00",
+   "rate": null,
+   "rate_text": "제품 14개 · LG 4개(최고 1위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "LG C6",
+     "brand": "LG"
+    },
+    {
+     "n": 2,
+     "name": "LG C6 TEST RESULTS",
+     "brand": "LG"
+    },
+    {
+     "n": 3,
+     "name": "Samsung S99H",
+     "brand": "Samsung"
+    },
+    {
+     "n": 4,
+     "name": "SAMSUNG S99H TEST RESULTS",
+     "brand": "Samsung"
+    },
+    {
+     "n": 5,
+     "name": "Roku Plus Series",
+     "brand": "Roku"
+    },
+    {
+     "n": 6,
+     "name": "ROKU PLUS SERIES TEST RESULTS",
+     "brand": "Roku"
+    },
+    {
+     "n": 7,
+     "name": "Hisense U8QG",
+     "brand": "Hisense"
+    },
+    {
+     "n": 8,
+     "name": "HISENSE U8QG TEST RESULTS",
+     "brand": "Hisense"
+    },
+    {
+     "n": 9,
+     "name": "LG C5",
+     "brand": "LG"
+    },
+    {
+     "n": 10,
+     "name": "LG C5 TEST RESULTS",
+     "brand": "LG"
+    },
+    {
+     "n": 11,
+     "name": "TCL QM8L",
+     "brand": "TCL"
+    },
+    {
+     "n": 12,
+     "name": "TCL QM8L TEST RESULTS",
+     "brand": "TCL"
+    },
+    {
+     "n": 13,
+     "name": "Samsung QN90F",
+     "brand": "Samsung"
+    },
+    {
+     "n": 14,
+     "name": "SAMSUNG QN90F TEST RESULTS",
+     "brand": "Samsung"
+    }
+   ],
+   "category": "TV",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/techradar-best-tv.jpg",
+   "final_url": "https://www.techradar.com/news/best-tv",
+   "http": 200,
+   "title": "The best TVs in 2026, based on our real-world tests | TechRadar",
+   "sig": "fdae36bf1769",
+   "body_hash": "e862f94cdc41",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Reviewed",
+   "brand": "(TV 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.reviewed.com/televisions/best-right-now/best-televisions",
+   "date": "2026-10-30",
+   "target": "reviewed-best-tv",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:21-04:00",
+   "rate": null,
+   "rate_text": "제품 5개 · LG 2개(최고 1위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "LG OLED EVO AI C5 4K Smart TV 2025",
+     "brand": "LG"
+    },
+    {
+     "n": 2,
+     "name": "Samsung Class OLED S95F 4K Samsung Vision AI Smart TV (2025)",
+     "brand": "Samsung"
+    },
+    {
+     "n": 3,
+     "name": "Hisense Class U8 Series MiniLED QLED UHD 4K HDR Smart Google TV (2025)",
+     "brand": "Hisense"
+    },
+    {
+     "n": 4,
+     "name": "LG OLED AI B5 4K Smart TV 2025",
+     "brand": "LG"
+    },
+    {
+     "n": 5,
+     "name": "TCL QM6K Series QD-Mini LED QLED 4K UHD Smart TV with Google TV",
+     "brand": "TCL"
+    }
+   ],
+   "category": "TV",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/reviewed-best-tv.jpg",
+   "final_url": "https://www.reviewed.com/televisions/best-right-now/best-televisions",
+   "http": 200,
+   "title": "11 Best TVs of 2026 - Reviewed",
+   "sig": "3e68303510ab",
+   "body_hash": "29e37e1c4077",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Tom's Guide",
+   "brand": "(냉장고 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.tomsguide.com/best-picks/the-best-refrigerators",
+   "date": "2026-10-30",
+   "target": "tomsguide-best-fridge",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:22-04:00",
+   "rate": null,
+   "rate_text": "제품 3개 · LG 1개(최고 3위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "GE Profile PFE28KYNFS",
+     "brand": "GE Appliances"
+    },
+    {
+     "n": 2,
+     "name": "Maytag MRT311FFFZ",
+     "brand": "Maytag"
+    },
+    {
+     "n": 3,
+     "name": "LG LRFLC2706S",
+     "brand": "LG"
+    }
+   ],
+   "category": "냉장고",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/tomsguide-best-fridge.jpg",
+   "final_url": "https://www.tomsguide.com/us/best-refrigerators,review-6181.html",
+   "http": 200,
+   "title": "Best refrigerators in 2026 | Tom's Guide",
+   "sig": "7c6d06249e0d",
+   "body_hash": "b52ba57b5d78",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Reviewed",
+   "brand": "(냉장고 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.reviewed.com/refrigerators/best-right-now/best-refrigerators",
+   "date": "2026-10-30",
+   "target": "reviewed-best-fridge",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:22-04:00",
+   "rate": null,
+   "rate_text": "제품 4개 · LG 1개(최고 2위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "Hisense HRM260N6TSE Smart Refrigerator",
+     "brand": "Hisense"
+    },
+    {
+     "n": 2,
+     "name": "LG LT18S2100W",
+     "brand": "LG"
+    },
+    {
+     "n": 3,
+     "name": "Bosch B36FD50SNS French-door Smart Refrigerator",
+     "brand": "Bosch"
+    },
+    {
+     "n": 4,
+     "name": "Hisense HRB171N6ASE Bottom-freezer Refrigerator",
+     "brand": "Hisense"
+    }
+   ],
+   "category": "냉장고",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/reviewed-best-fridge.jpg",
+   "final_url": "https://www.reviewed.com/refrigerators/best-right-now/best-refrigerators",
+   "http": 200,
+   "title": "7 Best Refrigerators: A Complete Buying Guide of 2026 - Reviewed",
+   "sig": "54a1d5645e37",
+   "body_hash": "b24f4661af84",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Tom's Guide",
+   "brand": "(세탁기 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.tomsguide.com/us/best-washing-machines,review-6208.html",
+   "date": "2026-10-30",
+   "target": "tomsguide-best-washer",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:22-04:00",
+   "rate": null,
+   "rate_text": "제품 5개 · LG 2개(최고 2위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "Samsung WF53BB8700AVUS",
+     "brand": "Samsung"
+    },
+    {
+     "n": 2,
+     "name": "LG WM3555HWA",
+     "brand": "LG"
+    },
+    {
+     "n": 3,
+     "name": "Maytag Smart Pet Pro Front-Load Washer",
+     "brand": "Maytag"
+    },
+    {
+     "n": 4,
+     "name": "Whirlpool 5.2 Cu. Ft. Smart Top Load Washer",
+     "brand": "Whirlpool"
+    },
+    {
+     "n": 5,
+     "name": "LG WM4200H",
+     "brand": "LG"
+    }
+   ],
+   "category": "세탁기",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/tomsguide-best-washer.jpg",
+   "final_url": "https://www.tomsguide.com/us/best-washing-machines,review-6208.html",
+   "http": 200,
+   "title": "Best washing machines in 2026 | Tom's Guide",
+   "sig": "8985e5096117",
+   "body_hash": "7c403b40f044",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Reviewed",
+   "brand": "(세탁기 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.reviewed.com/laundry/best-right-now/best-washers",
+   "date": "2026-10-30",
+   "target": "reviewed-best-washer",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:22-04:00",
+   "rate": null,
+   "rate_text": "제품 5개 · LG 없음",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "Electrolux ELFW7637AT",
+     "brand": "Electrolux"
+    },
+    {
+     "n": 2,
+     "name": "GE Profile PTW800BPWRS",
+     "brand": "GE Appliances"
+    },
+    {
+     "n": 3,
+     "name": "Samsung Bespoke WH46DBH500EVA3",
+     "brand": "Samsung"
+    },
+    {
+     "n": 4,
+     "name": "GE Profile PFQ97HSPVDS Ventless All-In-One",
+     "brand": "GE Appliances"
+    },
+    {
+     "n": 5,
+     "name": "Electrolux ELTE7600AT",
+     "brand": "Electrolux"
+    }
+   ],
+   "category": "세탁기",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/reviewed-best-washer.jpg",
+   "final_url": "https://www.reviewed.com/laundry/best-right-now/best-washers",
+   "http": 200,
+   "title": "9 Best Washing Machines, Tested by Experts, of 2026 - Reviewed",
+   "sig": "a76cb79f43f0",
+   "body_hash": "5d7b40350b03",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "RTINGS",
+   "brand": "(모니터 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.rtings.com/monitor/reviews/best/monitors",
+   "date": "2026-10-30",
+   "target": "rtings-best-monitor",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:23-04:00",
+   "rate": null,
+   "rate_text": "제품 15개 · LG 3개(최고 3위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "ASUS ROG Swift OLED PG34WCDN:",
+     "brand": "ASUS"
+    },
+    {
+     "n": 2,
+     "name": "Dell S3225QC:",
+     "brand": "Dell"
+    },
+    {
+     "n": 3,
+     "name": "LG 27GM950B-B:",
+     "brand": "LG"
+    },
+    {
+     "n": 4,
+     "name": "TCL 32R84:",
+     "brand": "TCL"
+    },
+    {
+     "n": 5,
+     "name": "Dell Alienware AW2725DM:",
+     "brand": "Dell"
+    },
+    {
+     "n": 6,
+     "name": "Dell S3425DW",
+     "brand": "Dell"
+    },
+    {
+     "n": 7,
+     "name": "LG 32GX870B-B",
+     "brand": "LG"
+    },
+    {
+     "n": 8,
+     "name": "ASUS ROG Strix OLED XG32UCWMG",
+     "brand": "ASUS"
+    },
+    {
+     "n": 9,
+     "name": "Samsung Odyssey OLED G73SH S32HG732S",
+     "brand": "Samsung"
+    },
+    {
+     "n": 10,
+     "name": "LG 32GS95UE-B",
+     "brand": "LG"
+    },
+    {
+     "n": 11,
+     "name": "Dell S3225QC",
+     "brand": "Dell"
+    },
+    {
+     "n": 12,
+     "name": "MSI MPG 274URDFW E16M",
+     "brand": "MSI"
+    },
+    {
+     "n": 13,
+     "name": "Acer Nitro XV275K P5biipruzx",
+     "brand": "Acer"
+    },
+    {
+     "n": 14,
+     "name": "MSI MAG 274QPF X30MV",
+     "brand": "MSI"
+    },
+    {
+     "n": 15,
+     "name": "TCL 32R84",
+     "brand": "TCL"
+    }
+   ],
+   "category": "모니터",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/rtings-best-monitor.jpg",
+   "final_url": "https://www.rtings.com/monitor/reviews/best/monitors",
+   "http": 200,
+   "title": "The 6 Best Monitors of 2026 - RTINGS.com",
+   "sig": "27654947f00a",
+   "body_hash": "fd07b6be5fa4",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "Tom's Guide",
+   "brand": "(모니터 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.tomsguide.com/best-picks/best-monitors",
+   "date": "2026-10-30",
+   "target": "tomsguide-best-monitor",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:23-04:00",
+   "rate": null,
+   "rate_text": "제품 15개 · LG 없음",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "MSI MPG 341CQR QD-OLED X36",
+     "brand": "MSI"
+    },
+    {
+     "n": 2,
+     "name": "Alienware AW2726DM",
+     "brand": "Dell"
+    },
+    {
+     "n": 3,
+     "name": "Alienware AW2726DM Test Results",
+     "brand": "Dell"
+    },
+    {
+     "n": 4,
+     "name": "Alienware AW2525HM",
+     "brand": "Dell"
+    },
+    {
+     "n": 5,
+     "name": "Alienware AW2525HM Test Results",
+     "brand": "Dell"
+    },
+    {
+     "n": 6,
+     "name": "Alienware AW2725D",
+     "brand": "Dell"
+    },
+    {
+     "n": 7,
+     "name": "Alienware AW2725D Test Results",
+     "brand": "Dell"
+    },
+    {
+     "n": 8,
+     "name": "MSI MPG 321URXW QD-OLED",
+     "brand": "MSI"
+    },
+    {
+     "n": 9,
+     "name": "BenQ Creative Pro PD2730S",
+     "brand": "BenQ"
+    },
+    {
+     "n": 10,
+     "name": "Alienware 39 5K2K OLED (AW3926QW)",
+     "brand": "Dell"
+    },
+    {
+     "n": 11,
+     "name": "Alienware AW3926QW Test Results",
+     "brand": "Dell"
+    },
+    {
+     "n": 12,
+     "name": "MSI Pro Max 271UPXW12G",
+     "brand": "MSI"
+    },
+    {
+     "n": 13,
+     "name": "BenQ PD3226G",
+     "brand": "BenQ"
+    },
+    {
+     "n": 14,
+     "name": "BenQ PD3226G Test Results",
+     "brand": "BenQ"
+    },
+    {
+     "n": 15,
+     "name": "Samsung Odyssey OLED G9",
+     "brand": "Samsung"
+    }
+   ],
+   "category": "모니터",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/tomsguide-best-monitor.jpg",
+   "final_url": "https://www.tomsguide.com/best-picks/best-monitors",
+   "http": 200,
+   "title": "The best monitors of 2026: Our top picks built for work and gaming | Tom's Guide",
+   "sig": "cfb00a784b5a",
+   "body_hash": "13230d51a873",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
+  },
+  {
+   "publisher": "TechRadar",
+   "brand": "(모니터 추천)",
+   "brand_group": "매체",
+   "kind": "추천 목록",
+   "url": "https://www.techradar.com/news/computing-components/peripherals/best-monitor-9-reviewed-and-rated-1058662",
+   "date": "2026-10-30",
+   "target": "techradar-best-monitor",
+   "method": "자동 스크린샷",
+   "captured_at": "2026-10-30T02:23-04:00",
+   "rate": null,
+   "rate_text": "제품 6개 · LG 1개(최고 4위)",
+   "offers": null,
+   "categories": [],
+   "exclusions": null,
+   "promos": [],
+   "ranking": [
+    {
+     "n": 1,
+     "name": "MSI MPG 322UR QD-OLED X24",
+     "brand": "MSI"
+    },
+    {
+     "n": 2,
+     "name": "BenQ GW2486TC Eye-Care Monitor",
+     "brand": "BenQ"
+    },
+    {
+     "n": 3,
+     "name": "Gigabyte MO32U24",
+     "brand": "Gigabyte"
+    },
+    {
+     "n": 4,
+     "name": "LG Ultragear GX9 45GX950A-B",
+     "brand": "LG"
+    },
+    {
+     "n": 5,
+     "name": "Alienware A3425DWM",
+     "brand": "Dell"
+    },
+    {
+     "n": 6,
+     "name": "Samsung Odyssey OLED G6 G60SF",
+     "brand": "Samsung"
+    }
+   ],
+   "category": "모니터",
+   "mentions": {},
+   "lg_snippets": [],
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-10-30/techradar-best-monitor.jpg",
+   "final_url": "https://www.techradar.com/news/computing-components/peripherals/best-monitor-9-reviewed-and-rated-1058662",
+   "http": 200,
+   "title": "The best monitor in 2026: our top picks for work, gaming, and more | TechRadar",
+   "sig": "1ef432dbfdfb",
+   "body_hash": "d2cc5a5ab125",
+   "country": "US",
+   "prev_date": null,
+   "changed": null,
+   "body_changed": null,
+   "prev_rate_text": null
   }
  ]
 }
