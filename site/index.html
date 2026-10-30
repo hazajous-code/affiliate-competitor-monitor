@@ -86,7 +86,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     <div class="hd"><h2>삼성 어필리에이트 잔존도</h2><a class="more" href="monitor.html#matrix">브랜드 노출 →</a></div>
     <div class="kpis" id="presKpis"></div>
     <p class="note" id="presLine" style="margin:10px 0 0;color:var(--fg)"></p>
-    <div class="tw" style="margin-top:12px"><table><thead><tr><th>날짜</th><th>상점 요율 게시<br><span class="mute">삼성 · LG</span></th><th>같은 퍼블리셔 요율<br><span class="mute">LG 우위 · 같음 · 삼성 우위</span></th><th>딜·리뷰 언급<br><span class="mute">삼성 : LG</span></th><th>쿠폰 오퍼<br><span class="mute">삼성 : LG</span></th></tr></thead><tbody id="presBody"></tbody></table></div>
+    <div class="tw" style="margin-top:12px"><table><thead><tr><th>날짜</th><th>캐시백 제공 퍼블리셔<br><span class="mute">삼성 · LG (제공/확인)</span></th><th>같은 퍼블리셔 요율<br><span class="mute">LG 우위 · 같음 · 삼성 우위</span></th><th>딜·리뷰 언급<br><span class="mute">삼성 : LG</span></th><th>쿠폰 오퍼<br><span class="mute">삼성 : LG</span></th></tr></thead><tbody id="presBody"></tbody></table></div>
     <p class="note" style="margin-top:8px">공개 화면에서 삼성 상점·요율·언급이 보이는지를 셉니다. 제휴 계약이나 지출 규모를 뜻하지 않으며, 상점 페이지는 다른 네트워크를 통해서도 열릴 수 있습니다. 상점 수는 수집 대상 기준(분모 함께 표기)이며 대상이 늘어난 날은 ‘범위 변경’으로 표시합니다. 딜·리뷰 언급은 특정 브랜드 전용이 아닌 홈·리뷰 지면 본문의 이름 언급 수, 쿠폰 오퍼는 삼성·LG 페이지를 모두 수집한 같은 쿠폰 사이트끼리만 더합니다.</p>
   </div>
 
@@ -236,7 +236,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
       const top = rated.length ? rated.reduce((a, b) => b.rate > a.rate ? b : a) : null;
       const P2 = SSP;
       S.push('<b>삼성 캐시백</b> ' + (mv.length ? mv.map(r => esc(r.publisher) + ' ' + pct(prevRow[r.target].rate) + '→' + pct(r.rate) + (r.rate > prevRow[r.target].rate ? ' 상향' : ' 하향')).join(', ') : '직전 대비 변동 없음') + (top ? ' · 최고 ' + pct(top.rate) + '(' + esc(top.publisher) + ')' : '')
-        + (P2.ss.length ? ' · 잔존: 상점 요율 게시 ' + P2.ssP.length + '/' + P2.ss.length + '곳' + (P2.pairs.length ? '(같은 퍼블리셔 ' + P2.pairs.length + '곳 중 삼성 우위 ' + P2.ssUp.length + ')' : '') : '')
+        + (P2.ss.length ? ' · 잔존: 확인한 퍼블리셔 ' + P2.ss.length + '곳 중 ' + P2.ssP.length + '곳에서 캐시백 제공' + (P2.pairs.length ? '(같은 퍼블리셔 ' + P2.pairs.length + '곳 중 삼성 우위 ' + P2.ssUp.length + ')' : '') : '')
         + (P2.ed.length ? ', 딜·리뷰 언급 삼성 ' + P2.mSS + ' : LG ' + P2.mLG : ''));
     }
     if (LG.list.length) S.push('<b>LG.com</b> 프로모션 ' + LG.list.length + '건' + (LG.fresh.length ? ', 신규 ' + LG.fresh.length + '건(' + esc(cutWords(LG.fresh[0][1].title, 50)) + (LG.fresh.length > 1 ? ' 외' : '') + ')' : '') + (LG.gone.length ? ', 내려감 ' + LG.gone.length + '건' : '') + (LG.ending.length ? ' · 7일 내 종료 ' + LG.ending.length + '건(가장 빠른 ' + fmt(LG.ending[0][1].end) + ': ' + esc(cutWords(LG.ending[0][1].title, 60)) + ')' : ''));
@@ -311,12 +311,12 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     const vtxt = r => r.rate != null ? pct(r.rate) : r.points + '/$';
     const shortPub = p => String(p).replace(/^Cartera · /, '').replace(/ Shopping$/, '');
     $('presKpis').append(
-      kpi('삼성 상점 요율 게시', SP.ssP.length + '<small> / ' + SP.ss.length + '곳</small>', 'LG ' + SP.lgP.length + ' / ' + SP.lg.length + '곳'),
+      kpi('삼성 캐시백 제공 퍼블리셔', SP.ssP.length + '<small>곳 / 확인 ' + SP.ss.length + '곳</small>', '삼성 상점에 캐시백·리워드 요율이 표시된 곳 · LG ' + SP.lgP.length + '/' + SP.lg.length + '곳'),
       kpi('같은 퍼블리셔 요율', SP.pairs.length ? 'LG ' + SP.lgUp.length + '<small> · 같음 ' + SP.same + ' · </small>삼성 ' + SP.ssUp.length : '—', SP.pairs.length ? '양쪽 모두 게시된 ' + SP.pairs.length + '곳 기준' : '비교 가능한 퍼블리셔 없음'),
       kpi('딜·리뷰 본문 언급', SP.ed.length ? '삼성 ' + SP.mSS + '<small> : LG ' + SP.mLG + '</small>' : '—', SP.ed.length ? '삼성이 더 많은 페이지 ' + SP.edSSlead.length + ' / ' + SP.ed.length : '수집된 딜·리뷰 페이지 없음'),
       kpi('쿠폰 사이트 오퍼', SP.cpPairs.length ? '삼성 ' + SP.oSS + '<small> : LG ' + SP.oLG + '</small>' : '—', SP.cpPairs.length ? '같은 사이트 ' + SP.cpPairs.length + '곳 (' + SP.cpPairs.map(([, s]) => esc(s.publisher)).join(', ') + ')' : '양쪽 모두 수집된 쿠폰 사이트 없음'));
     const parts = [];
-    if (SP.ssP.length) parts.push('<b class="ssv">삼성 요율 게시</b> ' + SP.ssP.slice().sort((a, b) => byRank(a.publisher, b.publisher)).map(r => esc(shortPub(r.publisher)) + ' ' + vtxt(r)).join(', '));
+    if (SP.ssP.length) parts.push('<b class="ssv">삼성 캐시백 제공</b> ' + SP.ssP.slice().sort((a, b) => byRank(a.publisher, b.publisher)).map(r => esc(shortPub(r.publisher)) + ' ' + vtxt(r)).join(', '));
     if (SP.ssUp.length) parts.push('<b>삼성 우위</b> ' + SP.ssUp.map(([l, s]) => esc(shortPub(s.publisher)) + ' 삼성 ' + vtxt(s) + ' > LG ' + vtxt(l)).join(', '));
     const miss = SP.ss.filter(r => !SP.ssP.includes(r));
     if (miss.length) parts.push('<span class="mute">미게시·수집 실패 ' + miss.map(r => esc(shortPub(r.publisher)) + '(' + esc(r.status) + ')').join(', ') + '</span>');
