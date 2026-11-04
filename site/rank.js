@@ -140,3 +140,28 @@ window.publishedDates = function (caps, runs) {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
+
+// Text size control (보통 / 크게 / 아주 크게). Pages use fixed px sizes, so the whole page is scaled with CSS zoom;
+// '보통' is already a little larger than the original design. The choice is kept per viewer in this browser.
+(function () {
+  const LV = [['보통', 1.12], ['크게', 1.25], ['아주 크게', 1.4]];
+  let cur = 0;
+  try { const v = Number(localStorage.getItem('fontLevel')); if (v >= 0 && v < LV.length) cur = v; } catch (e) {}
+  // On narrow screens the zoom is capped so the page keeps at least ~360px of layout width.
+  const apply = () => { const w = window.innerWidth || 1200; document.documentElement.style.zoom = Math.max(1, Math.min(LV[cur][1], w / 360)); };
+  window.addEventListener('resize', apply);
+  apply();
+  const css = document.createElement('style');
+  css.textContent = '.appbar-in{gap:18px}.fsz{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);white-space:nowrap}.fsz button{font:inherit;font-size:12.5px;font-weight:600;color:var(--fg);background:#fff;border:1px solid var(--line);border-radius:6px;padding:2px 8px;cursor:pointer}.fsz button.on{background:var(--fg);color:#fff;border-color:var(--fg)}@media(max-width:1560px){.brand small{display:none}.fsz .lbl{display:none}}@media(max-width:700px){.fsz{margin-left:0}.fsz .lbl{display:inline}}';
+  const run = () => {
+    document.head.append(css);
+    const host = document.querySelector('.appbar-in'); if (!host) return;
+    const box = document.createElement('div'); box.className = 'fsz'; box.setAttribute('role', 'group'); box.setAttribute('aria-label', '글자 크기');
+    const lb = document.createElement('span'); lb.className = 'lbl'; lb.textContent = '글자 크기'; box.append(lb); box.title = '글자 크기';
+    LV.forEach(([t], i) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = t; if (i === cur) b.className = 'on';
+      b.onclick = () => { cur = i; try { localStorage.setItem('fontLevel', i); } catch (e) {} apply(); [...box.querySelectorAll('button')].forEach((x, j) => x.classList.toggle('on', j === i)); };
+      box.append(b); });
+    host.append(box);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
