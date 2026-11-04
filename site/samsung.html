@@ -67,7 +67,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
 
   <section class="card" id="today">
     <h2>오늘 Samsung.com 프로모션</h2>
-    <p class="note" id="todayNote">오퍼 허브, Samsung Week, TV·가전·모니터 오퍼 페이지에서 읽은 프로모션입니다. 가전·TV·모니터를 먼저, 모바일·결제 혜택은 뒤에 둡니다. NEW는 직전 수집일에 없던 것, 노란 글씨는 3일 안에 끝나는 것입니다. 종료일은 화면이나 각주에 적힌 경우만 표시됩니다. 보증·지원 범위처럼 혜택이 없는 안내 카드는 프로모션 건수와 대표 혜택에서 제외합니다.</p>
+    <p class="note" id="todayNote">오퍼 허브, Samsung Week, TV·가전·모니터 오퍼 페이지에서 읽은 프로모션입니다. 가전·TV·모니터를 먼저, 모바일·결제 혜택은 뒤에 둡니다. NEW는 직전 수집일에 없던 것, 노란 글씨는 3일 안에 끝나는 것입니다. 종료일은 화면이나 각주에 적힌 경우만 표시됩니다. 보증·지원 범위 안내처럼 혜택이 없는 카드와 탭 제목만 읽힌 카드는 건수에서 빼고, 여러 페이지에 같이 걸린 카드(예: 오퍼 허브와 Samsung Week)는 한 건으로 셉니다. 카드 오른쪽 아래는 그 카드를 읽은 페이지입니다.</p>
     <div class="chips" id="chips"></div>
     <div class="promos" id="promoGrid"></div>
   </section>
@@ -126,10 +126,11 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
   const ci = c => { const i = CAT_ORDER.indexOf(c); return i < 0 ? 99 : i; };
   const CORE = c => ci(c) <= 7;
 
+  const PAGE_NAME = { 'samsungcom-offers': '오퍼 허브', 'samsungcom-week': 'Samsung Week', 'samsungcom-tv-offers': 'TV 오퍼 페이지', 'samsungcom-appliance-offers': '가전 오퍼 페이지', 'samsungcom-monitor-offers': '모니터 오퍼 페이지' };
   function promosBy(group) {
     const raw = {}, on = {};
     caps.filter(r => r.brand_group === group && OK(r.status)).forEach(r => {
-      (raw[r.date] = raw[r.date] || []).push(...(r.promos || []).map(p => [promoKey(p.title), { ...p, page: r.target, kind: r.kind, shot: r.shot, end: iso(p.valid, r.date) }]));
+      (raw[r.date] = raw[r.date] || []).push(...(r.promos || []).map(p => [promoKey(p.title), { ...p, page: r.target, page_url: r.url, kind: r.kind, shot: r.shot, end: iso(p.valid, r.date) }]));
     });
     Object.keys(raw).forEach(d => { on[d] = promoMap(raw[d]); });
     return on;
@@ -176,7 +177,7 @@ ul.rules{margin:0;padding-left:18px;font-size:13px}ul.rules li{margin:3px 0}
       if (p.discount) m.append(el('span', null, p.discount));
       if (p.end) { const left = Math.round((new Date(p.end) - new Date(lastDay)) / 864e5); m.append(el('span', left <= 3 ? 'soon' : null, '~' + fmt(p.end) + (left >= 0 ? ' (D-' + left + ')' : ' (종료)'))); }
       c.append(m);
-      const l = el('div', 'm'); l.append(el('span', null, p.kind.replace('Samsung.com ', '')));
+      const l = el('div', 'm'); l.append(el('span', null, PAGE_NAME[p.page] || p.kind.replace('Samsung.com ', '')));
       if (p.url) { const a = el('a', null, 'Samsung.com에서 보기'); a.href = p.url; a.target = '_blank'; a.rel = 'noopener'; l.append(a); }
       if (p.shot) l.append(shotLink(p.shot));
       c.append(l); $('promoGrid').append(c);

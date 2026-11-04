@@ -22,7 +22,26 @@ window.isBenefit = p => BENEFIT.test(((p && p.title) || '') + ' ' + ((p && p.dis
 // A bare "99%" with no off/back/rewards next to it in the card is not a discount.
 window.cleanDiscount = p => { const d = p && p.discount; if (!d) return d; if (/^\s*\d+(?:\.\d+)?\s?%\s*$/.test(d) && !new RegExp(d.trim().replace('%', '\\s?%') + '\\s*(?:off|back|cash|savings?|rewards?)', 'i').test(p.title || '')) return null; return d; };
 // Map of key -> promo for one day, merging cards that are the same promotion and dropping non-offers.
-window.promoMap = (list) => { const m = new Map(); list.forEach(([k, p]) => { if (k && isBenefit(p) && !findPromo(m.keys(), k)) m.set(k, { ...p, discount: cleanDiscount(p) }); }); return m; };
+// Category fixes for cards whose text alone misleads the keyword rules: a card linking to the Samsung/Galaxy
+// card page is a payment offer even when it sits on the monitor page with only "Earn $200 back" as text;
+// carrier deals are Galaxy phone offers.
+window.promoCat = p => { const u = (p && p.url) || '', t = (p && p.title) || '';
+  if (/samsung-card|galaxy-card|\/credit-card/i.test(u)) return '결제·금융';
+  if (/carrier deal|\bGalaxy\b/i.test(t) && p.category === '행사·프로그램') return '모바일';
+  return p.category; };
+// A card that only links to an anchor on its own page with no amount is a section heading
+// (e.g. tab labels read together), not a promotion.
+const isHeading = p => !p.discount && /#/.test(p.url || '') && (!p.page_url || (p.url || '').split('#')[0].replace(/\/$/, '') === p.page_url.replace(/\/$/, ''));
+const normUrl = u => (u || '').split(/[?#]/)[0].replace(/\/$/, '').toLowerCase();
+// Same promotion read on two pages: same key, or same destination link with the same amount.
+window.promoMap = (list) => { const m = new Map(); list.forEach(([k, p]) => {
+  if (!k || !isBenefit(p) || isHeading(p)) return;
+  const q = { ...p, category: promoCat(p), discount: cleanDiscount(p) };
+  let hit = findPromo(m.keys(), k);
+  if (!hit && q.url) for (const [x, v] of m) if (normUrl(v.url) === normUrl(q.url) && (v.discount || '').toLowerCase().replace(/[^0-9$%]/g, '') === (q.discount || '').toLowerCase().replace(/[^0-9$%]/g, '') && q.discount) { hit = x; break; }
+  if (!hit) m.set(k, q);
+  else if ((m.get(hit).title || '').length < (q.title || '').length) { m.delete(hit); m.set(k, q); }
+}); return m; };
 window.promoNotices = (list) => list.filter(([, p]) => !isBenefit(p)).length;
 
 // Shorten text at a word boundary (no half words in the briefing).

@@ -348,7 +348,7 @@ SS_PROMO_JS = r"""
 }
 """
 
-SS_EXTRA_CATS = [("모바일", r"Galaxy (?:Z|S\d|A\d|Tab|Watch|Buds|Book|Fold|Flip)|smartphone|phone|wearable"),
+SS_EXTRA_CATS = [("모바일", r"Galaxy (?:Z|S\d|A\d|Tab|Watch|Buds|Book|Fold|Flip)|smartphone|phone|wearable|carrier deal"),
                  ("결제·금융", r"Galaxy Card|PayPal|Affirm|\bAPR\b|pay over time|financ"),
                  ("행사·프로그램", r"Samsung Week|trade.?in|Offer Program|student|educator|carrier|Rewards")]
 CTA_RE = r"(?i)(?:(?<=[\s.,!])|^)(?:shop now|learn more|buy now|sign up|see offer|get offer|view more|shop)\b"
