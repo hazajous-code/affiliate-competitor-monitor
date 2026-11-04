@@ -51,6 +51,17 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
 .arch ol{margin:8px 0 2px;padding-left:22px;font-size:13.5px;line-height:1.6}.arch li{margin:4px 0}
 .arch .go{font-size:12px;margin-left:22px}
 .cats{display:block;font-size:11.5px;font-weight:400;color:var(--muted);white-space:normal}
+.act{margin-top:22px}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:12px}
+.ac{border:1px solid var(--line);border-left:4px solid var(--lg);border-radius:10px;padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.ac .t{display:flex;gap:8px;align-items:baseline;font-weight:700;font-size:14px}
+.ac .t .k{font-size:11px;font-weight:700;color:#fff;background:var(--lg);border-radius:4px;padding:1px 7px}
+.ac .t .k.chk{background:#374151}
+.ac .h{font-size:13px;color:var(--fg);line-height:1.5}
+.ac ul{margin:0;padding-left:16px;font-size:12.5px;line-height:1.6}
+.ac li b{font-variant-numeric:tabular-nums}
+.ac .go{font-size:12px;color:var(--muted);text-decoration:none;margin-top:auto}
+.ac .go:hover{color:var(--fg)}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,185px),1fr));gap:10px}
 .kpi{border:1px solid var(--line);border-top:3px solid var(--ss);border-radius:10px;padding:12px 14px}
 .kpi .l{font-size:12px;color:var(--muted)}
@@ -71,6 +82,11 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     <div class="dateline" id="dateline"></div>
     <div class="dnav" id="dnav"></div>
     <div class="rule"></div>
+  </div>
+
+  <div class="sec act" id="actSec">
+    <div class="hd"><h2>운영 개선 점검 포인트</h2><span class="more" id="actMeta"></span></div>
+    <div class="acts" id="acts"></div>
   </div>
 
   <div class="lead"><h2>오늘의 요약</h2><ol id="summary"><li class="mute">불러오는 중…</li></ol></div>
@@ -203,6 +219,48 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     return shown.map(k => esc(k) + (g.get(k) > 1 ? ' ×' + g.get(k) : '')).join(', ') + (rest ? ' 외 ' + rest + '건' : '');
   }
 
+  // Review points by the four client action areas (rates · review lists · deal sites · competitor activity).
+  const MAKERS = ['Samsung', 'GE Appliances', 'Whirlpool', 'Sony', 'Sony Electronics', 'Frigidaire', 'Dyson'];
+  const short = b => ({ 'GE Appliances': 'GE', 'Sony Electronics': 'Sony', 'Samsung': '삼성' })[b] || b;
+  function actions(day) {
+    const cur = caps.filter(r => r.date === day);
+    const prevD = dates[dates.indexOf(day) - 1];
+    const prevAt = prevD ? (at[prevD] || {}) : {};
+    const ok = r => OK(r.status) && r.rate != null;
+    // 1) LG vs the highest competing manufacturer on the same publisher
+    const store = cur.filter(r => STORE(r.kind) && ok(r));
+    const lg = store.filter(r => r.brand === 'LG Electronics').sort((a, b) => byRank(a.publisher, b.publisher));
+    const rate = lg.map(l => {
+      const comp = store.filter(r => r.publisher === l.publisher && MAKERS.includes(r.brand));
+      if (!comp.length) return null;
+      const top = comp.reduce((a, b) => b.rate > a.rate ? b : a);
+      const bb = store.find(r => r.publisher === l.publisher && r.brand === 'Best Buy');
+      const was = /was\s+(\d+(?:\.\d+)?)%/i.exec(l.rate_text || '');
+      return { p: l.publisher, lg: l.rate, top, gap: l.rate - top.rate, bb, was: was ? Number(was[1]) : null };
+    }).filter(Boolean);
+    // 2) latest best-of lists up to this day
+    const lists = [...new Set(caps.filter(r => r.kind === '추천 목록').map(r => r.target))].map(t => caps.filter(r => r.target === t && r.date <= day && OK(r.status) && (r.ranking || []).length).sort((a, b) => b.date.localeCompare(a.date))[0]).filter(Boolean);
+    const CATS = ['TV', '냉장고', '세탁기', '모니터'];
+    const lst = lists.map(r => { const lgx = r.ranking.filter(y => y.brand === 'LG'); return { cat: r.category, p: r.publisher, best: lgx.length ? lgx[0].n : null, top: r.ranking[0] }; })
+      .sort((a, b) => CATS.indexOf(a.cat) - CATS.indexOf(b.cat));
+    // 3) deal & review pages this week (Mon..day) vs last week
+    const mon = d => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() - (x.getUTCDay() + 6) % 7); return x.toISOString().slice(0, 10); };
+    const w0 = mon(day), wPrev = (() => { const x = new Date(w0 + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() - 7); return x.toISOString().slice(0, 10); })();
+    const ed = caps.filter(r => ['딜 사이트', '리뷰·매체'].includes(r.kind) && OK(r.status));
+    const share = (from, to) => { let s = 0, l = 0, t = 0; ed.filter(r => r.date >= from && r.date <= to).forEach(r => { const m = r.mentions || {}; s += m.Samsung || 0; l += m.LG || 0; t += Object.values(m).reduce((a, b) => a + b, 0); }); return { s, l, t }; };
+    const prevEnd = (() => { const x = new Date(w0 + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() - 1); return x.toISOString().slice(0, 10); })();
+    const W = share(w0, day), V = share(wPrev, prevEnd);
+    const pages = {}; ed.filter(r => r.date >= w0 && r.date <= day).forEach(r => { const q = pages[r.publisher] = pages[r.publisher] || { s: 0, l: 0 }; q.s += (r.mentions || {}).Samsung || 0; q.l += (r.mentions || {}).LG || 0; });
+    const ssLead = Object.entries(pages).filter(([, q]) => q.s > q.l).sort((a, b) => (b[1].s - b[1].l) - (a[1].s - a[1].l));
+    // 4) competitor activity: rate moves vs the previous collection, pages kept
+    const compRows = cur.filter(r => (STORE(r.kind) || r.kind === '마일·포인트 적립') && ['경쟁사', '유통'].includes(r.brand_group));
+    const val = r => r && OK(r.status) ? (r.rate != null ? r.rate : r.points) : null;
+    const moves = compRows.filter(r => { const p = prevAt[r.target]; return val(r) != null && val(p) != null && val(r) !== val(p); }).map(r => ({ r, from: val(prevAt[r.target]) }));
+    const lost = compRows.filter(r => val(r) == null && val(prevAt[r.target]) != null && r.status !== '요율 확인 필요');
+    const kept = {}; compRows.filter(r => val(r) != null).forEach(r => { const b = short(r.brand); (kept[b] = kept[b] || new Set()).add(r.publisher); });
+    return { rate, lst, W, V, ssLead, moves, lost, kept, w0 };
+  }
+
   // The summary lines — the same text the archive keeps.
   function summary(m) {
     const S = [];
@@ -234,7 +292,7 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
   window.briefReady = true;
 
   function render(day) {
-    ['dateline', 'dnav', 'rateBody', 'lgBox', 'ssBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
+    ['dateline', 'dnav', 'acts', 'rateBody', 'lgBox', 'ssBox', 'etcBox', 'presKpis', 'presBody'].forEach(id => { $(id).innerHTML = ''; });
     const m = model(day);
     const { cur, prevRow, moved, daysTo, lgS, ssS, LG, SS, etc, vr, isLatest } = m;
 
@@ -254,6 +312,43 @@ table{width:100%;border-collapse:collapse}th{text-align:left;position:sticky;top
     sel.onchange = () => { location.search = sel.value === dates[dates.length - 1] ? '' : '?date=' + sel.value; };
     nav.append(link(dates[i - 1], '← 이전'), sel, link(dates[i + 1], '다음 →'));
     if (!isLatest) nav.append(link(dates[dates.length - 1], '최신으로'));
+
+    // review points
+    const A = actions(day);
+    const card = (k, kcls, title, head, items, href, link) => {
+      const c = el('div', 'ac');
+      c.append(html(el('div', 't'), '<span class="k ' + kcls + '">' + k + '</span>' + title));
+      c.append(html(el('div', 'h'), head));
+      if (items.length) { const ul = el('ul'); items.forEach(t => ul.append(html(el('li'), t))); c.append(ul); }
+      const a = el('a', 'go', link + ' →'); a.href = href; c.append(a);
+      return c;
+    };
+    const pp = v => (v > 0 ? '+' : '') + (Math.round(v * 10) / 10) + '%p';
+    const over = A.rate.filter(x => x.gap > 0);
+    $('acts').append(card('점검', 'chk', '① 캐시백 상시 요율',
+      over.length ? 'LG 요율이 경쟁 제조사 최고보다 높은 퍼블리셔 <b>' + over.length + '곳</b> / 비교 가능 ' + A.rate.length + '곳' : '경쟁 제조사보다 높은 퍼블리셔 없음',
+      A.rate.map(x => esc(x.p) + ' — LG <b>' + pct(x.lg) + '</b>' + (x.was != null ? ' <span class="tag up">평시 ' + pct(x.was) + '</span>' : '') + ' vs ' + esc(short(x.top.brand)) + ' ' + pct(x.top.rate) + ' (<b class="' + (x.gap > 0 ? 'dn' : 'mute') + '">' + pp(x.gap) + '</b>)' + (x.bb ? ' <span class="mute">· Best Buy ' + pct(x.bb.rate) + '</span>' : '')),
+      'monitor.html#rates', '퍼블리셔별 요율 비교'));
+    const lMiss = A.lst.filter(x => x.best == null), notTop = A.lst.filter(x => x.best != null && x.best > 1);
+    const top1 = A.lst.filter(x => x.best === 1);
+    $('acts').append(card('강화', '', '② 리뷰 매체 추천 목록',
+      A.lst.length ? 'LG 1위 <b>' + top1.length + '/' + A.lst.length + '</b>개 목록 (' + [...new Set(top1.map(x => x.cat))].join('·') + ') · 미포함 <b>' + lMiss.length + '</b>개' : '추천 목록 수집 전',
+      [...lMiss.map(x => esc(x.cat) + ' · ' + esc(x.p) + ' — <b class="dn">LG 없음</b> <span class="mute">(1위 ' + esc(short(x.top.brand)) + ')</span>'),
+       ...notTop.sort((a, b) => b.best - a.best).map(x => esc(x.cat) + ' · ' + esc(x.p) + ' — LG <b>' + x.best + '위</b> <span class="mute">(1위 ' + esc(short(x.top.brand)) + ')</span>')],
+      'weekly.html#lists', '카테고리별 추천 목록'));
+    const sh = (o, k) => o.t ? Math.round(o[k] / o.t * 1000) / 10 : null;
+    $('acts').append(card('강화', '', '③ 딜·리뷰 지면 노출',
+      A.W.t ? '이번 주(' + fmt(A.w0) + '~) 언급 비중 삼성 <b>' + sh(A.W, 's') + '%</b> · LG <b>' + sh(A.W, 'l') + '%</b>' + (A.V.t ? ' <span class="mute">(전주 삼성 ' + sh(A.V, 's') + '% · LG ' + sh(A.V, 'l') + '%)</span>' : '') : '이번 주 수집된 딜·리뷰 지면 없음',
+      A.ssLead.length ? A.ssLead.map(([p, q]) => esc(p) + ' — 삼성 <b>' + q.s + '</b> : LG ' + q.l) : ['이번 주 삼성 언급이 LG보다 많은 지면 없음'],
+      'monitor.html#matrix', '브랜드 노출 매트릭스'));
+    const keptTxt = Object.entries(A.kept).filter(([b]) => !/Best Buy|Lowe/.test(b)).sort((a, b) => b[1].size - a[1].size).map(([b, s]) => esc(b) + ' ' + s.size).join(' · ');
+    $('acts').append(card('점검', 'chk', '④ 경쟁사 운영 동향',
+      '경쟁사 요율 변동 <b>' + A.moves.length + '</b>건 · 페이지 미확인 <b>' + A.lost.length + '</b>건 <span class="mute">(직전 수집일 대비)</span>',
+      [...A.moves.map(x => esc(short(x.r.brand)) + ' · ' + esc(x.r.publisher.replace('Cartera · ', '')) + ' ' + x.from + '→<b>' + (x.r.rate != null ? x.r.rate : x.r.points) + '</b>' + (x.r.rate != null ? '%' : '/$')),
+       ...A.lost.map(x => esc(short(x.brand)) + ' · ' + esc(x.publisher) + ' <span class="mute">(' + esc(x.status) + ')</span>'),
+       '페이지 유지(곳): ' + keptTxt],
+      'monitor.html#changes', '변화 감지'));
+    $('actMeta').textContent = fmt(day) + ' 수집 기준 · 공개 화면 관측';
 
     // summary
     $('summary').innerHTML = summary(m).map(s => '<li>' + s + '</li>').join('') || '<li class="mute">요약할 데이터가 없습니다.</li>';
