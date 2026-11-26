@@ -178295,7 +178295,7 @@
   "date": "2026-11-26",
   "target": "befrugal-abt",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:45-05:00",
+  "captured_at": "2026-11-26T17:37-05:00",
   "rate_source": "text",
   "rate": 9.0,
   "rate_text": "9% Cash Back",
@@ -178316,7 +178316,7 @@
   "http": 200,
   "title": "Abt Electronics 9.0% Cash Back + 63 Coupons, Promo Codes & Deals",
   "sig": "3ecb2b6cc4a1",
-  "body_hash": "d6c3a214dff3",
+  "body_hash": "b0d5f3420758",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -178332,7 +178332,7 @@
   "date": "2026-11-26",
   "target": "befrugal-ajmadison",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:45-05:00",
+  "captured_at": "2026-11-26T17:37-05:00",
   "rate_source": "text",
   "rate": 9.0,
   "rate_text": "9% Cash Back",
@@ -178351,7 +178351,7 @@
   "http": 200,
   "title": "AJ Madison 9.0% Cash Back + Coupons, Promo Codes & Deals",
   "sig": "3ecb2b6cc4a1",
-  "body_hash": "e63677a2f411",
+  "body_hash": "2afe920d2ea0",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -178367,7 +178367,7 @@
   "date": "2026-11-26",
   "target": "befrugal-amazon",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:44-05:00",
+  "captured_at": "2026-11-26T17:36-05:00",
   "rate_source": "text",
   "rate": null,
   "rate_text": null,
@@ -178386,7 +178386,7 @@
   "http": 200,
   "title": "Today's Top Amazon Coupons & Deals",
   "sig": "9d6fe018658f",
-  "body_hash": "02cb9b933c38",
+  "body_hash": "e21972f368cc",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -178402,99 +178402,99 @@
   "date": "2026-11-26",
   "target": "befrugal-bestbuy",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:01-05:00",
+  "captured_at": "2026-11-26T17:35-05:00",
   "rate_source": "text",
-  "rate": 20.0,
-  "rate_text": "Up to 20% Cash Back",
+  "rate": 14.0,
+  "rate_text": "Up to 14% Cash Back",
   "offers": null,
   "categories": [
    {
     "label": "Shark | Ninja Health, Wellness & Personal Care, Or Small Appliances",
-    "rate": 20.0
+    "rate": 14.0
    },
    {
     "label": "Acer, Lenovo, ASUS, HP, Samsung Chromebooks",
-    "rate": 17.14
+    "rate": 12.0
    },
    {
     "label": "HP Printers (Excluding Laser)",
-    "rate": 14.28
-   },
-   {
-    "label": "Ring Home Security & Monitoring",
-    "rate": 14.28
-   },
-   {
-    "label": "Sony Headphones",
-    "rate": 14.28
-   },
-   {
-    "label": "Dyson Small Appliances, Health, Wellness & Personal Care",
-    "rate": 11.42
-   },
-   {
-    "label": "Roku Flat-Screen TVs",
-    "rate": 11.42
-   },
-   {
-    "label": "LG Home Audio & Speakers",
     "rate": 10.0
    },
    {
+    "label": "Ring Home Security & Monitoring",
+    "rate": 10.0
+   },
+   {
+    "label": "Sony Headphones",
+    "rate": 10.0
+   },
+   {
+    "label": "Dyson Small Appliances, Health, Wellness & Personal Care",
+    "rate": 8.0
+   },
+   {
+    "label": "Roku Flat-Screen TVs",
+    "rate": 8.0
+   },
+   {
+    "label": "LG Home Audio & Speakers",
+    "rate": 7.0
+   },
+   {
     "label": "Acer Mini PCs",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "DJI Cameras, Camcorders & Drones",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "Lenovo Tablets",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "LG Major Appliances",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "Logitech Computer Accessories & Peripherals",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "Skullcandy Headphones",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "Sony Digital Cameras & Digital Camera Accessories",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "SteelSeries, Razer, Logitech, Turtle Beach, Or LG PC Gaming Accessories",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "SteelSeries, Razer, Logitech, Turtle Beach, LG, Or Corsair Gaming Monitors",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "SteelSeries, Razer, Logitech, Turtle Beach, LG, Or Corsair Handheld Gaming Accessories",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "SteelSeries, Razer, Logitech, Turtle Beach, LG, Or Corsair Video Game Accessories",
-    "rate": 8.57
+    "rate": 6.0
    },
    {
     "label": "Select Categories",
-    "rate": 5.71
+    "rate": 4.0
    },
    {
     "label": "Select Categories",
-    "rate": 2.85
+    "rate": 2.0
    },
    {
     "label": "Select Lenovo Notebooks***",
-    "rate": 2.85
+    "rate": 2.0
    }
   ],
   "exclusions": null,
@@ -178515,9 +178515,9 @@
   "shot": "shots/2026-11-26/befrugal-bestbuy.jpg",
   "final_url": "https://www.befrugal.com/store/bestbuy/",
   "http": 200,
-  "title": "Best Buy 20.0% Cash Back + 98 Coupons, Promo Codes & Deals",
-  "sig": "c856ce7eb246",
-  "body_hash": "59a527096e17",
+  "title": "Best Buy 14.0% Cash Back + 92 Coupons, Promo Codes & Deals",
+  "sig": "d8109de4eb4e",
+  "body_hash": "0134d5917cfc",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": null,
@@ -178534,7 +178534,7 @@
   "date": "2026-11-26",
   "target": "befrugal-bjs",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:44-05:00",
+  "captured_at": "2026-11-26T17:36-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "캐시백 미제공(현재 중단)",
@@ -178553,7 +178553,7 @@
   "http": 200,
   "title": "BJ's Wholesale Club Cash Back + Coupons, Promo Codes & Deals",
   "sig": "29a03cf18388",
-  "body_hash": "f31a6494e7ec",
+  "body_hash": "863e3990ee0c",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -178569,7 +178569,7 @@
   "date": "2026-11-26",
   "target": "befrugal-crutchfield",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:45-05:00",
+  "captured_at": "2026-11-26T17:37-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "캐시백 미제공(현재 중단)",
@@ -178588,12 +178588,50 @@
   "http": 200,
   "title": "Crutchfield Cash Back + Coupons, Promo Codes & Deals",
   "sig": "29a03cf18388",
-  "body_hash": "e65e92190b6d",
+  "body_hash": "2937296ee9b0",
   "country": "US",
   "prev_date": null,
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "BeFrugal",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/geappliances/",
+  "date": "2026-11-26",
+  "target": "befrugal-geappliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:21-05:00",
+  "rate_source": "text",
+  "rate": 0.0,
+  "rate_text": "캐시백 미제공(현재 중단)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "GE Appliances": 5
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/befrugal-geappliances.jpg",
+  "final_url": "https://www.befrugal.com/store/geappliances/",
+  "http": 200,
+  "title": "GE Appliances Cash Back + 13 Coupons, Promo Codes & Deals",
+  "sig": "29a03cf18388",
+  "body_hash": "953dc86e7b58",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "캐시백 미제공(현재 중단)",
+  "prev_rate": 0.0,
+  "changed": false,
+  "body_changed": true
  },
  {
   "publisher": "BeFrugal",
@@ -178604,103 +178642,103 @@
   "date": "2026-11-26",
   "target": "befrugal-homedepot",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:01-05:00",
+  "captured_at": "2026-11-26T17:35-05:00",
   "rate_source": "text",
-  "rate": 10.1,
-  "rate_text": "Up to 10.1% Cash Back",
+  "rate": 12.5,
+  "rate_text": "Up to 12.5% Cash Back",
   "offers": null,
   "categories": [
    {
     "label": "Housewares",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Luggage",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Tabletop",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Bedding & Textiles",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Wallpaper",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Interior Furniture",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Mattresses",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Area Rugs",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Home Decor",
-    "rate": 10.1
+    "rate": 12.5
    },
    {
     "label": "Building Materials - Building Materials, Lumber, Plumbing, Elecrical, Window & Doors",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Flooring",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Paint",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Lighting",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Appliances",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Bath",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Kitchen & Blinds",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Hardware",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Power Tools",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Storage & Organization",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Patio & Grills",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
     "label": "Lawn & Garden",
-    "rate": 1.26
+    "rate": 1.56
    },
    {
-    "label": "Cash Back up to",
-    "rate": 8.0
-   },
-   {
-    "label": "10% Cash Back",
+    "label": "Cash Back",
     "rate": 7.0
+   },
+   {
+    "label": "Cash Back",
+    "rate": 8.0
    },
    {
     "label": "Cash Back",
@@ -178708,7 +178746,11 @@
    },
    {
     "label": "Cash Back",
-    "rate": 2.0
+    "rate": 6.0
+   },
+   {
+    "label": "Cash Back",
+    "rate": 8.0
    },
    {
     "label": "Cash Back",
@@ -178716,7 +178758,7 @@
    },
    {
     "label": "Cash Back up to",
-    "rate": 13.0
+    "rate": 10.0
    }
   ],
   "exclusions": null,
@@ -178730,14 +178772,52 @@
   "shot": "shots/2026-11-26/befrugal-homedepot.jpg",
   "final_url": "https://www.befrugal.com/store/homedepot/",
   "http": 200,
-  "title": "Home Depot 10.1% Cash Back + 129 Coupons, Promo Codes & Deals",
-  "sig": "73e0aa96cfd0",
-  "body_hash": "3f286817aef4",
+  "title": "Home Depot 12.5% Cash Back + 124 Coupons, Promo Codes & Deals",
+  "sig": "73339d1dc4fa",
+  "body_hash": "3cbc7102f8b9",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": null,
   "prev_rate": null,
   "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "BeFrugal",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/lgelectronics/",
+  "date": "2026-11-26",
+  "target": "befrugal-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:35-05:00",
+  "rate_source": "text",
+  "rate": 11.0,
+  "rate_text": "11% Cash Back",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 5
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/befrugal-lg.jpg",
+  "final_url": "https://www.befrugal.com/store/lgelectronics/",
+  "http": 200,
+  "title": "LG Electronics 11.0% Cash Back + 26 Coupons, Promo Codes & Deals",
+  "sig": "e14a5d970ec7",
+  "body_hash": "e26217213340",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "11% Cash Back",
+  "prev_rate": 11.0,
+  "changed": false,
   "body_changed": true
  },
  {
@@ -178749,27 +178829,43 @@
   "date": "2026-11-26",
   "target": "befrugal-lowes",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:02-05:00",
+  "captured_at": "2026-11-26T17:35-05:00",
   "rate_source": "text",
-  "rate": 7.0,
-  "rate_text": "Up to 7% Cash Back",
+  "rate": 4.0,
+  "rate_text": "Up to 4% Cash Back",
   "offers": null,
   "categories": [
    {
     "label": "Decor",
-    "rate": 7.0
+    "rate": 4.0
    },
    {
     "label": "Lawn & Garden",
-    "rate": 7.0
+    "rate": 4.0
    },
    {
     "label": "Tools & Hardware",
-    "rate": 7.0
+    "rate": 4.0
    },
    {
     "label": "Seasonal & Cleaning",
+    "rate": 4.0
+   },
+   {
+    "label": "Cash Back",
     "rate": 7.0
+   },
+   {
+    "label": "Cash Back",
+    "rate": 8.0
+   },
+   {
+    "label": "Cash Back",
+    "rate": 10.0
+   },
+   {
+    "label": "Cash Back",
+    "rate": 6.0
    },
    {
     "label": "Cash Back",
@@ -178780,20 +178876,8 @@
     "rate": 7.0
    },
    {
-    "label": "Cash Back",
-    "rate": 2.0
-   },
-   {
-    "label": "Cash Back",
-    "rate": 6.0
-   },
-   {
     "label": "Cash Back up to",
-    "rate": 11.0
-   },
-   {
-    "label": "up to",
-    "rate": 10.1
+    "rate": 10.0
    },
    {
     "label": "Military Discount All active and reserve serviceman and veterans can save",
@@ -178815,9 +178899,9 @@
   "shot": "shots/2026-11-26/befrugal-lowes.jpg",
   "final_url": "https://www.befrugal.com/store/lowes/",
   "http": 200,
-  "title": "Lowe's 7.0% Cash Back + 51 Coupons, Promo Codes & Deals",
-  "sig": "d5617ca49ee6",
-  "body_hash": "dfca2ff21b4d",
+  "title": "Lowe's 4.0% Cash Back + 51 Coupons, Promo Codes & Deals",
+  "sig": "efb35cad765b",
+  "body_hash": "6aeac2ea8e64",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": null,
@@ -178834,7 +178918,7 @@
   "date": "2026-11-26",
   "target": "befrugal-newegg",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:44-05:00",
+  "captured_at": "2026-11-26T17:36-05:00",
   "rate_source": "text",
   "rate": 14.0,
   "rate_text": "Up to 14% Cash Back",
@@ -178853,7 +178937,7 @@
   "http": 200,
   "title": "Newegg 2.0% Cash Back + 4 Coupons, Promo Codes & Deals",
   "sig": "c4a364fb6bc9",
-  "body_hash": "38b9730ba7cd",
+  "body_hash": "d362aea3456f",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -178904,15 +178988,15 @@
   "date": "2026-11-26",
   "target": "befrugal-samsclub",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:44-05:00",
+  "captured_at": "2026-11-26T17:36-05:00",
   "rate_source": "text",
-  "rate": 8.0,
-  "rate_text": "Up to 8% Cash Back",
+  "rate": 9.0,
+  "rate_text": "Up to 9% Cash Back",
   "offers": null,
   "categories": [
    {
     "label": "New Sam's Club Membership",
-    "rate": 8.0
+    "rate": 9.0
    }
   ],
   "exclusions": null,
@@ -178926,14 +179010,52 @@
   "shot": "shots/2026-11-26/befrugal-samsclub.jpg",
   "final_url": "https://www.befrugal.com/store/samsclub/",
   "http": 200,
-  "title": "Sam's Club 8.0% Cash Back + 16 Coupons, Promo Codes & Deals",
-  "sig": "ad589d812515",
-  "body_hash": "08e079c526ee",
+  "title": "Sam's Club 9.0% Cash Back + 16 Coupons, Promo Codes & Deals",
+  "sig": "44c0643f2bb7",
+  "body_hash": "e9f5cedd69fb",
   "country": "US",
   "prev_date": null,
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "BeFrugal",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/samsung/",
+  "date": "2026-11-26",
+  "target": "befrugal-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:21-05:00",
+  "rate_source": "text",
+  "rate": 7.0,
+  "rate_text": "7% Cash Back",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 8
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/befrugal-samsung.jpg",
+  "final_url": "https://www.befrugal.com/store/samsung/",
+  "http": 200,
+  "title": "Samsung 7.0% Cash Back + 38 Coupons, Promo Codes & Deals",
+  "sig": "00e29f082467",
+  "body_hash": "33e1279c13f6",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "7% Cash Back",
+  "prev_rate": 7.0,
+  "changed": false,
+  "body_changed": true
  },
  {
   "publisher": "BeFrugal",
@@ -178944,7 +179066,7 @@
   "date": "2026-11-26",
   "target": "befrugal-target",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:44-05:00",
+  "captured_at": "2026-11-26T17:36-05:00",
   "rate_source": "text",
   "rate": 0.1,
   "rate_text": "0.1% Cash Back",
@@ -178965,7 +179087,7 @@
   "http": 200,
   "title": "Target 0.1% Cash Back + 26 Coupons, Promo Codes & Deals",
   "sig": "7c7957cec421",
-  "body_hash": "ab9021b47daf",
+  "body_hash": "b53228e2ac36",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -178981,7 +179103,7 @@
   "date": "2026-11-26",
   "target": "befrugal-walmart",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:43-05:00",
+  "captured_at": "2026-11-26T17:35-05:00",
   "rate_source": "text",
   "rate": 22.5,
   "rate_text": "Up to 22.5% Cash Back",
@@ -179048,9 +179170,7 @@
   "promos": [],
   "ranking": [],
   "category": null,
-  "mentions": {
-   "KitchenAid": 1
-  },
+  "mentions": {},
   "lg_snippets": [],
   "status": "수집",
   "reason": "",
@@ -179059,7 +179179,7 @@
   "http": 200,
   "title": "Walmart 22.5% Cash Back + 83 Coupons, Promo Codes & Deals",
   "sig": "949ee87915db",
-  "body_hash": "c7ec1f8dbc67",
+  "body_hash": "cd287494ab8c",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -179075,7 +179195,7 @@
   "date": "2026-11-26",
   "target": "befrugal-wayfair",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:44-05:00",
+  "captured_at": "2026-11-26T17:36-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "캐시백 미제공(현재 중단)",
@@ -179094,12 +179214,121 @@
   "http": 200,
   "title": "Wayfair Cash Back + 4 Coupons, Promo Codes & Deals",
   "sig": "29a03cf18388",
-  "body_hash": "bff73841efa8",
+  "body_hash": "a2c22b8e4dd7",
   "country": "US",
   "prev_date": null,
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "BeFrugal",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/whirlpool/",
+  "date": "2026-11-26",
+  "target": "befrugal-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:21-05:00",
+  "rate_source": "text",
+  "rate": 8.0,
+  "rate_text": "8% Cash Back",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 4
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/befrugal-whirlpool.jpg",
+  "final_url": "https://www.befrugal.com/store/whirlpool/",
+  "http": 200,
+  "title": "Whirlpool 8.0% Cash Back + 4 Coupons, Promo Codes & Deals",
+  "sig": "4b528252207d",
+  "body_hash": "7a49a0a4165f",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "8% Cash Back",
+  "prev_rate": 8.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "BenefitHub",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.benefithub.com/",
+  "date": "2026-11-26",
+  "target": "benefithub-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:29-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "로그인 입구만",
+  "reason": "공개 소개·로그인 화면까지만 확인. 회원 전용 혜택은 수집하지 않음",
+  "shot": "shots/2026-11-26/benefithub-home.jpg",
+  "final_url": "https://www.benefithub.com/",
+  "http": 200,
+  "title": "BenefitHub | Employee Rewards Programs & Incentives",
+  "sig": "9d6fe018658f",
+  "body_hash": "698934511a5a",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": null,
+  "body_changed": false
+ },
+ {
+  "publisher": "Brad's Deals",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://www.bradsdeals.com/",
+  "date": "2026-11-26",
+  "target": "bradsdeals-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:27-05:00",
+  "mention_shots": {},
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/bradsdeals-home.jpg",
+  "final_url": "https://www.bradsdeals.com/",
+  "http": 200,
+  "title": "Brad's Deals. There's a real-life human behind every post.",
+  "sig": "9d6fe018658f",
+  "body_hash": "a5f1657ae5e2",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
  },
  {
   "publisher": "Capital One Shopping",
@@ -179110,7 +179339,7 @@
   "date": "2026-11-26",
   "target": "capone-abt",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:41-05:00",
+  "captured_at": "2026-11-26T17:20-05:00",
   "rate_source": "header",
   "rate": 1.5,
   "rate_text": "Rewards Up to 1.5%",
@@ -179154,7 +179383,7 @@
   "date": "2026-11-26",
   "target": "capone-ajmadison",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:41-05:00",
+  "captured_at": "2026-11-26T17:20-05:00",
   "rate_source": "header",
   "rate": 1.0,
   "rate_text": "Rewards 1%",
@@ -179173,7 +179402,7 @@
   "http": 200,
   "title": "AJ Madison Promo Codes & Coupons for November 2026",
   "sig": "56bfd659e857",
-  "body_hash": "12b298c48862",
+  "body_hash": "b1903d394035",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -179189,7 +179418,7 @@
   "date": "2026-11-26",
   "target": "capone-amazon",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:40-05:00",
+  "captured_at": "2026-11-26T17:19-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "리워드 없음 (쿠폰만)",
@@ -179224,13 +179453,13 @@
   "date": "2026-11-26",
   "target": "capone-bestbuy",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:00-05:00",
+  "captured_at": "2026-11-26T17:18-05:00",
   "rate_source": "header",
   "rate": 0.5,
   "rate_text": "Rewards 0.5%",
   "offers": null,
   "categories": [],
-  "exclusions": "Not eligible for Apple products, laptops, unlocked cell phones, digital downloads & subscriptions, Point of Sale Activation (POSA) cards, delivery services, installation, warranties, Geek Squad Protection, or Best Buy for Business. Not valid on orders deemed to be for reselling purposes (5+ purchases of the same item)…",
+  "exclusions": "Not eligible for Apple products, unlocked cell phones, digital downloads & subscriptions, Point of Sale Activation (POSA) cards, delivery services, installation, warranties, Geek Squad Protection, or Best Buy for Business. Not valid on orders deemed to be for reselling purposes (5+ purchases of the same item). Not eli…",
   "promos": [],
   "ranking": [],
   "category": null,
@@ -179242,13 +179471,13 @@
   "final_url": "https://capitaloneshopping.com/s/bestbuy.com/coupon",
   "http": 200,
   "title": "Best Buy Promo Codes & Coupons for November 2026",
-  "sig": "911cf3d5e23f",
-  "body_hash": "d3254cdc2371",
+  "sig": "bbb7b6515617",
+  "body_hash": "a870f61c325f",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": "Rewards 0.5%",
   "prev_rate": 0.5,
-  "changed": false,
+  "changed": true,
   "body_changed": true
  },
  {
@@ -179260,7 +179489,7 @@
   "date": "2026-11-26",
   "target": "capone-bjs",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:40-05:00",
+  "captured_at": "2026-11-26T17:19-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "리워드 없음 (쿠폰만)",
@@ -179295,7 +179524,7 @@
   "date": "2026-11-26",
   "target": "capone-costco",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:01-05:00",
+  "captured_at": "2026-11-26T17:18-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "리워드 없음 (쿠폰만)",
@@ -179314,7 +179543,7 @@
   "http": 200,
   "title": "Costco Promo Codes & Coupons for November 2026",
   "sig": "acec787b95ff",
-  "body_hash": "926a70515f32",
+  "body_hash": "1a71b0d511c0",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": null,
@@ -179331,7 +179560,7 @@
   "date": "2026-11-26",
   "target": "capone-crutchfield",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:41-05:00",
+  "captured_at": "2026-11-26T17:20-05:00",
   "rate_source": "header",
   "rate": 1.0,
   "rate_text": "Rewards 1%",
@@ -179352,12 +179581,50 @@
   "http": 200,
   "title": "Crutchfield Promo Codes & Coupons for November 2026",
   "sig": "efd65c6133f1",
-  "body_hash": "be7a41a58f67",
+  "body_hash": "c358c8a64eb6",
   "country": "US",
   "prev_date": null,
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "Capital One Shopping",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/geappliances.com/coupon",
+  "date": "2026-11-26",
+  "target": "capone-geappliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:18-05:00",
+  "rate_source": "header",
+  "rate": 3.0,
+  "rate_text": "Rewards 3%",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Not eligible for product installation, Kona Pellet, and Filter Products. Use of promotional codes not provided by Capital One may invalidate your offer.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "GE Appliances": 4
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/capone-geappliances.jpg",
+  "final_url": "https://capitaloneshopping.com/s/geappliances.com/coupon",
+  "http": 200,
+  "title": "GE Appliances Promo Codes & Coupons for November 2026",
+  "sig": "8071592452c0",
+  "body_hash": "6171f8f67825",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Rewards 3%",
+  "prev_rate": 3.0,
+  "changed": false,
+  "body_changed": false
  },
  {
   "publisher": "Capital One Shopping",
@@ -179368,7 +179635,7 @@
   "date": "2026-11-26",
   "target": "capone-homedepot",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:00-05:00",
+  "captured_at": "2026-11-26T17:18-05:00",
   "rate_source": "header",
   "rate": 1.0,
   "rate_text": "Rewards 1%",
@@ -179397,6 +179664,53 @@
  },
  {
   "publisher": "Capital One Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/lg.com/coupon",
+  "date": "2026-11-26",
+  "target": "capone-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "header",
+  "rate": 2.5,
+  "rate_text": "Rewards Up to 2.5%",
+  "offers": null,
+  "categories": [
+   {
+    "label": "LG.com Purchase",
+    "rate": 2.5
+   },
+   {
+    "label": "Partners Mall Purchase",
+    "rate": 0.5
+   }
+  ],
+  "exclusions": "Not eligible for purchases of audio devices, projectors, air conditioning units (Residential Air Conditioner), Air Care units, vacuums, Logitech, and LG Pro and Pro Care Memberships. Use of promotional codes not provided by Capital One may invalidate your offer.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 8
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/capone-lg.jpg",
+  "final_url": "https://capitaloneshopping.com/s/lg.com/coupon",
+  "http": 200,
+  "title": "LG Electronics Promo Codes & Coupons for November 2026",
+  "sig": "72667eb2ab4c",
+  "body_hash": "38d0319b0a52",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Rewards Up to 2.5%",
+  "prev_rate": 2.5,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Capital One Shopping",
   "brand": "Lowe's",
   "brand_group": "유통",
   "kind": "쇼핑 리워드",
@@ -179404,7 +179718,7 @@
   "date": "2026-11-26",
   "target": "capone-lowes",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:01-05:00",
+  "captured_at": "2026-11-26T17:18-05:00",
   "rate_source": "header",
   "rate": 5.0,
   "rate_text": "Rewards 5%",
@@ -179423,7 +179737,7 @@
   "http": 200,
   "title": "Lowe's Promo Codes & Coupons for November 2026",
   "sig": "5cc414c8ab24",
-  "body_hash": "148dbc627786",
+  "body_hash": "f80a15567cc3",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": "Rewards 5%",
@@ -179440,7 +179754,7 @@
   "date": "2026-11-26",
   "target": "capone-newegg",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:41-05:00",
+  "captured_at": "2026-11-26T17:20-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "리워드 없음 (쿠폰만)",
@@ -179459,7 +179773,7 @@
   "http": 200,
   "title": "Newegg Promo Codes & Coupons for November 2026",
   "sig": "acec787b95ff",
-  "body_hash": "0dbb83a45aa4",
+  "body_hash": "6ecb716dadd4",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -179475,7 +179789,7 @@
   "date": "2026-11-26",
   "target": "capone-pcrichard",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:41-05:00",
+  "captured_at": "2026-11-26T17:20-05:00",
   "rate_source": "header",
   "rate": 2.0,
   "rate_text": "Rewards 2%",
@@ -179513,7 +179827,7 @@
   "date": "2026-11-26",
   "target": "capone-samsclub",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:40-05:00",
+  "captured_at": "2026-11-26T17:19-05:00",
   "rate_source": "header",
   "rate": 0.5,
   "rate_text": "Rewards Up to 0.5%",
@@ -179541,12 +179855,98 @@
   "http": 200,
   "title": "Sam's Club Promo Codes & Coupons for November 2026",
   "sig": "2709dc5a3064",
-  "body_hash": "00425ec01277",
+  "body_hash": "6c1458fd7e4e",
   "country": "US",
   "prev_date": null,
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "Capital One Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/samsung.com/coupon",
+  "date": "2026-11-26",
+  "target": "capone-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "header",
+  "rate": 0.75,
+  "rate_text": "Rewards Up to 0.75%",
+  "offers": null,
+  "categories": [
+   {
+    "label": "Home Appliances",
+    "rate": 0.75
+   },
+   {
+    "label": "Mobile",
+    "rate": 0.25
+   }
+  ],
+  "exclusions": "Not eligible for purchases or redemption of gift cards and e-gift cards, Memory and Storage Devices, B2B orders, Samsung Care+ subscriptions, subscription credits or trials, upgrade bonuses, bundles, trade-in discounts, in-store pick up or deliveries, haul-away, installation, insurance, protection or warranty coverage…",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 1,
+   "Samsung": 9
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/capone-samsung.jpg",
+  "final_url": "https://capitaloneshopping.com/s/samsung.com/coupon",
+  "http": 200,
+  "title": "Samsung Promo Codes & Coupons for November 2026",
+  "sig": "206c4841e88f",
+  "body_hash": "378ca013a1af",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Rewards Up to 0.75%",
+  "prev_rate": 0.75,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Capital One Shopping",
+  "brand": "Sony",
+  "brand_group": "경쟁사",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/sony.com/coupon",
+  "date": "2026-11-26",
+  "target": "capone-sony",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "header",
+  "rate": 0.5,
+  "rate_text": "Rewards 0.5%",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Use of promotional codes not provided by Capital One may invalidate your offer.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Sony": 4
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/capone-sony.jpg",
+  "final_url": "https://capitaloneshopping.com/s/sony.com/coupon",
+  "http": 200,
+  "title": "Sony Promo Codes & Coupons for November 2026",
+  "sig": "8d4b169f41e1",
+  "body_hash": "ae5a9a50fb19",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Rewards 0.5%",
+  "prev_rate": 0.5,
+  "changed": false,
+  "body_changed": false
  },
  {
   "publisher": "Capital One Shopping",
@@ -179557,7 +179957,7 @@
   "date": "2026-11-26",
   "target": "capone-target",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:40-05:00",
+  "captured_at": "2026-11-26T17:19-05:00",
   "rate_source": "header",
   "rate": 0.5,
   "rate_text": "Rewards 0.5%",
@@ -179592,10 +179992,10 @@
   "date": "2026-11-26",
   "target": "capone-walmart",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:40-05:00",
+  "captured_at": "2026-11-26T17:19-05:00",
   "rate_source": "header",
-  "rate": 2.0,
-  "rate_text": "Rewards 2%",
+  "rate": 3.0,
+  "rate_text": "Rewards 3%",
   "offers": null,
   "categories": [],
   "exclusions": "Not eligible for purchases of automotive tires, Apple products, Beats products, groceries/food (excluding select coffee and tea products), personal care, pharmacy, precious metals, photo services, household essentials, video game hardware, baby consumables, baby hardlines, beauty, cameras and supplies, pets and suppli…",
@@ -179610,8 +180010,8 @@
   "final_url": "https://capitaloneshopping.com/s/walmart.com/coupon",
   "http": 200,
   "title": "Walmart Promo Codes & Coupons for November 2026",
-  "sig": "da8b19a2f293",
-  "body_hash": "ffc343ef778d",
+  "sig": "abc0505b933b",
+  "body_hash": "d7025a58eeda",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -179627,7 +180027,7 @@
   "date": "2026-11-26",
   "target": "capone-wayfair",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:41-05:00",
+  "captured_at": "2026-11-26T17:19-05:00",
   "rate_source": "text",
   "rate": 0.0,
   "rate_text": "리워드 없음 (쿠폰만)",
@@ -179652,6 +180052,1393 @@
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "Capital One Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/whirlpool.com/coupon",
+  "date": "2026-11-26",
+  "target": "capone-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:18-05:00",
+  "rate_source": "header",
+  "rate": 2.0,
+  "rate_text": "Rewards 2%",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Not eligible for purchases or redemption of gift cards and e-gift cards.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 4,
+   "Frigidaire": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/capone-whirlpool.jpg",
+  "final_url": "https://capitaloneshopping.com/s/whirlpool.com/coupon",
+  "http": 200,
+  "title": "Whirlpool Promo Codes & Coupons for November 2026",
+  "sig": "1bc8722a89e4",
+  "body_hash": "f3d830ca1749",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Rewards 2%",
+  "prev_rate": 2.0,
+  "changed": false,
+  "body_changed": false
+ },
+ {
+  "publisher": "Cartera · American AAdvantage eShopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6190",
+  "date": "2026-11-26",
+  "target": "cartera-aa-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:37-05:00",
+  "points": 2.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 33
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-aa-lg.jpg",
+  "final_url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6190",
+  "http": 200,
+  "title": "LG Electronics coupon & promo codes 2026 - American Airlines AAdvantage eShopping",
+  "sig": "42e468d6367c",
+  "body_hash": "b9f62f2a25f4",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · American AAdvantage eShopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.aadvantageeshopping.com/me____.htm?gmid=4889",
+  "date": "2026-11-26",
+  "target": "cartera-aa-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:37-05:00",
+  "points": 1.5,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "Up to 1.5 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 13
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-aa-samsung.jpg",
+  "final_url": "https://www.aadvantageeshopping.com/me____.htm?gmid=4889",
+  "http": 200,
+  "title": "Samsung coupon & promo codes 2026 - American Airlines AAdvantage eShopping",
+  "sig": "b3797c0cb897",
+  "body_hash": "2d81da33004a",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 1.5 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · American AAdvantage eShopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6147",
+  "date": "2026-11-26",
+  "target": "cartera-aa-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:37-05:00",
+  "points": 2.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 7
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-aa-whirlpool.jpg",
+  "final_url": "https://www.aadvantageeshopping.com/me____.htm?gmid=6147",
+  "http": 200,
+  "title": "Whirlpool coupon & promo codes 2026 - American Airlines AAdvantage eShopping",
+  "sig": "42e468d6367c",
+  "body_hash": "1e4004087f9d",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": false
+ },
+ {
+  "publisher": "Cartera · Atmos Rewards Shopping (Alaska·Hawaiian)",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.atmosshopping.com/me____.htm?gmid=6190",
+  "date": "2026-11-26",
+  "target": "cartera-atmos-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:39-05:00",
+  "points": 2.0,
+  "unit": "points/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 points/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 33
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-atmos-lg.jpg",
+  "final_url": "https://www.atmosshopping.com/me____.htm?gmid=6190",
+  "http": 200,
+  "title": "LG Electronics coupon & promo codes 2026 - Atmos™ Rewards Shopping",
+  "sig": "228bc22604d2",
+  "body_hash": "ce927012afe3",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 points/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · Atmos Rewards Shopping (Alaska·Hawaiian)",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.atmosshopping.com/me____.htm?gmid=4889",
+  "date": "2026-11-26",
+  "target": "cartera-atmos-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:39-05:00",
+  "points": 1.0,
+  "unit": "points/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "Up to 1 points/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 13
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-atmos-samsung.jpg",
+  "final_url": "https://www.atmosshopping.com/me____.htm?gmid=4889",
+  "http": 200,
+  "title": "Samsung coupon & promo codes 2026 - Atmos™ Rewards Shopping",
+  "sig": "2ef2d839cbf2",
+  "body_hash": "19a6449fcdf3",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 1 points/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · Atmos Rewards Shopping (Alaska·Hawaiian)",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.atmosshopping.com/me____.htm?gmid=6147",
+  "date": "2026-11-26",
+  "target": "cartera-atmos-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:39-05:00",
+  "points": 2.0,
+  "unit": "points/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 points/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 7
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-atmos-whirlpool.jpg",
+  "final_url": "https://www.atmosshopping.com/me____.htm?gmid=6147",
+  "http": 200,
+  "title": "Whirlpool coupon & promo codes 2026 - Atmos™ Rewards Shopping",
+  "sig": "228bc22604d2",
+  "body_hash": "e3926804160d",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 points/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": false
+ },
+ {
+  "publisher": "Cartera · Delta SkyMiles Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.skymilesshopping.com/me____.htm?gmid=6190",
+  "date": "2026-11-26",
+  "target": "cartera-delta-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:38-05:00",
+  "points": 2.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 33
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-delta-lg.jpg",
+  "final_url": "https://www.skymilesshopping.com/me____.htm?gmid=6190",
+  "http": 200,
+  "title": "LG Electronics Coupon & Promo Codes 2026 - Delta SkyMiles Shopping",
+  "sig": "42e468d6367c",
+  "body_hash": "2bf0592281b4",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · Delta SkyMiles Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.skymilesshopping.com/me____.htm?gmid=4889",
+  "date": "2026-11-26",
+  "target": "cartera-delta-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:38-05:00",
+  "points": 1.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "Up to 1 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 13
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-delta-samsung.jpg",
+  "final_url": "https://www.skymilesshopping.com/me____.htm?gmid=4889",
+  "http": 200,
+  "title": "Samsung Coupon & Promo Codes 2026 - Delta SkyMiles Shopping",
+  "sig": "b2a9255c1741",
+  "body_hash": "6d1e1a930544",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 1 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · Delta SkyMiles Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://www.skymilesshopping.com/me____.htm?gmid=6147",
+  "date": "2026-11-26",
+  "target": "cartera-delta-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:38-05:00",
+  "points": 2.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 7
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-delta-whirlpool.jpg",
+  "final_url": "https://www.skymilesshopping.com/me____.htm?gmid=6147",
+  "http": 200,
+  "title": "Whirlpool Coupon & Promo Codes 2026 - Delta SkyMiles Shopping",
+  "sig": "42e468d6367c",
+  "body_hash": "8e1c9df30916",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": false
+ },
+ {
+  "publisher": "Cartera · Southwest Rapid Rewards Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6190",
+  "date": "2026-11-26",
+  "target": "cartera-southwest-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:39-05:00",
+  "points": 2.0,
+  "unit": "points/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 points/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 33
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-southwest-lg.jpg",
+  "final_url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6190",
+  "http": 200,
+  "title": "LG Electronics Coupon & Promo Codes 2026 - Southwest Rapid Rewards Shopping",
+  "sig": "228bc22604d2",
+  "body_hash": "5e3c38743ad8",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 points/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · Southwest Rapid Rewards Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=4889",
+  "date": "2026-11-26",
+  "target": "cartera-southwest-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:39-05:00",
+  "points": 1.0,
+  "unit": "points/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "Up to 1 points/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 13
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-southwest-samsung.jpg",
+  "final_url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=4889",
+  "http": 200,
+  "title": "Samsung Coupon & Promo Codes 2026 - Southwest Rapid Rewards Shopping",
+  "sig": "2ef2d839cbf2",
+  "body_hash": "ca7ca034d30c",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 1 points/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · Southwest Rapid Rewards Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6147",
+  "date": "2026-11-26",
+  "target": "cartera-southwest-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:39-05:00",
+  "points": 2.0,
+  "unit": "points/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 points/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 7
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-southwest-whirlpool.jpg",
+  "final_url": "https://rapidrewardsshopping.southwest.com/me____.htm?gmid=6147",
+  "http": 200,
+  "title": "Whirlpool Coupon & Promo Codes 2026 - Southwest Rapid Rewards Shopping",
+  "sig": "228bc22604d2",
+  "body_hash": "6fbe75ea1df1",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 points/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": false
+ },
+ {
+  "publisher": "Cartera · United MileagePlus Shopping",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "마일·포인트 적립",
+  "url": "https://shopping.mileageplus.com/me____.htm?gmid=6190",
+  "date": "2026-11-26",
+  "target": "cartera-united-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:38-05:00",
+  "points": 2.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 33
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-united-lg.jpg",
+  "final_url": "https://shopping.mileageplus.com/me____.htm?gmid=6190",
+  "http": 200,
+  "title": "LG Electronics coupon & promo codes 2026 - United MileagePlus Shopping",
+  "sig": "42e468d6367c",
+  "body_hash": "0d7500306644",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · United MileagePlus Shopping",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://shopping.mileageplus.com/me____.htm?gmid=4889",
+  "date": "2026-11-26",
+  "target": "cartera-united-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:38-05:00",
+  "points": 1.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "Up to 1 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 13
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-united-samsung.jpg",
+  "final_url": "https://shopping.mileageplus.com/me____.htm?gmid=4889",
+  "http": 200,
+  "title": "Samsung coupon & promo codes 2026 - United MileagePlus Shopping",
+  "sig": "b2a9255c1741",
+  "body_hash": "fca92623cde4",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 1 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Cartera · United MileagePlus Shopping",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "마일·포인트 적립",
+  "url": "https://shopping.mileageplus.com/me____.htm?gmid=6147",
+  "date": "2026-11-26",
+  "target": "cartera-united-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:38-05:00",
+  "points": 2.0,
+  "unit": "miles/$",
+  "rate_source": "header",
+  "rate": null,
+  "rate_text": "2 miles/$",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 7
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/cartera-united-whirlpool.jpg",
+  "final_url": "https://shopping.mileageplus.com/me____.htm?gmid=6147",
+  "http": 200,
+  "title": "Whirlpool coupon & promo codes 2026 - United MileagePlus Shopping",
+  "sig": "42e468d6367c",
+  "body_hash": "1448a3b72b1d",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2 miles/$",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": false
+ },
+ {
+  "publisher": "DealNews",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://www.dealnews.com/",
+  "date": "2026-11-26",
+  "target": "dealnews-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:25-05:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__LG_3.jpg",
+     "text": "LG gram Book Core Ultra 5 115U 15.6\" Touchscreen Laptop",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_0.jpg",
+     "text": "Home Depot · Verified 17 hrs ago Home Depot Black Friday Appliance Doorbusters In-Store & Online Up to 50% off free shipping on eligible items more Home Depot's Black Friday Appliance Doorbusters featured around 140 appl",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_1.jpg",
+     "text": "Runs November 19 through November 30 Two limited-time deal drops on Black Friday and Cyber Monday Categories include TVs, laptops, Apple, Samsung, Razer, beauty, & home Free shipping w/ Prime on most deals",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_3.jpg",
+     "text": "Samsung Half-Price (or Better) Black Friday Deals at Best Buy",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_4.jpg",
+     "text": "Samsung TVs including a 65\" S84H OLED, a 65\" R84H Micro RGB, and 75\" & 85\" QN90H Neo QLED models Soundbars from the B Series & Q-Series lineup Odyssey G30D 24\" 180Hz gaming monitor Galaxy Book4 Edge 16\" AMOLED touch-scre",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_5.jpg",
+     "text": "Jason Savage picked this Lowe's · Verified 14 hrs ago Lowe's Black Friday Sale 2026 Up to 60% off free shipping more \"The Lowe's Black Friday sale is already running some of the strongest deals of the year on tools, home",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_6.jpg",
+     "text": "Amazon · Verified 1 hr ago Samsung Galaxy Black Friday Deals at Amazon Up to 40% off free shipping w/ Prime more Amazon is offering a wide range of Samsung mobile products, from Galaxy foldable and S-series phones to sma",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_7.jpg",
+     "text": "Amazon · Verified 1 hr ago Amazon Black Friday Trending Deals Up to 70% off free shipping w/ Prime more Amazon's Black Friday trending deals include a Samsung tablet at $200, a Breville Barista Express espresso machine a",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Samsung_8.jpg",
+     "text": "Samsung Galaxy Watch Black Friday Deals at Best Buy",
+     "n": 1
+    }
+   ],
+   "Sony": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Sony_1.jpg",
+     "text": "Amazon · Verified 22 mins ago Sony Black Friday Deals at Amazon Up to 52% off free shipping w/ Prime more Amazon's Sony Black Friday sale spans headphones, speakers, TVs, cameras, and a few games, with prices starting at",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Sony_2.jpg",
+     "text": "Sony PlayStation 5 Slim 1TB Disc Console & DualSense Controller Bundle",
+     "n": 1
+    }
+   ],
+   "Dyson": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Dyson_0.jpg",
+     "text": "Includes open-box Apple AirPods 4 from $75 Includes a VIZIO 58\" 4K QLED smart TV for $178 Includes the Dyson V12 Detect Slim cordless vacuum for $430 Includes the unlocked Samsung Galaxy S25 Plus for $680 Includes a Ninj",
+     "n": 1
+    }
+   ],
+   "TCL": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__TCL_0.jpg",
+     "text": "Online-only flash sale that ends today, with limited quantities and no rainchecks Flash Deal prices include the Insignia 43\" 4K Fire TV at $89.99 and the Apple Mac mini M4 at $599 Laptops on sale include the HP OMEN 16\" ",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__TCL_1.jpg",
+     "text": "Doorbusters include a 65\" TCL 4K TV for $230 & Sony WH-1000XM5 headphones for $170 Laptops from $180, including an HP OmniBook 5 14\" OLED touchscreen at $450 Apple deals include AirPods Pro 3 at $180 & select MacBooks fr",
+     "n": 1
+    }
+   ],
+   "Bosch": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Bosch_0.jpg",
+     "text": "DEWALT 20-volt max 2-tool brushless combo kit with 2 batteries, $199 CRAFTSMAN M110 21\" gas push mower, $199 CRAFTSMAN V20 6-tool combo kit w/ 2 batteries & charger, $229 EGO 56-volt 16\" battery string trimmer, from $199",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Bosch_1.jpg",
+     "text": "Gas & battery lawn mowers, leaf blowers, chainsaws, and snow blowers Brands include EGO, DEWALT, CRAFTSMAN, Kobalt, Toro, Ariens, Husqvarna, and Bosch Battery & charger kits from DEWALT, CRAFTSMAN, Bosch, and Kobalt Free",
+     "n": 2
+    }
+   ],
+   "KitchenAid": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__KitchenAid_0.jpg",
+     "text": "Whirlpool 7-cu. ft. electric dryer at $399, down from $719 LG 7.3-cu. ft. electric dryer at $549, down from $899 KitchenAid 24.3-cu. ft. French door refrigerator at $2,299, down from $3,443 Whirlpool 30\" electric range w",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__KitchenAid_1.jpg",
+     "text": "Member's Mark Tilt TV Wall Mount for 32\" to 98\" TVs at $49.98, down from $69.98 LG 5.0 cu. ft. front load washer at $995, down from $1,445 Apple iPad Pro 11\" with M5 chip at $1,049, down from $1,169 Member's Mark Olympus",
+     "n": 1
+    }
+   ],
+   "Shark": [
+    {
+     "shot": "shots/2026-11-26/m/dealnews-home__Shark_0.jpg",
+     "text": "VIZIO 75\" Class 4K QLED Smart TV for $348, down from $428 Apple AirPods Pro 3 for $149, down from $249 Nintendo Switch 2 + Mario Kart World bundle for $499 Shark Detect Lift-Away upright vacuum from $144, down from $380 ",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-11-26/dealnews-home__full.jpg",
+  "full_parts": [
+   "shots/2026-11-26/dealnews-home__full.jpg",
+   "shots/2026-11-26/dealnews-home__full_2.jpg"
+  ],
+  "full_covers_all": true,
+  "full_inside": {
+   "LG": [
+    8,
+    8
+   ],
+   "TCL": [
+    4,
+    4
+   ],
+   "Vizio": [
+    3,
+    3
+   ],
+   "Samsung": [
+    22,
+    22
+   ],
+   "Whirlpool": [
+    4,
+    4
+   ],
+   "KitchenAid": [
+    7,
+    7
+   ],
+   "Frigidaire": [
+    1,
+    1
+   ],
+   "Maytag": [
+    1,
+    1
+   ],
+   "Bosch": [
+    3,
+    3
+   ],
+   "Shark": [
+    3,
+    3
+   ],
+   "Dyson": [
+    1,
+    1
+   ],
+   "Hisense": [
+    1,
+    1
+   ],
+   "Sony": [
+    7,
+    7
+   ]
+  },
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 7,
+   "Samsung": 15,
+   "Sony": 7,
+   "Whirlpool": 4,
+   "Frigidaire": 1,
+   "Dyson": 1,
+   "Hisense": 1,
+   "TCL": 3,
+   "Bosch": 3,
+   "KitchenAid": 6,
+   "Maytag": 1,
+   "Shark": 2,
+   "Vizio": 2
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/dealnews-home.jpg",
+  "final_url": "https://www.dealnews.com/",
+  "http": 200,
+  "title": "DealNews: Best Daily Deals, Discounts & Sales",
+  "sig": "9d6fe018658f",
+  "body_hash": "e71c70d7cf93",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Forbes Vetted",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.forbes.com/vetted/",
+  "date": "2026-11-26",
+  "target": "forbes-vetted",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:28-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "봇 확인 화면",
+  "reason": "보안 확인 화면만 열림 — 우회하지 않음",
+  "shot": "shots/2026-11-26/forbes-vetted.jpg",
+  "final_url": "https://www.forbes.com/vetted/",
+  "http": 200,
+  "title": "Forbes Vetted",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "Good Housekeeping",
+  "brand": "(가전)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.goodhousekeeping.com/appliances/",
+  "date": "2026-11-26",
+  "target": "goodhousekeeping-appliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:29-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "봇 확인 화면",
+  "reason": "보안 확인 화면만 열림 — 우회하지 않음",
+  "shot": "shots/2026-11-26/goodhousekeeping-appliances.jpg",
+  "final_url": "https://www.goodhousekeeping.com/appliances/",
+  "http": 200,
+  "title": "Home Appliance Reviews - Best Kitchen and Small Home Appliances",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "GOVX",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.govx.com/",
+  "date": "2026-11-26",
+  "target": "govx-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:30-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "렌더링 실패",
+  "reason": "본문이 거의 표시되지 않음",
+  "shot": "shots/2026-11-26/govx-home.jpg",
+  "final_url": "https://www.govx.com/",
+  "http": 200,
+  "title": "Military & Government Discounts on 1000+ Brands | GOVX",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "ID.me Shop",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "인증 회원 할인",
+  "url": "https://shop.id.me/stores/13076-the-ge-appliances-store",
+  "date": "2026-11-26",
+  "target": "idme-geappliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:22-05:00",
+  "rate_source": "text",
+  "rate": 4.0,
+  "rate_text": "할인 최대 42% · up to 4.0% cash back",
+  "offers": null,
+  "categories": [
+   {
+    "label": "자격 대상 할인: select major appliances + free delivery on orders over $299",
+    "rate": 42.0,
+    "kind": "discount"
+   }
+  ],
+  "exclusions": "* Offer valid 11/04/26-12/02/26. See Store for details. Payment options through Affirm are subject to an eligibility check and are provided by these lending partners: https://www.affirm.com/lenders.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 3,
+   "Samsung": 3,
+   "GE Appliances": 12
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/idme-geappliances.jpg",
+  "final_url": "https://shop.id.me/stores/13076-the-ge-appliances-store",
+  "http": 200,
+  "title": "The GE Appliances Store Discounts and Cash Back for Military, Nurses, & More | IDMe Shop",
+  "sig": "cdd661c3182b",
+  "body_hash": "6d906182f420",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "할인 최대 42% · up to 4.0% cash back",
+  "prev_rate": 4.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "ID.me Shop",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "인증 회원 할인",
+  "url": "https://shop.id.me/stores/9025-samsung",
+  "date": "2026-11-26",
+  "target": "idme-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:21-05:00",
+  "rate_source": "text",
+  "rate": 4.0,
+  "rate_text": "Up to 4.0% cash back",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Samsung.com sign in required for purchases and may require additional verification of your program eligibility. The prices and special offers shown are being provided exclusively for users registered",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 3,
+   "Samsung": 12,
+   "GE Appliances": 3
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/idme-samsung.jpg",
+  "final_url": "https://shop.id.me/stores/9025-samsung",
+  "http": 200,
+  "title": "Samsung Discounts for Military, Nurses, & More | IDMe Shop",
+  "sig": "ef287cc5b9e7",
+  "body_hash": "51eae3a498e5",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 4.0% cash back",
+  "prev_rate": 4.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 딜 페이지",
+  "url": "https://www.lg.com/us/promotions/top-appliance-deals",
+  "date": "2026-11-26",
+  "target": "lgcom-appliance-deals",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:32-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 55
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/lgcom-appliance-deals.jpg",
+  "final_url": "https://www.lg.com/us/promotions/top-appliance-deals",
+  "http": 200,
+  "title": "Top Appliance Deals – Refrigerators, Washers & More | LG USA",
+  "sig": "9d6fe018658f",
+  "body_hash": "8adce7ec3387",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 딜 페이지",
+  "url": "https://www.lg.com/us/promotions/best-selling-laptops-monitors",
+  "date": "2026-11-26",
+  "target": "lgcom-monitor-laptop-deals",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:32-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 34
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/lgcom-monitor-laptop-deals.jpg",
+  "final_url": "https://www.lg.com/us/promotions/best-selling-laptops-monitors",
+  "http": 200,
+  "title": "Best Selling LG Monitors & Laptops | LG USA",
+  "sig": "9d6fe018658f",
+  "body_hash": "3307e2416deb",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 프로모션",
+  "url": "https://www.lg.com/us/promotions",
+  "date": "2026-11-26",
+  "target": "lgcom-promotions",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:31-05:00",
+  "rate": null,
+  "rate_text": "프로모션 17건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Shop our top deals on select home appliances",
+    "valid": "12/2/26",
+    "discount": null,
+    "category": "가전 전반",
+    "url": "https://www.lg.com/us/promotions/top-appliance-deals"
+   },
+   {
+    "title": "Explore Black Friday Deals on select TVs",
+    "valid": "11/30/26",
+    "discount": null,
+    "category": "TV·AV",
+    "url": "https://www.lg.com/us/promotions/black-friday-tv-price-guarantee"
+   },
+   {
+    "title": "Spend $1,499+ on select appliances for free install kit/service and haul away",
+    "valid": "12/2/26",
+    "discount": "$1,499",
+    "category": "가전 전반",
+    "url": "https://www.lg.com/us/promotions/free-appliance-installation-offer"
+   },
+   {
+    "title": "Upgrade your setup with Black Friday prices on select LG Monitors",
+    "valid": "11/29/26",
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.lg.com/us/promotions/monitor-black-friday-cyber-monday-sale"
+   },
+   {
+    "title": "Explore deals on LG gram Laptops with Black Friday prices",
+    "valid": "11/29/26",
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.lg.com/us/promotions/laptop-black-friday-cyber-monday-sale"
+   },
+   {
+    "title": "Big screens, big deals—Black Friday Prices, plus free installation",
+    "valid": "11/30/26",
+    "discount": null,
+    "category": "기타",
+    "url": "https://www.lg.com/us/promotions/ultra-large-tv-deal"
+   },
+   {
+    "title": "Enjoy FREE wall mounting or stand setup with select LG TVs",
+    "valid": "11/30/26",
+    "discount": null,
+    "category": "TV·AV",
+    "url": "https://www.lg.com/us/promotions/wall-mounting-lg-tvs-deal"
+   },
+   {
+    "title": "Host the holidays with an LG Refrigerator and 3 free gifts with select purchase",
+    "valid": "12/2/26",
+    "discount": null,
+    "category": "냉장고",
+    "url": "https://www.lg.com/us/promotions/refrigerator-accessories-deal"
+   },
+   {
+    "title": "Give home the perfect feel. Buy 2 products + save 5% or buy 3 + save 10%",
+    "valid": "12/31/26",
+    "discount": "save 5%",
+    "category": "기타",
+    "url": "https://www.lg.com/us/promotions/air-care-buy-more-save-more"
+   },
+   {
+    "title": "Refresh your kitchen with an LG Refrigerator + FREE bonus 2-pack water filter",
+    "valid": "12/2/26",
+    "discount": null,
+    "category": "냉장고",
+    "url": "https://www.lg.com/us/promotions/refrigerator-water-filter-offer"
+   },
+   {
+    "title": "Save up to $800 with Buy More, Save More on select appliance bundles",
+    "valid": "12/2/26",
+    "discount": "Save up to $800",
+    "category": "가전 전반",
+    "url": "https://www.lg.com/us/promotions/appliance-bundle-savings"
+   },
+   {
+    "title": "Limited time savings on select Monitors with code",
+    "valid": "11/30/26",
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.lg.com/us/promotions/monitor-flash-sale"
+   },
+   {
+    "title": "Get 2 free specialty hangers with LG Styler® Steam Closet",
+    "valid": "12/2/26",
+    "discount": null,
+    "category": "세탁",
+    "url": "https://www.lg.com/us/promotions/styler-free-specialty-hangers"
+   },
+   {
+    "title": "Enjoy a 2-year limited warranty on select appliances",
+    "valid": "12/31/26",
+    "discount": null,
+    "category": "가전 전반",
+    "url": "https://www.lg.com/us/promotions/thinq-warranty-extension"
+   },
+   {
+    "title": "Deals on business monitors. Ordering 5+? Ask a live agent for your best offer",
+    "valid": "12/28/26",
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.lg.com/us/promotions/business-monitor-bulk-discount"
+   },
+   {
+    "title": "Experience luxury w/ up to $3,000 off 2 or more LG SIGNATURE appliances",
+    "valid": "12/30/26",
+    "discount": "up to $3,000 off",
+    "category": "가전 전반",
+    "url": "https://www.lg.com/us/promotions/signature-appliance-bundle-savings"
+   },
+   {
+    "title": "Enjoy 3-year Limited Warranty with LG SIGNATURE appliances",
+    "valid": "12/31/26",
+    "discount": null,
+    "category": "가전 전반",
+    "url": "https://www.lg.com/us/promotions/signature-extra-year-limited-warranty"
+   }
+  ],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 65
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/lgcom-promotions.jpg",
+  "final_url": "https://www.lg.com/us/promotions",
+  "http": 200,
+  "title": "Promotions & Deals | Save on Electronics & Appliances | LG USA",
+  "sig": "8d106e032e04",
+  "body_hash": "97338afc55bc",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "프로모션 17건",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "LG.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG.com",
+  "kind": "LG.com 딜 페이지",
+  "url": "https://www.lg.com/us/promotions/tv-sale-deals",
+  "date": "2026-11-26",
+  "target": "lgcom-tv-deals",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:31-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 68
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/lgcom-tv-deals.jpg",
+  "final_url": "https://www.lg.com/us/promotions/tv-sale-deals",
+  "http": 200,
+  "title": "LG TV Sale & Deals – OLED & QNED & 4K UHD TV Discounts | LG USA",
+  "sig": "9d6fe018658f",
+  "body_hash": "7bbad924a6f3",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Next Jump",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.perksatwork.com/login",
+  "date": "2026-11-26",
+  "target": "nextjump-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:29-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "로그인 입구만",
+  "reason": "공개 소개·로그인 화면까지만 확인. 회원 전용 혜택은 수집하지 않음",
+  "shot": "shots/2026-11-26/nextjump-home.jpg",
+  "final_url": "https://www.perksatwork.com/login",
+  "http": 200,
+  "title": "Perks at Work",
+  "sig": "9d6fe018658f",
+  "body_hash": "87251d0ec37a",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": null,
+  "body_changed": false
+ },
+ {
+  "publisher": "PerkSpot",
+  "brand": "(입구)",
+  "brand_group": "매체",
+  "kind": "회원 전용 혜택 플랫폼",
+  "url": "https://www.perkspot.com/",
+  "date": "2026-11-26",
+  "target": "perkspot-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:29-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "로그인 입구만",
+  "reason": "공개 소개·로그인 화면까지만 확인. 회원 전용 혜택은 수집하지 않음",
+  "shot": "shots/2026-11-26/perkspot-home.jpg",
+  "final_url": "https://www.perkspot.com/",
+  "http": 200,
+  "title": "PerkSpot - Make every dollar count for your employees",
+  "sig": "9d6fe018658f",
+  "body_hash": "d53f6782ce99",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": null,
+  "body_changed": false
  },
  {
   "publisher": "Rakuten",
@@ -179697,7 +181484,7 @@
   "date": "2026-11-26",
   "target": "rakuten-ajmadison",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:49-05:00",
+  "captured_at": "2026-11-26T17:31-05:00",
   "rate_source": "title",
   "rate": 2.0,
   "rate_text": "2% Cash Back",
@@ -179709,10 +181496,9 @@
   "category": null,
   "mentions": {
    "LG": 1,
-   "Whirlpool": 2,
-   "Frigidaire": 2,
-   "Bosch": 1,
-   "KitchenAid": 1,
+   "Whirlpool": 3,
+   "Frigidaire": 1,
+   "KitchenAid": 2,
    "Maytag": 1
   },
   "lg_snippets": [],
@@ -179723,7 +181509,7 @@
   "http": 200,
   "title": "AJ Madison Coupons, Promo Codes & 2% Cash Back - November 2026 | Rakuten",
   "sig": "693cbed70245",
-  "body_hash": "d64716a842b4",
+  "body_hash": "d7d2fbd9833f",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -179739,7 +181525,7 @@
   "date": "2026-11-26",
   "target": "rakuten-amazon",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:48-05:00",
+  "captured_at": "2026-11-26T17:31-05:00",
   "rate_source": "text",
   "rate": null,
   "rate_text": "$5 Cash Back (정액)",
@@ -179760,7 +181546,7 @@
   "http": 200,
   "title": "Amazon Coupons, Promo Codes & $5 Cash Back - November 2026 | Rakuten",
   "sig": "fe9899445002",
-  "body_hash": "0bb2dea0c442",
+  "body_hash": "29a3b90c6e25",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -179776,7 +181562,7 @@
   "date": "2026-11-26",
   "target": "rakuten-bestbuy",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:00-05:00",
+  "captured_at": "2026-11-26T17:16-05:00",
   "rate_source": "header",
   "rate": 6.0,
   "rate_text": "Up to 6% Cash Back",
@@ -179828,7 +181614,7 @@
    "Frigidaire": 1,
    "Dyson": 4,
    "Hisense": 1,
-   "TCL": 3,
+   "TCL": 4,
    "KitchenAid": 3,
    "Shark": 2
   },
@@ -179840,7 +181626,7 @@
   "http": 200,
   "title": "Best Buy Coupons, Promo Codes & Up to 6% Cash Back - November 2026 | Rakuten",
   "sig": "ad551f20b693",
-  "body_hash": "a4d4604faa53",
+  "body_hash": "4a9b720f1aff",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": "Up to 6% Cash Back",
@@ -179892,7 +181678,7 @@
   "date": "2026-11-26",
   "target": "rakuten-costco",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:01-05:00",
+  "captured_at": "2026-11-26T17:30-05:00",
   "rate_source": "title",
   "rate": 0.0,
   "rate_text": "No Cash Back (쿠폰만)",
@@ -179956,6 +181742,82 @@
  },
  {
   "publisher": "Rakuten",
+  "brand": "Frigidaire",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/frigidaire",
+  "date": "2026-11-26",
+  "target": "rakuten-frigidaire",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:16-05:00",
+  "rate_source": "header",
+  "rate": 12.0,
+  "rate_text": "12% Cash Back was 2%",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Cash Back is not available on water filters, air filters, accessories, spare parts, Complete Care Bundles, purchases of Services or Appliance Protection Plans and the 6, 9 and 15-can Retro Fridges.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Frigidaire": 22
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-frigidaire.jpg",
+  "final_url": "https://www.rakuten.com/shop/frigidaire",
+  "http": 200,
+  "title": "Frigidaire Coupons, Promo Codes & 12% Cash Back - November 2026 | Rakuten",
+  "sig": "6b8bcc754b87",
+  "body_hash": "d3dccd95f9d4",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Rakuten",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/geappliances",
+  "date": "2026-11-26",
+  "target": "rakuten-geappliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:15-05:00",
+  "rate_source": "header",
+  "rate": 4.0,
+  "rate_text": "4% Cash Back was 3%",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Cash Back is not available on Filter products, Parts and Accessories.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "GE Appliances": 33
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-geappliances.jpg",
+  "final_url": "https://www.rakuten.com/shop/geappliances",
+  "http": 200,
+  "title": "GE Appliances Coupons, Promo Codes & 4% Cash Back - November 2026 | Rakuten",
+  "sig": "366c5a804921",
+  "body_hash": "df3071e782db",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "4% Cash Back was 3%",
+  "prev_rate": 4.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Rakuten",
   "brand": "The Home Depot",
   "brand_group": "유통",
   "kind": "캐시백 포털",
@@ -179963,7 +181825,7 @@
   "date": "2026-11-26",
   "target": "rakuten-homedepot",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:01-05:00",
+  "captured_at": "2026-11-26T17:30-05:00",
   "rate_source": "title",
   "rate": 0.0,
   "rate_text": "No Cash Back (쿠폰만)",
@@ -179992,6 +181854,92 @@
  },
  {
   "publisher": "Rakuten",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/lg",
+  "date": "2026-11-26",
+  "target": "rakuten-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:15-05:00",
+  "rate_source": "header",
+  "rate": 12.0,
+  "rate_text": "12% Cash Back was 5%",
+  "offers": null,
+  "categories": [
+   {
+    "label": "LG Electronics Purchase LG Micro RGB LED TVs",
+    "rate": 12.0
+   }
+  ],
+  "exclusions": "Cash Back is not available on Projectors, Air Conditioners, Air Care products, 3rd Party products (non-LG Brand), Personal Audio and Soundbar products, the LG gram 16\" Lightweight Laptop, Intel® Evo Edition (SKU 16Z90S-H.ADB9U1, 17Z90TL-H.AUB6U3), Pro and Pro Care Memberships, repair purchases, Business Solutions orde…",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 71
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-lg.jpg",
+  "final_url": "https://www.rakuten.com/shop/lg",
+  "http": 200,
+  "title": "LG Electronics Coupons, Promo Codes & 12% Cash Back - November 2026 | Rakuten",
+  "sig": "7d96910e6172",
+  "body_hash": "e92992016e72",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "10% Cash Back was 5%",
+  "prev_rate": 10.0,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Rakuten",
+  "brand": "LG Partner Store",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/lgpartnerstore",
+  "date": "2026-11-26",
+  "target": "rakuten-lgpartnerstore",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:15-05:00",
+  "rate_source": "header",
+  "rate": 2.0,
+  "rate_text": "2% Cash Back",
+  "offers": null,
+  "categories": [
+   {
+    "label": "LG Partner Store Purchase",
+    "rate": 2.0
+   }
+  ],
+  "exclusions": "Cash Back is not available on Air Conditioners or the LG gram 16\" Lightweight Laptop, Intel® Evo Edition (SKU 16Z90S-H.ADB9U1). LG Partner Store Return Policy : Thirty (30) days of product delivery for laptops and vacuums. Fourteen (14) days for all other products. Explore more Partner Store terms & conditions at: htt…",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 38
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-lgpartnerstore.jpg",
+  "final_url": "https://www.rakuten.com/shop/lgpartnerstore",
+  "http": 200,
+  "title": "LG Partner Store Coupons, Promo Codes & 2% Cash Back - November 2026 | Rakuten",
+  "sig": "638c0af87f83",
+  "body_hash": "4339a20f81d5",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2% Cash Back",
+  "prev_rate": 2.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Rakuten",
   "brand": "Lowe's",
   "brand_group": "유통",
   "kind": "캐시백 포털",
@@ -179999,7 +181947,7 @@
   "date": "2026-11-26",
   "target": "rakuten-lowes",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:00-05:00",
+  "captured_at": "2026-11-26T17:16-05:00",
   "rate_source": "header",
   "rate": 8.0,
   "rate_text": "Up to 8% Cash Back was 1%",
@@ -180034,7 +181982,7 @@
   "http": 200,
   "title": "Lowe's Coupons, Promo Codes & Up to 8% Cash Back - November 2026 | Rakuten",
   "sig": "d747102cf3ad",
-  "body_hash": "be539a81e2a0",
+  "body_hash": "d7093baa67a5",
   "country": "US",
   "prev_date": "2026-11-25",
   "prev_rate_text": "Up to 8% Cash Back was 1%",
@@ -180051,7 +181999,7 @@
   "date": "2026-11-26",
   "target": "rakuten-newegg",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:43-05:00",
+  "captured_at": "2026-11-26T17:31-05:00",
   "rate_source": "header",
   "rate": 1.0,
   "rate_text": "1% Cash Back",
@@ -180073,7 +182021,7 @@
   "http": 200,
   "title": "Newegg Coupons, Promo Codes & 1% Cash Back - November 2026 | Rakuten",
   "sig": "5aed143cfb23",
-  "body_hash": "56d16c8bef2f",
+  "body_hash": "7334c65dc9ab",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -180124,7 +182072,7 @@
   "date": "2026-11-26",
   "target": "rakuten-samsclub",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:42-05:00",
+  "captured_at": "2026-11-26T17:30-05:00",
   "rate_source": "header",
   "rate": 12.0,
   "rate_text": "Up to 12% Cash Back was 4%",
@@ -180155,12 +182103,97 @@
   "http": 200,
   "title": "Sam's Club Coupons, Promo Codes & Up to 12% Cash Back - November 2026 | Rakuten",
   "sig": "c06319a4014d",
-  "body_hash": "12dd452bc73d",
+  "body_hash": "a7be5fec3f0f",
   "country": "US",
   "prev_date": null,
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "Rakuten",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/samsung",
+  "date": "2026-11-26",
+  "target": "rakuten-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:15-05:00",
+  "rate_source": "header",
+  "rate": 6.0,
+  "rate_text": "Up to 6% Cash Back was 2%",
+  "offers": null,
+  "categories": [
+   {
+    "label": "Home Appliances",
+    "rate": 6.0
+   },
+   {
+    "label": "All Other Non-Excluded Items Home Electronics (TVs) Mobile Phones Monitors Tablets & Laptops Wearables (Watches & Rings)",
+    "rate": 2.0
+   }
+  ],
+  "exclusions": "Cash Back not available on B2B purchases, Employee Perks orders, memory, Samsung Care+/Insurance, installation/setup, gift cards and gift certificates. Cash Back is not available on large volume purchases, bulk sale purchases, or orders deemed by Samsung to be used for reselling purposes. Samsung defines large volume …",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 73
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-samsung.jpg",
+  "final_url": "https://www.rakuten.com/shop/samsung",
+  "http": 200,
+  "title": "Samsung Coupons, Promo Codes & Up to 6% Cash Back - November 2026 | Rakuten",
+  "sig": "c952955fda9d",
+  "body_hash": "5b42c2f9d8ac",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "Up to 6% Cash Back was 2%",
+  "prev_rate": 6.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Rakuten",
+  "brand": "Sony Electronics",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/sonyelectronics",
+  "date": "2026-11-26",
+  "target": "rakuten-sonyelectronics",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:15-05:00",
+  "rate_source": "header",
+  "rate": 2.0,
+  "rate_text": "2% Cash Back",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Cash Back is only available on sales in the United States purchased from electronics.sony.com. Cash Back is not available on EPP (employee purchase program) and eGift card sales. Playstation orders are not eligible for earning Cash Back.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Sony": 43
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-sonyelectronics.jpg",
+  "final_url": "https://www.rakuten.com/shop/sonyelectronics",
+  "http": 200,
+  "title": "Sony Electronics Coupons, Promo Codes & 2% Cash Back - November 2026 | Rakuten",
+  "sig": "a19dede6b73b",
+  "body_hash": "6e1967941541",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "2% Cash Back",
+  "prev_rate": 2.0,
+  "changed": false,
+  "body_changed": true
  },
  {
   "publisher": "Rakuten",
@@ -180171,7 +182204,7 @@
   "date": "2026-11-26",
   "target": "rakuten-target",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:42-05:00",
+  "captured_at": "2026-11-26T17:30-05:00",
   "rate_source": "header",
   "rate": 1.0,
   "rate_text": "1% Cash Back",
@@ -180197,7 +182230,7 @@
   "http": 200,
   "title": "Target Coupons, Promo Codes & 1% Cash Back - November 2026 | Rakuten",
   "sig": "fb89298a9403",
-  "body_hash": "c56f00f01153",
+  "body_hash": "32d0d7d7f1fe",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -180213,7 +182246,7 @@
   "date": "2026-11-26",
   "target": "rakuten-walmart",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:42-05:00",
+  "captured_at": "2026-11-26T17:30-05:00",
   "rate_source": "title",
   "rate": 0.0,
   "rate_text": "No Cash Back (쿠폰만)",
@@ -180232,7 +182265,7 @@
   "http": 200,
   "title": "Walmart Coupons, Promo Codes & No Cash Back - November 2026 | Rakuten",
   "sig": "9663070672f3",
-  "body_hash": "f470e7a4831c",
+  "body_hash": "5349bd1801b2",
   "country": "US",
   "prev_date": null,
   "changed": null,
@@ -180248,7 +182281,7 @@
   "date": "2026-11-26",
   "target": "rakuten-wayfair",
   "method": "자동 스크린샷",
-  "captured_at": "2026-11-26T00:42-05:00",
+  "captured_at": "2026-11-26T17:31-05:00",
   "rate_source": "title",
   "rate": 0.0,
   "rate_text": "No Cash Back (쿠폰만)",
@@ -180273,5 +182306,2500 @@
   "changed": null,
   "body_changed": null,
   "prev_rate_text": null
+ },
+ {
+  "publisher": "Rakuten",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/whirlpool",
+  "date": "2026-11-26",
+  "target": "rakuten-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:15-05:00",
+  "rate_source": "header",
+  "rate": 9.0,
+  "rate_text": "9% Cash Back was 3%",
+  "offers": null,
+  "categories": [],
+  "exclusions": "Cash Back is not available on the purchase or redemption of gift cards.",
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Whirlpool": 28
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rakuten-whirlpool.jpg",
+  "final_url": "https://www.rakuten.com/shop/whirlpool",
+  "http": 200,
+  "title": "Whirlpool Coupons, Promo Codes & 9% Cash Back - November 2026 | Rakuten",
+  "sig": "f0f45daed6dc",
+  "body_hash": "7c38127d898d",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Reviewed",
+  "brand": "(냉장고 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.reviewed.com/refrigerators/best-right-now/best-refrigerators",
+  "date": "2026-11-26",
+  "target": "reviewed-best-fridge",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:41-05:00",
+  "rate": null,
+  "rate_text": "제품 4개 · LG 1개(최고 2위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "Hisense HRM260N6TSE Smart Refrigerator",
+    "brand": "Hisense"
+   },
+   {
+    "n": 2,
+    "name": "LG LT18S2100W",
+    "brand": "LG"
+   },
+   {
+    "n": 3,
+    "name": "Bosch B36FD50SNS French-door Smart Refrigerator",
+    "brand": "Bosch"
+   },
+   {
+    "n": 4,
+    "name": "Hisense HRB171N6ASE Bottom-freezer Refrigerator",
+    "brand": "Hisense"
+   }
+  ],
+  "category": "냉장고",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/reviewed-best-fridge.jpg",
+  "final_url": "https://www.reviewed.com/refrigerators/best-right-now/best-refrigerators",
+  "http": 200,
+  "title": "7 Best Refrigerators: A Complete Buying Guide of 2026 - Reviewed",
+  "sig": "54a1d5645e37",
+  "body_hash": "0119c846bd1f",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 4개 · LG 1개(최고 2위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Reviewed",
+  "brand": "(TV 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.reviewed.com/televisions/best-right-now/best-televisions",
+  "date": "2026-11-26",
+  "target": "reviewed-best-tv",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:41-05:00",
+  "rate": null,
+  "rate_text": "제품 5개 · LG 2개(최고 1위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "LG OLED EVO AI C5 4K Smart TV 2025",
+    "brand": "LG"
+   },
+   {
+    "n": 2,
+    "name": "Samsung Class OLED S95F 4K Samsung Vision AI Smart TV (2025)",
+    "brand": "Samsung"
+   },
+   {
+    "n": 3,
+    "name": "Hisense Class U8 Series MiniLED QLED UHD 4K HDR Smart Google TV (2025)",
+    "brand": "Hisense"
+   },
+   {
+    "n": 4,
+    "name": "LG OLED AI B5 4K Smart TV 2025",
+    "brand": "LG"
+   },
+   {
+    "n": 5,
+    "name": "TCL QM6K Series QD-Mini LED QLED 4K UHD Smart TV with Google TV",
+    "brand": "TCL"
+   }
+  ],
+  "category": "TV",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/reviewed-best-tv.jpg",
+  "final_url": "https://www.reviewed.com/televisions/best-right-now/best-televisions",
+  "http": 200,
+  "title": "11 Best TVs of 2026 - Reviewed",
+  "sig": "3e68303510ab",
+  "body_hash": "66174f1c18c3",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 5개 · LG 2개(최고 1위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Reviewed",
+  "brand": "(세탁기 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.reviewed.com/laundry/best-right-now/best-washers",
+  "date": "2026-11-26",
+  "target": "reviewed-best-washer",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:42-05:00",
+  "rate": null,
+  "rate_text": "제품 5개 · LG 없음",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "Electrolux ELFW7637AT",
+    "brand": "Electrolux"
+   },
+   {
+    "n": 2,
+    "name": "GE Profile PTW800BPWRS",
+    "brand": "GE Appliances"
+   },
+   {
+    "n": 3,
+    "name": "Samsung Bespoke WH46DBH500EVA3",
+    "brand": "Samsung"
+   },
+   {
+    "n": 4,
+    "name": "GE Profile PFQ97HSPVDS Ventless All-In-One",
+    "brand": "GE Appliances"
+   },
+   {
+    "n": 5,
+    "name": "Electrolux ELTE7600AT",
+    "brand": "Electrolux"
+   }
+  ],
+  "category": "세탁기",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/reviewed-best-washer.jpg",
+  "final_url": "https://www.reviewed.com/laundry/best-right-now/best-washers",
+  "http": 200,
+  "title": "9 Best Washing Machines, Tested by Experts, of 2026 - Reviewed",
+  "sig": "a76cb79f43f0",
+  "body_hash": "a9c6f7a4b313",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 5개 · LG 없음",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "RetailMeNot",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.retailmenot.com/view/geappliances.com",
+  "date": "2026-11-26",
+  "target": "rmn-geappliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:21-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/rmn-geappliances.jpg",
+  "final_url": "https://www.retailmenot.com/view/geappliances.com",
+  "http": 403,
+  "title": "Just a moment...",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-10-24",
+  "prev_rate_text": "오퍼 14건 · 최상단 10% Off",
+  "prev_rate": null,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "RetailMeNot",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://www.retailmenot.com/view/lg.com",
+  "date": "2026-11-26",
+  "target": "rmn-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:20-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/rmn-lg.jpg",
+  "final_url": "https://www.retailmenot.com/view/lg.com",
+  "http": 403,
+  "title": "Just a moment...",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": null,
+  "changed": null,
+  "body_changed": null,
+  "prev_rate_text": null
+ },
+ {
+  "publisher": "RetailMeNot",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.retailmenot.com/view/samsung.com",
+  "date": "2026-11-26",
+  "target": "rmn-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:21-05:00",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/rmn-samsung.jpg",
+  "final_url": "https://www.retailmenot.com/view/samsung.com",
+  "http": 403,
+  "title": "Just a moment...",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-10-24",
+  "prev_rate_text": "오퍼 42건 · 최상단 15% Off",
+  "prev_rate": null,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "RTINGS",
+  "brand": "(모니터 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.rtings.com/monitor/reviews/best/monitors",
+  "date": "2026-11-26",
+  "target": "rtings-best-monitor",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:42-05:00",
+  "rate": null,
+  "rate_text": "제품 6개 · LG 1개(최고 3위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "ASUS ROG Swift OLED PG34WCDN",
+    "brand": "ASUS"
+   },
+   {
+    "n": 2,
+    "name": "Dell S3225QC",
+    "brand": "Dell"
+   },
+   {
+    "n": 3,
+    "name": "LG 27GM950B-B",
+    "brand": "LG"
+   },
+   {
+    "n": 4,
+    "name": "TCL 32R84",
+    "brand": "TCL"
+   },
+   {
+    "n": 5,
+    "name": "Dell Alienware AW2725DM",
+    "brand": "Dell"
+   },
+   {
+    "n": 6,
+    "name": "ASUS ROG Strix OLED XG32UQWMS",
+    "brand": "ASUS"
+   }
+  ],
+  "category": "모니터",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rtings-best-monitor.jpg",
+  "final_url": "https://www.rtings.com/monitor/reviews/best/monitors",
+  "http": 200,
+  "title": "The 6 Best Monitors - Black Friday 2026 - RTINGS.com",
+  "sig": "f68e5a3c7920",
+  "body_hash": "9814e937bb1f",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 6개 · LG 1개(최고 3위)",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "RTINGS",
+  "brand": "(TV 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.rtings.com/tv/reviews/best/tvs-on-the-market",
+  "date": "2026-11-26",
+  "target": "rtings-best-tv",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:40-05:00",
+  "rate": null,
+  "rate_text": "제품 6개 · LG 2개(최고 1위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "LG G6 OLED",
+    "brand": "LG"
+   },
+   {
+    "n": 2,
+    "name": "Samsung S90F OLED",
+    "brand": "Samsung"
+   },
+   {
+    "n": 3,
+    "name": "Sony BRAVIA 7 II",
+    "brand": "Sony"
+   },
+   {
+    "n": 4,
+    "name": "LG B6 OLED 2026",
+    "brand": "LG"
+   },
+   {
+    "n": 5,
+    "name": "Hisense QD6QF",
+    "brand": "Hisense"
+   },
+   {
+    "n": 6,
+    "name": "Samsung M70H",
+    "brand": "Samsung"
+   }
+  ],
+  "category": "TV",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rtings-best-tv.jpg",
+  "final_url": "https://www.rtings.com/tv/reviews/best/tvs-on-the-market",
+  "http": 200,
+  "title": "The 6 Best TVs of 2026 - RTINGS.com",
+  "sig": "5253cc6cf99c",
+  "body_hash": "39417fadcdb1",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 6개 · LG 2개(최고 1위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "RTINGS",
+  "brand": "(TV 리뷰)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.rtings.com/tv",
+  "date": "2026-11-26",
+  "target": "rtings-tv",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:27-05:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_2.jpg",
+     "text": "LG G6 OLED vs. LG C6 OLED 2026 The LG G6 OLED provides better image quality than the LG C6 OLED 2026. The G6 is brighter and has superior reflection handling, making it more well-suited for a bright room. The G6 also dis",
+     "n": 4
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_3.jpg",
+     "text": "LG C6 OLED 2026 vs. LG B6 OLED 2026",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_4.jpg",
+     "text": "LG G5 OLED vs. LG G6 OLED",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_5.jpg",
+     "text": "LG C5 OLED vs. LG C6 OLED 2026",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_6.jpg",
+     "text": "LG C6H OLED vs. LG C6 OLED 2026",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_7.jpg",
+     "text": "REVIEW LG C6 OLED 2026",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__LG_8.jpg",
+     "text": "ARTICLE UPDATE LG vs. Samsung TVs: Which One Is The Best For You? 7 MONTHS AGO 4",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Samsung_2.jpg",
+     "text": "REVIEW Samsung S95H OLED The Samsung S95H is the flagship 4k OLED model in Samsung's 2026 lineup, sitting above the Samsung S90H. Also known as the Samsung S99H in some regions, this TV ...",
+     "n": 5
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Samsung_3.jpg",
+     "text": "REVIEW Samsung HW-Q930H Test Results 4 HOURS AGO 0",
+     "n": 1
+    }
+   ],
+   "Hisense": [
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Hisense_1.jpg",
+     "text": "Why RTINGS.com is member-supported Notice: Is motion interpolation the solution to low frame rates on modern games like GTA VI? We tested TVs from Hisense, LG, Samsung, Sony, and TCL to see how they perform. Check out ou",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Hisense_2.jpg",
+     "text": "REVIEW Hisense U7SG",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Hisense_3.jpg",
+     "text": "REVIEW Hisense U6SF Pro",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Hisense_4.jpg",
+     "text": "REVIEW Hisense M7QG Review 17 6 DAYS AGO",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__Hisense_5.jpg",
+     "text": "REVIEW Hisense M7QG Test Results 17 7 DAYS AGO",
+     "n": 1
+    }
+   ],
+   "TCL": [
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__TCL_0.jpg",
+     "text": "BEST TVs Brands Gaming 65-Inch OLED 55-Inch Smart 75-77 Inch Outdoor 48-50 Inch Hisense TCL Samsung 80-85 Inch Budget 98-100 Inch Frame PS5/PS5 Pro 40-42-43 Inch 32-Inch TOOLS Custom RatingsNEW Compare Size to Distance R",
+     "n": 4
+    },
+    {
+     "shot": "shots/2026-11-26/m/rtings-tv__TCL_1.jpg",
+     "text": "REVIEW TCL QM6K",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-11-26/rtings-tv__full.jpg",
+  "full_parts": [
+   "shots/2026-11-26/rtings-tv__full.jpg"
+  ],
+  "full_covers_all": true,
+  "full_inside": {
+   "Hisense": [
+    8,
+    8
+   ],
+   "TCL": [
+    6,
+    6
+   ],
+   "Samsung": [
+    16,
+    16
+   ],
+   "LG": [
+    20,
+    20
+   ],
+   "Sony": [
+    5,
+    5
+   ],
+   "Vizio": [
+    1,
+    1
+   ]
+  },
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 20,
+   "Samsung": 16,
+   "Sony": 5,
+   "Hisense": 8,
+   "TCL": 6,
+   "Vizio": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/rtings-tv.jpg",
+  "final_url": "https://www.rtings.com/tv",
+  "http": 200,
+  "title": "TV Reviews & Recommendations - RTINGS.com",
+  "sig": "9d6fe018658f",
+  "body_hash": "8b7dbb21d670",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/",
+  "date": "2026-11-26",
+  "target": "samsungcom-appliance-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:34-05:00",
+  "rate": null,
+  "rate_text": "프로모션 5건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Delivery on us Save up to $1,400 on refrigerators Get delivery on us with purchase",
+    "valid": null,
+    "discount": "Save up to $1,400",
+    "category": "냉장고",
+    "url": "https://www.samsung.com/us/refrigerators/all-refrigerators/"
+   },
+   {
+    "title": "Delivery on us Save up to $1,100 on laundry For a limited time, get delivery on us",
+    "valid": null,
+    "discount": "Save up to $1,100",
+    "category": "세탁",
+    "url": "https://www.samsung.com/us/laundry/washer-and-dryer-sets/"
+   },
+   {
+    "title": "Delivery on us Save up to $1,200 on ranges Enjoy delivery on us with purchase of a range and cook with confidence",
+    "valid": null,
+    "discount": "Save up to $1,200",
+    "category": "주방",
+    "url": "https://www.samsung.com/us/cooking-appliances/ranges/"
+   },
+   {
+    "title": "Buy more, save more Save more with every upgrade Save up to $1,000 when you buy more than one qualifying home appliance. Plus, get an extra $100 off when you c…",
+    "valid": null,
+    "discount": "Save up to $1,000",
+    "category": "가전 전반",
+    "url": "https://www.samsung.com/us/shop/buy-more-save-more-offer/"
+   },
+   {
+    "title": "For students & educators Save on gear for teachers, students, administrators and other educators",
+    "valid": null,
+    "discount": null,
+    "category": "행사·프로그램",
+    "url": "https://www.samsung.com/us/shop/offer-program/education/"
+   }
+  ],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 25
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/samsungcom-appliance-offers.jpg",
+  "final_url": "https://www.samsung.com/us/shop/home-appliance-and-smart-home-offers/",
+  "http": 200,
+  "title": "Appliance Deals and Offers | Samsung US",
+  "sig": "969023176d1b",
+  "body_hash": "f502f4661b67",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "프로모션 5건",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/",
+  "date": "2026-11-26",
+  "target": "samsungcom-monitor-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:34-05:00",
+  "rate": null,
+  "rate_text": "프로모션 6건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Accessible Carousel Black Friday Deals Exclusive Upgrade Credit Bundle and save Enter the Next Phase of Gaming Watch, Play, Work in Style Memory for Gamers Bui…",
+    "valid": null,
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/#black-friday-deals"
+   },
+   {
+    "title": "Epic screen, epic play Get a game code for Call of Duty®: Modern Warfare 4® on us with purchase of select monitors ($69.99 value)",
+    "valid": null,
+    "discount": "$69.99",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/monitors/all-monitors/"
+   },
+   {
+    "title": "Black Friday Deal Upgraded gaming Get a 24 Essential Monitor S3 S36GD on us with select Odyssey monitors",
+    "valid": "12/06/26",
+    "discount": null,
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/monitors/all-monitors/"
+   },
+   {
+    "title": "Black Friday Deal Double your upgrade. Get 10% off with purchase of two eligible monitors during the Black Friday sale",
+    "valid": null,
+    "discount": "Get 10% off",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/monitors/all-monitors/"
+   },
+   {
+    "title": "Black Friday Deal Play more, pay less Take your gaming adventure further. Save 10% when you bundle two select Odyssey monitors",
+    "valid": null,
+    "discount": "Save 10%",
+    "category": "모니터·PC",
+    "url": "https://www.samsung.com/us/monitors/all-monitors/"
+   },
+   {
+    "title": "Earn $200 back On top of other offers, you can earn $200 in bonus cash rewards with qualifying activity and 5% cash rewards on your purchase with Samsung Galax…",
+    "valid": null,
+    "discount": "$200 back",
+    "category": "결제·금융",
+    "url": "https://www.samsung.com/us/samsung-card"
+   }
+  ],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 31
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/samsungcom-monitor-offers.jpg",
+  "final_url": "https://www.samsung.com/us/shop/memory-monitor-storage-offers/",
+  "http": 200,
+  "title": "Monitor, Memory & Storage Device Deals | Samsung US",
+  "sig": "0de80a9b0e0c",
+  "body_hash": "7576c7494b4b",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "프로모션 6건",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 프로모션",
+  "url": "https://www.samsung.com/us/offer/",
+  "date": "2026-11-26",
+  "target": "samsungcom-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:33-05:00",
+  "rate": null,
+  "rate_text": "프로모션 6건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Trade in and trade up Trade in your old devices for instant credit towards the latest Samsung products",
+    "valid": null,
+    "discount": null,
+    "category": "행사·프로그램",
+    "url": "https://www.samsung.com/us/trade-in/"
+   },
+   {
+    "title": "Save with Samsung Offer Programs Save up to 30% off with exclusive offers for students, teachers, government, military and corporate employees. You could be el…",
+    "valid": null,
+    "discount": "Save up to 30% off",
+    "category": "행사·프로그램",
+    "url": "https://www.samsung.com/us/shop/offer-program/workplace/"
+   },
+   {
+    "title": "The best carrier deals Unfold a new Galaxy experience and save up to $1,200",
+    "valid": null,
+    "discount": "save up to $1,200",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/offer/carrier/"
+   },
+   {
+    "title": "Black Friday Deal Galaxy S26 Ultra Upgrade to Ultra this Black Friday. Get up to $970 in total savings, including $100 off with PayPal code PAYPAL100",
+    "valid": null,
+    "discount": "Get up to $970",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/smartphones/galaxy-s26-ultra/buy/"
+   },
+   {
+    "title": "Black Friday Ready for a premium upgrade?",
+    "valid": null,
+    "discount": "Get up to $820",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/offer/black-friday/"
+   },
+   {
+    "title": "Galaxy Watch Ultra2 Get up to $250 instant trade-in credit or $100 credit without trade-in",
+    "valid": null,
+    "discount": "Get up to $250",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/watches/galaxy-watch-ultra2/buy/"
+   }
+  ],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 56
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/samsungcom-offers.jpg",
+  "final_url": "https://www.samsung.com/us/offer/",
+  "http": 200,
+  "title": "Limited-Time Offers & Everyday Savings on Essentials | Samsung US",
+  "sig": "61945ee03bc3",
+  "body_hash": "e51dd32f4eb7",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "프로모션 5건",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 딜 페이지",
+  "url": "https://www.samsung.com/us/shop/tv-and-home-theater-offers/",
+  "date": "2026-11-26",
+  "target": "samsungcom-tv-offers",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:34-05:00",
+  "rate": null,
+  "rate_text": "프로모션 7건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Earn $200 back",
+    "valid": null,
+    "discount": "$200 back",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/samsung-card"
+   },
+   {
+    "title": "Black Friday Deal Score an XBOX gaming bundle Get an XBOX Nano Controller and 2 months of Game Pass Ultimate on us",
+    "valid": null,
+    "discount": null,
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/all-tvs/"
+   },
+   {
+    "title": "Black Friday never looked so colorful Unlock an extra 10% off select Micro RGB TVs and make your holiday entertainment more spectacular. Watch - Black Friday n…",
+    "valid": null,
+    "discount": "an extra 10% off",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/micro-rgb-tv/highlights/"
+   },
+   {
+    "title": "Earn extra savings",
+    "valid": null,
+    "discount": null,
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/tvs/vision-ai-tv/"
+   },
+   {
+    "title": "Get an extra 10% off",
+    "valid": null,
+    "discount": "Get an extra 10% off",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/home-theater/soundbars-and-home-audio/"
+   },
+   {
+    "title": "Shop TV Black Friday deals The Frame Pro Plus, add art store, bezel and more with special $749.96 bundle pricing. Neo QLED QN90H Now $1,499.99. Micro RGB R95H …",
+    "valid": null,
+    "discount": "$749.96",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/lifestyle-tvs/the-frame/85-inch-the-frame-pro-neo-qled-4k-tv-ls03hw-sku-qn85ls03hwfxza/"
+   },
+   {
+    "title": "Shop Soundbar Black Friday deals Q-Series HW-Q990H Save $500. Q-Series HW-Q800H Save $400. Q-Series HW-QS90H Save $200. Music Studio 7 HW-LS70H Save $100. Musi…",
+    "valid": null,
+    "discount": "Save $500",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/audio-devices/soundbar/q-series-soundbars-sku-hw-q990h-za/"
+   }
+  ],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 30
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/samsungcom-tv-offers.jpg",
+  "final_url": "https://www.samsung.com/us/shop/tv-and-home-theater-offers/",
+  "http": 200,
+  "title": "TVs & Audio Devices Deals | Samsung US",
+  "sig": "95900a40afb6",
+  "body_hash": "fdf0ca03d9ad",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "프로모션 7건",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Samsung.com",
+  "brand": "Samsung",
+  "brand_group": "Samsung.com",
+  "kind": "Samsung.com 이벤트",
+  "url": "https://www.samsung.com/us/offer/samsung-week/",
+  "date": "2026-11-26",
+  "target": "samsungcom-week",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:33-05:00",
+  "rate": null,
+  "rate_text": "프로모션 6건",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [
+   {
+    "title": "Trade in and trade up Trade in your old devices for instant credit towards the latest Samsung products",
+    "valid": null,
+    "discount": null,
+    "category": "행사·프로그램",
+    "url": "https://www.samsung.com/us/trade-in/"
+   },
+   {
+    "title": "Save with Samsung Offer Programs Save up to 30% off with exclusive offers for students, teachers, government, military and corporate employees. You could be el…",
+    "valid": null,
+    "discount": "Save up to 30% off",
+    "category": "행사·프로그램",
+    "url": "https://www.samsung.com/us/shop/offer-program/workplace/"
+   },
+   {
+    "title": "The best carrier deals Unfold a new Galaxy experience and save up to $1,200",
+    "valid": null,
+    "discount": "save up to $1,200",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/offer/carrier/"
+   },
+   {
+    "title": "Black Friday Deal Galaxy S26 Ultra Upgrade to Ultra this Black Friday. Get up to $970 in total savings, including $100 off with PayPal code PAYPAL100",
+    "valid": null,
+    "discount": "Get up to $970",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/smartphones/galaxy-s26-ultra/buy/"
+   },
+   {
+    "title": "Black Friday Ready for a premium upgrade?",
+    "valid": null,
+    "discount": "Get up to $820",
+    "category": "TV·AV",
+    "url": "https://www.samsung.com/us/offer/black-friday/"
+   },
+   {
+    "title": "Galaxy Watch Ultra2 Get up to $250 instant trade-in credit or $100 credit without trade-in",
+    "valid": null,
+    "discount": "Get up to $250",
+    "category": "모바일",
+    "url": "https://www.samsung.com/us/watches/galaxy-watch-ultra2/buy/"
+   }
+  ],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 56
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/samsungcom-week.jpg",
+  "final_url": "https://www.samsung.com/us/offer/",
+  "http": 200,
+  "title": "Limited-Time Offers & Everyday Savings on Essentials | Samsung US",
+  "sig": "61945ee03bc3",
+  "body_hash": "e51dd32f4eb7",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "프로모션 5건",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Savings.com",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://www.savings.com/coupons/lg.com",
+  "date": "2026-11-26",
+  "target": "savings-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:22-05:00",
+  "rate": null,
+  "rate_text": "오퍼 24건 · 최상단 $200 Off",
+  "offers": 24,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 117,
+   "Shark": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/savings-lg.jpg",
+  "final_url": "https://www.savings.com/coupons/lg.com",
+  "http": 200,
+  "title": "LG Coupon Codes - $100 Off in November 2026",
+  "sig": "5f07747c2175",
+  "body_hash": "91fbfbfeef08",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "오퍼 20건 · 최상단 $200 Off",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Savings.com",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.savings.com/coupons/samsung.com",
+  "date": "2026-11-26",
+  "target": "savings-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:22-05:00",
+  "rate": null,
+  "rate_text": "오퍼 35건 · 최상단 $1,000 Off",
+  "offers": 35,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 128,
+   "Shark": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/savings-samsung.jpg",
+  "final_url": "https://www.savings.com/coupons/samsung.com",
+  "http": 200,
+  "title": "Samsung Coupons: Get 30% off in November 2026",
+  "sig": "fd7f6e7dd94f",
+  "body_hash": "1c1356add617",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "오퍼 35건 · 최상단 $1,000 Off",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Slickdeals",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "딜 사이트",
+  "url": "https://slickdeals.net/",
+  "date": "2026-11-26",
+  "target": "slickdeals-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:22-05:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__LG_0.jpg",
+     "text": "Found by ppxyz1 Today 2:25 PM New LG gram Book: Ultra 5 Series 115U, 15.6\" 1080p, 16GB RAM, 512GB SSD $500 $1,000 + Free S&H Best Buy 60 14",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__LG_1.jpg",
+     "text": "Found by SebVetFive Today 7:27 AM New 65\" LG OLED evo AI 4K C6 Series Smart TV (2026) $1,350 $2,700 + Free S&H Amazon 129 15",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_0.jpg",
+     "text": "Found by ItsSoCheap Today 4:47 PM New 85\" Samsung M80H Series Mini LED 4K 144Hz Smart TV (2026 Model) $999 $1,398 + Free S&H Amazon 31 0",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_1.jpg",
+     "text": "Found by grndj Nov 22, 2026 8:09 AM Personalized Ymmv. Samsung Galaxy S26 Ultra for $116 with trade in. Google Store 334 664",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_2.jpg",
+     "text": "Found by Navy-Wife Nov 20, 2026 3:00 AM Personalized Samsung Galaxy Watch 8 Smartwatch w/ 2-Yr Warranty (Various) from $200 $300 + Free S&H Amazon 343 20",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_3.jpg",
+     "text": "Found by Eragorn Today 12:27 PM New EPP/EDU: 27\" Samsung Odyssey G80SH 4K 240Hz OLED Monitor + COD: Modern Warfare 4 $480 $1,170 + Free S&H Samsung 62 10",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_4.jpg",
+     "text": "Found by RyosukeFC Today 11:25 AM New 128GB Samsung Galaxy A16 5G SmartPhone + 1-yr Tracfone Svc (1500 Talk/Txt/Data) $60 $80 + Free S&H Amazon 42 29",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_5.jpg",
+     "text": "Found by Eragorn Today 10:09 AM New Samsung EDU/EPP: 49\" Odyssey G91SD OLED 5120x1440 Curved Monitor + COD: MW4 (PC) $680 $1,370 + Free S&H Samsung 59 5",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_6.jpg",
+     "text": "Found by neomatrixviper Today 6:01 AM New 256GB Samsung Galaxy S25 Edge 6.7\" Unlocked Smartphone (Titanium Icy Blue) $600 $1,100 + Free S&H Best Buy 55 11",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_7.jpg",
+     "text": "Found by SickerDealer Today 12:53 AM New (Refurb VGood) 512GB Samsung Galaxy Z Fold7 Smartphone (unlocked) $770 $2,200 + Free S&H eBay 60 22",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_8.jpg",
+     "text": "Found by treo Nov 22, 2026 10:24 AM Personalized Select Samsung EPP/EDU Members: Galaxy Buds4 Pro ANC Wireless Earbuds $124 $250 + Free S&H Samsung 109 45",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_9.jpg",
+     "text": "Found by tDames Today 12:01 AM New Refurb Good: 512GB Samsung Galaxy Z Fold7 Unlocked Smartphone (Various) $692 $2,200 + Free S&H eBay 47 21",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_10.jpg",
+     "text": "Found by Frugie Nov 24, 2026 11:10 PM 34\" Samsung Odyssey G5 G55H UWQHD VA 180Hz FreeSync Curved Gaming Monitor $179 $279 + Free S&H Walmart 63 2",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_11.jpg",
+     "text": "Found by neomatrixviper Nov 24, 2026 3:58 PM Samsung 30\" W 5-Burner 6.0 cu. ft. Freestanding 18K BTU Dual Power Gas Range $699 $900 + Free Delivery Home Depot 59 6",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_12.jpg",
+     "text": "Found by Eragorn Nov 24, 2026 3:12 PM Samsung EPP/EDU: 65\" Neo QLED QN90H 4K 144Hz Mini LED TV + Music Studio 5 Speaker $1,080 $1,500 & More + Free S&H Samsung 48 7",
+     "n": 2
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_13.jpg",
+     "text": "Found by SebVetFive Nov 24, 2026 12:23 PM 49\" Samsung Odyssey G93SC DQHD QD-OLED 240Hz Ultrawide Curved Monitor $855 $1,600 + Free S&H Amazon 64 12",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Samsung_14.jpg",
+     "text": "Found by tDames Nov 24, 2026 12:09 PM Samsung Galaxy S26 FE 5G 6.7\" Unlocked Smartphone: 256GB $600 or 128GB $500 $700 + Free S&H Amazon 136 101",
+     "n": 1
+    }
+   ],
+   "Sony": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_0.jpg",
+     "text": "Found by dag16 Yesterday 7:54 PM Promoted Refurb: Sony WF-1000XM6 Noise Cancelling Wireless Earbuds $148 $185 + Free S&H eBay 107 30",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_1.jpg",
+     "text": "Found by pennysave Today 3:50 AM New God of War Ragnarök (PS5) + Sony DualSense PS5 Wireless Controller (Blue) $73 $145 + Free S&H Best Buy 85 6",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_2.jpg",
+     "text": "Found by dag16 Yesterday 7:54 PM New Refurb: Sony WF-1000XM6 Noise Cancelling Wireless Earbuds $148 $185 + Free S&H eBay 107 29",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_3.jpg",
+     "text": "Found by pennysave Yesterday 7:02 AM Refurb/Grade A Unit: Sony PlayStation 5 DualSense Wireless Controller (White) $40 + Free S&H w/ Amazon Prime Woot! 84 11",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_4.jpg",
+     "text": "Found by suicideskull Yesterday 3:54 AM Sony PlayStation DualSense Wireless Controller (007 First Light Limited Edition) $65 $85 + Free S&H Best Buy 83 12",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_5.jpg",
+     "text": "Found by ItsSoCheap Nov 24, 2026 11:44 AM 24.2MP Sony Alpha a6400 APS-C Mirrorless Camera w/ 16-50mm Lens (Black) $1,000 $1,200 + Free S&H Best Buy 59 18",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_6.jpg",
+     "text": "Found by iconian Nov 23, 2026 1:05 PM Sony WH-1000XM5 Noise Cancelling Wireless Headphones $170 $398 + Free S&H Best Buy 467 52",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Sony_7.jpg",
+     "text": "Found by suicideskull Nov 19, 2026 3:53 PM Sony PlayStation 5 DualSense Wireless Controllers (various colors) From $54 $74 + Free S&H Playstation Store 417 69",
+     "n": 1
+    }
+   ],
+   "Dyson": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Dyson_0.jpg",
+     "text": "Found by idk_then Nov 17, 2026 12:50 PM Promoted Dyson Hot+Cool HF1 Rapid React All Season Heater Fan $300 $500 + Free S&H Best Buy 300 24",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Dyson_1.jpg",
+     "text": "Found by ItsSoCheap Nov 19, 2026 4:59 AM Promoted Dyson HushJet Compact Tower Air Purifier w/ HEPA & Activated Carbon Filter (White/Silver) $279.99 + Free Shipping $280 $350 Best Buy 29 6",
+     "n": 1
+    }
+   ],
+   "Hisense": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_0.jpg",
+     "text": "Found by pennysave Nov 22, 2026 12:49 PM Promoted 55\" Hisense QD5 Hi-QLED 4K UHD Smart Roku TV (2026) $180 $380 + Free S&H Best Buy 507 47",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_1.jpg",
+     "text": "Found by das1984 Today 11:13 AM New Costco Members: 100\" Hisense QD7 4K 144Hz QLED Smart TV + 5-Yr Allstate Plan $1,000 $1,700 + Free S&H Costco Wholesale 117 49",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_2.jpg",
+     "text": "Found by TattyBear Today 8:35 AM New 75\" Hisense UR8 RGB MiniLED 4K 180Hz Smart Google TV (2026) $1,400 $2,500 + Free S&H Best Buy 71 1",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_3.jpg",
+     "text": "Found by suicideskull Nov 21, 2026 11:43 PM Personalized 75\" Hisense QD5 Series Hi-QLED 4K Smart Roku TV (2026, 75QD5SR) $380 $700 + Free S&H Best Buy 131 11",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_4.jpg",
+     "text": "Found by suicideskull Yesterday 4:05 PM 75\" Hisense QD5 Series Hi-QLED 4K Smart Roku TV (2026, 75QD5SR) $380 $700 + Free S&H Best Buy 131 11",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_5.jpg",
+     "text": "Found by Dr.W Nov 24, 2026 1:52 PM 75\" Hisense U7SG Mini-LED ULED 4K 165Hz Smart Google TV $1,000 $2,000 + Free S&H Best Buy 111 9",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_6.jpg",
+     "text": "Found by Dr.W Nov 24, 2026 1:32 PM Hisense 65\" U8 Series ULED Mini-LED 4K UHD Smart Google TV $900 $2,200 + Free S&H Amazon 66 12",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_7.jpg",
+     "text": "Found by captainguy Nov 24, 2026 1:03 PM 65\" Hisense H5R1 Series 4K UHD HDR Smart Roku TV $228 $398 + Free S&H Walmart 80 27",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_8.jpg",
+     "text": "Found by pennysave Nov 22, 2026 12:49 PM 55\" Hisense QD5 Hi-QLED 4K UHD Smart Roku TV (2026) $180 $380 + Free S&H Best Buy 507 46",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_9.jpg",
+     "text": "Found by captainguy Nov 22, 2026 11:26 AM 98\" Hisense QD5 Series Hi-QLED 4K UHD Smart Fire TV (2026 Model) $800 $2,500 + Free S&H Best Buy 729 112",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_10.jpg",
+     "text": "Found by Champagne13 Nov 21, 2026 10:54 AM 75\" Hisense M7 MiniLED Hi-QLED 4K UHD Smart Roku TV (2026) $500 $900 & More + Free S&H Best Buy 78 22",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Hisense_11.jpg",
+     "text": "Found by MellowCatfish6336 Nov 20, 2026 3:49 PM 65\" Hisense QD5 Series Hi-QLED 4K UHD Smart Roku TV (2026) $300 $550 + Free S&H Best Buy 154 7",
+     "n": 1
+    }
+   ],
+   "TCL": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__TCL_0.jpg",
+     "text": "Found by captainguy Yesterday 7:44 PM New 55\" TCL 55S41CR 4K UHD HDR Smart Roku TV $168 $198 + Free S&H Walmart 50 15",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__TCL_1.jpg",
+     "text": "Found by Frugie Nov 24, 2026 6:59 PM TCL TAB 8 Gen 2 Tablet: MediaTek MT8786 8-Core, 8.7\" 1340x800 90Hz, 128GB $99 $134 + Free S&H Walmart 55 24",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__TCL_2.jpg",
+     "text": "Found by MellowCatfish6336 Nov 24, 2026 5:21 PM 75\" TCL S4 Series 4K Ultra HD 60Hz Smart LED Roku TV $398 $498 + Free S&H Walmart 73 10",
+     "n": 1
+    }
+   ],
+   "Bosch": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Bosch_0.jpg",
+     "text": "Found by kz400b2 Yesterday 4:47 PM 29-Pc Bosch Gold Oxide Drill Bits Set w/ Holding Case (Assorted Sizes) $31 $71 Amazon 43 6",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Bosch_1.jpg",
+     "text": "Found by UncleRobot Nov 24, 2026 10:19 PM 8-Pc Bosch GT3000 Carbide Glass & Tile Bit Set w/ Storage Case $26 $50 Amazon 35 7",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Bosch_2.jpg",
+     "text": "Found by UncleRobot Nov 24, 2026 8:30 AM 11-Piece Bosch Tap & Drill Combo Set (BDT11S) $30 $55 Amazon 38 0",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Bosch_3.jpg",
+     "text": "Found by TACO_Trader Nov 22, 2026 5:33 PM 5-Pc Bosch Impact Tough 2\" Phillips/Square #2 Power Bits $3.85 $7.59 Amazon 98 0",
+     "n": 1
+    }
+   ],
+   "KitchenAid": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__KitchenAid_0.jpg",
+     "text": "Found by pennysave Yesterday 9:39 PM New 20-Pc KitchenAid Silicone Kitchen Tool and Gadget Set (3 colors) $15 $71 Walmart 74 4",
+     "n": 1
+    }
+   ],
+   "Shark": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Shark_0.jpg",
+     "text": "Found by phoinix Today 1:51 PM New Shark IY143H Cordless Pet Cordless Lightweight Stick Vacuum Cleaner $160 $300 + Free S&H Best Buy 75 7",
+     "n": 1
+    }
+   ],
+   "Vizio": [
+    {
+     "shot": "shots/2026-11-26/m/slickdeals-home__Vizio_0.jpg",
+     "text": "Found by SUCHaDEAL Nov 24, 2026 2:03 PM 43\" onn 1080p FHD Vizio Smart TV $89 $178 + Free S&H Walmart 65 15",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-11-26/slickdeals-home__full.jpg",
+  "full_parts": [
+   "shots/2026-11-26/slickdeals-home__full.jpg",
+   "shots/2026-11-26/slickdeals-home__full_2.jpg",
+   "shots/2026-11-26/slickdeals-home__full_3.jpg"
+  ],
+  "full_covers_all": false,
+  "full_inside": {
+   "Samsung": [
+    14,
+    31
+   ],
+   "Hisense": [
+    3,
+    12
+   ],
+   "Dyson": [
+    2,
+    2
+   ],
+   "Sony": [
+    2,
+    8
+   ],
+   "LG": [
+    2,
+    2
+   ],
+   "Shark": [
+    1,
+    1
+   ],
+   "KitchenAid": [
+    0,
+    1
+   ],
+   "TCL": [
+    0,
+    3
+   ],
+   "Bosch": [
+    0,
+    4
+   ],
+   "Vizio": [
+    0,
+    1
+   ]
+  },
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 2,
+   "Samsung": 31,
+   "Sony": 8,
+   "Dyson": 2,
+   "Hisense": 12,
+   "TCL": 3,
+   "Bosch": 4,
+   "KitchenAid": 1,
+   "Shark": 1,
+   "Vizio": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/slickdeals-home.jpg",
+  "final_url": "https://slickdeals.net/",
+  "http": 200,
+  "title": "Slickdeals: The Best Deals, Coupons, Promo Codes & Discounts",
+  "sig": "9d6fe018658f",
+  "body_hash": "8c1fce23af49",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Swagbucks (Prodege)",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.swagbucks.com/shop/samsung-coupons",
+  "date": "2026-11-26",
+  "target": "swagbucks-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:40-05:00",
+  "rate_source": "text",
+  "rate": 1.0,
+  "rate_text": "1% Cash Back",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 51
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/swagbucks-samsung.jpg",
+  "final_url": "https://www.swagbucks.com/shop/samsung-coupons",
+  "http": 200,
+  "title": "Best Samsung Coupons, Promo Codes & Free Shipping Deals 11/26/2026, 5:40:03 PM 2026.",
+  "sig": "6572c3d3c4e3",
+  "body_hash": "b5a34e7552d2",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "1% Cash Back",
+  "prev_rate": 1.0,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "TopCashback",
+  "brand": "Best Buy",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/best-buy/",
+  "date": "2026-11-26",
+  "target": "tcb-best-buy",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "text",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/tcb-best-buy.jpg",
+  "final_url": "https://www.topcashback.com/best-buy/",
+  "http": 403,
+  "title": "ERROR: The request could not be satisfied",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-11-15",
+  "prev_rate_text": "Get up to 14% of the price back",
+  "prev_rate": 14.0,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "TopCashback",
+  "brand": "Dyson",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/dyson/",
+  "date": "2026-11-26",
+  "target": "tcb-dyson",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "text",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/tcb-dyson.jpg",
+  "final_url": "https://www.topcashback.com/dyson/",
+  "http": 403,
+  "title": "ERROR: The request could not be satisfied",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-11-15",
+  "prev_rate_text": "Get 2% of the price back",
+  "prev_rate": 2.0,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "TopCashback",
+  "brand": "GE Appliances",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/ge-appliances/",
+  "date": "2026-11-26",
+  "target": "tcb-ge-appliances",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "text",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/tcb-ge-appliances.jpg",
+  "final_url": "https://www.topcashback.com/ge-appliances/",
+  "http": 403,
+  "title": "ERROR: The request could not be satisfied",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-11-15",
+  "prev_rate_text": "Get 8% of the price back",
+  "prev_rate": 8.0,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "TopCashback",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/lg-electronics/",
+  "date": "2026-11-26",
+  "target": "tcb-lg-electronics",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:16-05:00",
+  "rate_source": "text",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/tcb-lg-electronics.jpg",
+  "final_url": "https://www.topcashback.com/lg-electronics/",
+  "http": 403,
+  "title": "ERROR: The request could not be satisfied",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-11-15",
+  "prev_rate_text": "Get 12% of the price back",
+  "prev_rate": 12.0,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "TopCashback",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/samsung/",
+  "date": "2026-11-26",
+  "target": "tcb-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:16-05:00",
+  "rate_source": "text",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/tcb-samsung.jpg",
+  "final_url": "https://www.topcashback.com/samsung/",
+  "http": 403,
+  "title": "ERROR: The request could not be satisfied",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-11-15",
+  "prev_rate_text": "Get 2% of the price back",
+  "prev_rate": 2.0,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "TopCashback",
+  "brand": "Whirlpool",
+  "brand_group": "경쟁사",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/whirlpool/",
+  "date": "2026-11-26",
+  "target": "tcb-whirlpool",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:17-05:00",
+  "rate_source": "text",
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "차단(HTTP)",
+  "reason": "HTTP 403",
+  "shot": "shots/2026-11-26/tcb-whirlpool.jpg",
+  "final_url": "https://www.topcashback.com/whirlpool/",
+  "http": 403,
+  "title": "ERROR: The request could not be satisfied",
+  "sig": null,
+  "body_hash": null,
+  "country": "US",
+  "prev_date": "2026-11-15",
+  "prev_rate_text": "Get 3% of the price back",
+  "prev_rate": 3.0,
+  "changed": null,
+  "body_changed": null
+ },
+ {
+  "publisher": "TechRadar",
+  "brand": "(모니터 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.techradar.com/news/computing-components/peripherals/best-monitor-9-reviewed-and-rated-1058662",
+  "date": "2026-11-26",
+  "target": "techradar-best-monitor",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:43-05:00",
+  "rate": null,
+  "rate_text": "제품 6개 · LG 1개(최고 4위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "MSI MPG 322UR QD-OLED X24",
+    "brand": "MSI"
+   },
+   {
+    "n": 2,
+    "name": "BenQ GW2486TC Eye-Care Monitor",
+    "brand": "BenQ"
+   },
+   {
+    "n": 3,
+    "name": "Gigabyte MO32U24",
+    "brand": "Gigabyte"
+   },
+   {
+    "n": 4,
+    "name": "LG Ultragear GX9 45GX950A-B",
+    "brand": "LG"
+   },
+   {
+    "n": 5,
+    "name": "Alienware A3425DWM",
+    "brand": "Dell"
+   },
+   {
+    "n": 6,
+    "name": "Samsung Odyssey OLED G6 G60SF",
+    "brand": "Samsung"
+   }
+  ],
+  "category": "모니터",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/techradar-best-monitor.jpg",
+  "final_url": "https://www.techradar.com/news/computing-components/peripherals/best-monitor-9-reviewed-and-rated-1058662",
+  "http": 200,
+  "title": "The best monitor in 2026: our top picks for work, gaming, and more | TechRadar",
+  "sig": "1ef432dbfdfb",
+  "body_hash": "65476855e1e1",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 6개 · LG 1개(최고 4위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "TechRadar",
+  "brand": "(TV 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.techradar.com/news/best-tv",
+  "date": "2026-11-26",
+  "target": "techradar-best-tv",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:40-05:00",
+  "rate": null,
+  "rate_text": "제품 7개 · LG 2개(최고 1위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "LG C6",
+    "brand": "LG"
+   },
+   {
+    "n": 2,
+    "name": "Samsung S99H",
+    "brand": "Samsung"
+   },
+   {
+    "n": 3,
+    "name": "Roku Plus Series",
+    "brand": "Roku"
+   },
+   {
+    "n": 4,
+    "name": "Hisense U8QG",
+    "brand": "Hisense"
+   },
+   {
+    "n": 5,
+    "name": "LG C5",
+    "brand": "LG"
+   },
+   {
+    "n": 6,
+    "name": "TCL QM8L",
+    "brand": "TCL"
+   },
+   {
+    "n": 7,
+    "name": "Samsung QN90F",
+    "brand": "Samsung"
+   }
+  ],
+  "category": "TV",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/techradar-best-tv.jpg",
+  "final_url": "https://www.techradar.com/news/best-tv",
+  "http": 200,
+  "title": "The best TVs in 2026, based on our real-world tests | TechRadar",
+  "sig": "ab96f901e712",
+  "body_hash": "f903e2baf84d",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 7개 · LG 2개(최고 1위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "TechRadar",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.techradar.com/",
+  "date": "2026-11-26",
+  "target": "techradar-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:24-05:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__LG_2.jpg",
+     "text": "Black Friday 75-inch TV deals: save on LG, TCL, Hisense, Samsung, Roku and Amazon TVs",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__LG_3.jpg",
+     "text": "Black Friday OLED TV deals: the very best offers on elite and budget models from LG, Samsung, Sony and more",
+     "n": 1
+    }
+   ],
+   "Samsung": [
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Samsung_0.jpg",
+     "text": "We've rounded up all the best Black Friday deals available now at the likes of Amazon, Best Buy, Samsung, Dell, and more, including big savings on LG OLED TVs, Ninja air fryers, Sony headphones, and more.",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Samsung_1.jpg",
+     "text": "Samsung's Black Friday sale is here — I've found 11 excellent deals, including up to $1,800 off OLED TVs, Galaxy S26 Ultra, tablets, and more",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Samsung_2.jpg",
+     "text": "Black Friday monitor deals 2026: amazing savings on screens from Samsung, LG, Asus ROG and more",
+     "n": 1
+    }
+   ],
+   "Sony": [
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Sony_0.jpg",
+     "text": "The best Black Friday headphones deals: Sony, AirPods and more",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Sony_1.jpg",
+     "text": "I compared Beats, JBL, and Sony affordable Bluetooth speakers to find the best portable music buddy — this is the model I’d buy with my own money",
+     "n": 1
+    }
+   ],
+   "Dyson": [
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Dyson_0.jpg",
+     "text": "Dyson Black Friday deals: save on Airwrap hair stylers, Nurovi vacuums, and HushJet air purifiers",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/techradar-home__Dyson_1.jpg",
+     "text": "Take our Black Friday deal quiz and find your perfect Dyson cordless vacuum",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-11-26/techradar-home__full.jpg",
+  "full_parts": [
+   "shots/2026-11-26/techradar-home__full.jpg"
+  ],
+  "full_covers_all": true,
+  "full_inside": {
+   "Samsung": [
+    5,
+    5
+   ],
+   "LG": [
+    4,
+    4
+   ],
+   "Sony": [
+    4,
+    4
+   ],
+   "TCL": [
+    1,
+    1
+   ],
+   "Hisense": [
+    1,
+    1
+   ],
+   "Dyson": [
+    2,
+    2
+   ]
+  },
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 4,
+   "Samsung": 5,
+   "Sony": 4,
+   "Dyson": 2,
+   "Hisense": 1,
+   "TCL": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/techradar-home.jpg",
+  "final_url": "https://www.techradar.com/",
+  "http": 200,
+  "title": "TechRadar | the technology experts",
+  "sig": "9d6fe018658f",
+  "body_hash": "2ee1f8d38afb",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "TechRadar",
+  "brand": "LG Electronics",
+  "brand_group": "LG",
+  "kind": "쿠폰",
+  "url": "https://www.techradar.com/coupons/lg",
+  "date": "2026-11-26",
+  "target": "techradar-lg",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:24-05:00",
+  "rate": null,
+  "rate_text": "오퍼 13건 · 최상단 50% Off",
+  "offers": 13,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 107,
+   "Samsung": 3,
+   "KitchenAid": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/techradar-lg.jpg",
+  "final_url": "https://www.techradar.com/coupons/lg",
+  "http": 200,
+  "title": "LG promo codes for Nov 2026 | 50% OFF",
+  "sig": "a352555f80f2",
+  "body_hash": "7ef46f4afd26",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "오퍼 13건 · 최상단 50% Off",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "TechRadar",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.techradar.com/coupons/samsung",
+  "date": "2026-11-26",
+  "target": "techradar-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:24-05:00",
+  "rate": null,
+  "rate_text": "오퍼 16건 · 최상단 15% Off",
+  "offers": 16,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 3,
+   "Samsung": 82
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/techradar-samsung.jpg",
+  "final_url": "https://www.techradar.com/coupons/samsung",
+  "http": 200,
+  "title": "Samsung promo codes in Nov 2026 | 15% OFF",
+  "sig": "2914b96307a1",
+  "body_hash": "d77ce9f50282",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "오퍼 15건 · 최상단 15% Off",
+  "prev_rate": null,
+  "changed": true,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "(냉장고 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.tomsguide.com/best-picks/the-best-refrigerators",
+  "date": "2026-11-26",
+  "target": "tomsguide-best-fridge",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:41-05:00",
+  "rate": null,
+  "rate_text": "제품 3개 · LG 1개(최고 3위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "GE Profile PFE28KYNFS",
+    "brand": "GE Appliances"
+   },
+   {
+    "n": 2,
+    "name": "Maytag MRT311FFFZ",
+    "brand": "Maytag"
+   },
+   {
+    "n": 3,
+    "name": "LG LRFLC2706S",
+    "brand": "LG"
+   }
+  ],
+  "category": "냉장고",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/tomsguide-best-fridge.jpg",
+  "final_url": "https://www.tomsguide.com/us/best-refrigerators,review-6181.html",
+  "http": 200,
+  "title": "Best refrigerators in 2026 | Tom's Guide",
+  "sig": "7c6d06249e0d",
+  "body_hash": "7efa9e13b8ea",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 3개 · LG 1개(최고 3위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "(모니터 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.tomsguide.com/best-picks/best-monitors",
+  "date": "2026-11-26",
+  "target": "tomsguide-best-monitor",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:42-05:00",
+  "rate": null,
+  "rate_text": "제품 10개 · LG 없음",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "MSI MPG 341CQR QD-OLED X36",
+    "brand": "MSI"
+   },
+   {
+    "n": 2,
+    "name": "Alienware AW2726DM",
+    "brand": "Dell"
+   },
+   {
+    "n": 3,
+    "name": "Alienware AW2525HM",
+    "brand": "Dell"
+   },
+   {
+    "n": 4,
+    "name": "Alienware AW2725D",
+    "brand": "Dell"
+   },
+   {
+    "n": 5,
+    "name": "MSI MPG 321URXW QD-OLED",
+    "brand": "MSI"
+   },
+   {
+    "n": 6,
+    "name": "BenQ Creative Pro PD2730S",
+    "brand": "BenQ"
+   },
+   {
+    "n": 7,
+    "name": "Alienware 39 5K2K OLED (AW3926QW)",
+    "brand": "Dell"
+   },
+   {
+    "n": 8,
+    "name": "MSI Pro Max 271UPXW12G",
+    "brand": "MSI"
+   },
+   {
+    "n": 9,
+    "name": "BenQ PD3226G",
+    "brand": "BenQ"
+   },
+   {
+    "n": 10,
+    "name": "Samsung Odyssey OLED G9",
+    "brand": "Samsung"
+   }
+  ],
+  "category": "모니터",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/tomsguide-best-monitor.jpg",
+  "final_url": "https://www.tomsguide.com/best-picks/best-monitors",
+  "http": 200,
+  "title": "The best monitors of 2026: Our top picks built for work and gaming | Tom's Guide",
+  "sig": "bfe56eb697f5",
+  "body_hash": "01a68b7c4356",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 10개 · LG 없음",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "(TV 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.tomsguide.com/us/best-tvs,review-2224.html",
+  "date": "2026-11-26",
+  "target": "tomsguide-best-tv",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:40-05:00",
+  "rate": null,
+  "rate_text": "제품 5개 · LG 1개(최고 1위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "LG B6",
+    "brand": "LG"
+   },
+   {
+    "n": 2,
+    "name": "Hisense QD7",
+    "brand": "Hisense"
+   },
+   {
+    "n": 3,
+    "name": "Samsung S90F OLED",
+    "brand": "Samsung"
+   },
+   {
+    "n": 4,
+    "name": "TCL QM9K",
+    "brand": "TCL"
+   },
+   {
+    "n": 5,
+    "name": "TCL QM8L",
+    "brand": "TCL"
+   }
+  ],
+  "category": "TV",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/tomsguide-best-tv.jpg",
+  "final_url": "https://www.tomsguide.com/us/best-tvs,review-2224.html",
+  "http": 200,
+  "title": "The 5 best TVs we've tested for movies, sports and gaming | Tom's Guide",
+  "sig": "9d9ec82f564f",
+  "body_hash": "b2dca95657af",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 5개 · LG 1개(최고 1위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "(세탁기 추천)",
+  "brand_group": "매체",
+  "kind": "추천 목록",
+  "url": "https://www.tomsguide.com/us/best-washing-machines,review-6208.html",
+  "date": "2026-11-26",
+  "target": "tomsguide-best-washer",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:42-05:00",
+  "rate": null,
+  "rate_text": "제품 5개 · LG 2개(최고 2위)",
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [
+   {
+    "n": 1,
+    "name": "Samsung WF53BB8700AVUS",
+    "brand": "Samsung"
+   },
+   {
+    "n": 2,
+    "name": "LG WM3555HWA",
+    "brand": "LG"
+   },
+   {
+    "n": 3,
+    "name": "Maytag Smart Pet Pro Front-Load Washer",
+    "brand": "Maytag"
+   },
+   {
+    "n": 4,
+    "name": "Whirlpool 5.2 Cu. Ft. Smart Top Load Washer",
+    "brand": "Whirlpool"
+   },
+   {
+    "n": 5,
+    "name": "LG WM4200H",
+    "brand": "LG"
+   }
+  ],
+  "category": "세탁기",
+  "mentions": {},
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/tomsguide-best-washer.jpg",
+  "final_url": "https://www.tomsguide.com/us/best-washing-machines,review-6208.html",
+  "http": 200,
+  "title": "Best washing machines in 2026 | Tom's Guide",
+  "sig": "8985e5096117",
+  "body_hash": "667dc6d2a316",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "제품 5개 · LG 2개(최고 2위)",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.tomsguide.com/",
+  "date": "2026-11-26",
+  "target": "tomsguide-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:25-05:00",
+  "mention_shots": {
+   "LG": [
+    {
+     "shot": "shots/2026-11-26/m/tomsguide-home__LG_0.jpg",
+     "text": "Black Friday TV deals LIVE: Big savings on the best TVs from Roku, Best Buy, LG, Hisense and more",
+     "n": 1
+    }
+   ],
+   "Sony": [
+    {
+     "shot": "shots/2026-11-26/m/tomsguide-home__Sony_0.jpg",
+     "text": "Black Friday headphone deals up to 67% off: lowest prices now on Beats, AirPods, Bose, Sony and more",
+     "n": 1
+    }
+   ],
+   "Shark": [
+    {
+     "shot": "shots/2026-11-26/m/tomsguide-home__Shark_0.jpg",
+     "text": "Amazon’s Black Friday Shark sale: Save up to 47% on vacuums, air purifiers, beauty tools and more",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/tomsguide-home__Shark_1.jpg",
+     "text": "Amazon’s Black Friday Shark sale: Save up to 47% on vacuums, air purifiers, beauty tools and more",
+     "n": 1
+    },
+    {
+     "shot": "shots/2026-11-26/m/tomsguide-home__Shark_2.jpg",
+     "text": "Hit the Shark Back Friday sales at Amazon — and make savings up to 47% on cleaning and beauty appliances.",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-11-26/tomsguide-home__full.jpg",
+  "full_parts": [
+   "shots/2026-11-26/tomsguide-home__full.jpg"
+  ],
+  "full_covers_all": true,
+  "full_inside": {
+   "LG": [
+    1,
+    1
+   ],
+   "Hisense": [
+    1,
+    1
+   ],
+   "Shark": [
+    4,
+    4
+   ]
+  },
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "LG": 1,
+   "Sony": 1,
+   "Hisense": 1,
+   "Shark": 4
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/tomsguide-home.jpg",
+  "final_url": "https://www.tomsguide.com/",
+  "http": 200,
+  "title": "Tom's Guide | Tech Product Reviews, Top Picks and How To",
+  "sig": "9d6fe018658f",
+  "body_hash": "9f9e0bf0c924",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "Tom's Guide",
+  "brand": "Samsung",
+  "brand_group": "경쟁사",
+  "kind": "쿠폰",
+  "url": "https://www.tomsguide.com/coupons/samsung.com",
+  "date": "2026-11-26",
+  "target": "tomsguide-samsung",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:25-05:00",
+  "rate": null,
+  "rate_text": "오퍼 24건 · 최상단 15% Off",
+  "offers": 24,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Samsung": 112,
+   "Shark": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/tomsguide-samsung.jpg",
+  "final_url": "https://www.tomsguide.com/coupons/samsung.com",
+  "http": 200,
+  "title": "Samsung promo codes for Nov 2026 | 15% OFF | Tom's Guide",
+  "sig": "14736f9e400b",
+  "body_hash": "9cd0b8df8d02",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": "오퍼 24건 · 최상단 15% Off",
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
+ },
+ {
+  "publisher": "WIRED",
+  "brand": "(홈)",
+  "brand_group": "매체",
+  "kind": "리뷰·매체",
+  "url": "https://www.wired.com/",
+  "date": "2026-11-26",
+  "target": "wired-home",
+  "method": "자동 스크린샷",
+  "captured_at": "2026-11-26T17:28-05:00",
+  "mention_shots": {
+   "Sony": [
+    {
+     "shot": "shots/2026-11-26/m/wired-home__Sony_0.jpg",
+     "text": "Get up to 57 percent off some of my favorite headphones and earbuds from Apple, Sony, Nothing, and more.",
+     "n": 1
+    }
+   ]
+  },
+  "full_shot": "shots/2026-11-26/wired-home__full.jpg",
+  "full_parts": [
+   "shots/2026-11-26/wired-home__full.jpg"
+  ],
+  "full_covers_all": true,
+  "full_inside": {
+   "Sony": [
+    1,
+    1
+   ]
+  },
+  "rate": null,
+  "rate_text": null,
+  "offers": null,
+  "categories": [],
+  "exclusions": null,
+  "promos": [],
+  "ranking": [],
+  "category": null,
+  "mentions": {
+   "Sony": 1
+  },
+  "lg_snippets": [],
+  "status": "수집",
+  "reason": "",
+  "shot": "shots/2026-11-26/wired-home.jpg",
+  "final_url": "https://www.wired.com/",
+  "http": 200,
+  "title": "WIRED - The Latest in Technology, Science, Culture and Business | WIRED",
+  "sig": "9d6fe018658f",
+  "body_hash": "fd03e8fe1a2a",
+  "country": "US",
+  "prev_date": "2026-11-25",
+  "prev_rate_text": null,
+  "prev_rate": null,
+  "changed": false,
+  "body_changed": true
  }
 ]

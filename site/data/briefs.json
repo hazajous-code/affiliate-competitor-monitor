@@ -116,10 +116,10 @@
   "bullets": [
    "<b>LG 캐시백</b> 최고 12%(TopCashback)",
    "<b>삼성 캐시백</b> 직전 대비 변동 없음 · 최고 7%(BeFrugal) · 잔존: 확인한 퍼블리셔 11곳 중 11곳에서 캐시백 제공(같은 퍼블리셔 9곳 중 삼성 우위 0), 딜·리뷰 언급 삼성 24 : LG 29",
-   "<b>LG.com</b> 프로모션 10건, 내려감 1건 · 7일 내 종료 3건(가장 빠른 11/1: Up to 45% off plus Black Friday Price Guaranteed on select…)",
-   "<b>Samsung.com</b> 프로모션 27건(가전·TV·모니터 14), 내려감 1건 · Samsung Week ~11/1 진행 중"
+   "<b>LG.com</b> 프로모션 10건 · 7일 내 종료 3건(가장 빠른 11/1: Up to 45% off plus Black Friday Price Guaranteed on select…)",
+   "<b>Samsung.com</b> 프로모션 27건(가전·TV·모니터 14) · Samsung Week ~11/1 진행 중"
   ],
-  "saved_at": "2026-11-04T15:45-05:00"
+  "saved_at": "2026-11-26T17:44-05:00"
  },
  "2026-10-26": {
   "bullets": [
@@ -399,5 +399,14 @@
    "<b>Samsung.com</b> 프로모션 20건(가전·TV·모니터 14), 신규 7건, 내려감 6건"
   ],
   "saved_at": "2026-11-25T00:25-05:00"
+ },
+ "2026-11-26": {
+  "bullets": [
+   "<b>LG 캐시백</b> 최고 12%(Rakuten). Rakuten 평시 5% → 12% 상향 중 · 직전 대비 변동 Rakuten 10%→12%(상향 폭 변경)",
+   "<b>삼성 캐시백</b> 직전 대비 변동 없음 · 최고 7%(BeFrugal) · 잔존: 확인한 퍼블리셔 11곳 중 10곳에서 캐시백 제공(같은 퍼블리셔 8곳 중 삼성 우위 0), 딜·리뷰 언급 삼성 67 : LG 34",
+   "<b>LG.com</b> 프로모션 14건, 신규 1건(Limited time savings on select Monitors with code), 내려감 1건 · 7일 내 종료 11건(가장 빠른 11/29: Explore deals on LG gram Laptops with Black Friday prices)",
+   "<b>Samsung.com</b> 프로모션 21건(가전·TV·모니터 14), 신규 4건, 내려감 3건"
+  ],
+  "saved_at": "2026-11-26T17:44-05:00"
  }
 }
