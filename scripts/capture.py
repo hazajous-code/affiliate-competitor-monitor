@@ -254,6 +254,14 @@ def parse_retailer(parser, t, title, rate, rate_text, cats):
             for r_, label in re.findall(rf"{PCT}\s+(.+?)(?=\s+\d{{1,2}}(?:\.\d{{1,2}})?\s*%|$)", seg.group(1)):
                 if len(label) <= 90:
                     cats.append({"label": short(label, 90), "rate": float(r_)})
+    if rate is None and parser == "rakuten":   # body layout varies by store; the page title carries the store rate
+        m = re.search(rf"&\s*((?:Up to\s+)?{PCT}\s*Cash Back)", title or "", re.I)
+        if m:
+            rate, rate_text, src = float(m.group(2)), m.group(1), "title"
+        else:
+            m = re.search(r"&\s*(\$\d+(?:\.\d+)?)\s*Cash Back", title or "", re.I)
+            if m:   # flat amount per order (e.g. Amazon "$5 Cash Back") — no % rate to compare
+                rate_text = f"{m.group(1)} Cash Back (정액)"
     if rate is None and re.search(r"\bNo Cash Back\b|Coupons Only", title or "", re.I):
         rate, rate_text, src = 0.0, "No Cash Back (쿠폰만)", "title"
     if rate is None and parser == "capone" and not re.search(r"Rewards\s+\d", t):

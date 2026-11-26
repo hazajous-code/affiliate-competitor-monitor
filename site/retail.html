@@ -47,20 +47,21 @@ details summary{cursor:pointer;color:var(--muted);font-size:12px}
 <div class="wrap">
   <header>
     <h1>유통사 캐시백</h1>
-    <p class="lede">Best Buy · The Home Depot · Lowe's · Costco가 캐시백 퍼블리셔에 내건 요율을 매일 봅니다. 고객이 LG 제품을 유통사에서 사도 이 요율이 적용될 수 있어, 같은 퍼블리셔의 LG 공식몰(LG.com) 요율과 나란히 놓고 봅니다.</p>
+    <p class="lede">Best Buy · Home Depot · Lowe's · Walmart · Costco 등 LG 제품을 파는 유통사가 캐시백 퍼블리셔에 내건 요율을 매일 봅니다. 고객이 LG 제품을 유통사에서 사도 이 요율이 적용될 수 있어, 같은 퍼블리셔의 LG 공식몰(LG.com) 요율과 나란히 놓고 봅니다.</p>
     <div class="hdrow"><label>기준 날짜 <select id="day"></select></label><span id="meta"></span></div>
     <div class="banner" id="banner"></div>
   </header>
 
   <section class="card" id="today">
     <h2>오늘 유통사별 최고 요율</h2>
-    <p class="note">유통사마다 오늘 읽힌 퍼블리셔 요율 중 가장 높은 값과, 직전 수집일 대비 변화를 봅니다. 'LG.com 최고'는 같은 퍼블리셔들의 LG 공식몰 요율 중 가장 높은 값입니다.</p>
-    <div class="tw"><table><thead><tr><th>유통사</th><th class="num">최고 요율</th><th>퍼블리셔</th><th>직전 대비</th><th class="num">제공 퍼블리셔</th><th class="num">LG.com 최고</th></tr></thead><tbody id="todayBody"></tbody></table></div>
+    <p class="note">유통사마다 오늘 읽힌 퍼블리셔 요율 중 가장 높은 값과, 직전 수집일 대비 변화를 봅니다. 'LG.com 대비'는 같은 퍼블리셔들의 LG.com 최고 요율과의 차이(%p)로, +면 유통사 쪽 캐시백이 더 높습니다.</p>
+    <p class="note" id="lgRef"></p>
+    <div class="tw"><table><thead><tr><th>구분</th><th>유통사</th><th class="num">최고 요율</th><th>퍼블리셔</th><th>직전 대비</th><th class="num">제공 퍼블리셔</th><th class="num">LG.com 대비</th></tr></thead><tbody id="todayBody"></tbody></table></div>
   </section>
 
   <section class="card" id="matrix">
     <h2>퍼블리셔 × 유통사 요율</h2>
-    <p class="note">퍼블리셔마다 유통사 페이지의 대표 요율입니다. ▲▼는 직전 수집일 대비, 노란 칸은 오늘 바뀐 값입니다. '없음'은 그 퍼블리셔가 쿠폰만 걸고 캐시백은 주지 않는 경우, '확인 필요'는 읽었지만 게시를 보류한 값, '—'는 페이지가 없거나 읽지 못한 경우입니다(마우스를 올리면 사유). 숫자를 누르면 그날 화면이 열립니다.</p>
+    <p class="note">유통사마다 퍼블리셔별 대표 요율입니다. 맨 윗줄(분홍)은 비교 기준인 LG.com 요율입니다. ▲▼는 직전 수집일 대비, 노란 칸은 오늘 바뀐 값입니다. '없음'은 그 퍼블리셔가 쿠폰만 걸고 캐시백은 주지 않는 경우, '확인 필요'는 읽었지만 게시를 보류한 값, '—'는 페이지가 없거나 읽지 못한 경우입니다(마우스를 올리면 사유). 숫자를 누르면 그날 화면이 열립니다.</p>
     <div class="tw"><table><thead id="mxHead"></thead><tbody id="mxBody"></tbody></table></div>
   </section>
 
@@ -99,10 +100,14 @@ details summary{cursor:pointer;color:var(--muted);font-size:12px}
   $('dlg').onclick = () => $('dlg').close();
   const openImg = src => { $('dlgImg').src = src; $('dlg').showModal(); };
 
-  const RET_ORDER = ['Best Buy', 'The Home Depot', "Lowe's", 'Costco'];
+  // retailer groups: electronics & appliance specialists → home improvement → general & warehouse
+  const GROUP = { 'Best Buy': '가전·전자', 'Abt': '가전·전자', 'P.C. Richard & Son': '가전·전자', 'AJ Madison': '가전·전자', 'Crutchfield': '가전·전자', 'Newegg': '가전·전자',
+    'The Home Depot': '홈·리빙', "Lowe's": '홈·리빙', 'Wayfair': '홈·리빙',
+    'Walmart': '종합·창고형', 'Target': '종합·창고형', 'Amazon': '종합·창고형', 'Costco': '종합·창고형', "Sam's Club": '종합·창고형', "BJ's Wholesale": '종합·창고형' };
+  const RET_ORDER = Object.keys(GROUP);
   const retRows = caps.filter(r => r.brand_group === '유통');
-  const retailers = [...new Set(retRows.map(r => r.brand))].sort((a, b) => (RET_ORDER.indexOf(a) + 1 || 99) - (RET_ORDER.indexOf(b) + 1 || 99));
-  const pubs = [...new Set(retRows.map(r => r.publisher))].sort(byRank);
+  let retailers = [...new Set(retRows.map(r => r.brand))].sort((a, b) => (RET_ORDER.indexOf(a) + 1 || 99) - (RET_ORDER.indexOf(b) + 1 || 99));
+  let pubs = [...new Set(retRows.map(r => r.publisher))].sort(byRank);
 
   const dates = publishedDates(caps, runs).filter(d => retRows.some(r => r.date === d));
   const qs = new URLSearchParams(location.search).get('date');
@@ -110,6 +115,10 @@ details summary{cursor:pointer;color:var(--muted);font-size:12px}
   dates.slice().reverse().forEach((d, i) => { const o = el('option', null, d + (i ? '' : ' (최신)')); o.value = d; if (d === day) o.selected = true; $('day').append(o); });
   $('day').onchange = e => { const u = new URL(location); u.searchParams.set('date', e.target.value); location = u; };
 
+  // show only retailers that have a live page at one or more publishers on the selected day
+  const LIVE = r => r.status !== '페이지 없음' && r.status !== '차단(HTTP)';
+  retailers = retailers.filter(b => retRows.some(r => r.brand === b && r.date === day && LIVE(r)));
+  pubs = pubs.filter(p => retRows.some(r => r.publisher === p && r.date === day && LIVE(r)));
   // index: target -> date -> row
   const at = {};
   caps.forEach(r => { (at[r.target] = at[r.target] || {})[r.date] = r; });
@@ -126,40 +135,41 @@ details summary{cursor:pointer;color:var(--muted);font-size:12px}
 
   // 1. today per retailer
   const lgBest = (() => { let b = null; pubs.forEach(p => { const v = rateOf(cell(p, 'LG')); if (v != null && (!b || v > b.v)) b = { v, p }; }); return b; })();
+  $('lgRef').textContent = lgBest ? '기준 LG.com 최고 요율: ' + pct(lgBest.v) + ' (' + lgBest.p + ')' : '';
   retailers.forEach(br => {
     let best = null, n = 0, seen = 0; const moves = [];
     pubs.forEach(p => { const r = cell(p, br); if (!r) return; seen++; const v = rateOf(r); if (v == null || v === 0) return; n++;
       if (!best || v > best.v) best = { v, p, r };
       const pv = prevRate(r); if (pv != null && pv !== v) moves.push(p + ' ' + pct(pv) + '→' + pct(v)); });
     const tr = el('tr');
+    tr.append(el('td', 'mute sm', GROUP[br] || '기타'));
     tr.append(el('td', 'hi', br));
     const c = el('td', 'num big', best ? upTo(best.r) + pct(best.v) : '—'); tr.append(c);
     tr.append(el('td', null, best ? best.p : '—'));
     const m = el('td', moves.length ? 'warn' : 'mute', moves.length ? moves.join(' · ') : '변동 없음'); tr.append(m);
     tr.append(el('td', 'num', n + ' / ' + seen));
     if (!best) { c.textContent = seen ? '없음' : '—'; c.className = 'num mute'; }
-    tr.append(el('td', 'num lgcol', lgBest ? pct(lgBest.v) + ' (' + lgBest.p + ')' : '—'));
+    const dif = best && lgBest ? Math.round((best.v - lgBest.v) * 100) / 100 : null;
+    tr.append(el('td', 'num ' + (dif == null ? 'mute' : dif > 0 ? 'dn' : 'up'), dif == null ? '—' : (dif > 0 ? '+' : '') + dif + '%p'));
     $('todayBody').append(tr);
   });
 
-  // 2. matrix
-  const hr = el('tr'); hr.append(el('th', null, '퍼블리셔')); hr.append(el('th', 'c lgcol', 'LG.com'));
-  retailers.forEach(b => hr.append(el('th', 'c', b))); $('mxHead').append(hr);
-  pubs.forEach(p => {
-    const tr = el('tr'); tr.append(el('td', null, p));
-    ['LG', ...retailers].forEach(b => {
-      const r = cell(p, b); const td = el('td', 'c num' + (b === 'LG' ? ' lgcol' : ''));
-      if (!r) { td.textContent = '·'; td.className += ' mute'; td.title = '수집 대상 아님'; tr.append(td); return; }
-      const v = rateOf(r);
-      if (v == null) { td.append(el('span', 'mute sm', r.status === '요율 확인 필요' ? '확인 필요' : '—')); td.title = r.status + (r.reason ? ' — ' + r.reason : ''); }
-      else {
-        const a = el('a', null, upTo(r) + pct(v)); a.href = '#'; a.onclick = e => { e.preventDefault(); if (r.shot) openImg(r.shot); }; td.append(a);
-        const pv = prevRate(r);
-        if (pv != null && pv !== v) { td.className += ' chg'; td.append(el('div', 'sm ' + (v > pv ? 'up' : 'dn'), (v > pv ? '▲ ' : '▼ ') + pct(pv))); }
-      }
-      tr.append(td);
-    });
-    $('mxBody').append(tr);
+  // 2. matrix: one row per retailer (LG.com first for reference), one column per publisher
+  const hr = el('tr'); hr.append(el('th', null, '구분')); hr.append(el('th', null, '유통사')); pubs.forEach(p => hr.append(el('th', 'c', p))); $('mxHead').append(hr);
+  const cellTd = r => {
+    const td = el('td', 'c num');
+    if (!r) { td.textContent = '·'; td.className += ' mute'; td.title = '수집 대상 아님'; return td; }
+    const v = rateOf(r);
+    if (v == null) { td.append(el('span', 'mute sm', /\$/.test(r.rate_text || '') ? r.rate_text.replace(' Cash Back', '') : r.status === '요율 확인 필요' ? '확인 필요' : r.status === '페이지 없음' ? '페이지 없음' : '—')); td.title = r.status + (r.reason ? ' — ' + r.reason : ''); return td; }
+    const a = el('a', v === 0 ? 'mute' : null, (v ? upTo(r) : '') + pct(v)); a.href = '#'; a.onclick = e => { e.preventDefault(); if (r.shot) openImg(r.shot); }; td.append(a);
+    const pv = prevRate(r);
+    if (pv != null && pv !== v) { td.className += ' chg'; td.append(el('div', 'sm ' + (v > pv ? 'up' : 'dn'), (v > pv ? '▲ ' : '▼ ') + pct(pv))); }
+    return td;
+  };
+  { const tr = el('tr', 'lgcol'); tr.append(el('td', 'mute sm', '기준')); tr.append(el('td', 'hi', 'LG.com')); pubs.forEach(p => tr.append(cellTd(cell(p, 'LG')))); $('mxBody').append(tr); }
+  retailers.forEach(b => {
+    const tr = el('tr'); tr.append(el('td', 'mute sm', GROUP[b] || '기타')); tr.append(el('td', 'hi', b));
+    pubs.forEach(p => tr.append(cellTd(cell(p, b)))); $('mxBody').append(tr);
   });
 
   // 3. LG / appliance categories

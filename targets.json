@@ -742,7 +742,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.rakuten.com/shop/bjs",
-  "parser": "rakuten"
+  "parser": "rakuten",
+  "enabled": false,
+  "note": "2026-11-26 시험 수집: 페이지 없음"
  },
  {
   "id": "rakuten-amazon",
@@ -787,7 +789,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.rakuten.com/shop/abt",
-  "parser": "rakuten"
+  "parser": "rakuten",
+  "enabled": false,
+  "note": "2026-11-26 시험 수집: 페이지 없음"
  },
  {
   "id": "rakuten-pcrichard",
@@ -796,7 +800,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.rakuten.com/shop/pcrichard",
-  "parser": "rakuten"
+  "parser": "rakuten",
+  "enabled": false,
+  "note": "2026-11-26 시험 수집: 페이지 없음"
  },
  {
   "id": "rakuten-crutchfield",
@@ -805,7 +811,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.rakuten.com/shop/crutchfield",
-  "parser": "rakuten"
+  "parser": "rakuten",
+  "enabled": false,
+  "note": "2026-11-26 시험 수집: 페이지 없음"
  },
  {
   "id": "tcb-home",
@@ -1194,7 +1202,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.befrugal.com/store/pcrichard/",
-  "parser": "befrugal"
+  "parser": "befrugal",
+  "enabled": false,
+  "note": "2026-11-26 시험 수집: 페이지 없음"
  },
  {
   "id": "befrugal-crutchfield",
