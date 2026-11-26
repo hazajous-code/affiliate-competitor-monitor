@@ -258,6 +258,105 @@
   "parser": "capone"
  },
  {
+  "id": "capone-walmart",
+  "publisher": "Capital One Shopping",
+  "brand": "Walmart",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/walmart.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-target",
+  "publisher": "Capital One Shopping",
+  "brand": "Target",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/target.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-samsclub",
+  "publisher": "Capital One Shopping",
+  "brand": "Sam's Club",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/samsclub.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-bjs",
+  "publisher": "Capital One Shopping",
+  "brand": "BJ's Wholesale",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/bjs.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-amazon",
+  "publisher": "Capital One Shopping",
+  "brand": "Amazon",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/amazon.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-wayfair",
+  "publisher": "Capital One Shopping",
+  "brand": "Wayfair",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/wayfair.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-newegg",
+  "publisher": "Capital One Shopping",
+  "brand": "Newegg",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/newegg.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-ajmadison",
+  "publisher": "Capital One Shopping",
+  "brand": "AJ Madison",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/ajmadison.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-abt",
+  "publisher": "Capital One Shopping",
+  "brand": "Abt",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/abt.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-pcrichard",
+  "publisher": "Capital One Shopping",
+  "brand": "P.C. Richard & Son",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/pcrichard.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-crutchfield",
+  "publisher": "Capital One Shopping",
+  "brand": "Crutchfield",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/crutchfield.com/coupon",
+  "parser": "capone"
+ },
+ {
   "id": "rmn-lg",
   "publisher": "RetailMeNot",
   "brand": "LG Electronics",
@@ -610,6 +709,105 @@
   "parser": "rakuten"
  },
  {
+  "id": "rakuten-walmart",
+  "publisher": "Rakuten",
+  "brand": "Walmart",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/walmart",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-target",
+  "publisher": "Rakuten",
+  "brand": "Target",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/target",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-samsclub",
+  "publisher": "Rakuten",
+  "brand": "Sam's Club",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/samsclub",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-bjs",
+  "publisher": "Rakuten",
+  "brand": "BJ's Wholesale",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/bjs",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-amazon",
+  "publisher": "Rakuten",
+  "brand": "Amazon",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/amazon",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-wayfair",
+  "publisher": "Rakuten",
+  "brand": "Wayfair",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/wayfair",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-newegg",
+  "publisher": "Rakuten",
+  "brand": "Newegg",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/newegg",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-ajmadison",
+  "publisher": "Rakuten",
+  "brand": "AJ Madison",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/ajmadison",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-abt",
+  "publisher": "Rakuten",
+  "brand": "Abt",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/abt",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-pcrichard",
+  "publisher": "Rakuten",
+  "brand": "P.C. Richard & Son",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/pcrichard",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-crutchfield",
+  "publisher": "Rakuten",
+  "brand": "Crutchfield",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/crutchfield",
+  "parser": "rakuten"
+ },
+ {
   "id": "tcb-home",
   "publisher": "TopCashback",
   "brand": "(지면)",
@@ -907,6 +1105,105 @@
   "parser": "befrugal",
   "enabled": false,
   "note": "2026-11-25 시험 수집: 페이지 없음"
+ },
+ {
+  "id": "befrugal-walmart",
+  "publisher": "BeFrugal",
+  "brand": "Walmart",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/walmart/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-target",
+  "publisher": "BeFrugal",
+  "brand": "Target",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/target/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-samsclub",
+  "publisher": "BeFrugal",
+  "brand": "Sam's Club",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/samsclub/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-bjs",
+  "publisher": "BeFrugal",
+  "brand": "BJ's Wholesale",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/bjs/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-amazon",
+  "publisher": "BeFrugal",
+  "brand": "Amazon",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/amazon/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-wayfair",
+  "publisher": "BeFrugal",
+  "brand": "Wayfair",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/wayfair/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-newegg",
+  "publisher": "BeFrugal",
+  "brand": "Newegg",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/newegg/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-ajmadison",
+  "publisher": "BeFrugal",
+  "brand": "AJ Madison",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/ajmadison/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-abt",
+  "publisher": "BeFrugal",
+  "brand": "Abt",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/abt/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-pcrichard",
+  "publisher": "BeFrugal",
+  "brand": "P.C. Richard & Son",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/pcrichard/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-crutchfield",
+  "publisher": "BeFrugal",
+  "brand": "Crutchfield",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/crutchfield/",
+  "parser": "befrugal"
  },
  {
   "id": "cartera-aa-lg",
