@@ -1,18 +1,16 @@
 {
  "run_at": "2026-11-25T00:01-05:00",
  "complete_day": "2026-11-25",
- "partial_at": "2026-11-25T23:53-05:00",
+ "partial_at": "2026-11-26T00:00-05:00",
  "country": "US",
  "us_ip_verified": true,
  "summary": {
-  "수집": 69,
+  "수집": 75,
   "요율 확인 필요": 2,
-  "요율 미확인": 6,
   "로그인 입구만": 3,
   "봇 확인 화면": 2,
   "렌더링 실패": 1,
-  "페이지 없음": 1,
-  "차단(HTTP)": 12
+  "차단(HTTP)": 9
  },
  "results": [
   {
@@ -312,10 +310,10 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.rakuten.com/shop/bestbuy",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "rakuten-bestbuy",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:53-05:00",
+   "captured_at": "2026-11-26T00:00-05:00",
    "rate_source": "header",
    "rate": 6.0,
    "rate_text": "Up to 6% Cash Back",
@@ -374,17 +372,17 @@
    "lg_snippets": [],
    "status": "수집",
    "reason": "",
-   "shot": "shots/2026-11-25/rakuten-bestbuy.jpg",
+   "shot": "shots/2026-11-26/rakuten-bestbuy.jpg",
    "final_url": "https://www.rakuten.com/shop/bestbuy",
    "http": 200,
    "title": "Best Buy Coupons, Promo Codes & Up to 6% Cash Back - November 2026 | Rakuten",
    "sig": "ad551f20b693",
-   "body_hash": "54ec126dc092",
+   "body_hash": "a4d4604faa53",
    "country": "US",
-   "prev_date": "2026-11-24",
-   "prev_rate_text": "Up to 8% Cash Back",
-   "prev_rate": 8.0,
-   "changed": true,
+   "prev_date": "2026-11-25",
+   "prev_rate_text": "Up to 6% Cash Back",
+   "prev_rate": 6.0,
+   "changed": false,
    "body_changed": true
   },
   {
@@ -393,10 +391,10 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.rakuten.com/shop/lowes",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "rakuten-lowes",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:53-05:00",
+   "captured_at": "2026-11-26T00:00-05:00",
    "rate_source": "header",
    "rate": 8.0,
    "rate_text": "Up to 8% Cash Back was 1%",
@@ -426,17 +424,17 @@
    "lg_snippets": [],
    "status": "수집",
    "reason": "",
-   "shot": "shots/2026-11-25/rakuten-lowes.jpg",
+   "shot": "shots/2026-11-26/rakuten-lowes.jpg",
    "final_url": "https://www.rakuten.com/shop/lowes",
    "http": 200,
    "title": "Lowe's Coupons, Promo Codes & Up to 8% Cash Back - November 2026 | Rakuten",
    "sig": "d747102cf3ad",
-   "body_hash": "2991ab607980",
+   "body_hash": "be539a81e2a0",
    "country": "US",
-   "prev_date": "2026-11-24",
-   "prev_rate_text": "Up to 2% Cash Back was 1%",
-   "prev_rate": 2.0,
-   "changed": true,
+   "prev_date": "2026-11-25",
+   "prev_rate_text": "Up to 8% Cash Back was 1%",
+   "prev_rate": 8.0,
+   "changed": false,
    "body_changed": true
   },
   {
@@ -871,10 +869,10 @@
    "brand_group": "유통",
    "kind": "쇼핑 리워드",
    "url": "https://capitaloneshopping.com/s/bestbuy.com/coupon",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "capone-bestbuy",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:53-05:00",
+   "captured_at": "2026-11-26T00:00-05:00",
    "rate_source": "header",
    "rate": 0.5,
    "rate_text": "Rewards 0.5%",
@@ -888,14 +886,14 @@
    "lg_snippets": [],
    "status": "수집",
    "reason": "",
-   "shot": "shots/2026-11-25/capone-bestbuy.jpg",
+   "shot": "shots/2026-11-26/capone-bestbuy.jpg",
    "final_url": "https://capitaloneshopping.com/s/bestbuy.com/coupon",
    "http": 200,
    "title": "Best Buy Promo Codes & Coupons for November 2026",
    "sig": "911cf3d5e23f",
-   "body_hash": "a70c8f86aa1c",
+   "body_hash": "d3254cdc2371",
    "country": "US",
-   "prev_date": "2026-11-24",
+   "prev_date": "2026-11-25",
    "prev_rate_text": "Rewards 0.5%",
    "prev_rate": 0.5,
    "changed": false,
@@ -907,10 +905,10 @@
    "brand_group": "유통",
    "kind": "쇼핑 리워드",
    "url": "https://capitaloneshopping.com/s/homedepot.com/coupon",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "capone-homedepot",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:53-05:00",
+   "captured_at": "2026-11-26T00:00-05:00",
    "rate_source": "header",
    "rate": 1.0,
    "rate_text": "Rewards 1%",
@@ -924,17 +922,18 @@
    "lg_snippets": [],
    "status": "수집",
    "reason": "",
-   "shot": "shots/2026-11-25/capone-homedepot.jpg",
+   "shot": "shots/2026-11-26/capone-homedepot.jpg",
    "final_url": "https://capitaloneshopping.com/s/homedepot.com/coupon",
    "http": 200,
    "title": "Home Depot Promo Codes & Coupons for November 2026",
    "sig": "a8092a43b3bf",
-   "body_hash": "cb07e09b051c",
+   "body_hash": "2cf219e4ce3a",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": "Rewards 1%",
+   "prev_rate": 1.0,
+   "changed": false,
+   "body_changed": true
   },
   {
    "publisher": "Capital One Shopping",
@@ -942,10 +941,10 @@
    "brand_group": "유통",
    "kind": "쇼핑 리워드",
    "url": "https://capitaloneshopping.com/s/lowes.com/coupon",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "capone-lowes",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:54-05:00",
+   "captured_at": "2026-11-26T00:01-05:00",
    "rate_source": "header",
    "rate": 5.0,
    "rate_text": "Rewards 5%",
@@ -959,17 +958,18 @@
    "lg_snippets": [],
    "status": "수집",
    "reason": "",
-   "shot": "shots/2026-11-25/capone-lowes.jpg",
+   "shot": "shots/2026-11-26/capone-lowes.jpg",
    "final_url": "https://capitaloneshopping.com/s/lowes.com/coupon",
    "http": 200,
    "title": "Lowe's Promo Codes & Coupons for November 2026",
    "sig": "5cc414c8ab24",
-   "body_hash": "142829f83edd",
+   "body_hash": "148dbc627786",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": "Rewards 5%",
+   "prev_rate": 5.0,
+   "changed": false,
+   "body_changed": true
   },
   {
    "publisher": "Capital One Shopping",
@@ -977,13 +977,13 @@
    "brand_group": "유통",
    "kind": "쇼핑 리워드",
    "url": "https://capitaloneshopping.com/s/costco.com/coupon",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "capone-costco",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:54-05:00",
+   "captured_at": "2026-11-26T00:01-05:00",
    "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
+   "rate": 0.0,
+   "rate_text": "리워드 없음 (쿠폰만)",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -992,19 +992,20 @@
    "category": null,
    "mentions": {},
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 요율 문구를 찾지 못함",
-   "shot": "shots/2026-11-25/capone-costco.jpg",
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-11-26/capone-costco.jpg",
    "final_url": "https://capitaloneshopping.com/s/costco.com/coupon",
    "http": 200,
    "title": "Costco Promo Codes & Coupons for November 2026",
-   "sig": "9d6fe018658f",
-   "body_hash": "e72f80a1456f",
+   "sig": "acec787b95ff",
+   "body_hash": "926a70515f32",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": null,
+   "prev_rate": null,
+   "changed": true,
+   "body_changed": true
   },
   {
    "publisher": "RetailMeNot",
@@ -2720,13 +2721,13 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.rakuten.com/shop/homedepot",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "rakuten-homedepot",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:54-05:00",
-   "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
+   "captured_at": "2026-11-26T00:01-05:00",
+   "rate_source": "title",
+   "rate": 0.0,
+   "rate_text": "No Cash Back (쿠폰만)",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -2735,19 +2736,20 @@
    "category": null,
    "mentions": {},
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 요율 문구를 찾지 못함",
-   "shot": "shots/2026-11-25/rakuten-homedepot.jpg",
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-11-26/rakuten-homedepot.jpg",
    "final_url": "https://www.rakuten.com/shop/homedepot",
    "http": 200,
    "title": "Home Depot Coupons, Promo Codes & No Cash Back - November 2026 | Rakuten",
-   "sig": "9d6fe018658f",
-   "body_hash": "d910e104085a",
+   "sig": "9663070672f3",
+   "body_hash": "0c01e395001e",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": null,
+   "prev_rate": null,
+   "changed": true,
+   "body_changed": true
   },
   {
    "publisher": "Rakuten",
@@ -2755,13 +2757,13 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.rakuten.com/shop/costco",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "rakuten-costco",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:54-05:00",
-   "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
+   "captured_at": "2026-11-26T00:01-05:00",
+   "rate_source": "title",
+   "rate": 0.0,
+   "rate_text": "No Cash Back (쿠폰만)",
    "offers": null,
    "categories": [],
    "exclusions": null,
@@ -2770,124 +2772,20 @@
    "category": null,
    "mentions": {},
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 요율 문구를 찾지 못함",
-   "shot": "shots/2026-11-25/rakuten-costco.jpg",
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-11-26/rakuten-costco.jpg",
    "final_url": "https://www.rakuten.com/shop/costco",
    "http": 200,
    "title": "Costco Coupons, Promo Codes & Coupons Only - November 2026 | Rakuten",
-   "sig": "9d6fe018658f",
+   "sig": "9663070672f3",
    "body_hash": "b3557058e688",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
-  },
-  {
-   "publisher": "TopCashback",
-   "brand": "The Home Depot",
-   "brand_group": "유통",
-   "kind": "캐시백 포털",
-   "url": "https://www.topcashback.com/home-depot/",
-   "date": "2026-11-25",
-   "target": "tcb-home-depot",
-   "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:54-05:00",
-   "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
-   "offers": null,
-   "categories": [],
-   "exclusions": null,
-   "promos": [],
-   "ranking": [],
-   "category": null,
-   "mentions": {},
-   "lg_snippets": [],
-   "status": "차단(HTTP)",
-   "reason": "HTTP 403",
-   "shot": "shots/2026-11-25/tcb-home-depot.jpg",
-   "final_url": "https://www.topcashback.com/home-depot/",
-   "http": 403,
-   "title": "ERROR: The request could not be satisfied",
-   "sig": null,
-   "body_hash": null,
-   "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
-  },
-  {
-   "publisher": "TopCashback",
-   "brand": "Lowe's",
-   "brand_group": "유통",
-   "kind": "캐시백 포털",
-   "url": "https://www.topcashback.com/lowes/",
-   "date": "2026-11-25",
-   "target": "tcb-lowes",
-   "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:54-05:00",
-   "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
-   "offers": null,
-   "categories": [],
-   "exclusions": null,
-   "promos": [],
-   "ranking": [],
-   "category": null,
-   "mentions": {},
-   "lg_snippets": [],
-   "status": "차단(HTTP)",
-   "reason": "HTTP 403",
-   "shot": "shots/2026-11-25/tcb-lowes.jpg",
-   "final_url": "https://www.topcashback.com/lowes/",
-   "http": 403,
-   "title": "ERROR: The request could not be satisfied",
-   "sig": null,
-   "body_hash": null,
-   "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
-  },
-  {
-   "publisher": "TopCashback",
-   "brand": "Costco",
-   "brand_group": "유통",
-   "kind": "캐시백 포털",
-   "url": "https://www.topcashback.com/costco/",
-   "date": "2026-11-25",
-   "target": "tcb-costco",
-   "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:55-05:00",
-   "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
-   "offers": null,
-   "categories": [],
-   "exclusions": null,
-   "promos": [],
-   "ranking": [],
-   "category": null,
-   "mentions": {},
-   "lg_snippets": [],
-   "status": "차단(HTTP)",
-   "reason": "HTTP 403",
-   "shot": "shots/2026-11-25/tcb-costco.jpg",
-   "final_url": "https://www.topcashback.com/costco/",
-   "http": 403,
-   "title": "ERROR: The request could not be satisfied",
-   "sig": null,
-   "body_hash": null,
-   "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": null,
+   "prev_rate": null,
+   "changed": true,
+   "body_changed": false
   },
   {
    "publisher": "LG.com",
@@ -3587,15 +3485,104 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.befrugal.com/store/bestbuy/",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "befrugal-bestbuy",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:55-05:00",
+   "captured_at": "2026-11-26T00:01-05:00",
    "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
+   "rate": 20.0,
+   "rate_text": "Up to 20% Cash Back",
    "offers": null,
-   "categories": [],
+   "categories": [
+    {
+     "label": "Shark | Ninja Health, Wellness & Personal Care, Or Small Appliances",
+     "rate": 20.0
+    },
+    {
+     "label": "Acer, Lenovo, ASUS, HP, Samsung Chromebooks",
+     "rate": 17.14
+    },
+    {
+     "label": "HP Printers (Excluding Laser)",
+     "rate": 14.28
+    },
+    {
+     "label": "Ring Home Security & Monitoring",
+     "rate": 14.28
+    },
+    {
+     "label": "Sony Headphones",
+     "rate": 14.28
+    },
+    {
+     "label": "Dyson Small Appliances, Health, Wellness & Personal Care",
+     "rate": 11.42
+    },
+    {
+     "label": "Roku Flat-Screen TVs",
+     "rate": 11.42
+    },
+    {
+     "label": "LG Home Audio & Speakers",
+     "rate": 10.0
+    },
+    {
+     "label": "Acer Mini PCs",
+     "rate": 8.57
+    },
+    {
+     "label": "DJI Cameras, Camcorders & Drones",
+     "rate": 8.57
+    },
+    {
+     "label": "Lenovo Tablets",
+     "rate": 8.57
+    },
+    {
+     "label": "LG Major Appliances",
+     "rate": 8.57
+    },
+    {
+     "label": "Logitech Computer Accessories & Peripherals",
+     "rate": 8.57
+    },
+    {
+     "label": "Skullcandy Headphones",
+     "rate": 8.57
+    },
+    {
+     "label": "Sony Digital Cameras & Digital Camera Accessories",
+     "rate": 8.57
+    },
+    {
+     "label": "SteelSeries, Razer, Logitech, Turtle Beach, Or LG PC Gaming Accessories",
+     "rate": 8.57
+    },
+    {
+     "label": "SteelSeries, Razer, Logitech, Turtle Beach, LG, Or Corsair Gaming Monitors",
+     "rate": 8.57
+    },
+    {
+     "label": "SteelSeries, Razer, Logitech, Turtle Beach, LG, Or Corsair Handheld Gaming Accessories",
+     "rate": 8.57
+    },
+    {
+     "label": "SteelSeries, Razer, Logitech, Turtle Beach, LG, Or Corsair Video Game Accessories",
+     "rate": 8.57
+    },
+    {
+     "label": "Select Categories",
+     "rate": 5.71
+    },
+    {
+     "label": "Select Categories",
+     "rate": 2.85
+    },
+    {
+     "label": "Select Lenovo Notebooks***",
+     "rate": 2.85
+    }
+   ],
    "exclusions": null,
    "promos": [],
    "ranking": [],
@@ -3609,19 +3596,20 @@
     "Shark": 1
    },
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 요율 문구를 찾지 못함",
-   "shot": "shots/2026-11-25/befrugal-bestbuy.jpg",
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-11-26/befrugal-bestbuy.jpg",
    "final_url": "https://www.befrugal.com/store/bestbuy/",
    "http": 200,
    "title": "Best Buy 20.0% Cash Back + 98 Coupons, Promo Codes & Deals",
-   "sig": "9d6fe018658f",
-   "body_hash": "f5f921f044e0",
+   "sig": "c856ce7eb246",
+   "body_hash": "59a527096e17",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": null,
+   "prev_rate": null,
+   "changed": true,
+   "body_changed": true
   },
   {
    "publisher": "BeFrugal",
@@ -3629,34 +3617,144 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.befrugal.com/store/homedepot/",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "befrugal-homedepot",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:55-05:00",
+   "captured_at": "2026-11-26T00:01-05:00",
    "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
+   "rate": 10.1,
+   "rate_text": "Up to 10.1% Cash Back",
    "offers": null,
-   "categories": [],
+   "categories": [
+    {
+     "label": "Housewares",
+     "rate": 10.1
+    },
+    {
+     "label": "Luggage",
+     "rate": 10.1
+    },
+    {
+     "label": "Tabletop",
+     "rate": 10.1
+    },
+    {
+     "label": "Bedding & Textiles",
+     "rate": 10.1
+    },
+    {
+     "label": "Wallpaper",
+     "rate": 10.1
+    },
+    {
+     "label": "Interior Furniture",
+     "rate": 10.1
+    },
+    {
+     "label": "Mattresses",
+     "rate": 10.1
+    },
+    {
+     "label": "Area Rugs",
+     "rate": 10.1
+    },
+    {
+     "label": "Home Decor",
+     "rate": 10.1
+    },
+    {
+     "label": "Building Materials - Building Materials, Lumber, Plumbing, Elecrical, Window & Doors",
+     "rate": 1.26
+    },
+    {
+     "label": "Flooring",
+     "rate": 1.26
+    },
+    {
+     "label": "Paint",
+     "rate": 1.26
+    },
+    {
+     "label": "Lighting",
+     "rate": 1.26
+    },
+    {
+     "label": "Appliances",
+     "rate": 1.26
+    },
+    {
+     "label": "Bath",
+     "rate": 1.26
+    },
+    {
+     "label": "Kitchen & Blinds",
+     "rate": 1.26
+    },
+    {
+     "label": "Hardware",
+     "rate": 1.26
+    },
+    {
+     "label": "Power Tools",
+     "rate": 1.26
+    },
+    {
+     "label": "Storage & Organization",
+     "rate": 1.26
+    },
+    {
+     "label": "Patio & Grills",
+     "rate": 1.26
+    },
+    {
+     "label": "Lawn & Garden",
+     "rate": 1.26
+    },
+    {
+     "label": "Cash Back up to",
+     "rate": 8.0
+    },
+    {
+     "label": "10% Cash Back",
+     "rate": 7.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 10.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 2.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 7.0
+    },
+    {
+     "label": "Cash Back up to",
+     "rate": 13.0
+    }
+   ],
    "exclusions": null,
    "promos": [],
    "ranking": [],
    "category": null,
    "mentions": {},
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 요율 문구를 찾지 못함",
-   "shot": "shots/2026-11-25/befrugal-homedepot.jpg",
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-11-26/befrugal-homedepot.jpg",
    "final_url": "https://www.befrugal.com/store/homedepot/",
    "http": 200,
    "title": "Home Depot 10.1% Cash Back + 129 Coupons, Promo Codes & Deals",
-   "sig": "9d6fe018658f",
-   "body_hash": "a7f1561ed903",
+   "sig": "73e0aa96cfd0",
+   "body_hash": "3f286817aef4",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": null,
+   "prev_rate": null,
+   "changed": true,
+   "body_changed": true
   },
   {
    "publisher": "BeFrugal",
@@ -3664,69 +3762,84 @@
    "brand_group": "유통",
    "kind": "캐시백 포털",
    "url": "https://www.befrugal.com/store/lowes/",
-   "date": "2026-11-25",
+   "date": "2026-11-26",
    "target": "befrugal-lowes",
    "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:55-05:00",
+   "captured_at": "2026-11-26T00:02-05:00",
    "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
+   "rate": 7.0,
+   "rate_text": "Up to 7% Cash Back",
    "offers": null,
-   "categories": [],
+   "categories": [
+    {
+     "label": "Decor",
+     "rate": 7.0
+    },
+    {
+     "label": "Lawn & Garden",
+     "rate": 7.0
+    },
+    {
+     "label": "Tools & Hardware",
+     "rate": 7.0
+    },
+    {
+     "label": "Seasonal & Cleaning",
+     "rate": 7.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 8.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 7.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 2.0
+    },
+    {
+     "label": "Cash Back",
+     "rate": 6.0
+    },
+    {
+     "label": "Cash Back up to",
+     "rate": 11.0
+    },
+    {
+     "label": "up to",
+     "rate": 10.1
+    },
+    {
+     "label": "Military Discount All active and reserve serviceman and veterans can save",
+     "rate": 10.0
+    },
+    {
+     "label": "off all purchases at Lowe's plus you'll get",
+     "rate": 5.0
+    }
+   ],
    "exclusions": null,
    "promos": [],
    "ranking": [],
    "category": null,
    "mentions": {},
    "lg_snippets": [],
-   "status": "요율 미확인",
-   "reason": "화면은 저장됨 — 요율 문구를 찾지 못함",
-   "shot": "shots/2026-11-25/befrugal-lowes.jpg",
+   "status": "수집",
+   "reason": "",
+   "shot": "shots/2026-11-26/befrugal-lowes.jpg",
    "final_url": "https://www.befrugal.com/store/lowes/",
    "http": 200,
-   "title": "Lowe's 2.0% Cash Back + 86 Coupons, Promo Codes & Deals",
-   "sig": "9d6fe018658f",
-   "body_hash": "ce66f681ea4a",
+   "title": "Lowe's 7.0% Cash Back + 51 Coupons, Promo Codes & Deals",
+   "sig": "d5617ca49ee6",
+   "body_hash": "dfca2ff21b4d",
    "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
-  },
-  {
-   "publisher": "BeFrugal",
-   "brand": "Costco",
-   "brand_group": "유통",
-   "kind": "캐시백 포털",
-   "url": "https://www.befrugal.com/store/costco/",
-   "date": "2026-11-25",
-   "target": "befrugal-costco",
-   "method": "자동 스크린샷",
-   "captured_at": "2026-11-25T23:55-05:00",
-   "rate_source": "text",
-   "rate": null,
-   "rate_text": null,
-   "offers": null,
-   "categories": [],
-   "exclusions": null,
-   "promos": [],
-   "ranking": [],
-   "category": null,
-   "mentions": {},
-   "lg_snippets": [],
-   "status": "페이지 없음",
-   "reason": "주소 확인 필요",
-   "shot": "shots/2026-11-25/befrugal-costco.jpg",
-   "final_url": "https://www.befrugal.com/store/costco/",
-   "http": 404,
-   "title": "BeFrugal",
-   "sig": null,
-   "body_hash": null,
-   "country": "US",
-   "prev_date": null,
-   "changed": null,
-   "body_changed": null,
-   "prev_rate_text": null
+   "prev_date": "2026-11-25",
+   "prev_rate_text": null,
+   "prev_rate": null,
+   "changed": true,
+   "body_changed": true
   },
   {
    "publisher": "Cartera · American AAdvantage eShopping",
