@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유통사 캐시백</title>
+<style>
+:root{--bg:#f7f6f3;--panel:#fff;--fg:#1f1e1c;--muted:#6b6862;--line:#e3e0da;--lg:#a50034;--ok:#2f7d4f;--warn:#b26a00;--bad:#b3261e;--chip:#f0eee9;--note:#fbf6ea;--noteline:#ead9b0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 64px}
+h1{font:400 28px/1.25 Georgia,"Noto Serif KR",serif;margin:0}
+.lede{color:var(--muted);margin:6px 0 0;max-width:64rem}
+.banner{margin-top:14px;padding:10px 14px;border-radius:10px;background:var(--note);border:1px solid var(--noteline);font-size:13px}
+.hdrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--muted)}
+.hdrow select{font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:#fff}
+section{margin-top:22px}
+h2{font-size:17px;font-weight:600;margin:0 0 4px}
+.note{font-size:13px;color:var(--muted);margin:0 0 12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
+.tw{overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:600;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--line);background:var(--panel);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.c,th.c{text-align:center}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.big{font-size:18px;font-weight:700}
+.up{color:var(--ok)}.dn{color:var(--bad)}.warn{color:var(--warn)}.mute{color:var(--muted)}
+.hi{font-weight:600;color:var(--lg);white-space:nowrap}
+.chg{background:#fff4d6}
+.lgcol{background:#fbf1f4}
+a{color:inherit}
+.sm{font-size:12px}
+mark{background:#fde7ee;color:var(--lg);font-weight:600;padding:0 2px;border-radius:3px}
+dialog{border:none;padding:0;max-width:96vw;max-height:94vh;background:transparent;overflow:auto}dialog img{max-width:96vw;display:block;border-radius:6px}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.empty{color:var(--muted);font-size:13px;padding:10px 0}
+details summary{cursor:pointer;color:var(--muted);font-size:12px}
+@media(max-width:700px){.hide-sm{display:none}}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="theme.css?v=dev">
+</head>
+<body>
+<dialog id="dlg"><img id="dlgImg" alt=""></dialog>
+<div class="appbar"><div class="appbar-in"><a class="brand" href="./"><span class="mark"></span>US Affiliate Monitor<small>LG 북미 어필리에이트</small></a><nav class="menu"><a href="./">데일리 브리핑</a><a href="weekly.html">주간 다이제스트</a><a href="monitor.html">경쟁사 지면 모니터</a><a href="lgcom.html">LG.com 프로모션 × 캐시백</a><a href="samsung.html">Samsung.com 프로모션</a><a href="retail.html" class="on">유통사 캐시백</a></nav></div></div>
+<div class="wrap">
+  <header>
+    <h1>유통사 캐시백</h1>
+    <p class="lede">Best Buy · The Home Depot · Lowe's · Costco가 캐시백 퍼블리셔에 내건 요율을 매일 봅니다. 고객이 LG 제품을 유통사에서 사도 이 요율이 적용될 수 있어, 같은 퍼블리셔의 LG 공식몰(LG.com) 요율과 나란히 놓고 봅니다.</p>
+    <div class="hdrow"><label>기준 날짜 <select id="day"></select></label><span id="meta"></span></div>
+    <div class="banner" id="banner"></div>
+  </header>
+
+  <section class="card" id="today">
+    <h2>오늘 유통사별 최고 요율</h2>
+    <p class="note">유통사마다 오늘 읽힌 퍼블리셔 요율 중 가장 높은 값과, 직전 수집일 대비 변화를 봅니다. 'LG.com 최고'는 같은 퍼블리셔들의 LG 공식몰 요율 중 가장 높은 값입니다.</p>
+    <div class="tw"><table><thead><tr><th>유통사</th><th class="num">최고 요율</th><th>퍼블리셔</th><th>직전 대비</th><th class="num">제공 퍼블리셔</th><th class="num">LG.com 최고</th></tr></thead><tbody id="todayBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="matrix">
+    <h2>퍼블리셔 × 유통사 요율</h2>
+    <p class="note">퍼블리셔마다 유통사 페이지의 대표 요율입니다. ▲▼는 직전 수집일 대비, 노란 칸은 오늘 바뀐 값입니다. '없음'은 그 퍼블리셔가 쿠폰만 걸고 캐시백은 주지 않는 경우, '확인 필요'는 읽었지만 게시를 보류한 값, '—'는 페이지가 없거나 읽지 못한 경우입니다(마우스를 올리면 사유). 숫자를 누르면 그날 화면이 열립니다.</p>
+    <div class="tw"><table><thead id="mxHead"></thead><tbody id="mxBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="cats">
+    <h2>LG · 가전 관련 카테고리 요율</h2>
+    <p class="note">유통사 페이지의 카테고리별 요율 중 LG · 삼성 · 가전(Appliances) · TV가 들어간 줄만 모았습니다. 'LG Appliances'처럼 브랜드가 카테고리 이름에 직접 나오는 경우가 있어, 유통사에서 LG 제품에 붙는 캐시백을 가늠할 수 있습니다.</p>
+    <div class="tw"><table><thead><tr><th>유통사</th><th>퍼블리셔</th><th class="num">요율</th><th>카테고리</th></tr></thead><tbody id="catBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="trend">
+    <h2>최근 14일 요율</h2>
+    <p class="note">날짜별 대표 요율입니다. 노란 칸은 전날과 값이 바뀐 날, 빈칸은 그날 읽지 못한 날입니다.</p>
+    <div class="tw"><table><thead id="trHead"></thead><tbody id="trBody"></tbody></table></div>
+  </section>
+
+  <section class="card" id="terms">
+    <h2>조건 · 제외 문구</h2>
+    <p class="note">요율에 붙은 제외 조건 원문입니다. 가전·TV가 제외되는지 먼저 확인합니다(제외 문구 속 Appliances · TV · LG는 강조 표시).</p>
+    <div class="tw"><table><thead><tr><th>유통사</th><th>퍼블리셔</th><th>조건 · 제외</th></tr></thead><tbody id="termBody"></tbody></table></div>
+  </section>
+</div>
+
+<script src="rank.js?v=dev"></script>
+<script>
+(async function(){
+  const { byRank } = await loadRank();
+  const [caps0, runs] = await Promise.all([loadJSON('data/captures.json'), loadJSON('data/runs.json')]);
+  loadDone(!!caps0);
+  const caps = caps0 || [];
+  const $ = id => document.getElementById(id);
+  const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  const OK = s => s === '수집' || s === '수집(텍스트)';
+  const num = v => v == null || v === '' ? null : Number(v);
+  const pct = v => v == null ? '—' : v === 0 ? '없음' : (Math.round(v * 100) / 100) + '%';
+  const fmt = d => d ? d.slice(5).replace('-', '/') : '—';
+  $('dlg').onclick = () => $('dlg').close();
+  const openImg = src => { $('dlgImg').src = src; $('dlg').showModal(); };
+
+  const RET_ORDER = ['Best Buy', 'The Home Depot', "Lowe's", 'Costco'];
+  const retRows = caps.filter(r => r.brand_group === '유통');
+  const retailers = [...new Set(retRows.map(r => r.brand))].sort((a, b) => (RET_ORDER.indexOf(a) + 1 || 99) - (RET_ORDER.indexOf(b) + 1 || 99));
+  const pubs = [...new Set(retRows.map(r => r.publisher))].sort(byRank);
+
+  const dates = publishedDates(caps, runs).filter(d => retRows.some(r => r.date === d));
+  const qs = new URLSearchParams(location.search).get('date');
+  let day = dates.includes(qs) ? qs : dates[dates.length - 1];
+  dates.slice().reverse().forEach((d, i) => { const o = el('option', null, d + (i ? '' : ' (최신)')); o.value = d; if (d === day) o.selected = true; $('day').append(o); });
+  $('day').onchange = e => { const u = new URL(location); u.searchParams.set('date', e.target.value); location = u; };
+
+  // index: target -> date -> row
+  const at = {};
+  caps.forEach(r => { (at[r.target] = at[r.target] || {})[r.date] = r; });
+  const cell = (pub, brand) => caps.find(r => r.date === day && r.publisher === pub && (brand === 'LG' ? r.brand === 'LG Electronics' : r.brand === brand));
+  const rateOf = r => r && OK(r.status) ? num(r.rate) : null;
+  const prevRate = r => { if (!r) return null; const h = at[r.target] || {}; const ds = dates.filter(d => d < day).reverse(); for (const d of ds) { const v = rateOf(h[d]); if (v != null) return v; } return null; };
+  const upTo = r => /up to/i.test(r.rate_text || '') ? '최대 ' : '';
+
+  // banner
+  const todayRet = retRows.filter(r => r.date === day);
+  const ok = todayRet.filter(r => OK(r.status)).length;
+  $('banner').textContent = day + ' 수집 · 유통사 페이지 ' + ok + '/' + todayRet.length + ' 정상 수집 · ' + (runs && runs.country === 'US' ? '미국 IP 접속 확인' : '미국 IP 미검증');
+  $('meta').textContent = '유통사 ' + retailers.length + '곳 · 퍼블리셔 ' + pubs.length + '곳';
+
+  // 1. today per retailer
+  const lgBest = (() => { let b = null; pubs.forEach(p => { const v = rateOf(cell(p, 'LG')); if (v != null && (!b || v > b.v)) b = { v, p }; }); return b; })();
+  retailers.forEach(br => {
+    let best = null, n = 0, seen = 0; const moves = [];
+    pubs.forEach(p => { const r = cell(p, br); if (!r) return; seen++; const v = rateOf(r); if (v == null || v === 0) return; n++;
+      if (!best || v > best.v) best = { v, p, r };
+      const pv = prevRate(r); if (pv != null && pv !== v) moves.push(p + ' ' + pct(pv) + '→' + pct(v)); });
+    const tr = el('tr');
+    tr.append(el('td', 'hi', br));
+    const c = el('td', 'num big', best ? upTo(best.r) + pct(best.v) : '—'); tr.append(c);
+    tr.append(el('td', null, best ? best.p : '—'));
+    const m = el('td', moves.length ? 'warn' : 'mute', moves.length ? moves.join(' · ') : '변동 없음'); tr.append(m);
+    tr.append(el('td', 'num', n + ' / ' + seen));
+    if (!best) { c.textContent = seen ? '없음' : '—'; c.className = 'num mute'; }
+    tr.append(el('td', 'num lgcol', lgBest ? pct(lgBest.v) + ' (' + lgBest.p + ')' : '—'));
+    $('todayBody').append(tr);
+  });
+
+  // 2. matrix
+  const hr = el('tr'); hr.append(el('th', null, '퍼블리셔')); hr.append(el('th', 'c lgcol', 'LG.com'));
+  retailers.forEach(b => hr.append(el('th', 'c', b))); $('mxHead').append(hr);
+  pubs.forEach(p => {
+    const tr = el('tr'); tr.append(el('td', null, p));
+    ['LG', ...retailers].forEach(b => {
+      const r = cell(p, b); const td = el('td', 'c num' + (b === 'LG' ? ' lgcol' : ''));
+      if (!r) { td.textContent = '·'; td.className += ' mute'; td.title = '수집 대상 아님'; tr.append(td); return; }
+      const v = rateOf(r);
+      if (v == null) { td.append(el('span', 'mute sm', r.status === '요율 확인 필요' ? '확인 필요' : '—')); td.title = r.status + (r.reason ? ' — ' + r.reason : ''); }
+      else {
+        const a = el('a', null, upTo(r) + pct(v)); a.href = '#'; a.onclick = e => { e.preventDefault(); if (r.shot) openImg(r.shot); }; td.append(a);
+        const pv = prevRate(r);
+        if (pv != null && pv !== v) { td.className += ' chg'; td.append(el('div', 'sm ' + (v > pv ? 'up' : 'dn'), (v > pv ? '▲ ' : '▼ ') + pct(pv))); }
+      }
+      tr.append(td);
+    });
+    $('mxBody').append(tr);
+  });
+
+  // 3. LG / appliance categories
+  const KEY = /\b(LG|Samsung|Appliances?|TVs?|Televisions?|Home Theater)\b/;
+  const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  const markUp = s => esc(s).replace(/\b(LG|Samsung|Appliances?|TVs?|Televisions?|Home Theater)\b/g, '<mark>$1</mark>');
+  let catN = 0;
+  retailers.forEach(br => pubs.forEach(p => {
+    const r = cell(p, br); if (!r || !OK(r.status)) return;
+    (r.categories || []).filter(c => KEY.test(c.label || '')).forEach(c => {
+      const tr = el('tr'); tr.append(el('td', 'hi', br)); tr.append(el('td', null, p)); tr.append(el('td', 'num', pct(num(c.rate))));
+      const td = el('td', 'sm'); td.innerHTML = markUp(c.label || ''); tr.append(td); $('catBody').append(tr); catN++;
+    });
+  }));
+  if (!catN) { const tr = el('tr'); const td = el('td', 'empty', '오늘 읽힌 유통사 페이지에 LG · 가전 관련 카테고리 요율이 없습니다.'); td.colSpan = 4; tr.append(td); $('catBody').append(tr); }
+
+  // 4. 14-day trend
+  const di = dates.indexOf(day); const span = dates.slice(Math.max(0, di - 13), di + 1);
+  const th = el('tr'); th.append(el('th', null, '유통사')); th.append(el('th', null, '퍼블리셔')); span.forEach(d => th.append(el('th', 'c', fmt(d)))); $('trHead').append(th);
+  retailers.forEach(br => pubs.forEach(p => {
+    const tg = (retRows.find(r => r.brand === br && r.publisher === p) || {}).target; if (!tg) return;
+    const h = at[tg] || {}; if (!span.some(d => rateOf(h[d]) != null)) return;
+    const tr = el('tr'); tr.append(el('td', 'hi', br)); tr.append(el('td', null, p));
+    let last = null;
+    span.forEach(d => { const v = rateOf(h[d]); const td = el('td', 'c num', v == null ? '' : pct(v)); if (v != null && last != null && v !== last) td.className += ' chg'; if (v != null) last = v; tr.append(td); });
+    $('trBody').append(tr);
+  }));
+
+  // 5. terms
+  const EX = /\b(Appliances?|TVs?|Televisions?|LG|Samsung)\b/g;
+  retailers.forEach(br => pubs.forEach(p => {
+    const r = cell(p, br); if (!r || !r.exclusions) return;
+    const tr = el('tr'); tr.append(el('td', 'hi', br)); tr.append(el('td', null, p));
+    const td = el('td', 'sm'); const txt = String(r.exclusions);
+    if (txt.length > 220) { const d = el('details'); const s = el('summary'); s.innerHTML = esc(cutWords(txt, 200)).replace(EX, '<mark>$1</mark>'); d.append(s); const full = el('div'); full.innerHTML = esc(txt).replace(EX, '<mark>$1</mark>'); d.append(full); td.append(d); }
+    else td.innerHTML = esc(txt).replace(EX, '<mark>$1</mark>');
+    tr.append(td); $('termBody').append(tr);
+  }));
+})();
+</script>
+</body>
+</html>

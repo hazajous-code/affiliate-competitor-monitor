@@ -664,7 +664,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.topcashback.com/home-depot/",
-  "parser": "tcb"
+  "parser": "tcb",
+  "enabled": false,
+  "note": "2026-11-25 시험 수집: HTTP 403 차단"
  },
  {
   "id": "tcb-lowes",
@@ -673,7 +675,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.topcashback.com/lowes/",
-  "parser": "tcb"
+  "parser": "tcb",
+  "enabled": false,
+  "note": "2026-11-25 시험 수집: HTTP 403 차단"
  },
  {
   "id": "tcb-costco",
@@ -682,7 +686,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.topcashback.com/costco/",
-  "parser": "tcb"
+  "parser": "tcb",
+  "enabled": false,
+  "note": "2026-11-25 시험 수집: HTTP 403 차단"
  },
  {
   "id": "rmn-home",
@@ -898,7 +904,9 @@
   "brand_group": "유통",
   "kind": "캐시백 포털",
   "url": "https://www.befrugal.com/store/costco/",
-  "parser": "befrugal"
+  "parser": "befrugal",
+  "enabled": false,
+  "note": "2026-11-25 시험 수집: 페이지 없음"
  },
  {
   "id": "cartera-aa-lg",

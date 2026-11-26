@@ -236,6 +236,31 @@ def parse_terms(parser, t, brand):
     return cats, (short(excl) if excl else None)
 
 
+# ---------- retailer store pages (Best Buy · Home Depot · Lowe's · Costco on cashback portals) ----------
+def parse_retailer(parser, t, title, rate, rate_text, cats):
+    """Retailer pages differ from brand pages: BeFrugal shows "up to 20% / was up to 4%" over a
+    "Cash Back Categories" list (e.g. "8.57% LG Major Appliances"), and portals say "No Cash Back" /
+    "Coupons Only" when the store has no cashback. Returns (rate, rate_text, cats, rate_source or None)."""
+    src = None
+    if parser == "befrugal" and rate is None:
+        m = re.search(rf"up to\s+{PCT}(?!\s*off)(?:\s*was up to\s+{PCT})?", t, re.I)
+        if m:
+            rate = float(m.group(1))
+            rate_text = f"Up to {m.group(1)}% Cash Back" + (f" was {m.group(2)}%" if m.group(2) else "")
+            src = "text"
+    if parser == "befrugal" and not cats:
+        seg = re.search(r"Cash Back Categories(.{0,4000}?)(?:Show (?:More|Less)|Similar Stores|Online Coupon|Expires:|$)", t, re.I)
+        if seg:
+            for r_, label in re.findall(rf"{PCT}\s+(.+?)(?=\s+\d{{1,2}}(?:\.\d{{1,2}})?\s*%|$)", seg.group(1)):
+                if len(label) <= 90:
+                    cats.append({"label": short(label, 90), "rate": float(r_)})
+    if rate is None and re.search(r"\bNo Cash Back\b|Coupons Only", title or "", re.I):
+        rate, rate_text, src = 0.0, "No Cash Back (쿠폰만)", "title"
+    if rate is None and parser == "capone" and not re.search(r"Rewards\s+\d", t):
+        rate, rate_text, src = 0.0, "리워드 없음 (쿠폰만)", "text"
+    return rate, rate_text, cats, src
+
+
 # ---------- coupon pages ----------
 def parse_offers(t):
     count_pats = [
@@ -699,6 +724,10 @@ def capture_one(ctx, tg, day):
                     rate, rate_text, source = hr, ht, "header"
             row["rate_source"] = source
             cats, excl = parse_terms(tg["parser"], t, tg.get("brand") or "")
+            if tg.get("brand_group") == "유통":
+                rate, rate_text, cats, extra = parse_retailer(tg["parser"], t, title, rate, rate_text, cats)
+                if extra:
+                    row["rate_source"] = extra
             if tg["parser"] == "idme" and cats:
                 rate_text = f"할인 최대 {cats[0]['rate']:g}%" + (f" · {rate_text}" if rate_text else "")
         st, why = classify(tg, title, t, http, rate, rate_text, page.url)
