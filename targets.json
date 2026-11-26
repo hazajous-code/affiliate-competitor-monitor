@@ -231,6 +231,33 @@
   "enabled": true
  },
  {
+  "id": "capone-homedepot",
+  "publisher": "Capital One Shopping",
+  "brand": "The Home Depot",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/homedepot.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-lowes",
+  "publisher": "Capital One Shopping",
+  "brand": "Lowe's",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/lowes.com/coupon",
+  "parser": "capone"
+ },
+ {
+  "id": "capone-costco",
+  "publisher": "Capital One Shopping",
+  "brand": "Costco",
+  "brand_group": "유통",
+  "kind": "쇼핑 리워드",
+  "url": "https://capitaloneshopping.com/s/costco.com/coupon",
+  "parser": "capone"
+ },
+ {
   "id": "rmn-lg",
   "publisher": "RetailMeNot",
   "brand": "LG Electronics",
@@ -565,6 +592,24 @@
   "note": "편성 지면 관측 중단(2026-10-30)"
  },
  {
+  "id": "rakuten-homedepot",
+  "publisher": "Rakuten",
+  "brand": "The Home Depot",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/homedepot",
+  "parser": "rakuten"
+ },
+ {
+  "id": "rakuten-costco",
+  "publisher": "Rakuten",
+  "brand": "Costco",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.rakuten.com/shop/costco",
+  "parser": "rakuten"
+ },
+ {
   "id": "tcb-home",
   "publisher": "TopCashback",
   "brand": "(지면)",
@@ -611,6 +656,33 @@
   "access": "public",
   "enabled": false,
   "note": "편성 지면 관측 중단(2026-10-30)"
+ },
+ {
+  "id": "tcb-home-depot",
+  "publisher": "TopCashback",
+  "brand": "The Home Depot",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/home-depot/",
+  "parser": "tcb"
+ },
+ {
+  "id": "tcb-lowes",
+  "publisher": "TopCashback",
+  "brand": "Lowe's",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/lowes/",
+  "parser": "tcb"
+ },
+ {
+  "id": "tcb-costco",
+  "publisher": "TopCashback",
+  "brand": "Costco",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.topcashback.com/costco/",
+  "parser": "tcb"
  },
  {
   "id": "rmn-home",
@@ -791,6 +863,42 @@
   "parser": "befrugal",
   "access": "public",
   "enabled": true
+ },
+ {
+  "id": "befrugal-bestbuy",
+  "publisher": "BeFrugal",
+  "brand": "Best Buy",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/bestbuy/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-homedepot",
+  "publisher": "BeFrugal",
+  "brand": "The Home Depot",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/homedepot/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-lowes",
+  "publisher": "BeFrugal",
+  "brand": "Lowe's",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/lowes/",
+  "parser": "befrugal"
+ },
+ {
+  "id": "befrugal-costco",
+  "publisher": "BeFrugal",
+  "brand": "Costco",
+  "brand_group": "유통",
+  "kind": "캐시백 포털",
+  "url": "https://www.befrugal.com/store/costco/",
+  "parser": "befrugal"
  },
  {
   "id": "cartera-aa-lg",
